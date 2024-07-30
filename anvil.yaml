@@ -7,3 +7,4 @@ runtime_options:
   server_version: python3-sandbox
   server_spec: {base: python310-standard}
 services: []
+startup_form: Form1
