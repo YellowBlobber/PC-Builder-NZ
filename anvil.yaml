@@ -1,6 +1,6 @@
 allow_embedding: false
-package_name: Custom_HTML_2
-name: Custom HTML 2
+package_name: NZ_PC_Builder
+name: NZ PC Builder
 runtime_options:
   version: 2
   client_version: '3'
@@ -11,3 +11,4 @@ services:
   client_config: {}
   server_config: {}
 startup_form: Form1
+metadata: {title: NZ PC Builder, description: A place for anyone to spec out their dream PC}
