@@ -1,1 +1,7 @@
 roles: []
+color_scheme:
+  colors:
+  - {name: Bone White, color: '#D9D9D9'}
+  - {name: Olive black, color: '#363732'}
+  - {name: '', color: '#000000'}
+  preset_groups: []
