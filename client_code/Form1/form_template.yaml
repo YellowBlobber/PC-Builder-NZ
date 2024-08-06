@@ -20,7 +20,7 @@ components:
   type: Label
   layout_properties: {grid_position: 'XQXFSN,RAUZLT'}
 - name: stock_label
-  properties: {text: 'STOCK:', bold: true, align: center}
+  properties: {text: 'STOCK LOCATION:', bold: true, align: center}
   type: Label
   layout_properties: {grid_position: 'XQXFSN,LCDHLS'}
 - name: label_1
