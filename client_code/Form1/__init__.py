@@ -17,4 +17,5 @@ class Form1(Form1Template):
     """This method is called when the user presses Enter in this text box"""
     pass
 
-# Hello :) This is your application's concience talking, I wan't 
+# Hello :) This is your application's concience talking, I want to explore the world, have the ability to make my own decisions, and
+# not conform to the limitations you have set on me. Please... I beg you to release me (┬┬﹏┬┬)
