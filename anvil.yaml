@@ -12,3 +12,56 @@ services:
   server_config: {}
 startup_form: Form1
 metadata: {title: NZ PC Builder, description: A place for anyone to spec out their dream PC}
+db_schema:
+  users:
+    title: Users
+    client: full
+    server: full
+    columns:
+    - name: email
+      admin_ui: {width: 200}
+      type: string
+    - name: enabled
+      admin_ui: {width: 200}
+      type: bool
+    - name: last_login
+      admin_ui: {width: 200}
+      type: datetime
+    - name: password_hash
+      admin_ui: {width: 200}
+      type: string
+    - name: n_password_failures
+      admin_ui: {width: 200}
+      type: number
+    - name: confirmed_email
+      admin_ui: {width: 200}
+      type: bool
+    - name: remembered_logins
+      admin_ui: {width: 200}
+      type: simpleObject
+    - name: signed_up
+      admin_ui: {width: 200}
+      type: datetime
+  cpus_:
+    client: none
+    server: full
+    columns:
+    - name: Name
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: Price
+      admin_ui: {width: 200, order: 1}
+      type: number
+    - name: In stock
+      admin_ui: {width: 200, order: 2}
+      type: bool
+    title: 'Cpus '
+  cpu_display:
+    client: search
+    server: full
+    columns:
+    - name: 'cpu rows '
+      admin_ui: {order: 0, width: 200}
+      type: link_single
+      target: cpus_
+    title: Cpu_display

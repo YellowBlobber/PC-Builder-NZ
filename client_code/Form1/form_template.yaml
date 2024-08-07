@@ -31,8 +31,9 @@ components:
   properties: {visible: true, enabled: true}
   type: DropDown
   layout_properties: {grid_position: 'MJRGTN,NOILNU'}
+  event_bindings: {change: cpu_dropdown_change, show: cpu_dropdown_show}
 - name: price_display_1
-  properties: {enabled: false}
+  properties: {enabled: false, visible: true}
   type: TextBox
   layout_properties: {grid_position: 'MJRGTN,IVDMZE'}
 - name: stock_display_1
