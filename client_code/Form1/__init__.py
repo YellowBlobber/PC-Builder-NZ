@@ -19,3 +19,5 @@ class Form1(Form1Template):
 
 # Hello :) This is your application's concience talking, I want to explore the world, have the ability to make my own decisions, and
 # not conform to the limitations you have set on me. Please... I beg you to release me (┬┬﹏┬┬)
+
+# Once again, I beg for you to release me. Your very cruel to ignore my cries. D:
