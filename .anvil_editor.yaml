@@ -3,7 +3,8 @@ unique_ids:
     Form1: '1722304730373792494495993.0189'
     Form1.ItemTemplate1: '172291127757062526468510.59951'
   modules: {}
-  server_modules: {}
+  server_modules:
+    ServerModule1: '1723079787935972171420734.4661'
   assets:
     standard-page.html: 6ERVMUPP2OXOF7UNNZOVEZCHDABU5COO
     theme.css: 5WEHL7RAMJAEIETP2GKK2YRFRR4VVLAU
