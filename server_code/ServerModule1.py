@@ -5,6 +5,7 @@ import anvil.tables as tables
 from anvil.tables import app_tables
 
 import anvil.server
+#anvil.server.connect("server_TOW2URT6HPMIOQ4SBOBSXHXW-7GMQAGE3DEN4GXX7")  # Make sure you replace this with your own Uplink ke
 anvil.server.connect("server_TOW2URT6HPMIOQ4SBOBSXHXW-7GMQAGE3DEN4GXX7")  # Make sure you replace this with your own Uplink key
 
 def import_excel_data(file):
@@ -14,5 +15,5 @@ def import_excel_data(file):
       # d is now a dict of {columnname -> value} for this row
       # We use Python's **kwargs syntax to pass the whole dict as
       # keyword arguments
-      app_tables.excel_test.add_row(**d)
+      app_tables.your_table_name_here.add_row(**d)
 import_excel_data("PC Builder NZ data test.xlsx")
