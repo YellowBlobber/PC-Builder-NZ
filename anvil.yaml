@@ -9,7 +9,10 @@ runtime_options:
 services:
 - source: /runtime/services/tables.yml
   client_config: {}
-  server_config: {}
+  server_config: {auto_create_missing_columns: true}
+- source: /runtime/services/anvil/files.yml
+  client_config: {}
+  server_config: {file_table: files}
 startup_form: Form1
 metadata: {title: NZ PC Builder, description: A place for anyone to spec out their dream PC}
 db_schema:
@@ -65,3 +68,18 @@ db_schema:
       type: link_single
       target: cpus_
     title: Cpu_display
+  files:
+    client: none
+    server: full
+    columns:
+    - name: path
+      admin_ui: {order: 0, width: 200}
+      type: string
+    - name: file
+      admin_ui: {order: 1, width: 200}
+      type: media
+    - name: file_version
+      admin_ui: {order: 2, width: 200}
+      type: string
+    title: Files
+uplink_visible: true
