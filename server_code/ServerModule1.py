@@ -1,20 +1,17 @@
-import anvil.users
+import anvil.files
+from anvil.files import data_files
+import pandas as pd
 import anvil.tables as tables
-import anvil.tables.query as q
 from anvil.tables import app_tables
-import anvil.server
-import requests
-# This is a server module. It runs on the Anvil server,
-# rather than in the user's browser.
-#
-# To allow anvil.server.call() to call functions here, we mark
-# them with @anvil.server.callable.
-# Here is an example - you can replace it with your own:
-#
-# @anvil.server.callable
-# def say_hello(name):
-#   print("Hello, " + name + "!")
-#   return 42
-#
 
+import anvil.server  # Make sure you replace this with your own Uplink key
 
+def import_excel_data(file):
+  with open(file, "rb") as f:
+    df = pd.read_excel(f)
+    for d in df.to_dict(orient="records"):
+      # d is now a dict of {columnname -> value} for this row
+      # We use Python's **kwargs syntax to pass the whole dict as
+      # keyword arguments
+      app_tables.table_5.add_row(**d)
+import_excel_data("PC_Builder_NZ_data_test.xlsx")
