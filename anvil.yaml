@@ -17,6 +17,7 @@ startup_form: Form1
 metadata: {title: NZ PC Builder, description: A place for anyone to spec out their dream PC}
 db_schema:
   users:
+    title: Users
     client: full
     server: full
     columns:
@@ -44,7 +45,15 @@ db_schema:
     - name: signed_up
       admin_ui: {width: 200}
       type: datetime
-    title: Users
+  cpu_display:
+    title: Cpu_display
+    client: search
+    server: full
+    columns:
+    - name: 'cpu rows '
+      admin_ui: {width: 200}
+      type: link_single
+      target: cpus_
   cpus_:
     title: 'Cpus '
     client: none
@@ -59,17 +68,70 @@ db_schema:
     - name: In stock
       admin_ui: {width: 200}
       type: bool
-  cpu_display:
-    title: Cpu_display
-    client: search
-    server: full
-    columns:
-    - name: 'cpu rows '
-      admin_ui: {width: 200}
-      type: link_single
-      target: cpus_
-  table_2:
+  files:
+    title: Files
     client: none
     server: full
-    columns: []
-    title: Table 2
+    columns:
+    - name: path
+      admin_ui: {width: 200}
+      type: string
+    - name: file
+      admin_ui: {width: 200}
+      type: media
+    - name: file_version
+      admin_ui: {width: 200}
+      type: string
+  table_5:
+    title: Table 5
+    client: none
+    server: full
+    columns:
+    - name: Name of item
+      admin_ui: {width: 200}
+      type: string
+    - name: Price
+      admin_ui: {width: 200}
+      type: number
+    - name: Stock
+      admin_ui: {width: 200}
+      type: string
+    - name: Sales
+      admin_ui: {width: 200}
+      type: number
+    - name: Quick Info
+      admin_ui: {width: 200}
+      type: string
+    - name: Part
+      admin_ui: {width: 200}
+      type: string
+    - name: Part Number
+      admin_ui: {width: 200}
+      type: string
+    - name: Brand
+      admin_ui: {width: 200}
+      type: string
+    - name: Brand name
+      admin_ui: {width: 200}
+      type: string
+    - name: Category
+      admin_ui: {width: 200}
+      type: string
+    - name: Category Name
+      admin_ui: {width: 200}
+      type: string
+    - name: 'Warranty '
+      admin_ui: {width: 200}
+      type: string
+    - name: Warranty Years
+      admin_ui: {width: 200}
+      type: string
+    - name: Values
+      admin_ui: {width: 200}
+      type: string
+    - name: Values option
+      admin_ui: {width: 200}
+      type: string
+    - name: Price Before Sale
+      admin_ui: {width: 200}
+      type: string

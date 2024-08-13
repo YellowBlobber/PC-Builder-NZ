@@ -17,6 +17,4 @@ import requests
 #   return 42
 #
 
-payload = { 'api_key': '9f67e09c5b0b7efd1e74ffe06d0884b1', 'url': 'https://www.computerlounge.co.nz/components#!categoryId=247&page=1&q=&scid=-1&isListMode=true&lastPage=39&Filters%5B0%5D.Key=Sort&Filters%5B0%5D.Value=1', 'session_number': '1' }
-r = requests.get('https://api.scraperapi.com/', params=payload)
-print(r.json())
+
