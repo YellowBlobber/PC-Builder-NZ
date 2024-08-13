@@ -71,7 +71,55 @@ db_schema:
   table_5:
     client: none
     server: full
-    columns: []
+    columns:
+    - name: Name of item
+      admin_ui: {order: 1, width: 200}
+      type: string
+    - name: Price
+      admin_ui: {width: 200, order: 2}
+      type: number
+    - name: Stock
+      admin_ui: {width: 200, order: 3}
+      type: string
+    - name: Sales
+      admin_ui: {width: 200, order: 4}
+      type: number
+    - name: Quick Info
+      admin_ui: {width: 200, order: 5}
+      type: string
+    - name: Part
+      admin_ui: {width: 200, order: 6}
+      type: string
+    - name: Part Number
+      admin_ui: {width: 200, order: 7}
+      type: string
+    - name: Brand
+      admin_ui: {width: 200, order: 8}
+      type: string
+    - name: Brand name
+      admin_ui: {width: 200, order: 9}
+      type: string
+    - name: Category
+      admin_ui: {width: 200, order: 10}
+      type: string
+    - name: Category Name
+      admin_ui: {width: 200, order: 11}
+      type: string
+    - name: 'Warranty '
+      admin_ui: {width: 200, order: 12}
+      type: string
+    - name: Warranty Years
+      admin_ui: {width: 200, order: 13}
+      type: string
+    - name: Values
+      admin_ui: {width: 200, order: 14}
+      type: string
+    - name: Values option
+      admin_ui: {width: 200, order: 15}
+      type: string
+    - name: Price Before Sale
+      admin_ui: {width: 200, order: 16}
+      type: string
     title: Table 5
   files:
     client: none
