@@ -17,7 +17,6 @@ startup_form: Form1
 metadata: {title: NZ PC Builder, description: A place for anyone to spec out their dream PC}
 db_schema:
   users:
-    title: Users
     client: full
     server: full
     columns:
@@ -45,15 +44,7 @@ db_schema:
     - name: signed_up
       admin_ui: {width: 200}
       type: datetime
-  cpu_display:
-    title: Cpu_display
-    client: search
-    server: full
-    columns:
-    - name: 'cpu rows '
-      admin_ui: {width: 200}
-      type: link_single
-      target: cpus_
+    title: Users
   cpus_:
     title: 'Cpus '
     client: none
@@ -68,3 +59,17 @@ db_schema:
     - name: In stock
       admin_ui: {width: 200}
       type: bool
+  cpu_display:
+    title: Cpu_display
+    client: search
+    server: full
+    columns:
+    - name: 'cpu rows '
+      admin_ui: {width: 200}
+      type: link_single
+      target: cpus_
+  table_2:
+    client: none
+    server: full
+    columns: []
+    title: Table 2
