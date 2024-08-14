@@ -73,7 +73,7 @@ db_schema:
       type: bool
   files:
     title: Files
-    client: none
+    client: search
     server: full
     columns:
     - name: path
@@ -105,25 +105,13 @@ db_schema:
     - name: Quick Info
       admin_ui: {width: 200}
       type: string
-    - name: Part
-      admin_ui: {width: 200}
-      type: string
     - name: Part Number
-      admin_ui: {width: 200}
-      type: string
-    - name: Brand
       admin_ui: {width: 200}
       type: string
     - name: Brand name
       admin_ui: {width: 200}
       type: string
-    - name: Category
-      admin_ui: {width: 200}
-      type: string
     - name: Category Name
-      admin_ui: {width: 200}
-      type: string
-    - name: 'Warranty '
       admin_ui: {width: 200}
       type: string
     - name: Warranty Years
