@@ -45,94 +45,82 @@ db_schema:
     - name: signed_up
       admin_ui: {width: 200}
       type: datetime
-  cpus_:
-    client: none
-    server: full
-    columns:
-    - name: Name
-      admin_ui: {width: 200, order: 0}
-      type: string
-    - name: Price
-      admin_ui: {width: 200, order: 1}
-      type: number
-    - name: In stock
-      admin_ui: {width: 200, order: 2}
-      type: bool
-    title: 'Cpus '
   cpu_display:
+    title: Cpu_display
     client: search
     server: full
     columns:
     - name: 'cpu rows '
-      admin_ui: {order: 0, width: 200}
+      admin_ui: {width: 200}
       type: link_single
       target: cpus_
-    title: Cpu_display
+  cpus_:
+    title: 'Cpus '
+    client: none
+    server: full
+    columns:
+    - name: Name
+      admin_ui: {width: 200}
+      type: string
+    - name: Price
+      admin_ui: {width: 200}
+      type: number
+    - name: In stock
+      admin_ui: {width: 200}
+      type: bool
+  files:
+    title: Files
+    client: search
+    server: full
+    columns:
+    - name: path
+      admin_ui: {width: 200}
+      type: string
+    - name: file
+      admin_ui: {width: 200}
+      type: media
+    - name: file_version
+      admin_ui: {width: 200}
+      type: string
   table_5:
+    title: Table 5
     client: none
     server: full
     columns:
     - name: Name of item
-      admin_ui: {order: 1, width: 200}
+      admin_ui: {width: 200}
       type: string
     - name: Price
-      admin_ui: {width: 200, order: 2}
+      admin_ui: {width: 200}
       type: number
     - name: Stock
-      admin_ui: {width: 200, order: 3}
+      admin_ui: {width: 200}
       type: string
     - name: Sales
-      admin_ui: {width: 200, order: 4}
+      admin_ui: {width: 200}
       type: number
     - name: Quick Info
-      admin_ui: {width: 200, order: 5}
-      type: string
-    - name: Part
-      admin_ui: {width: 200, order: 6}
+      admin_ui: {width: 200}
       type: string
     - name: Part Number
-      admin_ui: {width: 200, order: 7}
-      type: string
-    - name: Brand
-      admin_ui: {width: 200, order: 8}
+      admin_ui: {width: 200}
       type: string
     - name: Brand name
-      admin_ui: {width: 200, order: 9}
-      type: string
-    - name: Category
-      admin_ui: {width: 200, order: 10}
+      admin_ui: {width: 200}
       type: string
     - name: Category Name
-      admin_ui: {width: 200, order: 11}
-      type: string
-    - name: 'Warranty '
-      admin_ui: {width: 200, order: 12}
+      admin_ui: {width: 200}
       type: string
     - name: Warranty Years
-      admin_ui: {width: 200, order: 13}
+      admin_ui: {width: 200}
       type: string
     - name: Values
-      admin_ui: {width: 200, order: 14}
+      admin_ui: {width: 200}
       type: string
     - name: Values option
-      admin_ui: {width: 200, order: 15}
+      admin_ui: {width: 200}
       type: string
     - name: Price Before Sale
-      admin_ui: {width: 200, order: 16}
+      admin_ui: {width: 200}
       type: string
-    title: Table 5
-  files:
-    client: none
-    server: full
-    columns:
-    - name: path
-      admin_ui: {order: 0, width: 200}
-      type: string
-    - name: file
-      admin_ui: {order: 1, width: 200}
-      type: media
-    - name: file_version
-      admin_ui: {order: 2, width: 200}
-      type: string
-    title: Files
 uplink_visible: true
