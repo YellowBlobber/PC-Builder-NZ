@@ -173,4 +173,8 @@ components:
   type: Label
   layout_properties: {grid_position: 'MDIUPR,PNPGGU', full_width_row: true}
   data_bindings: []
+- name: label_3
+  properties: {text: 'Compatible Parts: Yes/No                             Estimated Wattage: 0W                                                Total Price $: 0.00                                                          Buy'}
+  type: Label
+  layout_properties: {grid_position: 'TXHAYI,EQLNJB'}
 is_package: true

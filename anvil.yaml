@@ -14,4 +14,4 @@ services:
   client_config: {allow_signup: true, enable_automatically: true, use_email: true, confirm_email: true, allow_remember_me: true, remember_me_days: 30}
   server_config: {user_table: users}
 startup_form: Form1
-metadata: {title: NZ PC Builder, description: A place for anyone to spec out their dream PC}
+metadata: {title: NZ PC Builder, description: A place for anyone to spec out their dream/work PC}
