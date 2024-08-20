@@ -7,6 +7,11 @@ components:
   type: Label
   layout_properties: {grid_position: 'HHTXPW,YKVITV'}
   data_bindings: []
+- name: button_1
+  properties: {text: button_1}
+  type: Button
+  layout_properties: {grid_position: 'HHTXPW,GKUVYO'}
+  event_bindings: {click: button_1_click}
 - name: items_label
   properties: {text: 'ITEMS:', bold: true}
   type: Label

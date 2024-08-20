@@ -2,6 +2,7 @@ from ._anvil_designer import Form1Template
 from anvil import *
 import anvil.server
 
+
 class Form1(Form1Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
@@ -20,3 +21,10 @@ class Form1(Form1Template):
   def cpu_dropdown_show(self, **event_args):
     """This method is called when the DropDown is shown on the screen"""
   pass
+  @
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+     # read by default 1st sheet of an excel file
+    dataframe1 = pd.read_excel('PC_Builder_NZ_data_test.xlsx')
+    print(dataframe1)
+    pass
