@@ -1,3 +1,5 @@
+import anvil.google.auth, anvil.google.drive, anvil.google.mail
+from anvil.google.drive import app_files
 import anvil.files
 from anvil.files import data_files
 import pandas as pd
@@ -5,7 +7,7 @@ import anvil.tables as tables
 from anvil.tables import app_tables
 import xlwings as xw
 
-import anvil.server
+"""import anvil.server
 #anvil.server.connect("server_TOW2URT6HPMIOQ4SBOBSXHXW-7GMQAGE3DEN4GXX7")  # Make sure you replace this with your own Uplink ke
    
 # read by default 1st sheet of an excel file
@@ -29,6 +31,6 @@ print("Result:", v1)
       # We use Python's **kwargs syntax to pass the whole dict as
       # keyword arguments
       app_tables.table_5.add_row(**d)
-import_excel_data("PC_Builder_NZ_data_test.xlsx")'''
+import_excel_data("PC_Builder_NZ_data_test.xlsx")"""
 
 

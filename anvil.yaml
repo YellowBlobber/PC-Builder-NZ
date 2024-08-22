@@ -13,6 +13,9 @@ services:
 - source: /runtime/services/anvil/files.yml
   client_config: {}
   server_config: {file_table: files}
+- source: /runtime/services/google.yml
+  client_config: {}
+  server_config: {}
 startup_form: Form1
 metadata: {title: NZ PC Builder, description: A place for anyone to spec out their dream PC}
 db_schema:
