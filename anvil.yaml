@@ -14,8 +14,64 @@ services:
   client_config: {}
   server_config: {file_table: files}
 - source: /runtime/services/google.yml
-  client_config: {}
-  server_config: {}
+  client_config:
+    app_files:
+    - capabilities: {canEdit: true, canCopy: true}
+      copyRequiresWriterPermission: false
+      labels: {viewed: false, restricted: false, starred: false, hidden: false, trashed: false}
+      fileSize: '65887'
+      markedViewedByMeDate: '1970-01-01T00:00:00.000Z'
+      owners:
+      - displayName: cooper.alden
+        kind: drive#user
+        isAuthenticatedUser: false
+        permissionId: '08236164128259853181'
+        emailAddress: cooper.alden@kingsway.school.nz
+        picture: {url: 'https://lh3.googleusercontent.com/a-/ALV-UjWwHo0Hv9IUCfyYBY5_pXIPviUQtQgysx4vgDziYqz1Nx4MBLfu=s64'}
+      permission: roclient
+      editable: true
+      exportLinks: {application/x-vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=ods', text/tab-separated-values: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=tsv', application/pdf: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=pdf', application/vnd.openxmlformats-officedocument.spreadsheetml.sheet: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=xlsx', text/csv: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=csv', application/zip: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=zip', application/vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=ods'}
+      lastModifyingUserName: cooper.alden
+      copyable: true
+      userPermission: {id: me, type: user, role: writer, kind: drive#permission, selfLink: 'https://www.googleapis.com/drive/v2/files/1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ/permissions/me', etag: '"ZOpfU-yRkVh9wA1a3th5IyTwX9M"', pendingOwner: false}
+      selfLink: https://www.googleapis.com/drive/v2/files/1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ
+      etag: '"MTcyNDM3MDk3NTE4Mg"'
+      iconLink: https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet
+      title: PC Builder NZ (Google Sheets)
+      embedLink: https://docs.google.com/spreadsheets/d/1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ/htmlembed?ouid=117727364968692014776
+      lastModifyingUser:
+        displayName: cooper.alden
+        kind: drive#user
+        isAuthenticatedUser: false
+        permissionId: '08236164128259853181'
+        emailAddress: cooper.alden@kingsway.school.nz
+        picture: {url: 'https://lh3.googleusercontent.com/a-/ALV-UjWwHo0Hv9IUCfyYBY5_pXIPviUQtQgysx4vgDziYqz1Nx4MBLfu=s64'}
+      ownerNames: [cooper.alden]
+      spaces: [drive]
+      id: 1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ
+      thumbnailLink: https://lh3.googleusercontent.com/drive-storage/AJQWtBOCQ0K1Xev3FkCqXz8deMlzz47I9Rhs-j_rSVN5vd6cSCF6uLBAGElRXMhQ22ztAFjKuPcBbv5C0BUZ_PDSxTcP7bLcCbxgl_2Ui7q7GzL9VSaExDpjRcfEdVowYg=s220
+      writersCanShare: true
+      explicitlyTrashed: false
+      kind: drive#file
+      appDataContents: false
+      parents: []
+      mimeType: application/vnd.google-apps.spreadsheet
+      alternateLink: https://docs.google.com/spreadsheets/d/1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ/edit?usp=drivesdk
+      shared: true
+      sharedWithMeDate: '2024-08-22T23:56:15.532Z'
+      sharingUser:
+        displayName: cooper.alden
+        kind: drive#user
+        isAuthenticatedUser: false
+        permissionId: '08236164128259853181'
+        emailAddress: cooper.alden@kingsway.school.nz
+        picture: {url: 'https://lh3.googleusercontent.com/a-/ALV-UjWwHo0Hv9IUCfyYBY5_pXIPviUQtQgysx4vgDziYqz1Nx4MBLfu=s64'}
+      modifiedDate: '2024-08-22T23:56:15.182Z'
+      createdDate: '2024-08-21T22:52:05.864Z'
+      quotaBytesUsed: '65887'
+      version: '15'
+      python_name: pc_builder_nz__google_data
+  server_config: {enc_delegation_refresh_token: PtVam82z54NujCfLURr+NATQyqFTwLc3QKjhQI7gWDpzFlNZoUGllToma9u6ESFAfiqSSMtyTwET7gV12OxftDvVpZusTAvo1fLcEKWyW88kTFv7mVJW+lkhCxRg4NYJmnLBovOIjgxTKflccmxPW8DaCHZYtm8CXQ/jhBgNFgWp0You3oPDeoGxTa36rt0aplBUcRoB6y/a8r8SkLeSmEkj5I8GZoa5i6dX4HHpjZpfMIY6io9uAw0lWyW0pEyEUjrJ39k+vBNxWFfF3tnNfgxo2DHk6nJ+kJ2OGCcM2wCCo4vt6ddwquKZlyO10Q==}
 startup_form: Form1
 metadata: {title: NZ PC Builder, description: A place for anyone to spec out their dream PC}
 db_schema:
