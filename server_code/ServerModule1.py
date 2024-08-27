@@ -6,10 +6,18 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
+import anvil.google.drive
+
 
 
 
 @anvil.server.callable
+def get_items(category):
+    sheet = anvil.google.drive.get("pc_builder_nz__google_data").worksheet("Sheet1")
+    data = sheet.get_all_records()
+    items = [row['Item'] for row in data if row['Category'] == category]
+    return items
+
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
 #
