@@ -13,7 +13,7 @@ import anvil.google.drive
 
 @anvil.server.callable
 def get_items(category):
-    sheet = anvil.google.drive.get("pc_builder_nz__google_data").worksheet("Sheet1")
+    sheet = anvil.google.drive.get("pc_builder_nz__google_data").worksheet("Computer_Lounge")
     data = sheet.get_all_records()
     items = [row['Item'] for row in data if row['Category'] == category]
     return items
