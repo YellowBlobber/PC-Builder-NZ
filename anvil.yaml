@@ -1,185 +1,185 @@
 allow_embedding: false
-package_name: NZ_PC_Builder
+db_schema:
+  cpu_display:
+    client: search
+    columns:
+    - admin_ui: {width: 200}
+      name: 'cpu rows '
+      target: cpus_
+      type: link_single
+    server: full
+    title: Cpu_display
+  cpus_:
+    client: none
+    columns:
+    - admin_ui: {width: 200}
+      name: Name
+      type: string
+    - admin_ui: {width: 200}
+      name: Price
+      type: number
+    - admin_ui: {width: 200}
+      name: In stock
+      type: bool
+    server: full
+    title: 'Cpus '
+  files:
+    client: search
+    columns:
+    - admin_ui: {width: 200}
+      name: path
+      type: string
+    - admin_ui: {width: 200}
+      name: file
+      type: media
+    - admin_ui: {width: 200}
+      name: file_version
+      type: string
+    server: full
+    title: Files
+  table_5:
+    client: none
+    columns:
+    - admin_ui: {width: 200}
+      name: Name of item
+      type: string
+    - admin_ui: {width: 200}
+      name: Price
+      type: number
+    - admin_ui: {width: 200}
+      name: Stock
+      type: string
+    - admin_ui: {width: 200}
+      name: Sales
+      type: number
+    - admin_ui: {width: 200}
+      name: Quick Info
+      type: string
+    - admin_ui: {width: 200}
+      name: Part Number
+      type: string
+    - admin_ui: {width: 200}
+      name: Brand name
+      type: string
+    - admin_ui: {width: 200}
+      name: Category Name
+      type: string
+    - admin_ui: {width: 200}
+      name: Warranty Years
+      type: string
+    - admin_ui: {width: 200}
+      name: Values
+      type: string
+    - admin_ui: {width: 200}
+      name: Values option
+      type: string
+    - admin_ui: {width: 200}
+      name: Price Before Sale
+      type: string
+    server: full
+    title: Table 5
+  users:
+    client: full
+    columns:
+    - admin_ui: {width: 200}
+      name: email
+      type: string
+    - admin_ui: {width: 200}
+      name: enabled
+      type: bool
+    - admin_ui: {width: 200}
+      name: last_login
+      type: datetime
+    - admin_ui: {width: 200}
+      name: password_hash
+      type: string
+    - admin_ui: {width: 200}
+      name: n_password_failures
+      type: number
+    - admin_ui: {width: 200}
+      name: confirmed_email
+      type: bool
+    - admin_ui: {width: 200}
+      name: remembered_logins
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: signed_up
+      type: datetime
+    server: full
+    title: Users
+metadata: {description: A place for anyone to spec out their dream PC, title: NZ PC Builder}
 name: NZ PC Builder
+package_name: NZ_PC_Builder
 runtime_options:
-  version: 2
   client_version: '3'
-  server_version: python3-sandbox
   server_spec: {base: python310-standard}
+  server_version: python3-sandbox
+  version: 2
 services:
-- source: /runtime/services/tables.yml
-  client_config: {}
+- client_config: {}
   server_config: {auto_create_missing_columns: true}
-- source: /runtime/services/anvil/files.yml
-  client_config: {}
+  source: /runtime/services/tables.yml
+- client_config: {}
   server_config: {file_table: files}
-- source: /runtime/services/google.yml
-  client_config:
+  source: /runtime/services/anvil/files.yml
+- client_config:
     app_files:
-    - capabilities: {canEdit: true, canCopy: true}
+    - alternateLink: https://docs.google.com/spreadsheets/d/1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ/edit?usp=drivesdk
+      appDataContents: false
+      capabilities: {canCopy: true, canEdit: true}
       copyRequiresWriterPermission: false
-      labels: {viewed: false, restricted: false, starred: false, hidden: false, trashed: false}
-      fileSize: '65887'
+      copyable: true
+      createdDate: '2024-08-21T22:52:05.864Z'
+      editable: true
+      embedLink: https://docs.google.com/spreadsheets/d/1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ/htmlembed?ouid=117727364968692014776
+      etag: '"MTcyNDg4NTAzODg5MA"'
+      explicitlyTrashed: false
+      exportLinks: {application/pdf: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=pdf', application/vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=ods', application/vnd.openxmlformats-officedocument.spreadsheetml.sheet: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=xlsx', application/x-vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=ods', application/zip: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=zip', text/csv: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=csv', text/tab-separated-values: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=tsv'}
+      fileSize: '62571'
+      iconLink: https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet
+      id: 1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ
+      kind: drive#file
+      labels: {hidden: false, restricted: false, starred: false, trashed: false, viewed: false}
+      lastModifyingUser:
+        displayName: jonathan.ries
+        emailAddress: jonathan.ries@kingsway.school.nz
+        isAuthenticatedUser: false
+        kind: drive#user
+        permissionId: '03675558159872570317'
+        picture: {url: 'https://lh3.googleusercontent.com/a-/ALV-UjVFOKg2c_67Me4m7B5U32cA5X6MSu1PaJM1c3a7gfo1r77V5HY=s64'}
+      lastModifyingUserName: jonathan.ries
       markedViewedByMeDate: '1970-01-01T00:00:00.000Z'
+      mimeType: application/vnd.google-apps.spreadsheet
+      modifiedDate: '2024-08-28T22:43:58.890Z'
+      ownerNames: [cooper.alden]
       owners:
       - displayName: cooper.alden
-        kind: drive#user
-        isAuthenticatedUser: false
-        permissionId: '08236164128259853181'
         emailAddress: cooper.alden@kingsway.school.nz
-        picture: {url: 'https://lh3.googleusercontent.com/a-/ALV-UjWwHo0Hv9IUCfyYBY5_pXIPviUQtQgysx4vgDziYqz1Nx4MBLfu=s64'}
-      permission: roclient
-      editable: true
-      exportLinks: {application/x-vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=ods', text/tab-separated-values: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=tsv', application/pdf: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=pdf', application/vnd.openxmlformats-officedocument.spreadsheetml.sheet: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=xlsx', text/csv: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=csv', application/zip: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=zip', application/vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=ods'}
-      lastModifyingUserName: cooper.alden
-      copyable: true
-      userPermission: {id: me, type: user, role: writer, kind: drive#permission, selfLink: 'https://www.googleapis.com/drive/v2/files/1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ/permissions/me', etag: '"ZOpfU-yRkVh9wA1a3th5IyTwX9M"', pendingOwner: false}
-      selfLink: https://www.googleapis.com/drive/v2/files/1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ
-      etag: '"MTcyNDM3MDk3NTE4Mg"'
-      iconLink: https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet
-      title: PC Builder NZ (Google Sheets)
-      embedLink: https://docs.google.com/spreadsheets/d/1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ/htmlembed?ouid=117727364968692014776
-      lastModifyingUser:
-        displayName: cooper.alden
-        kind: drive#user
         isAuthenticatedUser: false
+        kind: drive#user
         permissionId: '08236164128259853181'
-        emailAddress: cooper.alden@kingsway.school.nz
         picture: {url: 'https://lh3.googleusercontent.com/a-/ALV-UjWwHo0Hv9IUCfyYBY5_pXIPviUQtQgysx4vgDziYqz1Nx4MBLfu=s64'}
-      ownerNames: [cooper.alden]
-      spaces: [drive]
-      id: 1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ
-      thumbnailLink: https://lh3.googleusercontent.com/drive-storage/AJQWtBOCQ0K1Xev3FkCqXz8deMlzz47I9Rhs-j_rSVN5vd6cSCF6uLBAGElRXMhQ22ztAFjKuPcBbv5C0BUZ_PDSxTcP7bLcCbxgl_2Ui7q7GzL9VSaExDpjRcfEdVowYg=s220
-      writersCanShare: true
-      explicitlyTrashed: false
-      kind: drive#file
-      appDataContents: false
       parents: []
-      mimeType: application/vnd.google-apps.spreadsheet
-      alternateLink: https://docs.google.com/spreadsheets/d/1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ/edit?usp=drivesdk
+      permission: roclient
+      python_name: pc_builder_nz
+      quotaBytesUsed: '62571'
+      selfLink: https://www.googleapis.com/drive/v2/files/1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ
       shared: true
       sharedWithMeDate: '2024-08-22T23:56:15.532Z'
       sharingUser:
         displayName: cooper.alden
-        kind: drive#user
-        isAuthenticatedUser: false
-        permissionId: '08236164128259853181'
         emailAddress: cooper.alden@kingsway.school.nz
+        isAuthenticatedUser: false
+        kind: drive#user
+        permissionId: '08236164128259853181'
         picture: {url: 'https://lh3.googleusercontent.com/a-/ALV-UjWwHo0Hv9IUCfyYBY5_pXIPviUQtQgysx4vgDziYqz1Nx4MBLfu=s64'}
-      modifiedDate: '2024-08-22T23:56:15.182Z'
-      createdDate: '2024-08-21T22:52:05.864Z'
-      quotaBytesUsed: '65887'
-      version: '15'
-      python_name: pc_builder_nz__google_data
-  server_config: {enc_delegation_refresh_token: PtVam82z54NujCfLURr+NATQyqFTwLc3QKjhQI7gWDpzFlNZoUGllToma9u6ESFAfiqSSMtyTwET7gV12OxftDvVpZusTAvo1fLcEKWyW88kTFv7mVJW+lkhCxRg4NYJmnLBovOIjgxTKflccmxPW8DaCHZYtm8CXQ/jhBgNFgWp0You3oPDeoGxTa36rt0aplBUcRoB6y/a8r8SkLeSmEkj5I8GZoa5i6dX4HHpjZpfMIY6io9uAw0lWyW0pEyEUjrJ39k+vBNxWFfF3tnNfgxo2DHk6nJ+kJ2OGCcM2wCCo4vt6ddwquKZlyO10Q==}
+      spaces: [drive]
+      thumbnailLink: https://lh3.googleusercontent.com/drive-storage/AJQWtBOy80nJVYL5SOat9XL9c-Jy6taVfTncBmg7w7xXcXlHmPuW6JL-qXPwMnEu2EpB769XV6VTgRIUmR8rq6QoojucWmztvv6e3QCf4duVcAatLXJV04kUyLw0Ac0f5g=s220
+      title: PC Builder NZ
+      userPermission: {etag: '"ZOpfU-yRkVh9wA1a3th5IyTwX9M"', id: me, kind: drive#permission, pendingOwner: false, role: writer, selfLink: 'https://www.googleapis.com/drive/v2/files/1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ/permissions/me', type: user}
+      version: '35'
+      writersCanShare: true
+  server_config: {enc_delegation_refresh_token: zTSOrzM5MYVqwwQ6bAeYNX4dsF3I/YrB4yUGSReYxWIBj0qGDN4Q0mkrYDYMFDhax7CG0Y6V+MXpr6cqyFg6YGFePGMnPxlaE/noHTTfz0AnHUaxGjgYGIiExgaSzuHsp+EoQc90cfEVThD3gO+5gwBC9jB8l4VZcm5PC7r9azG74bYGvntx6EO8FklNUSGrlhD0YnpOqM5ADa1QkGwOC2i4s8JsbVm3cCmXFpF+PdOUxjN8sGQiRUMBzPPlEpUYSpltfh2gbum4vxaa/CJlcUvP336hE+5WVotqTuAUVBjUMmmP1E2H2RT/Vwg+vg==}
+  source: /runtime/services/google.yml
 startup_form: Form1
-metadata: {title: NZ PC Builder, description: A place for anyone to spec out their dream PC}
-db_schema:
-  users:
-    title: Users
-    client: full
-    server: full
-    columns:
-    - name: email
-      admin_ui: {width: 200}
-      type: string
-    - name: enabled
-      admin_ui: {width: 200}
-      type: bool
-    - name: last_login
-      admin_ui: {width: 200}
-      type: datetime
-    - name: password_hash
-      admin_ui: {width: 200}
-      type: string
-    - name: n_password_failures
-      admin_ui: {width: 200}
-      type: number
-    - name: confirmed_email
-      admin_ui: {width: 200}
-      type: bool
-    - name: remembered_logins
-      admin_ui: {width: 200}
-      type: simpleObject
-    - name: signed_up
-      admin_ui: {width: 200}
-      type: datetime
-  cpu_display:
-    title: Cpu_display
-    client: search
-    server: full
-    columns:
-    - name: 'cpu rows '
-      admin_ui: {width: 200}
-      type: link_single
-      target: cpus_
-  cpus_:
-    title: 'Cpus '
-    client: none
-    server: full
-    columns:
-    - name: Name
-      admin_ui: {width: 200}
-      type: string
-    - name: Price
-      admin_ui: {width: 200}
-      type: number
-    - name: In stock
-      admin_ui: {width: 200}
-      type: bool
-  files:
-    title: Files
-    client: search
-    server: full
-    columns:
-    - name: path
-      admin_ui: {width: 200}
-      type: string
-    - name: file
-      admin_ui: {width: 200}
-      type: media
-    - name: file_version
-      admin_ui: {width: 200}
-      type: string
-  table_5:
-    title: Table 5
-    client: none
-    server: full
-    columns:
-    - name: Name of item
-      admin_ui: {width: 200}
-      type: string
-    - name: Price
-      admin_ui: {width: 200}
-      type: number
-    - name: Stock
-      admin_ui: {width: 200}
-      type: string
-    - name: Sales
-      admin_ui: {width: 200}
-      type: number
-    - name: Quick Info
-      admin_ui: {width: 200}
-      type: string
-    - name: Part Number
-      admin_ui: {width: 200}
-      type: string
-    - name: Brand name
-      admin_ui: {width: 200}
-      type: string
-    - name: Category Name
-      admin_ui: {width: 200}
-      type: string
-    - name: Warranty Years
-      admin_ui: {width: 200}
-      type: string
-    - name: Values
-      admin_ui: {width: 200}
-      type: string
-    - name: Values option
-      admin_ui: {width: 200}
-      type: string
-    - name: Price Before Sale
-      admin_ui: {width: 200}
-      type: string
 uplink_visible: true

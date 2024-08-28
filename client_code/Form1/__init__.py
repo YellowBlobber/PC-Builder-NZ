@@ -12,15 +12,13 @@ import anvil.media
 import anvil.server
 
 
-
 class Form1(Form1Template):
   def __init__(self, **properties):
     self.init_components(**properties)
     self.populate_categories()
 
-    
-
-    # Any code you write here will run before the form opens.
+   # Any code you write here will run before the form opens.
+  
   def populate_categories(self):
     categories = anvil.server.call('get_categories')
     self.category_dropdown.items = categories
@@ -30,12 +28,13 @@ class Form1(Form1Template):
     pass
 
   def cpu_dropdown_change(self, **event_args):
-   selected_category = self.category_dropdown.selected_value
-   items = anvil.server.call('get_items', selected_category)
-   self.items_dropdown.items = items
+    """"""
   pass
 
   def cpu_dropdown_show(self, **event_args):
+    selected_category = self.category_dropdown.selected_value
+    items = anvil.server.call('get_items', selected_category)
+    self.items_dropdown.items = items
     """This method is called when the DropDown is shown on the screen"""
   pass
   
@@ -43,4 +42,3 @@ class Form1(Form1Template):
     """This method is called when the button is clicked"""
 
   pass
-t
