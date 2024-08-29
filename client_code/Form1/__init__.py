@@ -6,7 +6,6 @@ from anvil.google.drive import app_files
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from anvil.google.drive import app_files
 from random import choice
 import anvil.media
 import anvil.server
@@ -15,7 +14,11 @@ import anvil.server
 class Form1(Form1Template):
   def __init__(self, **properties):
     self.init_components(**properties)
-    self.populate_categories()
+    #self.populate_categories(**properties)
+    pcs = app_files.pc_builder_nz
+    
+    self.worksheet = pcs[0]
+    print(self.worksheet.fields)
 
    # Any code you write here will run before the form opens.
   
