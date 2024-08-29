@@ -1,128 +1,128 @@
 allow_embedding: false
-package_name: NZ_PC_Builder
-name: NZ PC Builder
-runtime_options:
-  version: 2
-  client_version: '3'
-  server_version: python3-sandbox
-  server_spec: {base: python310-standard}
-services:
-- source: /runtime/services/tables.yml
-  client_config: {}
-  server_config: {}
-- source: /runtime/services/anvil/users.yml
-  client_config: {allow_signup: true, enable_automatically: true, use_email: true, confirm_email: true, allow_remember_me: true, remember_me_days: 30}
-  server_config: {user_table: users}
-- source: /runtime/services/anvil/files.yml
-  client_config: {}
-  server_config: {file_table: files}
-startup_form: Form1
-metadata: {title: NZ PC Builder, description: A place for anyone to spec out their dream PC}
 db_schema:
-  users:
-    title: Users
-    client: full
-    server: full
-    columns:
-    - name: email
-      admin_ui: {width: 200}
-      type: string
-    - name: enabled
-      admin_ui: {width: 200}
-      type: bool
-    - name: last_login
-      admin_ui: {width: 200}
-      type: datetime
-    - name: password_hash
-      admin_ui: {width: 200}
-      type: string
-    - name: n_password_failures
-      admin_ui: {width: 200}
-      type: number
-    - name: confirmed_email
-      admin_ui: {width: 200}
-      type: bool
-    - name: remembered_logins
-      admin_ui: {width: 200}
-      type: simpleObject
-    - name: signed_up
-      admin_ui: {width: 200}
-      type: datetime
   cpu_display:
-    title: Cpu_display
     client: search
-    server: full
     columns:
-    - name: 'cpu rows '
-      admin_ui: {width: 200}
-      type: link_single
+    - admin_ui: {width: 200}
+      name: 'cpu rows '
       target: cpus_
+      type: link_single
+    server: full
+    title: Cpu_display
   cpus_:
-    title: 'Cpus '
     client: none
-    server: full
     columns:
-    - name: Name
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: Name
       type: string
-    - name: Price
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: Price
       type: number
-    - name: In stock
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: In stock
       type: bool
+    server: full
+    title: 'Cpus '
   files:
-    title: Files
     client: search
-    server: full
     columns:
-    - name: path
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: path
       type: string
-    - name: file
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: file
       type: media
-    - name: file_version
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: file_version
       type: string
-  table_5:
-    title: Table 5
-    client: none
     server: full
+    title: Files
+  table_5:
+    client: none
     columns:
-    - name: Name of item
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: Name of item
       type: string
-    - name: Price
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: Price
       type: number
-    - name: Stock
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: Stock
       type: string
-    - name: Sales
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: Sales
       type: number
-    - name: Quick Info
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: Quick Info
       type: string
-    - name: Part Number
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: Part Number
       type: string
-    - name: Brand name
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: Brand name
       type: string
-    - name: Category Name
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: Category Name
       type: string
-    - name: Warranty Years
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: Warranty Years
       type: string
-    - name: Values
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: Values
       type: string
-    - name: Values option
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: Values option
       type: string
-    - name: Price Before Sale
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: Price Before Sale
       type: string
+    server: full
+    title: Table 5
+  users:
+    client: full
+    columns:
+    - admin_ui: {width: 200}
+      name: email
+      type: string
+    - admin_ui: {width: 200}
+      name: enabled
+      type: bool
+    - admin_ui: {width: 200}
+      name: last_login
+      type: datetime
+    - admin_ui: {width: 200}
+      name: password_hash
+      type: string
+    - admin_ui: {width: 200}
+      name: n_password_failures
+      type: number
+    - admin_ui: {width: 200}
+      name: confirmed_email
+      type: bool
+    - admin_ui: {width: 200}
+      name: remembered_logins
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: signed_up
+      type: datetime
+    server: full
+    title: Users
+metadata: {description: A place for anyone to spec out their dream PC, title: NZ PC Builder}
+name: NZ PC Builder
+package_name: NZ_PC_Builder
+runtime_options:
+  client_version: '3'
+  server_spec: {base: python310-standard}
+  server_version: python3-sandbox
+  version: 2
+services:
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/tables.yml
+- client_config: {allow_remember_me: true, allow_signup: true, confirm_email: true, enable_automatically: true, remember_me_days: 30, use_email: true}
+  server_config: {user_table: users}
+  source: /runtime/services/anvil/users.yml
+- client_config: {}
+  server_config: {file_table: files}
+  source: /runtime/services/anvil/files.yml
+startup_form: Form1
