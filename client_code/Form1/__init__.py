@@ -19,7 +19,11 @@ class Form1(Form1Template):
     
     self.worksheet = pcs[0]
     print(self.worksheet.fields)
-
+    
+    item_list = []
+    item_list.append(self.worksheet.fields)
+    self.cpu_dropdown.items = [(row["Category Name"], row) for row in app_files.pc_builder_nz.worksheets.fields]
+    
    # Any code you write here will run before the form opens.
   
   def populate_categories(self):
