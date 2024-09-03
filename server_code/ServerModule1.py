@@ -20,6 +20,12 @@ def get_sheet_data_gpu():
   return worksheet_gpu.rows
 
 @anvil.server.callable
+def get_sheet_data_gpu():
+  sheet_mtherbrd = app_files.pc_builder_nz
+  worksheet_mtherbrd = sheet_mtherbrd.worksheets[2]
+  return worksheet_mtherbrd.rows
+  
+@anvil.server.callable
 def get_unique_categories(sheet_data):
   categories = set(row['Item Name'] for row in sheet_data)
   return sorted(list(categories))
