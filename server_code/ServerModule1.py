@@ -7,20 +7,23 @@ import anvil.tables.query as q
 import anvil.server
 import anvil.google.drive
 
-'''@anvil.server.callable
-def get_categories(self):
-    sheet = app_files.pc_builder_nz
-    self.worksheet = sheet[0]
-    categories = self.worksheet.fields
-    return categories
-
+@anvil.server.callable
+def get_sheet_data_cpus():
+  sheet = app_files.pc_builder_nz
+  worksheet = sheet.worksheets[1]
+  return worksheet.rows
 
 @anvil.server.callable
-def get_items(category):
-    sheet = anvil.google.drive.get("PC Builder NZ").worksheet("Computer Lounge")
-    data = sheet.get_all_records()
-    items = [row['Item Name'] for row in data if row['Category Name'] == category]
-    return items'''
+def get_sheet_data_GPU():
+  sheet = app_files.pc_builder_nz
+  worksheet = sheet.worksheets[2]
+  return worksheet.rows
+
+@anvil.server.callable
+def get_unique_categories(sheet_data):
+  categories = set(row['Item Name'] for row in sheet_data)
+  return sorted(list(categories))
+
 
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
