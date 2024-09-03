@@ -19,12 +19,23 @@ class Form1(Form1Template):
     
     self.worksheet = pcs[0]
     print(self.worksheet.fields)
+    
+    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for cpus, then popluates the dropdown with the called items
     sheet_data_cpu = anvil.server.call('get_sheet_data_cpus')
-    sheet_data_gpu = anvil.server.call('get_sheet_data_gpu')
     categories_cpu = anvil.server.call('get_unique_categories',sheet_data_cpu)
-    categories_gpu = anvil.server.call('get_unique_categories',sheet_data_gpu)
     self.cpu_dropdown.items = categories_cpu
+    
+    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for gpu, then popluates the dropdown with the called items
+    sheet_data_gpu = anvil.server.call('get_sheet_data_gpu')
+    categories_gpu = anvil.server.call('get_unique_categories',sheet_data_gpu)
     self.gpu_dropdown.items = categories_gpu
+    
+    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
+    sheet_data_motherbrd = anvil.server.call('get_sheet_data_motherbrd')
+    categories_motherbrd = anvil.server.call('get_unique_categories',sheet_data_motherbrd)
+    self.motherboard_dropdown.items = categories_motherbrd    
+    
+
    
    # Any code you write here will run before the form opens.
   
@@ -56,6 +67,11 @@ class Form1(Form1Template):
 
   def gpu_dropdown_change(self, **event_args):
     selected_category = self.gpu_dropdown.selected_value
+    items = anvil.server.call('get_items', selected_category)
+    self.items_dropdown.items = items
+
+  def motherboard_dropdown_change(self, **event_args):
+    selected_category = self.motherboard_dropdown.selected_value
     items = anvil.server.call('get_items', selected_category)
     self.items_dropdown.items = items
 
