@@ -14,7 +14,7 @@ def get_sheet_data_cpus():
   return worksheet.rows
 
 @anvil.server.callable
-def get_sheet_data_GPU():
+def get_sheet_data_gpu():
   sheet = app_files.pc_builder_nz
   worksheet = sheet.worksheets[2]
   return worksheet.rows
