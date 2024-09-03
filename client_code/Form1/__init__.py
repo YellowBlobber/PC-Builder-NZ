@@ -19,15 +19,13 @@ class Form1(Form1Template):
     
     self.worksheet = pcs[0]
     print(self.worksheet.fields)
-    sheet_data = anvil.server.call('get_sheet_data_cpus')
-    sheet_data = anvil.server.call('get_sheet_data_gpu')
-    categories = anvil.server.call('get_unique_categories',sheet_data)
-    self.cpu_dropdown.items = categories
-    
-    '''item_list = []
-    item_list.append(self.worksheet.fields)
-    self.cpu_dropdown.items = [(row["Category Name"], row) for row in app_files.pc_builder_nz.worksheets.fields]'''
-    
+    sheet_data_cpu = anvil.server.call('get_sheet_data_cpus')
+    sheet_data_gpu = anvil.server.call('get_sheet_data_gpu')
+    categories_cpu = anvil.server.call('get_unique_categories',sheet_data_cpu)
+    categories_gpu = anvil.server.call('get_unique_categories',sheet_data_gpu)
+    self.cpu_dropdown.items = categories_cpu
+    self.gpu_dropdown.items = categories_gpu
+   
    # Any code you write here will run before the form opens.
   
 
@@ -60,4 +58,4 @@ class Form1(Form1Template):
     selected_category = self.gpu_dropdown.selected_value
     items = anvil.server.call('get_items', selected_category)
     self.items_dropdown.items = items
-    pass
+

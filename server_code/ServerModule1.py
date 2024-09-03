@@ -9,15 +9,15 @@ import anvil.google.drive
 
 @anvil.server.callable
 def get_sheet_data_cpus():
-  sheet = app_files.pc_builder_nz
-  worksheet = sheet.worksheets[1]
-  return worksheet.rows
+  sheet_cpu = app_files.pc_builder_nz
+  worksheet_cpu = sheet_cpu.worksheets[1]
+  return worksheet_cpu.rows
 
 @anvil.server.callable
 def get_sheet_data_gpu():
-  sheet = app_files.pc_builder_nz
-  worksheet = sheet.worksheets[2]
-  return worksheet.rows
+  sheet_gpu = app_files.pc_builder_nz
+  worksheet_gpu = sheet_gpu.worksheets[2]
+  return worksheet_gpu.rows
 
 @anvil.server.callable
 def get_unique_categories(sheet_data):
