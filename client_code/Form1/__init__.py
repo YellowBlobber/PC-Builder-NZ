@@ -35,7 +35,10 @@ class Form1(Form1Template):
     categories_motherbrd = anvil.server.call('get_unique_categories',sheet_data_motherbrd)
     self.motherboard_dropdown.itezms = categories_motherbrd    
     
-
+    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
+    sheet_data_case = anvil.server.call('get_sheet_data_motherbrd')
+    categories_case = anvil.server.call('get_unique_categories',sheet_data_case)
+    self.case_dropdown.itezms = categories_case 
    
    # Any code you write here will run before the form opens.
   

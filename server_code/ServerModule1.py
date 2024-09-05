@@ -29,7 +29,14 @@ def get_sheet_data_motherbrd():
   sheet_motherbrd = app_files.pc_builder_nz
   worksheet_motherbrd = sheet_motherbrd.worksheets[3]
   return worksheet_motherbrd.rows
-  
+
+#defining a fuction that calls the infomation in the index worksheet 3, in google sheets. [3] being the motherboard worksheet.
+def get_sheet_data_case():
+  sheet_case = app_files.pc_builder_nz
+  worksheet_case = sheet_case.worksheets[4]
+  return worksheet_case.rows
+
+
 @anvil.server.callable
 #this fuction calls the item names in the picked index for worksheet eg 3, allows us to call and use the names of items in the form code
 def get_unique_categories(sheet_data):
