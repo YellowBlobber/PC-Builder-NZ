@@ -29,13 +29,62 @@ def get_sheet_data_motherbrd():
   sheet_motherbrd = app_files.pc_builder_nz
   worksheet_motherbrd = sheet_motherbrd.worksheets[3]
   return worksheet_motherbrd.rows
-
-#defining a fuction that calls the infomation in the index worksheet 3, in google sheets. [3] being the motherboard worksheet.
+  
+@anvil.server.callable
+#defining a fuction that calls the infomation in the index worksheet 4, in google sheets. [4] being the case worksheet.
 def get_sheet_data_case():
   sheet_case = app_files.pc_builder_nz
   worksheet_case = sheet_case.worksheets[4]
   return worksheet_case.rows
 
+@anvil.server.callable
+#defining a fuction that calls the infomation in the index worksheet 4, in google sheets. [4] being the case worksheet.
+def get_sheet_data_ram():
+  sheet_ram = app_files.pc_builder_nz
+  worksheet_ram = sheet_ram.worksheets[5]
+  return worksheet_ram.rows
+
+@anvil.server.callable
+#defining a fuction that calls the infomation in the index worksheet 4, in google sheets. [4] being the case worksheet.
+def get_sheet_data_storage():
+  sheet_storage = app_files.pc_builder_nz
+  worksheet_storage = sheet_storage.worksheets[6]
+  return worksheet_storage.rows
+
+@anvil.server.callable
+#defining a fuction that calls the infomation in the index worksheet 4, in google sheets. [4] being the case worksheet.
+def get_sheet_data_fans():
+  sheet_fans = app_files.pc_builder_nz
+  worksheet_fans = sheet_fans.worksheets[7]
+  return worksheet_fans.rows
+
+@anvil.server.callable
+#defining a fuction that calls the infomation in the index worksheet 4, in google sheets. [4] being the case worksheet.
+def get_sheet_data_cpu_cooler():
+  sheet_cpu_cooler = app_files.pc_builder_nz
+  worksheet_cpu_cooler = sheet_cpu_cooler.worksheets[8]
+  return worksheet_cpu_cooler.rows
+
+@anvil.server.callable
+#defining a fuction that calls the infomation in the index worksheet 4, in google sheets. [4] being the case worksheet.
+def get_sheet_data_adapters():
+  sheet_adapters = app_files.pc_builder_nz
+  worksheet_adapters = sheet_adapters.worksheets[9]
+  return worksheet_adapters.rows
+
+@anvil.server.callable
+#defining a fuction that calls the infomation in the index worksheet 4, in google sheets. [4] being the case worksheet.
+def get_sheet_data_psu():
+  sheet_psu = app_files.pc_builder_nz
+  worksheet_psu = sheet_psu.worksheets[10]
+  return worksheet_psu.rows
+
+@anvil.server.callable
+#defining a fuction that calls the infomation in the index worksheet 4, in google sheets. [4] being the case worksheet.
+def get_sheet_data_os():
+  sheet_os = app_files.pc_builder_nz
+  worksheet_os = sheet_os.worksheets[11]
+  return worksheet_os.rows
 
 @anvil.server.callable
 #this fuction calls the item names in the picked index for worksheet eg 3, allows us to call and use the names of items in the form code
