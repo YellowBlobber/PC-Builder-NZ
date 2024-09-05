@@ -4,11 +4,6 @@ components:
   name: part_selection_title
   properties: {align: center, bold: true, font: '', font_size: 30, icon: '', italic: false, role: null, spacing_above: large, spacing_below: large, text: PART SELECTION, underline: false}
   type: Label
-- event_bindings: {click: button_1_click}
-  layout_properties: {grid_position: 'HHTXPW,GKUVYO'}
-  name: button_1
-  properties: {text: button_1}
-  type: Button
 - layout_properties: {grid_position: 'XQXFSN,ADIKYA'}
   name: items_label
   properties: {bold: true, text: 'ITEMS:'}
