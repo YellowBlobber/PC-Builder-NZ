@@ -298,6 +298,10 @@ components:
   name: stock_display_9_copy_copy_copy
   properties: {enabled: false}
   type: TextBox
+- layout_properties: {grid_position: 'WXFYOD,DNJZCC HIAWQI,TUBOJC'}
+  name: stock_display_9_copy_copy_copy_copy
+  properties: {enabled: false}
+  type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,IMSGTU TIUDVU,PJFLDS'}
   name: Item_Loctaion_Logo_OEM
   properties: {height: 31, source: _/theme/computer lounge logo.png, visible: false}
@@ -312,6 +316,10 @@ components:
   type: Image
 - layout_properties: {grid_position: 'WXFYOD,IMSGTU PEHPRA,LRUVKZ'}
   name: Item_Loctaion_Logo_OEM_copy_copy_copy
+  properties: {height: 32, source: _/theme/computer lounge logo.png, visible: false}
+  type: Image
+- layout_properties: {grid_position: 'WXFYOD,IMSGTU TRUHDF,KACOHL'}
+  name: Item_Loctaion_Logo_OEM_copy_copy_copy_copy
   properties: {height: 32, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
 container:
