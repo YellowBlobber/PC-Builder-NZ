@@ -7,16 +7,6 @@ import anvil.tables.query as q
 import anvil.server
 import anvil.google.drive
 
-#prices:
-@anvil.server.callable
-def get_item_price(item_name, worksheet_index):
-  sheet = app_files.pc_builder_nz
-  worksheet = sheet.worksheets[worksheet_index]
-  for row in worksheet.rows:
-    if row['Item Name'] == item_name:
-      return float(row['Price'])
-  return 0.0  # Return 0 if item not found
-
 
 
 @anvil.server.callable
