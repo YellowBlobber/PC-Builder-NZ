@@ -125,7 +125,62 @@ services:
 - client_config: {}
   server_config: {file_table: files}
   source: /runtime/services/anvil/files.yml
-- client_config: {}
-  server_config: {}
+- client_config:
+    app_files:
+    - alternateLink: https://docs.google.com/spreadsheets/d/1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ/edit?usp=drivesdk
+      appDataContents: false
+      capabilities: {canCopy: true, canEdit: true}
+      copyRequiresWriterPermission: false
+      copyable: true
+      createdDate: '2024-08-21T22:52:05.864Z'
+      editable: true
+      embedLink: https://docs.google.com/spreadsheets/d/1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ/htmlembed?ouid=117727364968692014776
+      etag: '"MTcyNTU3OTU2Mzg3Nw"'
+      explicitlyTrashed: false
+      exportLinks: {application/pdf: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=pdf', application/vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=ods', application/vnd.openxmlformats-officedocument.spreadsheetml.sheet: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=xlsx', application/x-vnd.oasis.opendocument.spreadsheet: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=ods', application/zip: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=zip', text/csv: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=csv', text/tab-separated-values: 'https://docs.google.com/spreadsheets/export?id=1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ&exportFormat=tsv'}
+      fileSize: '132106'
+      iconLink: https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet
+      id: 1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ
+      kind: drive#file
+      labels: {hidden: false, restricted: false, starred: false, trashed: false, viewed: false}
+      lastModifyingUser:
+        displayName: cooper.alden
+        emailAddress: cooper.alden@kingsway.school.nz
+        isAuthenticatedUser: false
+        kind: drive#user
+        permissionId: '08236164128259853181'
+        picture: {url: 'https://lh3.googleusercontent.com/a-/ALV-UjWwHo0Hv9IUCfyYBY5_pXIPviUQtQgysx4vgDziYqz1Nx4MBLfu=s64'}
+      lastModifyingUserName: cooper.alden
+      markedViewedByMeDate: '1970-01-01T00:00:00.000Z'
+      mimeType: application/vnd.google-apps.spreadsheet
+      modifiedDate: '2024-09-05T23:39:23.877Z'
+      ownerNames: [cooper.alden]
+      owners:
+      - displayName: cooper.alden
+        emailAddress: cooper.alden@kingsway.school.nz
+        isAuthenticatedUser: false
+        kind: drive#user
+        permissionId: '08236164128259853181'
+        picture: {url: 'https://lh3.googleusercontent.com/a-/ALV-UjWwHo0Hv9IUCfyYBY5_pXIPviUQtQgysx4vgDziYqz1Nx4MBLfu=s64'}
+      parents: []
+      python_name: pc_builder_nz
+      quotaBytesUsed: '132106'
+      selfLink: https://www.googleapis.com/drive/v2/files/1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ
+      shared: true
+      sharedWithMeDate: '2024-08-22T23:56:15.532Z'
+      sharingUser:
+        displayName: cooper.alden
+        emailAddress: cooper.alden@kingsway.school.nz
+        isAuthenticatedUser: false
+        kind: drive#user
+        permissionId: '08236164128259853181'
+        picture: {url: 'https://lh3.googleusercontent.com/a-/ALV-UjWwHo0Hv9IUCfyYBY5_pXIPviUQtQgysx4vgDziYqz1Nx4MBLfu=s64'}
+      spaces: [drive]
+      thumbnailLink: https://lh3.googleusercontent.com/drive-storage/AJQWtBN64PBw4zn_EACYsoHm78AOP2qDotvtgwnExpnkT0PMAq-kgq9XeV7Wo5e1HduFy3b8HjkshTsoZF19QP8hq5rj-4Rbtw_UZTXvEwVq8H5KhvGnyaORubDq60jkBQ=s220
+      title: PC Builder NZ
+      userPermission: {etag: '"ZOpfU-yRkVh9wA1a3th5IyTwX9M"', id: me, kind: drive#permission, pendingOwner: false, role: writer, selfLink: 'https://www.googleapis.com/drive/v2/files/1c1ej1VX4Xg867_rd6-jbC5AHJEP3izTdCVlsK8ec2rQ/permissions/me', type: user}
+      version: '85'
+      writersCanShare: true
+  server_config: {enc_delegation_refresh_token: kWhf9XoIjx7dgrSdrSLeA9ihbDIUKlMGcXTGbXA1cJhEk3laA77eNSuZTqEfm9nrlpTbcvBmgH/Qtg4QqZJc05HmxojhbfCIT8cjcCuPHmM8646oNpmuleDbY9oNq58GJ1So7S8Pab2ZqBF8u0N3xuvwyCIXTH8m0hy9AujIsk/3m3vi+t+KrQykDG4lwtzN3oZe1GbQ5wD3Vrsw1qzcrlGO846W/kGd9aAiYYBdF4bArbSBuub9r0OMGsAflzOeHMFuA3Iptksm17auLht7Wc03+9EcLO3BWo147o+uvOIXsgaYcqRpuDd4ieBehg==}
   source: /runtime/services/google.yml
 startup_form: Form1

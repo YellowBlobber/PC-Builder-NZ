@@ -51,11 +51,11 @@ components:
   type: Label
 - layout_properties: {grid_position: 'XQXFSN,LCIXJI'}
   name: stock_label
-  properties: {align: center, bold: true, text: '                 STOCK:'}
+  properties: {align: center, bold: true, text: 'STOCK:'}
   type: Label
 - layout_properties: {grid_position: 'XQXFSN,BKYAEN'}
   name: stock_label_copy
-  properties: {align: center, bold: true, text: '                       WHERE:'}
+  properties: {align: center, bold: true, text: 'WHERE:'}
   type: Label
 - layout_properties: {full_width_row: false, grid_position: 'MJRGTN,QCRFZY'}
   name: label_1
@@ -70,7 +70,7 @@ components:
   properties: {enabled: false}
   type: TextBox
 - layout_properties: {grid_position: 'MJRGTN,HGVOTA'}
-  name: stock_display_1
+  name: cpu_stock_display
   properties: {enabled: false}
   type: TextBox
 - layout_properties: {grid_position: 'MJRGTN,XVNFSR'}
@@ -90,7 +90,7 @@ components:
   properties: {enabled: false}
   type: TextBox
 - layout_properties: {grid_position: 'SZDVHG,BMIGYI'}
-  name: stock_display_2
+  name: cooling_stock_display
   properties: {enabled: false}
   type: TextBox
 - layout_properties: {grid_position: 'SZDVHG,CPUYIB'}
@@ -110,7 +110,7 @@ components:
   properties: {enabled: false}
   type: TextBox
 - layout_properties: {grid_position: 'WKJWHW,WREAJH'}
-  name: stock_display_3
+  name: motherboard_stock_display
   properties: {enabled: false}
   type: TextBox
 - layout_properties: {grid_position: 'WKJWHW,EKALPU'}
@@ -130,7 +130,7 @@ components:
   properties: {enabled: false}
   type: TextBox
 - layout_properties: {grid_position: 'NSOQUP,DSZNXH'}
-  name: stock_display_4
+  name: ram_stock_display
   properties: {enabled: false}
   type: TextBox
 - layout_properties: {grid_position: 'NSOQUP,GQYYDY'}
@@ -150,7 +150,7 @@ components:
   properties: {enabled: false}
   type: TextBox
 - layout_properties: {grid_position: 'NVVKWV,GLJSJZ'}
-  name: stock_display_5
+  name: gpu_stock_display
   properties: {enabled: false}
   type: TextBox
 - layout_properties: {grid_position: 'NVVKWV,SDJWIT'}
@@ -170,7 +170,7 @@ components:
   properties: {enabled: false}
   type: TextBox
 - layout_properties: {grid_position: 'ECWQBG,EQGCVG'}
-  name: stock_display_6
+  name: case_stock_display
   properties: {enabled: false}
   type: TextBox
 - layout_properties: {grid_position: 'ECWQBG,XUERXC'}
@@ -190,7 +190,7 @@ components:
   properties: {enabled: false, visible: true}
   type: TextBox
 - layout_properties: {grid_position: 'LKVCYB,KJNBVL'}
-  name: stock_display_7
+  name: psu_stock_display
   properties: {enabled: false}
   type: TextBox
 - layout_properties: {grid_position: 'LKVCYB,LUKUKX'}
@@ -209,9 +209,9 @@ components:
   name: storage_display
   properties: {enabled: false}
   type: TextBox
-- event_bindings: {pressed_enter: stock_display_8_pressed_enter}
+- event_bindings: {pressed_enter: storage_stock_display_pressed_enter}
   layout_properties: {grid_position: 'EAKAYA,XCDBNI'}
-  name: stock_display_8
+  name: storage_stock_display
   properties: {enabled: false}
   type: TextBox
 - layout_properties: {grid_position: 'EAKAYA,YYKXRU'}
@@ -242,24 +242,44 @@ components:
   name: label_Storage_3_copy_copy
   properties: {text: 'Adapters:'}
   type: Label
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE LVYJAR,UIYXZS'}
+- layout_properties: {grid_position: 'WXFYOD,DAFLDE YHFMBA,WNDEWB'}
+  name: os_iamge
+  properties: {height: 51}
+  type: Image
+- layout_properties: {grid_position: 'WXFYOD,DAFLDE YHFMBA,HSVHWF'}
   name: os_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE NZHXVB,RSLAXG'}
+- layout_properties: {grid_position: 'WXFYOD,DAFLDE CWCACE,CBJBMN'}
+  name: image_1_copy
+  properties: {height: 51}
+  type: Image
+- layout_properties: {grid_position: 'WXFYOD,DAFLDE CWCACE,FASPQJ'}
   name: storage_2_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE FRSCTU,ZEILIH'}
+- layout_properties: {grid_position: 'WXFYOD,DAFLDE IKDMUZ,QOZTCV'}
+  name: image_1_copy_copy
+  properties: {height: 51}
+  type: Image
+- layout_properties: {grid_position: 'WXFYOD,DAFLDE IKDMUZ,SSBBNM'}
+  name: fans_dropdown_copy
+  properties: {}
+  type: DropDown
+- layout_properties: {grid_position: 'WXFYOD,DAFLDE IRYKEN,WPTEIX'}
+  name: image_1_copy_copy_copy
+  properties: {height: 51}
+  type: Image
+- layout_properties: {grid_position: 'WXFYOD,DAFLDE IRYKEN,VLOBXT'}
   name: storage_3_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE FGQGBR,NPNYHM'}
+- layout_properties: {grid_position: 'WXFYOD,DAFLDE KOKKYF,MKTBDF'}
+  name: image_1_copy_copy_copy_copy
+  properties: {height: 51}
+  type: Image
+- layout_properties: {grid_position: 'WXFYOD,DAFLDE KOKKYF,KSHKVK'}
   name: fans_dropdown
-  properties: {}
-  type: DropDown
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE SOQXTW,QQLAHT'}
-  name: adapters_dropdown
   properties: {}
   type: DropDown
 - layout_properties: {grid_position: 'WXFYOD,MAUEBC CLOSOO,ZSZQVM'}
@@ -283,46 +303,46 @@ components:
   properties: {enabled: false}
   type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,DNJZCC QYDRCQ,GYLLSG'}
-  name: stock_display_9
+  name: os_stock_display
   properties: {enabled: false}
   type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,DNJZCC OBMUFC,ZCMMHR'}
-  name: stock_display_9_copy
+  name: storage_stock_display_2
   properties: {enabled: false}
   type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,DNJZCC BVYWGR,VQRVXG'}
-  name: stock_display_9_copy_copy
+  name: storage_stock_display_3
   properties: {enabled: false}
   type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,DNJZCC LOQMKH,JHNGRD'}
-  name: stock_display_9_copy_copy_copy
+  name: fans_stock_display
   properties: {enabled: false}
   type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,DNJZCC HIAWQI,TUBOJC'}
-  name: stock_display_9_copy_copy_copy_copy
+  name: adapters_stock_display
   properties: {enabled: false}
   type: TextBox
-- layout_properties: {grid_position: 'WXFYOD,IMSGTU TIUDVU,PJFLDS'}
+- layout_properties: {grid_position: 'WXFYOD,IMSGTU TIUDVU,YGRBWV'}
   name: Item_Loctaion_Logo_OEM
   properties: {height: 31, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
-- layout_properties: {grid_position: 'WXFYOD,IMSGTU LCVCAZ,XVAQSU'}
+- layout_properties: {grid_position: 'WXFYOD,IMSGTU LCVCAZ,NWSPTK'}
   name: Item_Loctaion_Logo_OEM_copy
   properties: {height: 36, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
-- layout_properties: {grid_position: 'WXFYOD,IMSGTU ZGZDZV,BIHTFU'}
+- layout_properties: {grid_position: 'WXFYOD,IMSGTU ZGZDZV,LCVLTK'}
   name: Item_Loctaion_Logo_OEM_copy_copy
   properties: {height: 34, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
-- layout_properties: {grid_position: 'WXFYOD,IMSGTU PEHPRA,LRUVKZ'}
+- layout_properties: {grid_position: 'WXFYOD,IMSGTU PEHPRA,AUYRCY'}
   name: Item_Loctaion_Logo_OEM_copy_copy_copy
   properties: {height: 32, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
-- layout_properties: {grid_position: 'WXFYOD,IMSGTU TRUHDF,KACOHL'}
+- layout_properties: {grid_position: 'WXFYOD,IMSGTU TRUHDF,UYXFNB'}
   name: Item_Loctaion_Logo_OEM_copy_copy_copy_copy
-  properties: {height: 32, source: _/theme/computer lounge logo.png, visible: false}
+  properties: {height: 40, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
 container:
-  properties: {col_widths: '{"QCRFZY":15,"NOILNU":25,"DIGEYX":15,"VZKNHU":25,"QBJUFT":15,"WLHNWG":25,"VHVXMV":15,"JAVNTR":25,"VUUGWB":15,"VRASNX":25,"OUUJPM":15,"EZCVMU":25,"IPQYUL":15,"FTALFI":25,"UCTUEC":15,"IPLCTC":25,"IVDMZE":25,"BYDJJO":25,"RULPRO":25,"PPXVIX":25,"RBCMDT":25,"GXFQGU":25,"IMEUCT":25,"EYYYJV":25,"ADIKYA":9,"FMNYJU":14,"RAUZLT":14,"HGVOTA":30,"BMIGYI":30,"WREAJH":30,"DSZNXH":30,"GLJSJZ":30,"EQGCVG":30,"KJNBVL":30,"XCDBNI":30,"LCIXJI":11,"BKYAEN":12,"IIJJYH":8,"DAFLDE":14,"MAUEBC":15,"DNJZCC":16,"IMSGTU":7}', visible: true}
+  properties: {col_widths: '{"QCRFZY":15,"NOILNU":48,"DIGEYX":9,"VZKNHU":29,"QBJUFT":9,"WLHNWG":14,"VHVXMV":15,"JAVNTR":25,"VUUGWB":15,"VRASNX":25,"OUUJPM":15,"EZCVMU":25,"IPQYUL":15,"FTALFI":25,"UCTUEC":15,"IPLCTC":25,"IVDMZE":15,"BYDJJO":8,"RULPRO":23,"PPXVIX":42,"RBCMDT":42,"GXFQGU":42,"IMEUCT":42,"EYYYJV":42,"ADIKYA":14,"FMNYJU":25,"RAUZLT":7,"HGVOTA":14,"BMIGYI":7,"WREAJH":7,"DSZNXH":13,"GLJSJZ":13,"EQGCVG":13,"KJNBVL":13,"XCDBNI":13,"LCIXJI":7,"BKYAEN":7,"IIJJYH":8,"DAFLDE":30,"MAUEBC":8,"DNJZCC":7,"IMSGTU":7,"XVNFSR":13,"EKALPU":7,"CPUYIB":7,"GQYYDY":12,"SDJWIT":12,"XUERXC":12,"LUKUKX":12,"YYKXRU":12,"WNDEWB":10,"HSVHWF":50,"ATGOFP":50,"CBJBMN":10,"FASPQJ":50,"QOZTCV":10,"SSBBNM":50,"WPTEIX":10,"VLOBXT":50,"MKTBDF":10,"KSHKVK":50}', visible: true}
   type: ColumnPanel
 is_package: true

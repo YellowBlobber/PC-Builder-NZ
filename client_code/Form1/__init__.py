@@ -49,7 +49,17 @@ class Form1(Form1Template):
     sheet_data_storage = anvil.server.call('get_sheet_data_storage')
     categories_storage = anvil.server.call('get_unique_categories',sheet_data_storage)
     self.storage_dropdown.items = categories_storage 
-
+    
+    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
+    sheet_data_storage_2 = anvil.server.call('get_sheet_data_storage')
+    categories_storage_2 = anvil.server.call('get_unique_categories',sheet_data_storage_2)
+    self.storage_2_dropdown.items = categories_storage_2 
+    
+    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
+    sheet_data_storage_3 = anvil.server.call('get_sheet_data_storage')
+    categories_storage_3 = anvil.server.call('get_unique_categories',sheet_data_storage_3)
+    self.storage_3_dropdown.items = categories_storage_3  
+    
     #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
     sheet_data_fans = anvil.server.call('get_sheet_data_fans')
     categories_fans = anvil.server.call('get_unique_categories',sheet_data_fans)
@@ -78,14 +88,14 @@ class Form1(Form1Template):
     #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
     sheet_data_os = anvil.server.call('get_sheet_data_os')
     categories_os = anvil.server.call('get_unique_categories',sheet_data_os)
-    self.power_os_dropdown.items = categories_os    
+    self.os_dropdown.items = categories_os    
     
    # Any code you write here will run before the form opens.
   
 
  
 
-  def stock_display_8_pressed_enter(self, **event_args):
+  def storage_stock_display_pressed_enter(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
     pass
 
