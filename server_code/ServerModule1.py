@@ -91,9 +91,14 @@ def get_sheet_data_os():
 @anvil.server.callable
 #this fuction calls the item names in the picked index for worksheet eg 3, allows us to call and use the names of items in the form code
 def get_unique_categories(sheet_data):
-  categories = set(row['Item Name'] for row in sheet_data)
-  return sorted(list(categories))
+  categories_item_name = set(row['Item Name'] for row in sheet_data)
+  return sorted(list(categories_item_name))
 
+@anvil.server.callable
+#this fuction calls the item names in the picked index for worksheet eg 3, allows us to call and use the names of items in the form code
+def get_unique_price(sheet_data):
+  categories_price = set(row['Price'] for row in sheet_data)
+  return sorted(list(categories_price))
 
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.

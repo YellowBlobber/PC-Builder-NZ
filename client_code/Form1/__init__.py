@@ -94,8 +94,8 @@ class Form1(Form1Template):
     
    # Any code you write here will run before the form opens.
   
-
- 
+  #below is for price_display
+  
 
   def storage_stock_display_pressed_enter(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
