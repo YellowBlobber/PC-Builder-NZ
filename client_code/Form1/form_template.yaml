@@ -82,31 +82,38 @@ components:
   name: cpu_dropdown
   properties: {enabled: true, visible: true}
   type: DropDown
-- layout_properties: {grid_position: 'XQXFSN,FMNYJU YHAYIH,BWQQDM'}
+- event_bindings: {change: cpu_cooler_dropdown_change}
+  layout_properties: {grid_position: 'XQXFSN,FMNYJU YHAYIH,BWQQDM'}
   name: cpu_cooler_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'XQXFSN,FMNYJU ZCBQPW,FHTIPJ'}
+- event_bindings: {change: motherboard_dropdown_change}
+  layout_properties: {grid_position: 'XQXFSN,FMNYJU ZCBQPW,FHTIPJ'}
   name: motherboard_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'XQXFSN,FMNYJU KZZOSP,WTZYNM'}
+- event_bindings: {change: ram_dropdown_change}
+  layout_properties: {grid_position: 'XQXFSN,FMNYJU KZZOSP,WTZYNM'}
   name: ram_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'XQXFSN,FMNYJU IPEWOW,UOBSNO'}
+- event_bindings: {change: gpu_dropdown_change}
+  layout_properties: {grid_position: 'XQXFSN,FMNYJU IPEWOW,UOBSNO'}
   name: gpu_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'XQXFSN,FMNYJU ZJMFYP,YPWWGG'}
+- event_bindings: {change: case_dropdown_change}
+  layout_properties: {grid_position: 'XQXFSN,FMNYJU ZJMFYP,YPWWGG'}
   name: case_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'XQXFSN,FMNYJU JZGWZN,YCZXQL'}
+- event_bindings: {change: power_supply_dropdown_change}
+  layout_properties: {grid_position: 'XQXFSN,FMNYJU JZGWZN,YCZXQL'}
   name: power_supply_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'XQXFSN,FMNYJU QQNPIJ,RPEZVB'}
+- event_bindings: {change: storage_dropdown_change}
+  layout_properties: {grid_position: 'XQXFSN,FMNYJU QQNPIJ,RPEZVB'}
   name: storage_dropdown
   properties: {}
   type: DropDown
@@ -117,19 +124,21 @@ components:
 - event_bindings: {pressed_enter: cpu_display_pressed_enter}
   layout_properties: {grid_position: 'XQXFSN,RAUZLT RIIFKP,KMRPPC'}
   name: cpu_display
-  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: ''}
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
   type: TextBox
-- layout_properties: {grid_position: 'XQXFSN,RAUZLT CKQXWE,MBBBTS'}
+- event_bindings: {pressed_enter: cooling_display_pressed_enter}
+  layout_properties: {grid_position: 'XQXFSN,RAUZLT CKQXWE,MBBBTS'}
   name: cooling_display
-  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: ''}
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
   type: TextBox
-- layout_properties: {grid_position: 'XQXFSN,RAUZLT RTRNJR,YNHWBJ'}
+- event_bindings: {pressed_enter: motherboard_display_pressed_enter}
+  layout_properties: {grid_position: 'XQXFSN,RAUZLT RTRNJR,YNHWBJ'}
   name: motherboard_display
-  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: ''}
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
   type: TextBox
 - layout_properties: {grid_position: 'XQXFSN,RAUZLT ZCXRMV,MEBNYA'}
   name: ram_display
-  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
+  properties: {align: center, background: 'theme:White', border: none, enabled: true, foreground: 'theme:Black', placeholder: $00.00}
   type: TextBox
 - layout_properties: {grid_position: 'XQXFSN,RAUZLT YBHRAD,IHURUJ'}
   name: gpu_display
@@ -139,7 +148,8 @@ components:
   name: case_display
   properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
   type: TextBox
-- layout_properties: {grid_position: 'XQXFSN,RAUZLT RVGBDX,DAZWLO'}
+- event_bindings: {pressed_enter: psu_display_pressed_enter}
+  layout_properties: {grid_position: 'XQXFSN,RAUZLT RVGBDX,DAZWLO'}
   name: psu_display
   properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00, visible: true}
   type: TextBox
@@ -244,24 +254,29 @@ components:
   name: label_Storage_3_copy_copy
   properties: {text: 'Adapters:'}
   type: Label
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE MFVIDY,KNZPYK'}
+- event_bindings: {change: os_dropdown_change}
+  layout_properties: {grid_position: 'WXFYOD,DAFLDE MFVIDY,KNZPYK'}
   name: os_dropdown
   properties:
     items: []
   type: DropDown
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE IQMKNR,IKNEXV'}
+- event_bindings: {change: storage_2_dropdown_change}
+  layout_properties: {grid_position: 'WXFYOD,DAFLDE IQMKNR,IKNEXV'}
   name: storage_2_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE CYVLCV,LCKPLG'}
+- event_bindings: {change: storage_3_dropdown_change}
+  layout_properties: {grid_position: 'WXFYOD,DAFLDE CYVLCV,LCKPLG'}
   name: storage_3_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE IPPKFK,YESLZI'}
+- event_bindings: {change: fans_dropdown_change}
+  layout_properties: {grid_position: 'WXFYOD,DAFLDE IPPKFK,YESLZI'}
   name: fans_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE LPEGLE,NDWFKD'}
+- event_bindings: {change: adapters_dropdown_change}
+  layout_properties: {grid_position: 'WXFYOD,DAFLDE LPEGLE,NDWFKD'}
   name: adapters_dropdown
   properties: {}
   type: DropDown
@@ -282,7 +297,7 @@ components:
   properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
   type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,MAUEBC UDGSGO,MGKXQS'}
-  name: fans_display_copy
+  name: adapter_display
   properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
   type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,DNJZCC QYDRCQ,GYLLSG'}
@@ -326,8 +341,9 @@ components:
   properties: {height: 40, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
 - components:
-  - layout_properties: {width: 108.5875015258789, x: 633.5125549323857, y: 9.599998474121094}
-    name: total_price
+  - event_bindings: {pressed_enter: total_price_display_pressed_enter}
+    layout_properties: {width: 108.5875015258789, x: 633.5125549323857, y: 9.599998474121094}
+    name: total_price_display
     properties: {align: center, background: 'theme:Olive black', border: none, foreground: 'theme:White', placeholder: $00.00, spacing_above: none}
     type: TextBox
   - layout_properties: {width: 107.38750457763672, x: 109.90000610426068, y: 8}
