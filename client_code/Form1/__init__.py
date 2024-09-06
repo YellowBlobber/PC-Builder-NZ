@@ -133,6 +133,9 @@ class Form1(Form1Template):
             # Display stock status
             self.cpu_stock_display.text = stock_status  
 
+            # location image making visable
+            self.cpu_location.visible = True
+
   def cpu_cooler_dropdown_change(self, **event_args):
     print("CPU Cooler dropdown changed")
     selected_cpu_cooler = self.cpu_cooler_dropdown.selected_value
@@ -146,6 +149,12 @@ class Form1(Form1Template):
             self.cooling_display.text = f"${cpu_cooler_price:.2f}"
             self.component_prices['cpu_cooler'] = cpu_cooler_price
             self.update_total_price()
+
+            stock_status = row['Stock']  # Get stock status
+            # Display stock status
+            self.cooling_stock_display.text = stock_status
+           # location image making visable
+            self.cooling_location.visible = True
 
   def motherboard_dropdown_change(self, **event_args):
     print("Motherboard dropdown changed")
@@ -161,6 +170,12 @@ class Form1(Form1Template):
             self.motherboard_display.text = f"${motherbrd_price:.2f}"
             self.component_prices['motherboard'] =motherbrd_price
             self.update_total_price()
+
+            stock_status = row['Stock']  # Get stock status
+            # Display stock status
+            self.motherboard_stock_display.text = stock_status
+           # location image making visable
+            self.motherboard_location.visible = True
 
   def ram_dropdown_change(self, **event_args):
     selected_ram = self.ram_dropdown.selected_value
@@ -178,6 +193,12 @@ class Form1(Form1Template):
             self.component_prices['ram'] = ram_price
             self.update_total_price()
 
+            stock_status = row['Stock']  # Get stock status
+            # Display stock status
+            self.ram_stock_display.text = stock_status
+           # location image making visable
+            self.ram_location.visible = True
+
   def gpu_dropdown_change(self, **event_args):
     selected_gpu = self.gpu_dropdown.selected_value
     print(f"Selected GPU: {selected_gpu}")
@@ -193,6 +214,12 @@ class Form1(Form1Template):
             self.gpu_display.text = f"${gpu_price:.2f}"
             self.component_prices['gpu'] = gpu_price
             self.update_total_price()
+
+            stock_status = row['Stock']  # Get stock status
+            # Display stock status
+            self.gpu_stock_display.text = stock_status
+           # location image making visable
+            self.gpu_location.visible = True
 
   def case_dropdown_change(self, **event_args):
     selected_case = self.case_dropdown.selected_value
@@ -210,6 +237,12 @@ class Form1(Form1Template):
             self.component_prices['case'] = case_price
             self.update_total_price()
 
+            stock_status = row['Stock']  # Get stock status
+            # Display stock status
+            self.case_stock_display.text = stock_status
+           # location image making visable
+            self.case_location.visible = True
+
   def storage_dropdown_change(self, **event_args):
     selected_storage = self.storage_dropdown.selected_value
     print(f"Selected Storage: {selected_storage}")
@@ -225,6 +258,12 @@ class Form1(Form1Template):
             self.storage_display.text = f"${storage_price:.2f}"
             self.component_prices['storage'] = storage_price
             self.update_total_price()
+
+            stock_status = row['Stock']  # Get stock status
+            # Display stock status
+            self.storage_stock_display.text = stock_status
+           # location image making visable
+            self.storage_location.visible = True
 
   def os_dropdown_change(self, **event_args):
     selected_os = self.os_dropdown.selected_value
@@ -242,6 +281,12 @@ class Form1(Form1Template):
             self.component_prices['os'] = os_price
             self.update_total_price()
 
+            stock_status = row['Stock']  # Get stock status
+            # Display stock status
+            self.os_stock_display.text = stock_status
+           # location image making visable
+            self.os_location.visible = True
+  
   def fans_dropdown_change(self, **event_args):
     selected_fans = self.fans_dropdown.selected_value
     print(f"Selected Fans: {selected_fans}")
@@ -257,6 +302,12 @@ class Form1(Form1Template):
             self.fans_display.text = f"${fans_price:.2f}"
             self.component_prices['fans'] = fans_price
             self.update_total_price()
+
+            stock_status = row['Stock']  # Get stock status
+            # Display stock status
+            self.fans_stock_display.text = stock_status
+           # location image making visable
+            self.fans_location.visible = True
 
 
   def storage_2_dropdown_change(self, **event_args):
@@ -275,6 +326,12 @@ class Form1(Form1Template):
             self.component_prices['storage_2'] = storage_2_price
             self.update_total_price()
 
+            stock_status = row['Stock']  # Get stock status
+            # Display stock status
+            self.storage_stock_display_2.text = stock_status
+           # location image making visable
+            self.storage_2_location.visible = True
+
   def storage_3_dropdown_change(self, **event_args):
     selected_storage_3 = self.storage_3_dropdown.selected_value
     print(f"Selected Storage 3: {selected_storage_3}")
@@ -291,7 +348,11 @@ class Form1(Form1Template):
             self.component_prices['storage_3'] = storage_3_price
             self.update_total_price()
 
-  
+            stock_status = row['Stock']  # Get stock status
+            # Display stock status
+            self.storage_stock_display_3.text = stock_status
+           # location image making visable
+            self.storage_3_location.visible = True
 
   def adapters_dropdown_change(self, **event_args):
     selected_adapter = self.adapters_dropdown.selected_value
@@ -308,6 +369,12 @@ class Form1(Form1Template):
             self.adapter_display.text = f"${adapter_price:.2f}"
             self.component_prices['adapter'] = adapter_price
             self.update_total_price()
+
+            stock_status = row['Stock']  # Get stock status
+            # Display stock status
+            self.adapters_stock_display.text = stock_status
+           # location image making visable
+            self.adapters_location.visible = True
 
   
   def power_supply_dropdown_change(self, **event_args):
@@ -326,4 +393,8 @@ class Form1(Form1Template):
             self.component_prices['psu'] = psu_price
             self.update_total_price()
 
-#stock status display
+            stock_status = row['Stock']  # Get stock status
+            # Display stock status
+            self.psu_stock_display.text = stock_status
+           # location image making visable
+            self.psu_location.visible = True
