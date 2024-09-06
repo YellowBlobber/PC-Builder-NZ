@@ -35,192 +35,192 @@ components:
   type: XYPanel
 - layout_properties: {grid_position: 'TSPEHX,XIWLNY'}
   name: part_selection_title
-  properties: {align: center, bold: true, font: '', font_size: 30, icon: '', italic: false, role: null, spacing_above: large, spacing_below: large, text: PART SELECTION, underline: false}
+  properties: {align: center, bold: true, font: '', font_size: 30, icon: '', italic: false, role: null, spacing_above: large, spacing_below: large, text: 'PART SELECTION:', underline: false}
   type: Label
-- layout_properties: {grid_position: 'XQXFSN,ADIKYA'}
+- layout_properties: {grid_position: 'XQXFSN,ADIKYA IMKBYF,GLSPBH'}
   name: items_label
   properties: {bold: true, text: 'PART:'}
   type: Label
-- layout_properties: {grid_position: 'XQXFSN,FMNYJU'}
-  name: Selection_label
-  properties: {align: center, bold: true, text: 'SELECTION:'}
-  type: Label
-- layout_properties: {grid_position: 'XQXFSN,RAUZLT'}
-  name: price_label
-  properties: {align: center, bold: true, text: 'PRICE:   '}
-  type: Label
-- layout_properties: {grid_position: 'XQXFSN,LCIXJI'}
-  name: stock_label
-  properties: {align: center, bold: true, text: 'STOCK:'}
-  type: Label
-- layout_properties: {grid_position: 'XQXFSN,BKYAEN'}
-  name: stock_label_copy
-  properties: {align: center, bold: true, text: 'WHERE:'}
-  type: Label
-- layout_properties: {full_width_row: false, grid_position: 'MJRGTN,QCRFZY'}
+- layout_properties: {grid_position: 'XQXFSN,ADIKYA IKLHSU,ODSAHM'}
   name: label_1
   properties: {text: 'CPU:'}
   type: Label
-- layout_properties: {grid_position: 'MJRGTN,NOILNU'}
-  name: cpu_dropdown
-  properties: {enabled: true, visible: true}
-  type: DropDown
-- layout_properties: {grid_position: 'MJRGTN,IVDMZE'}
-  name: cpu_display
-  properties: {enabled: false}
-  type: TextBox
-- layout_properties: {grid_position: 'MJRGTN,HGVOTA'}
-  name: cpu_stock_display
-  properties: {enabled: false}
-  type: TextBox
-- layout_properties: {grid_position: 'MJRGTN,XVNFSR'}
-  name: Item_Loctaion_Logo_CPU
-  properties: {height: 42.5, source: _/theme/computer lounge logo.png, visible: false}
-  type: Image
-- layout_properties: {grid_position: 'SZDVHG,DIGEYX'}
+- layout_properties: {grid_position: 'XQXFSN,ADIKYA FJKZSH,VYVDXT'}
   name: label_1_copy_8
   properties: {text: 'CPU Cooler:'}
   type: Label
-- layout_properties: {grid_position: 'SZDVHG,VZKNHU'}
-  name: cpu_cooler_dropdown
-  properties: {}
-  type: DropDown
-- layout_properties: {grid_position: 'SZDVHG,BYDJJO'}
-  name: cooling_display
-  properties: {enabled: false}
-  type: TextBox
-- layout_properties: {grid_position: 'SZDVHG,BMIGYI'}
-  name: cooling_stock_display
-  properties: {enabled: false}
-  type: TextBox
-- layout_properties: {grid_position: 'SZDVHG,CPUYIB'}
-  name: Item_Loctaion_Logo_Cooler
-  properties: {height: 42.5, source: _/theme/computer lounge logo.png, visible: false}
-  type: Image
-- layout_properties: {grid_position: 'WKJWHW,QBJUFT'}
+- layout_properties: {grid_position: 'XQXFSN,ADIKYA YIDNGB,ZCHFCL'}
   name: label_1_copy_7
   properties: {text: 'Motherboard:'}
   type: Label
-- layout_properties: {grid_position: 'WKJWHW,WLHNWG'}
-  name: motherboard_dropdown
-  properties: {}
-  type: DropDown
-- layout_properties: {grid_position: 'WKJWHW,RULPRO'}
-  name: motherboard_display
-  properties: {enabled: false}
-  type: TextBox
-- layout_properties: {grid_position: 'WKJWHW,WREAJH'}
-  name: motherboard_stock_display
-  properties: {enabled: false}
-  type: TextBox
-- layout_properties: {grid_position: 'WKJWHW,EKALPU'}
-  name: Item_Loctaion_Logo_MB
-  properties: {height: 42.5, source: _/theme/computer lounge logo.png, visible: false}
-  type: Image
-- layout_properties: {grid_position: 'NSOQUP,VHVXMV'}
+- layout_properties: {grid_position: 'XQXFSN,ADIKYA UGVWEH,UGTYQO'}
   name: label_1_copy_6
   properties: {text: 'RAM:'}
   type: Label
-- layout_properties: {grid_position: 'NSOQUP,JAVNTR'}
-  name: ram_dropdown
-  properties: {}
-  type: DropDown
-- layout_properties: {grid_position: 'NSOQUP,PPXVIX'}
-  name: ram_display
-  properties: {enabled: false}
-  type: TextBox
-- layout_properties: {grid_position: 'NSOQUP,DSZNXH'}
-  name: ram_stock_display
-  properties: {enabled: false}
-  type: TextBox
-- layout_properties: {grid_position: 'NSOQUP,GQYYDY'}
-  name: Item_Loctaion_Logo_RAM
-  properties: {height: 42.5, source: _/theme/computer lounge logo.png, visible: false}
-  type: Image
-- layout_properties: {grid_position: 'NVVKWV,VUUGWB'}
+- layout_properties: {grid_position: 'XQXFSN,ADIKYA RMJTCA,XSQAYV'}
   name: label_1_copy_5
   properties: {text: 'GPU:'}
   type: Label
-- layout_properties: {grid_position: 'NVVKWV,VRASNX'}
-  name: gpu_dropdown
-  properties: {}
-  type: DropDown
-- layout_properties: {grid_position: 'NVVKWV,RBCMDT'}
-  name: gpu_display
-  properties: {enabled: false}
-  type: TextBox
-- layout_properties: {grid_position: 'NVVKWV,GLJSJZ'}
-  name: gpu_stock_display
-  properties: {enabled: false}
-  type: TextBox
-- layout_properties: {grid_position: 'NVVKWV,SDJWIT'}
-  name: Item_Loctaion_Logo_GPU
-  properties: {height: 42.5, source: _/theme/computer lounge logo.png, visible: false}
-  type: Image
-- layout_properties: {grid_position: 'ECWQBG,OUUJPM'}
+- layout_properties: {grid_position: 'XQXFSN,ADIKYA LZHSRZ,ZDTLLK'}
   name: label_1_copy_4
   properties: {text: 'Case:'}
   type: Label
-- layout_properties: {grid_position: 'ECWQBG,EZCVMU'}
-  name: case_dropdown
-  properties: {}
-  type: DropDown
-- layout_properties: {grid_position: 'ECWQBG,GXFQGU'}
-  name: case_display
-  properties: {enabled: false}
-  type: TextBox
-- layout_properties: {grid_position: 'ECWQBG,EQGCVG'}
-  name: case_stock_display
-  properties: {enabled: false}
-  type: TextBox
-- layout_properties: {grid_position: 'ECWQBG,XUERXC'}
-  name: Item_Loctaion_Logo_Case
-  properties: {height: 42.5, source: _/theme/computer lounge logo.png, visible: false}
-  type: Image
-- layout_properties: {grid_position: 'LKVCYB,IPQYUL'}
+- layout_properties: {grid_position: 'XQXFSN,ADIKYA NVNUIX,VMUGWW'}
   name: label_1_copy_3
   properties: {text: 'Power Supply:'}
   type: Label
-- layout_properties: {grid_position: 'LKVCYB,FTALFI'}
-  name: power_supply_dropdown
-  properties: {}
-  type: DropDown
-- layout_properties: {grid_position: 'LKVCYB,IMEUCT'}
-  name: psu_display
-  properties: {enabled: false, visible: true}
-  type: TextBox
-- layout_properties: {grid_position: 'LKVCYB,KJNBVL'}
-  name: psu_stock_display
-  properties: {enabled: false}
-  type: TextBox
-- layout_properties: {grid_position: 'LKVCYB,LUKUKX'}
-  name: Item_Loctaion_Logo_PSU
-  properties: {height: 42.5, source: _/theme/computer lounge logo.png, visible: false}
-  type: Image
-- layout_properties: {grid_position: 'EAKAYA,UCTUEC'}
+- layout_properties: {grid_position: 'XQXFSN,ADIKYA PTWGZP,ZRMQZD'}
   name: label_1_copy_2
   properties: {text: 'Storage:'}
   type: Label
-- layout_properties: {grid_position: 'EAKAYA,IPLCTC'}
+- layout_properties: {grid_position: 'XQXFSN,FMNYJU XBFNIA,FQVTDN'}
+  name: Selection_label
+  properties: {align: center, bold: true, text: 'SELECTION:'}
+  type: Label
+- layout_properties: {grid_position: 'XQXFSN,FMNYJU LGDKFO,QFKBDO'}
+  name: cpu_dropdown
+  properties: {enabled: true, visible: true}
+  type: DropDown
+- layout_properties: {grid_position: 'XQXFSN,FMNYJU YHAYIH,BWQQDM'}
+  name: cpu_cooler_dropdown
+  properties: {}
+  type: DropDown
+- layout_properties: {grid_position: 'XQXFSN,FMNYJU ZCBQPW,FHTIPJ'}
+  name: motherboard_dropdown
+  properties: {}
+  type: DropDown
+- layout_properties: {grid_position: 'XQXFSN,FMNYJU KZZOSP,WTZYNM'}
+  name: ram_dropdown
+  properties: {}
+  type: DropDown
+- layout_properties: {grid_position: 'XQXFSN,FMNYJU IPEWOW,UOBSNO'}
+  name: gpu_dropdown
+  properties: {}
+  type: DropDown
+- layout_properties: {grid_position: 'XQXFSN,FMNYJU ZJMFYP,YPWWGG'}
+  name: case_dropdown
+  properties: {}
+  type: DropDown
+- layout_properties: {grid_position: 'XQXFSN,FMNYJU JZGWZN,YCZXQL'}
+  name: power_supply_dropdown
+  properties: {}
+  type: DropDown
+- layout_properties: {grid_position: 'XQXFSN,FMNYJU QQNPIJ,RPEZVB'}
   name: storage_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'EAKAYA,EYYYJV'}
+- layout_properties: {grid_position: 'XQXFSN,RAUZLT INAGHD,MEAJMU'}
+  name: price_label
+  properties: {align: center, bold: true, text: 'PRICE:   '}
+  type: Label
+- layout_properties: {grid_position: 'XQXFSN,RAUZLT RIIFKP,KMRPPC'}
+  name: cpu_display
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
+  type: TextBox
+- layout_properties: {grid_position: 'XQXFSN,RAUZLT CKQXWE,MBBBTS'}
+  name: cooling_display
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
+  type: TextBox
+- layout_properties: {grid_position: 'XQXFSN,RAUZLT RTRNJR,YNHWBJ'}
+  name: motherboard_display
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
+  type: TextBox
+- layout_properties: {grid_position: 'XQXFSN,RAUZLT ZCXRMV,MEBNYA'}
+  name: ram_display
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
+  type: TextBox
+- layout_properties: {grid_position: 'XQXFSN,RAUZLT YBHRAD,IHURUJ'}
+  name: gpu_display
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
+  type: TextBox
+- layout_properties: {grid_position: 'XQXFSN,RAUZLT IPRRDB,APPIFL'}
+  name: case_display
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
+  type: TextBox
+- layout_properties: {grid_position: 'XQXFSN,RAUZLT RVGBDX,DAZWLO'}
+  name: psu_display
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00, visible: true}
+  type: TextBox
+- layout_properties: {grid_position: 'XQXFSN,RAUZLT PSTRCK,UQTBMV'}
   name: storage_display
-  properties: {enabled: false}
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
+  type: TextBox
+- layout_properties: {grid_position: 'XQXFSN,LCIXJI YUOBNT,MKRQHZ'}
+  name: stock_label
+  properties: {align: center, bold: true, text: 'STOCK:'}
+  type: Label
+- layout_properties: {grid_position: 'XQXFSN,LCIXJI HISQTV,OGFJGH'}
+  name: cpu_stock_display
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: '---'}
+  type: TextBox
+- layout_properties: {grid_position: 'XQXFSN,LCIXJI GXEPZB,JILXZI'}
+  name: cooling_stock_display
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: '---'}
+  type: TextBox
+- layout_properties: {grid_position: 'XQXFSN,LCIXJI XXNVUF,BTURMH'}
+  name: motherboard_stock_display
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: '---'}
+  type: TextBox
+- layout_properties: {grid_position: 'XQXFSN,LCIXJI DVOQDG,WAOBHX'}
+  name: ram_stock_display
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: '---'}
+  type: TextBox
+- layout_properties: {grid_position: 'XQXFSN,LCIXJI LSSMEL,GIEXAU'}
+  name: gpu_stock_display
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: '---'}
+  type: TextBox
+- layout_properties: {grid_position: 'XQXFSN,LCIXJI ZOQYIE,ZVPHEM'}
+  name: case_stock_display
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: '---'}
+  type: TextBox
+- layout_properties: {grid_position: 'XQXFSN,LCIXJI MNETKI,HEOILQ'}
+  name: psu_stock_display
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: '---'}
   type: TextBox
 - event_bindings: {pressed_enter: storage_stock_display_pressed_enter}
-  layout_properties: {grid_position: 'EAKAYA,XCDBNI'}
+  layout_properties: {grid_position: 'XQXFSN,LCIXJI CTUINN,IQUOGR'}
   name: storage_stock_display
-  properties: {enabled: false}
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: '---'}
   type: TextBox
-- layout_properties: {grid_position: 'EAKAYA,YYKXRU'}
-  name: Item_Loctaion_Logo_Storage
-  properties: {height: 42.5, source: _/theme/computer lounge logo.png, visible: false}
+- layout_properties: {grid_position: 'XQXFSN,BKYAEN TCVOSU,JJCOGH'}
+  name: stock_label_copy
+  properties: {align: center, bold: true, text: 'WHERE:'}
+  type: Label
+- layout_properties: {grid_position: 'XQXFSN,BKYAEN NOTDNQ,FAIOLB'}
+  name: cpu_location
+  properties: {height: 31, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
-- layout_properties: {full_width_row: true, grid_position: 'MDIUPR,PNPGGU'}
+- layout_properties: {grid_position: 'XQXFSN,BKYAEN MWHAHB,QEWEOA'}
+  name: cooling_location
+  properties: {height: 31, source: _/theme/computer lounge logo.png, visible: false}
+  type: Image
+- layout_properties: {grid_position: 'XQXFSN,BKYAEN YNASLE,TMSKNS'}
+  name: motherboard_location
+  properties: {height: 31, source: _/theme/computer lounge logo.png, visible: false}
+  type: Image
+- layout_properties: {grid_position: 'XQXFSN,BKYAEN AGSUAQ,BJOYQL'}
+  name: ram_location
+  properties: {height: 31, source: _/theme/computer lounge logo.png, visible: false}
+  type: Image
+- layout_properties: {grid_position: 'XQXFSN,BKYAEN XQQKTU,VBUICG'}
+  name: gpu_location
+  properties: {height: 31, source: _/theme/computer lounge logo.png, visible: false}
+  type: Image
+- layout_properties: {grid_position: 'XQXFSN,BKYAEN XSDJKT,SAGDCC'}
+  name: case_location
+  properties: {height: 31, source: _/theme/computer lounge logo.png, visible: false}
+  type: Image
+- layout_properties: {grid_position: 'XQXFSN,BKYAEN YFBGYF,CQTBLV'}
+  name: psu_location
+  properties: {height: 31, source: _/theme/computer lounge logo.png, visible: false}
+  type: Image
+- layout_properties: {grid_position: 'XQXFSN,BKYAEN YVHZPA,JULMQK'}
+  name: storage_location
+  properties: {height: 31, source: _/theme/computer lounge logo.png, visible: false}
+  type: Image
+- layout_properties: {grid_position: 'JHLCQP,ECYWOA'}
   name: label_2
-  properties: {align: center, bold: true, border: '', font_size: 25, icon_align: left_edge, italic: false, role: null, spacing_above: medium, spacing_below: medium, text: 'EXTRAS:', underline: false, visible: true}
+  properties: {align: center, bold: true, border: '', font_size: 25, icon_align: left_edge, italic: false, role: null, spacing_above: medium, spacing_below: medium, text: 'EXTRA ITEMS:', underline: false, visible: true}
   type: Label
 - layout_properties: {grid_position: 'WXFYOD,IIJJYH JGJFPO,GBUAQK'}
   name: label_Os
@@ -242,85 +242,65 @@ components:
   name: label_Storage_3_copy_copy
   properties: {text: 'Adapters:'}
   type: Label
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE YHFMBA,WNDEWB'}
-  name: os_iamge
-  properties: {height: 51}
-  type: Image
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE YHFMBA,HSVHWF'}
+- layout_properties: {grid_position: 'WXFYOD,DAFLDE MFVIDY,KNZPYK'}
   name: os_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE CWCACE,CBJBMN'}
-  name: image_1_copy
-  properties: {height: 51}
-  type: Image
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE CWCACE,FASPQJ'}
+- layout_properties: {grid_position: 'WXFYOD,DAFLDE IQMKNR,IKNEXV'}
   name: storage_2_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE IKDMUZ,QOZTCV'}
-  name: image_1_copy_copy
-  properties: {height: 51}
-  type: Image
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE IKDMUZ,SSBBNM'}
-  name: fans_dropdown_copy
-  properties: {}
-  type: DropDown
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE IRYKEN,WPTEIX'}
-  name: image_1_copy_copy_copy
-  properties: {height: 51}
-  type: Image
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE IRYKEN,VLOBXT'}
+- layout_properties: {grid_position: 'WXFYOD,DAFLDE CYVLCV,LCKPLG'}
   name: storage_3_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE KOKKYF,MKTBDF'}
-  name: image_1_copy_copy_copy_copy
-  properties: {height: 51}
-  type: Image
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE KOKKYF,KSHKVK'}
+- layout_properties: {grid_position: 'WXFYOD,DAFLDE IPPKFK,YESLZI'}
   name: fans_dropdown
+  properties: {}
+  type: DropDown
+- layout_properties: {grid_position: 'WXFYOD,DAFLDE LPEGLE,NDWFKD'}
+  name: adapters_dropdown
   properties: {}
   type: DropDown
 - layout_properties: {grid_position: 'WXFYOD,MAUEBC CLOSOO,ZSZQVM'}
   name: os_display
-  properties: {enabled: false}
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
   type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,MAUEBC XBUDRO,YJMDJK'}
   name: storage_2_display
-  properties: {enabled: false}
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
   type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,MAUEBC BGDGZP,QCDMJN'}
   name: storage_3_display
-  properties: {enabled: false}
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
   type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,MAUEBC KBEGNC,CJGEGM'}
   name: fans_display
-  properties: {enabled: false}
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
   type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,MAUEBC UDGSGO,MGKXQS'}
   name: fans_display_copy
-  properties: {enabled: false}
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
   type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,DNJZCC QYDRCQ,GYLLSG'}
   name: os_stock_display
-  properties: {enabled: false}
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: '---'}
   type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,DNJZCC OBMUFC,ZCMMHR'}
   name: storage_stock_display_2
-  properties: {enabled: false}
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: '---'}
   type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,DNJZCC BVYWGR,VQRVXG'}
   name: storage_stock_display_3
-  properties: {enabled: false}
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: '---'}
   type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,DNJZCC LOQMKH,JHNGRD'}
   name: fans_stock_display
-  properties: {enabled: false}
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: '---'}
   type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,DNJZCC HIAWQI,TUBOJC'}
   name: adapters_stock_display
-  properties: {enabled: false}
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: '---'}
   type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,IMSGTU TIUDVU,YGRBWV'}
   name: Item_Loctaion_Logo_OEM
@@ -334,7 +314,7 @@ components:
   name: Item_Loctaion_Logo_OEM_copy_copy
   properties: {height: 34, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
-- layout_properties: {grid_position: 'WXFYOD,IMSGTU PEHPRA,AUYRCY'}
+- layout_properties: {grid_position: 'WXFYOD,IMSGTU IGCGGM,RAMCSN'}
   name: Item_Loctaion_Logo_OEM_copy_copy_copy
   properties: {height: 32, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
@@ -342,7 +322,55 @@ components:
   name: Item_Loctaion_Logo_OEM_copy_copy_copy_copy
   properties: {height: 40, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
+- components:
+  - layout_properties: {width: 108.5875015258789, x: 633.5125549323857, y: 9.599998474121094}
+    name: total_price
+    properties: {align: center, background: 'theme:Olive black', border: none, foreground: 'theme:White', placeholder: $00.00, spacing_above: none}
+    type: TextBox
+  - layout_properties: {width: 107.38750457763672, x: 109.90000610426068, y: 8}
+    name: share_button
+    properties: {background: 'theme:Olive black', bold: true, foreground: 'theme:White', icon: 'fa:share-alt', icon_align: right, text: 'SHARE '}
+    type: Button
+  - layout_properties: {width: 102.98750305175781, x: 5.737500000745058, y: 8}
+    name: save_button
+    properties: {background: 'theme:Olive black', bold: true, foreground: 'theme:White', icon: 'fa:save', icon_align: right, text: ' SAVE '}
+    type: Button
+  - data_bindings: []
+    layout_properties: {width: 88.4000015258789, x: 874.7000549323857, y: 8}
+    name: buy_button
+    properties: {background: 'theme:Olive black', bold: true, border: none, foreground: 'theme:White', icon: 'fa:shopping-cart', icon_align: right, spacing_above: none, spacing_below: none, text: 'BUY '}
+    type: Button
+  - layout_properties: {width: 105.375, x: 549.4375427253544, y: 7.775001525878906}
+    name: label_6
+    properties:
+      align: center
+      bold: true
+      font_size: 15
+      foreground: theme:White
+      text: |
+        TOTAL PRICE:
+      visible: true
+    type: Label
+  - layout_properties: {width: 174.1999969482422, x: 265.8375061042607, y: 7.775001525878906}
+    name: label_6_copy
+    properties:
+      align: center
+      bold: true
+      font_size: 15
+      foreground: theme:White
+      text: |
+        ESTIMATED WATTAGE:
+      visible: true
+    type: Label
+  - layout_properties: {width: 69.76250457763672, x: 437.4999816901982, y: 11.200000762939453}
+    name: wattage_display
+    properties: {background: 'theme:Olive black', border: none, foreground: 'theme:White', placeholder: 0000W, spacing_below: medium}
+    type: TextBox
+  layout_properties: {full_width_row: false, grid_position: 'WUIHSF,JDXXST'}
+  name: xy_panel_2
+  properties: {background: 'theme:Olive black', foreground: '', height: 43.20001220703125, spacing_above: large, width: null}
+  type: XYPanel
 container:
-  properties: {col_widths: '{"QCRFZY":15,"NOILNU":48,"DIGEYX":9,"VZKNHU":29,"QBJUFT":9,"WLHNWG":14,"VHVXMV":15,"JAVNTR":25,"VUUGWB":15,"VRASNX":25,"OUUJPM":15,"EZCVMU":25,"IPQYUL":15,"FTALFI":25,"UCTUEC":15,"IPLCTC":25,"IVDMZE":15,"BYDJJO":8,"RULPRO":23,"PPXVIX":42,"RBCMDT":42,"GXFQGU":42,"IMEUCT":42,"EYYYJV":42,"ADIKYA":14,"FMNYJU":25,"RAUZLT":7,"HGVOTA":14,"BMIGYI":7,"WREAJH":7,"DSZNXH":13,"GLJSJZ":13,"EQGCVG":13,"KJNBVL":13,"XCDBNI":13,"LCIXJI":7,"BKYAEN":7,"IIJJYH":8,"DAFLDE":30,"MAUEBC":8,"DNJZCC":7,"IMSGTU":7,"XVNFSR":13,"EKALPU":7,"CPUYIB":7,"GQYYDY":12,"SDJWIT":12,"XUERXC":12,"LUKUKX":12,"YYKXRU":12,"WNDEWB":10,"HSVHWF":50,"ATGOFP":50,"CBJBMN":10,"FASPQJ":50,"QOZTCV":10,"SSBBNM":50,"WPTEIX":10,"VLOBXT":50,"MKTBDF":10,"KSHKVK":50}', visible: true}
+  properties: {col_widths: '{"ADIKYA":8,"FMNYJU":30,"RAUZLT":8,"LCIXJI":6,"BKYAEN":8,"IIJJYH":8,"DAFLDE":30,"MAUEBC":8,"DNJZCC":6,"IMSGTU":8,"KNZPYK":52,"IKNEXV":52,"LCKPLG":52,"YESLZI":52,"NDWFKD":52,"XIWLNY":60}', visible: true, wrap_on: mobile}
   type: ColumnPanel
 is_package: true

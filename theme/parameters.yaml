@@ -3,5 +3,7 @@ color_scheme:
   - {color: '#D9D9D9', name: Bone White}
   - {color: '#363732', name: Olive black}
   - {color: '#296EB4', name: Blue}
+  - {color: '#ffffff', name: White}
+  - {color: '#000000', name: Black}
   preset_groups: []
 roles: []
