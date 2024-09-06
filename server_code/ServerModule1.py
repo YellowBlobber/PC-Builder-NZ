@@ -100,14 +100,9 @@ def get_unique_price(sheet_data):
   categories_price = set(row['Price'] for row in sheet_data)
   return sorted(list(categories_price))
 
-# This is a server module. It runs on the Anvil server,
-# rather than in the user's browser.
+@anvil.server.callable
+#this fuction calls the item names in the picked index for worksheet eg 3, allows us to call and use the names of items in the form code
+def get_unique_stock(sheet_data):
+  categories_stock = set(row['Stock'] for row in sheet_data)
+  return sorted(list(categories_stock))
 
-# To allow anvil.server.call() to call functions here, we mark
-# them with @anvil.server.callable.
-# Here is an example - you can replace it with your own:
-
-# @anvil.server.callable
-# def say_hello(name):
-#   print("Hello, " + name + "!")
-#   return 42

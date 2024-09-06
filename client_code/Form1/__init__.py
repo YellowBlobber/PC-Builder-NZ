@@ -32,10 +32,6 @@ class Form1(Form1Template):
     'adapter': 0.0,
     'cpu_cooler': 0.0
     }
-
-    def update_total_price(self):
-      total_price = sum(self.component_prices.values())
-      self.total_price_display.text = f"${total_price:.2f}"
     
     self.worksheet = pcs[0]
     print(self.worksheet.fields)
@@ -113,6 +109,11 @@ class Form1(Form1Template):
    # Any code you write here will run before the form opens.
   
   #below is for price_display
+
+  def update_total_price(self):
+      total_price = sum(self.component_prices.values())
+      self.total_price_display.text = f"${total_price:.2f}"
+  
   def cpu_dropdown_change(self, **event_args):
     print("CPU dropdown changed")
     selected_cpu = self.cpu_dropdown.selected_value    
@@ -127,6 +128,10 @@ class Form1(Form1Template):
             self.cpu_display.text = f"${cpu_price:.2f}"  # Display formatted price
             self.component_prices['cpu'] = cpu_price
             self.update_total_price()
+
+            stock_status = row['Stock']  # Get stock status
+            # Display stock status
+            self.cpu_stock_display.text = stock_status  
 
   def cpu_cooler_dropdown_change(self, **event_args):
     print("CPU Cooler dropdown changed")
@@ -321,5 +326,4 @@ class Form1(Form1Template):
             self.component_prices['psu'] = psu_price
             self.update_total_price()
 
-
-
+#stock status display
