@@ -231,3 +231,7 @@ class Form1(Form1Template):
   def update_total_price(self):
     total_price = sum(self.component_prices.values())
     self.total_price_display.text = f"${total_price:.2f}"
+
+  def cpu_display_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass

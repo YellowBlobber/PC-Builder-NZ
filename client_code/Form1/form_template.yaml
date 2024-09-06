@@ -77,7 +77,8 @@ components:
   name: Selection_label
   properties: {align: center, bold: true, text: 'SELECTION:'}
   type: Label
-- layout_properties: {grid_position: 'XQXFSN,FMNYJU LGDKFO,QFKBDO'}
+- event_bindings: {change: cpu_dropdown_change}
+  layout_properties: {grid_position: 'XQXFSN,FMNYJU LGDKFO,QFKBDO'}
   name: cpu_dropdown
   properties: {enabled: true, visible: true}
   type: DropDown
@@ -113,7 +114,8 @@ components:
   name: price_label
   properties: {align: center, bold: true, text: 'PRICE:   '}
   type: Label
-- layout_properties: {grid_position: 'XQXFSN,RAUZLT RIIFKP,KMRPPC'}
+- event_bindings: {pressed_enter: cpu_display_pressed_enter}
+  layout_properties: {grid_position: 'XQXFSN,RAUZLT RIIFKP,KMRPPC'}
   name: cpu_display
   properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: ''}
   type: TextBox
@@ -303,23 +305,23 @@ components:
   name: adapters_stock_display
   properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: '---'}
   type: TextBox
-- layout_properties: {grid_position: 'WXFYOD,IMSGTU TIUDVU,YGRBWV'}
+- layout_properties: {grid_position: 'WXFYOD,IMSGTU TIUDVU,FPJYJT'}
   name: Item_Loctaion_Logo_OEM
   properties: {height: 31, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
-- layout_properties: {grid_position: 'WXFYOD,IMSGTU LCVCAZ,NWSPTK'}
+- layout_properties: {grid_position: 'WXFYOD,IMSGTU AZTFHT,GLJDOR'}
   name: Item_Loctaion_Logo_OEM_copy
   properties: {height: 36, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
-- layout_properties: {grid_position: 'WXFYOD,IMSGTU ZGZDZV,LCVLTK'}
+- layout_properties: {grid_position: 'WXFYOD,IMSGTU ZGZDZV,COZNZS'}
   name: Item_Loctaion_Logo_OEM_copy_copy
   properties: {height: 34, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
-- layout_properties: {grid_position: 'WXFYOD,IMSGTU IGCGGM,RAMCSN'}
+- layout_properties: {grid_position: 'WXFYOD,IMSGTU IGCGGM,NWPJPO'}
   name: Item_Loctaion_Logo_OEM_copy_copy_copy
   properties: {height: 32, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
-- layout_properties: {grid_position: 'WXFYOD,IMSGTU TRUHDF,UYXFNB'}
+- layout_properties: {grid_position: 'WXFYOD,IMSGTU TRUHDF,KMOUDN'}
   name: Item_Loctaion_Logo_OEM_copy_copy_copy_copy
   properties: {height: 40, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
