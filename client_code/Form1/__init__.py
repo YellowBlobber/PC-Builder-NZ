@@ -16,6 +16,8 @@ class Form1(Form1Template):
     self.init_components(**properties)
     #self.populate_categories(**properties)
     pcs = app_files.pc_builder_nz
+
+    self.component_prices = {}
     
     self.worksheet = pcs[0]
     print(self.worksheet.fields)
@@ -103,6 +105,7 @@ class Form1(Form1Template):
     selected_category = self.cpu_dropdown.selected_value
     items = anvil.server.call('get_items', selected_category)
     self.items_dropdown.items = items
+    
 
 
   def cpu_dropdown_show(self, **event_args):
@@ -133,3 +136,98 @@ class Form1(Form1Template):
     items = anvil.server.call('get_items', selected_category)
     self.items_dropdown.items = items
 
+
+  #this is adding in the price of said items:
+  def cpu_dropdown_change_price_text(self, **event_args):
+    selected_item = self.cpu_dropdown.selected_value
+    if selected_item:
+      price = anvil.server.call('get_item_price', selected_item, 1)  # 1 is the worksheet index for CPUs
+      self.cpu_display.text = f"${price:.2f}"
+      self.component_prices['cpu'] = price
+      self.update_total_price()
+
+  def gpu_dropdown_change_price_text(self, **event_args):
+    selected_item = self.gpu_dropdown.selected_value
+    if selected_item:
+      price = anvil.server.call('get_item_price', selected_item, 2)  # 2 is the worksheet index for GPUs
+      self.gpu_display.text = f"${price:.2f}"
+      self.component_prices['gpu'] = price
+      self.update_total_price()
+
+  def motherbrd_dropdown_change_price_text(self, **event_args):
+    selected_item = self.gpu_dropdown.selected_value
+    if selected_item:
+      price = anvil.server.call('get_item_price', selected_item, 3)
+      self.gpu_display.text = f"${price:.2f}"
+      self.component_prices['motherboard'] = price
+      self.update_total_price()
+
+  def case_dropdown_change_price_text(self, **event_args):
+    selected_item = self.gpu_dropdown.selected_value
+    if selected_item:
+      price = anvil.server.call('get_item_price', selected_item, 4)
+      self.gpu_display.text = f"${price:.2f}"
+      self.component_prices['case'] = price
+      self.update_total_price()
+
+  def ram_dropdown_change_price_text(self, **event_args):
+    selected_item = self.gpu_dropdown.selected_value
+    if selected_item:
+      price = anvil.server.call('get_item_price', selected_item, 5)
+      self.gpu_display.text = f"${price:.2f}"
+      self.component_prices['ram'] = price
+      self.update_total_price()
+
+  def storage_dropdown_change_price_text(self, **event_args):
+    selected_item = self.gpu_dropdown.selected_value
+    if selected_item:
+      price = anvil.server.call('get_item_price', selected_item, 6)
+      self.gpu_display.text = f"${price:.2f}"
+      self.component_prices['storage'] = price
+      self.update_total_price()
+
+  def fans_dropdown_change_price_text(self, **event_args):
+    selected_item = self.gpu_dropdown.selected_value
+    if selected_item:
+      price = anvil.server.call('get_item_price', selected_item, 7)
+      self.gpu_display.text = f"${price:.2f}"
+      self.component_prices['fans'] = price
+      self.update_total_price()
+
+  def cpu_cooler_dropdown_change_price_text(self, **event_args):
+    selected_item = self.gpu_dropdown.selected_value
+    if selected_item:
+      price = anvil.server.call('get_item_price', selected_item, 8)
+      self.gpu_display.text = f"${price:.2f}"
+      self.component_prices['cpu_cooler'] = price
+      self.update_total_price()
+
+  def adapters_dropdown_change_price_text(self, **event_args):
+    selected_item = self.gpu_dropdown.selected_value
+    if selected_item:
+      price = anvil.server.call('get_item_price', selected_item, 9)
+      self.gpu_display.text = f"${price:.2f}"
+      self.component_prices['adapters'] = price
+      self.update_total_price()
+
+  def psu_dropdown_change_price_text(self, **event_args):
+    selected_item = self.gpu_dropdown.selected_value
+    if selected_item:
+      price = anvil.server.call('get_item_price', selected_item, 10)
+      self.gpu_display.text = f"${price:.2f}"
+      self.component_prices['psu'] = price
+      self.update_total_price()
+
+  def os_dropdown_change_price_text(self, **event_args):
+    selected_item = self.gpu_dropdown.selected_value
+    if selected_item:
+      price = anvil.server.call('get_item_price', selected_item, 11)
+      self.gpu_display.text = f"${price:.2f}"
+      self.component_prices['os'] = price
+      self.update_total_price()
+
+
+  #total price
+  def update_total_price(self):
+    total_price = sum(self.component_prices.values())
+    self.total_price_display.text = f"${total_price:.2f}"

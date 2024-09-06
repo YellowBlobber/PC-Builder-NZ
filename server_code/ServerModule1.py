@@ -7,6 +7,18 @@ import anvil.tables.query as q
 import anvil.server
 import anvil.google.drive
 
+#prices:
+@anvil.server.callable
+def get_item_price(item_name, worksheet_index):
+  sheet = app_files.pc_builder_nz
+  worksheet = sheet.worksheets[worksheet_index]
+  for row in worksheet.rows:
+    if row['Item Name'] == item_name:
+      return float(row['Price'])
+  return 0.0  # Return 0 if item not found
+
+
+
 @anvil.server.callable
 #defining a function that calls the information in the index worksheet 1, in google sheets. [1] being the cpu worksheet.
 #the index [0] worksheet contains all items therefor we do not use index page 0 unless we are wanting all items.
