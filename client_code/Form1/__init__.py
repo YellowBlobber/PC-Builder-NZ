@@ -25,6 +25,10 @@ class Form1(Form1Template):
     categories_cpu = anvil.server.call('get_unique_categories',sheet_data_cpu)
     self.cpu_dropdown.items = categories_cpu
     
+    sheet_data_cpu_price = anvil.server.call('get_sheet_data_cpus')
+    categories_cpu_price = anvil.server.call('get_unique_price',sheet_data_cpu_price)
+    self.price_display_1.text = categories_cpu_price  
+    
     #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for gpu, then popluates the dropdown with the called items
     sheet_data_gpu = anvil.server.call('get_sheet_data_gpu')
     categories_gpu = anvil.server.call('get_unique_categories',sheet_data_gpu)
@@ -51,9 +55,9 @@ class Form1(Form1Template):
     self.storage_dropdown.items = categories_storage 
 
     #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
-    sheet_data_fans = anvil.server.call('get_sheet_data_fans')
+    ''' sheet_data_fans = anvil.server.call('get_sheet_data_fans')
     categories_fans = anvil.server.call('get_unique_categories',sheet_data_fans)
-    self.fans_dropdown.items = categories_fans 
+    self.fans_dropdown.items = categories_fans'''
 
     #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
     sheet_data_case = anvil.server.call('get_sheet_data_case')
@@ -66,19 +70,19 @@ class Form1(Form1Template):
     self.cpu_cooler_dropdown.items = categories_cpu_cooler 
 
     #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
-    sheet_data_adapters = anvil.server.call('get_sheet_data_adapters')
-    categories_adapters = anvil.server.call('get_unique_categories',sheet_data_adapters)
-    self.adapters_dropdown.items = categories_adapters 
+    #sheet_data_adapters = anvil.server.call('get_sheet_data_adapters')
+    #categories_adapters = anvil.server.call('get_unique_categories',sheet_data_adapters)
+    #self.adapters_dropdown.items = categories_adapters 
 
     #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
-    sheet_data_psu = anvil.server.call('get_sheet_data_psu')
-    categories_psu = anvil.server.call('get_unique_categories',sheet_data_psu)
-    self.power_supply_dropdown.items = categories_psu 
+    #sheet_data_psu = anvil.server.call('get_sheet_data_psu')
+    #categories_psu = anvil.server.call('get_unique_categories',sheet_data_psu)
+    #self.power_supply_dropdown.items = categories_psu 
     
     #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
-    sheet_data_os = anvil.server.call('get_sheet_data_os')
-    categories_os = anvil.server.call('get_unique_categories',sheet_data_os)
-    self.power_os_dropdown.items = categories_os    
+    #sheet_data_os = anvil.server.call('get_sheet_data_os')
+    #categories_os = anvil.server.call('get_unique_categories',sheet_data_os)
+    #self.power_os_dropdown.items = categories_os    
     
    # Any code you write here will run before the form opens.
   
