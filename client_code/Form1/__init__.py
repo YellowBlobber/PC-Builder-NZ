@@ -32,6 +32,15 @@ class Form1(Form1Template):
     'adapter': 0.0,
     'cpu_cooler': 0.0
     }
+
+    self.component_wattage = {
+    'cpu': 0.0,
+    'gpu': 0.0,
+    'motherboard': 0.0,
+    'ram': 0.0,
+    'storage': 0.0,
+    'cpu_cooler': 0.0
+    }
     
     self.worksheet = pcs[0]
     print(self.worksheet.fields)
@@ -113,6 +122,10 @@ class Form1(Form1Template):
   def update_total_price(self):
       total_price = sum(self.component_prices.values())
       self.total_price_display.text = f"${total_price:.2f}"
+
+  def update_total_wattage(self):
+      total_wattage = sum(self.component_wattage.values())
+      self.wattage_display.text = total_wattage
   
   def cpu_dropdown_change(self, **event_args):
     print("CPU dropdown changed")
@@ -135,6 +148,15 @@ class Form1(Form1Template):
 
             # location image making visable
             self.cpu_location.visible = True
+    # wattage:
+    for row in sheet_data_cpu:
+      print(f"Checking row: {row['Item Name']}")
+      if row['Item Name'].strip() == selected_cpu.strip():
+          cpu_wattage_str = row['Value option']
+          cpu_wattage = float(cpu_wattage_str)
+          print(f"Price found: {cpu_wattage}")
+          self.component_wattage['cpu'] = f""{cpu_wattage:}
+          self.update_total_wattage()
 
   def cpu_cooler_dropdown_change(self, **event_args):
     print("CPU Cooler dropdown changed")
