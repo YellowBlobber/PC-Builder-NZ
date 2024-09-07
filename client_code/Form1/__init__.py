@@ -125,7 +125,7 @@ class Form1(Form1Template):
 
   def update_total_wattage(self):
       total_wattage = sum(self.component_wattage.values())
-      self.wattage_display.text = total_wattage
+      self.wattage_display.text = f"{total_wattage:0f}W"
   
   def cpu_dropdown_change(self, **event_args):
     print("CPU dropdown changed")
@@ -155,7 +155,7 @@ class Form1(Form1Template):
           cpu_wattage_str = row['Value option']
           cpu_wattage = float(cpu_wattage_str)
           print(f"Price found: {cpu_wattage}")
-          self.component_wattage['cpu'] = f""{cpu_wattage:}
+          self.component_wattage['cpu'] = cpu_wattage
           self.update_total_wattage()
 
   def cpu_cooler_dropdown_change(self, **event_args):
@@ -178,6 +178,16 @@ class Form1(Form1Template):
            # location image making visable
             self.cooling_location.visible = True
 
+    # wattage:
+    for row in sheet_data_cpu_cooler:
+      print(f"Checking row: {row['Item Name']}")
+      if row['Item Name'].strip() == selected_cpu_cooler.strip():
+          cpu_cooler_wattage_str = row['Value option']
+          cpu_cooler_wattage = float(cpu_cooler_wattage_str)
+          print(f"Price found: {cpu_cooler_wattage}")
+          self.component_wattage['cpu_cooler'] = cpu_cooler_wattage
+          self.update_total_wattage()
+
   def motherboard_dropdown_change(self, **event_args):
     print("Motherboard dropdown changed")
     selected_motherbrd = self.motherboard_dropdown.selected_value
@@ -198,6 +208,16 @@ class Form1(Form1Template):
             self.motherboard_stock_display.text = stock_status
            # location image making visable
             self.motherboard_location.visible = True
+
+    # wattage:
+    for row in sheet_data_motherbrd:
+      print(f"Checking row: {row['Item Name']}")
+      if row['Item Name'].strip() == selected_motherbrd.strip():
+          motherbrd_wattage_str = row['Value option']
+          motherbrd_wattage = float(motherbrd_wattage_str)
+          print(f"Price found: {motherbrd_wattage}")
+          self.component_wattage['motehr'] = motherbrd_wattage
+          self.update_total_wattage()
 
   def ram_dropdown_change(self, **event_args):
     selected_ram = self.ram_dropdown.selected_value
