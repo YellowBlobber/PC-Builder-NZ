@@ -38,6 +38,8 @@ class Form1(Form1Template):
     'gpu': 0.0,
     'motherboard': 0.0,
     'storage': 0.0,
+    'storage_2': 0.0,
+    'storage_3': 0.0,
     'cpu_cooler': 0.0
     }
     
@@ -124,7 +126,7 @@ class Form1(Form1Template):
 
   def update_total_wattage(self):
       total_wattage = sum(self.component_wattage.values())
-      self.wattage_display.text = f"{total_wattage:0f}W"
+      self.wattage_display.text = f"{total_wattage}W"
   
   def cpu_dropdown_change(self, **event_args):
     print("CPU dropdown changed")
@@ -212,9 +214,6 @@ class Form1(Form1Template):
     for row in sheet_data_motherbrd:
       print(f"Checking row: {row['Item Name']}")
       if row['Item Name'].strip() == selected_motherbrd.strip():
-          motherbrd_wattage_str = row['Value option']
-          motherbrd_wattage = float(motherbrd_wattage_str)
-          print(f"Wattage found: {motherbrd_wattage}")
           self.component_wattage['motherboard'] = 50
           self.update_total_wattage()
 
@@ -319,9 +318,6 @@ class Form1(Form1Template):
     for row in sheet_data_storage:
       print(f"Checking row: {row['Item Name']}")
       if row['Item Name'].strip() == selected_storage.strip():
-          storage_wattage_str = row['Value option']
-          storage_wattage = float(storage_wattage_str)
-          print(f"wattage found: {storage_wattage}")
           self.component_wattage['storage'] = 10
           self.update_total_wattage()
 
@@ -392,6 +388,13 @@ class Form1(Form1Template):
            # location image making visable
             self.storage_2_location.visible = True
 
+    # wattage:
+    for row in sheet_data_storage:
+      print(f"Checking row: {row['Item Name']}")
+      if row['Item Name'].strip() == selected_storage_2.strip():
+          self.component_wattage['storage_2'] = 10
+          self.update_total_wattage()
+
   def storage_3_dropdown_change(self, **event_args):
     selected_storage_3 = self.storage_3_dropdown.selected_value
     print(f"Selected Storage 3: {selected_storage_3}")
@@ -413,6 +416,13 @@ class Form1(Form1Template):
             self.storage_stock_display_3.text = stock_status
            # location image making visable
             self.storage_3_location.visible = True
+
+    # wattage:
+    for row in sheet_data_storage:
+      print(f"Checking row: {row['Item Name']}")
+      if row['Item Name'].strip() == selected_storage_3.strip():
+          self.component_wattage['storage_3'] = 10
+          self.update_total_wattage()
 
   def adapters_dropdown_change(self, **event_args):
     selected_adapter = self.adapters_dropdown.selected_value
