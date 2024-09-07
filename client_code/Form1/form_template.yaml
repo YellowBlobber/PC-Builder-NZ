@@ -230,6 +230,10 @@ components:
   name: storage_location
   properties: {height: 31, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
+- layout_properties: {grid_position: 'XQXFSN,GMSGEB'}
+  name: cpu_image
+  properties: {height: 106.33331298828125, visible: false}
+  type: Image
 - layout_properties: {grid_position: 'JHLCQP,ECYWOA'}
   name: label_2
   properties: {align: center, bold: true, border: '', font_size: 25, icon_align: left_edge, italic: false, role: null, spacing_above: medium, spacing_below: medium, text: 'EXTRA ITEMS:', underline: false, visible: true}
@@ -381,7 +385,7 @@ components:
         ESTIMATED WATTAGE:
       visible: true
     type: Label
-  - layout_properties: {width: 67.5173645019531, x: 445.065987482667, y: 10}
+  - layout_properties: {width: 94.35766254882817, x: 445.065987482667, y: 10}
     name: wattage_display
     properties: {background: 'theme:Olive black', border: none, enabled: false, foreground: 'theme:White', placeholder: 0000W, spacing_below: medium, visible: true}
     type: TextBox

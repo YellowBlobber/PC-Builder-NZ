@@ -154,10 +154,20 @@ class Form1(Form1Template):
       print(f"Checking row: {row['Item Name']}")
       if row['Item Name'].strip() == selected_cpu.strip():
           cpu_wattage_str = row['Value option']
-          cpu_wattage = float(cpu_wattage_str)
+          cpu_wattage = int(cpu_wattage_str)
           print(f"Wattage found: {cpu_wattage}")
           self.component_wattage['cpu'] = cpu_wattage
           self.update_total_wattage()
+    # image change
+    for row in sheet_data_cpu:
+      if row['Item Name'] == selected_cpu:
+          image_url = row['Image Links']
+          print(f"Image URL: {image_url}")
+            
+            # Set the image source to the fetched URL
+          self.cpu_image.source = image_url
+          self.cpu_image.visible = True
+
 
   def cpu_cooler_dropdown_change(self, **event_args):
     print("CPU Cooler dropdown changed")
@@ -184,7 +194,7 @@ class Form1(Form1Template):
       print(f"Checking row: {row['Item Name']}")
       if row['Item Name'].strip() == selected_cpu_cooler.strip():
           cpu_cooler_wattage_str = row['Value option']
-          cpu_cooler_wattage = float(cpu_cooler_wattage_str)
+          cpu_cooler_wattage = int(cpu_cooler_wattage_str)
           print(f"wattage found: {cpu_cooler_wattage}")
           self.component_wattage['cpu_cooler'] = cpu_cooler_wattage
           self.update_total_wattage()
@@ -265,7 +275,7 @@ class Form1(Form1Template):
       print(f"Checking row: {row['Item Name']}")
       if row['Item Name'].strip() == selected_gpu.strip():
           gpu_wattage_str = row['Value option']
-          gpu_wattage = float(gpu_wattage_str)
+          gpu_wattage = int(gpu_wattage_str)
           print(f"wattage found: {gpu_wattage}")
           self.component_wattage['gpu'] = gpu_wattage
           self.update_total_wattage()
