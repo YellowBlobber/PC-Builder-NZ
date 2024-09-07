@@ -342,7 +342,7 @@ components:
   type: Image
 - components:
   - event_bindings: {pressed_enter: total_price_display_pressed_enter}
-    layout_properties: {width: 108.5875015258789, x: 633.5125549323857, y: 9.599998474121094}
+    layout_properties: {width: 108.5875015258789, x: 633.5125549323857, y: 9}
     name: total_price_display
     properties: {align: center, background: 'theme:Olive black', border: none, enabled: false, foreground: 'theme:White', placeholder: $00.00, spacing_above: none}
     type: TextBox
@@ -381,7 +381,7 @@ components:
         ESTIMATED WATTAGE:
       visible: true
     type: Label
-  - layout_properties: {width: 69.76250457763672, x: 437.4999816901982, y: 11.200000762939453}
+  - layout_properties: {width: 67.5173645019531, x: 445.065987482667, y: 10}
     name: wattage_display
     properties: {background: 'theme:Olive black', border: none, enabled: false, foreground: 'theme:White', placeholder: 0000W, spacing_below: medium, visible: true}
     type: TextBox
