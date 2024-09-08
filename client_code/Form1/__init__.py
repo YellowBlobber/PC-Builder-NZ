@@ -566,5 +566,9 @@ class Form1(Form1Template):
     """This method is called when the button is clicked"""
     pass
 
+  def buy_button_click(self, **event_args):
+    """"""
+    pass
+
 
 

@@ -127,27 +127,13 @@ def save_build(build_name, selected_items):
         print("Selections saved successfully!")
       else:
         raise ValueError("No user is logged in.")
+        anvil.users.login_with_form()
     else:
       raise ValueError("build_name must be a string.")
 
 @anvil.server.callable
 def get_builds_for_user():
     user = anvil.users.get_user()
-    if user:
-        # Get the encryption key from Anvil Secrets
-        encryption_key = anvil.secrets.get_secret('encryption_key')
-        cipher = Fernet(encryption_key)
-        
-        # Fetch builds for the user
+    if user:      
         builds = app_tables.builds.search(user=user)
-        
-        # Decrypt the build names before returning
-        decrypted_builds = []
-        for build in builds:
-            decrypted_name = cipher.decrypt(build['build_name'].encode()).decode()  # Decrypt the build name
-            decrypted_builds.append({
-                'build_name': decrypted_name,
-                'selected_items': build['selected_items'],
-            })
-        
-        return decrypted_builds
+    return builds
