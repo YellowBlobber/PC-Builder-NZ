@@ -1,3 +1,4 @@
+from ..name_build_form import name_build_formTemplate
 from ._anvil_designer import Form1Template
 from anvil import *
 import anvil.server
@@ -516,35 +517,23 @@ class Form1(Form1Template):
     # displays a message to the user
     alert("Selections saved successfully!")
 
+  def save_button_click(self, **event_args):
+    # Create an instance of the name_build_form
+    name_form = name_build_formTemplate()
+    
+    result = alert(content=name_form, title="Name Your Build", buttons=[("OK", True)])
+    if result:
+        build_name = name_form.build_name_textbox.text
+        self.save_build(build_name)
+
   def save_build(self, name, selected_items):
     user = anvil.users.get_user()  # Get the logged-in user
     if user:
         app_tables.saved_builds.add_row(
             user=user,
-            build_name=name,
+            build_name = name,
             components=selected_items,
             created_on=anvil.server.now()
         )
     else:
         anvil.users.login_with_form()  # Ask the user to log in
-
-  def save_button_click(self, **event_args):
-    # Create an instance of the NameBuildForm
-    name_form = NameBuildForm()
-    
-    # Show the alert and get the user's input
-    anvil.alert(name_form, title="Name Your Build", buttons=[])
-    
-    # Check if the user provided a name
-    if name_form.build_name:
-        build_name = name_form.build_name
-        selected_items = self.component_prices  # Your selected components
-        
-        # Call the server function to save the build
-        try:
-            result = anvil.server.call('save_build', build_name, selected_items, anvil.users.get_user())
-            alert(result)
-        except Exception as e:
-            alert(f"Error saving build: {str(e)}")
-    else:
-        alert("No build name was entered. Please try again.")

@@ -1,15 +1,7 @@
-from ._anvil_designer import NameBuildFormTemplate
+from ._anvil_designer import name_build_formTemplate
 from anvil import *
-import anvil.server
-import anvil.google.auth, anvil.google.drive
-from anvil.google.drive import app_files
-import anvil.users
-import anvil.tables as tables
-import anvil.tables.query as q
-from anvil.tables import app_tables
 
-
-class NameBuildForm(NameBuildFormTemplate):
+class name_build_form(name_build_formTemplate):
     def __init__(self, **properties):
         self.init_components(**properties)
         self.build_name = None  # To store the name entered by the user
@@ -19,4 +11,4 @@ class NameBuildForm(NameBuildFormTemplate):
         if self.build_name:
             self.raise_event('x-close-alert')  # Close the alert when submit is clicked
         else:
-            alert("Please enter a name for your build.")  # Show alert if name is empty
+            alert("Please enter a name for your build.")
