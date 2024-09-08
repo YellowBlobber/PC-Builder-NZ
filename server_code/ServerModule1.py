@@ -6,7 +6,12 @@ import anvil.tables as tables
 import anvil.tables.query as q
 import anvil.server
 import anvil.google.drive
-import nz
+import anvil.users
+from anvil.tables import app_tables
+from cryptography.fernet import Fernet
+import anvil.secrets
+
+
 
 @anvil.server.callable
 #defining a function that calls the information in the index worksheet 1, in google sheets. [1] being the cpu worksheet.
@@ -105,23 +110,44 @@ def get_unique_stock(sheet_data):
   categories_stock = set(row['Stock'] for row in sheet_data)
   return sorted(list(categories_stock))
 
-
 @anvil.server.callable
-def save_build(build_name, created_on):
-    # Ensure build_name is a string
+def save_build(build_name, selected_items):
+    
     if isinstance(build_name, str):
         # Get the logged-in user
-        user = anvil.user.get_user()
+      user = anvil.users.get_user()
 
-        if user:
-            # Save the build with reference to the user
-            tables.build.add_row(
-                build_name=build_name,
-                created_on=created_on,
-                user=user  # Associate the build with the user
-            )
-        else:
-            raise ValueError("No user is logged in.")
+      if user:
+          # Save the build with reference to the user
+        app_tables.builds.add_row(
+          build_name = build_name, # Encrypts the build name so in the data table the name of the build is hidden for privacy
+          selected_items = selected_items,
+          user = user
+          )
+        print("Selections saved successfully!")
+      else:
+        raise ValueError("No user is logged in.")
     else:
-        raise ValueError("build_name must be a string.")
+      raise ValueError("build_name must be a string.")
 
+@anvil.server.callable
+def get_builds_for_user():
+    user = anvil.users.get_user()
+    if user:
+        # Get the encryption key from Anvil Secrets
+        encryption_key = anvil.secrets.get_secret('encryption_key')
+        cipher = Fernet(encryption_key)
+        
+        # Fetch builds for the user
+        builds = app_tables.builds.search(user=user)
+        
+        # Decrypt the build names before returning
+        decrypted_builds = []
+        for build in builds:
+            decrypted_name = cipher.decrypt(build['build_name'].encode()).decode()  # Decrypt the build name
+            decrypted_builds.append({
+                'build_name': decrypted_name,
+                'selected_items': build['selected_items'],
+            })
+        
+        return decrypted_builds

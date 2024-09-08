@@ -21,13 +21,19 @@ components:
     name: label_3
     properties: {font_size: 20, icon: 'fa:search', spacing_above: none, spacing_below: none}
     type: Label
-  - layout_properties: {width: 65, x: 1127, y: 15.046875}
-    name: label_5
-    properties: {font_size: 45, foreground: 'theme:Bone White', icon: 'fa:user-circle'}
+  - event_bindings: {click: login_button_click}
+    layout_properties: {width: 200, x: 896.375, y: 32.875}
+    name: login_button
+    properties: {text: SIGN UP/LOGIN}
+    type: Button
+  - layout_properties: {width: 52.76041793823242, x: 1074.809136286378, y: 15.069445505738258}
+    name: profile_icon
+    properties: {font_size: 45, foreground: 'theme:Bone White', icon: 'fa:user-circle', text: '', visible: false}
     type: Label
-  - layout_properties: {width: 200, x: 896.375, y: 32.875}
-    name: button_1
-    properties: {text: Sign Up/Sign In}
+  - event_bindings: {click: my_account_button_click}
+    layout_properties: {width: 200.00001525878906, x: 898.4896172434092, y: 31.68402947485447}
+    name: my_account_button
+    properties: {text: MY ACCOUNT, visible: false}
     type: Button
   layout_properties: {full_width_row: true, grid_position: 'IJOFDX,OJRGNJ', row_background: 'theme:Olive black'}
   name: xy_panel_1

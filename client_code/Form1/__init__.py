@@ -531,28 +531,40 @@ class Form1(Form1Template):
         
         # Check if a name was entered
         if build_name:
-            # Call save_build with the name provided
-            self.save_build(build_name)
+            selected_items = {
+                "cpu": self.cpu_dropdown.selected_value,
+                "gpu": self.gpu_dropdown.selected_value,
+                "motherboard": self.motherboard_dropdown.selected_value,
+                "ram": self.ram_dropdown.selected_value,
+                "cpu_cooler": self.cpu_cooler_dropdown.selected_value,
+                "case": self.case_dropdown.selected_value,
+                "psu": self.power_supply_dropdown.selected_value,
+                "storage": self.storage_dropdown.selected_value,
+                "os": self.os_dropdown.selected_value,
+                "storage_2": self.storage_2_dropdown.selected_value,
+                "storage_3": self.storage_3_dropdown.selected_value,
+                "adapters": self.adapters_dropdown.selected_value,
+            }
+           # Call the server function to save the build
+            anvil.server.call('save_build', build_name, selected_items)
         else:
             alert("Please enter a name for your build.")
 
-
-  def save_build(self, build_name):
-    # Check if the user is logged in
-    user = anvil.users.get_user()
-    if not user:
-        # Prompt user to log in if they are not logged in
-        user = anvil.users.login_with_form()
-
+  def login_button_click(self, **event_args):
+    # Show Anvil's built-in login form
+    user = anvil.users.login_with_form()
+    
     if user:
-        created_on = datetime.now()
-
-        # Ensure build_name is a string, not a Form or object
-        if isinstance(build_name, str):
-            # Call server function to save the build for the logged-in user
-            anvil.server.call('save_build', build_name, created_on)
-        else:
-            raise ValueError("build_name must be a string.")
+        alert(f"Welcome, {user['email']}!")
+        self.profile_icon.visible = True
+        self.login_button.visible = False
+        self.my_account_button.visible = True
     else:
-        # If user refuses to log in, alert the user that the build can't be saved
-        alert("You need to log in to save your build.")
+        alert("Login failed or was canceled.")
+
+  def my_account_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
+
+
