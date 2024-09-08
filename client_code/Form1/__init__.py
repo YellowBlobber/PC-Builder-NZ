@@ -9,6 +9,8 @@ from anvil.tables import app_tables
 from random import choice
 import anvil.media
 import anvil.server
+import anvil.users
+
 
 
 class Form1(Form1Template):
@@ -16,7 +18,6 @@ class Form1(Form1Template):
     self.init_components(**properties)
     #self.populate_categories(**properties)
     pcs = app_files.pc_builder_nz
-
     self.component_prices = {
     'cpu': 0.0,
     'gpu': 0.0,
@@ -478,3 +479,72 @@ class Form1(Form1Template):
             self.psu_stock_display.text = stock_status
            # location image making visable
             self.psu_location.visible = True
+  
+  def save_selections(self, **event_args):
+    # Get selected values from dropdowns
+    selected_cpu = self.cpu_dropdown.selected_value
+    selected_gpu = self.gpu_dropdown.selected_value
+    selected_motherboard = self.motherboard_dropdown.selected_value
+    selected_cpu_cooler = self.cpu_cooler_dropdown.selected_value
+    selected_ram = self.ram_dropdown.selected_value
+    selected_case = self.case_dropdown.selected_value
+    selected_psu = self.power_supply_dropdown.selected_value
+    selected_storage = self.storage_dropdown.selected_value
+    #extra items
+    selected_os = self.os_dropdown.selected_value
+    selected_storage_2 = self.storage_2_dropdown.selected_value
+    selected_storage_3 = self.storage_3_dropdown.selected_value
+    selected_fans = self.fans_dropdown.selected_value
+    selected_adapters = self.adapters_dropdown.selected_value
+    
+    # Insert the selected values into the 'saved_items' data table
+    app_tables.saved_items.add_row(
+      cpu = selected_cpu,
+      gpu = selected_gpu,
+      motherboard = selected_motherboard,
+      cpu_cooler = selected_cpu_cooler,
+      ram = selected_ram,
+      case = selected_case,
+      psu = selected_psu,
+      storage = selected_storage,
+      os = selected_os,
+      storage_2 = selected_storage_2,
+      storage_3 = selected_storage_3,  
+      fans = selected_fans,
+      adapters = selected_adapters
+    )
+    # displays a message to the user
+    alert("Selections saved successfully!")
+
+  def save_build(self, name, selected_items):
+    user = anvil.users.get_user()  # Get the logged-in user
+    if user:
+        app_tables.saved_builds.add_row(
+            user=user,
+            build_name=name,
+            components=selected_items,
+            created_on=anvil.server.now()
+        )
+    else:
+        anvil.users.login_with_form()  # Ask the user to log in
+
+  def save_button_click(self, **event_args):
+    # Create an instance of the NameBuildForm
+    name_form = NameBuildForm()
+    
+    # Show the alert and get the user's input
+    anvil.alert(name_form, title="Name Your Build", buttons=[])
+    
+    # Check if the user provided a name
+    if name_form.build_name:
+        build_name = name_form.build_name
+        selected_items = self.component_prices  # Your selected components
+        
+        # Call the server function to save the build
+        try:
+            result = anvil.server.call('save_build', build_name, selected_items, anvil.users.get_user())
+            alert(result)
+        except Exception as e:
+            alert(f"Error saving build: {str(e)}")
+    else:
+        alert("No build name was entered. Please try again.")

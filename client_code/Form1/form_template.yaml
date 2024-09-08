@@ -354,7 +354,8 @@ components:
     name: share_button
     properties: {background: 'theme:Olive black', bold: true, foreground: 'theme:White', icon: 'fa:share-alt', icon_align: right, text: 'SHARE '}
     type: Button
-  - layout_properties: {width: 102.98750305175781, x: 5.737500000745058, y: 8}
+  - event_bindings: {click: save_button_click}
+    layout_properties: {width: 102.98750305175781, x: 5.737500000745058, y: 8}
     name: save_button
     properties: {background: 'theme:Olive black', bold: true, foreground: 'theme:White', icon: 'fa:save', icon_align: right, text: ' SAVE '}
     type: Button

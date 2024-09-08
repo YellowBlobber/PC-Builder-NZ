@@ -7,8 +7,6 @@ import anvil.tables.query as q
 import anvil.server
 import anvil.google.drive
 
-
-
 @anvil.server.callable
 #defining a function that calls the information in the index worksheet 1, in google sheets. [1] being the cpu worksheet.
 #the index [0] worksheet contains all items therefor we do not use index page 0 unless we are wanting all items.
@@ -106,3 +104,17 @@ def get_unique_stock(sheet_data):
   categories_stock = set(row['Stock'] for row in sheet_data)
   return sorted(list(categories_stock))
 
+@anvil.server.callable
+def save_build(build_name, selected_items, user):
+    # Get the user who is logged in
+    user = anvil.users.get_user()
+    if user:
+        # Add a new row to the "builds" table with the build name, selected items, and user
+      tables.builds.add_row(
+        build_name=build_name,
+        selected_items=selected_items,
+        user=user
+      )
+      return "Build saved successfully"
+    else:
+      return "No user is logged in"
