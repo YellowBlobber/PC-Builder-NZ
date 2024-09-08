@@ -6,6 +6,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 import anvil.server
 import anvil.google.drive
+import nz
 
 @anvil.server.callable
 #defining a function that calls the information in the index worksheet 1, in google sheets. [1] being the cpu worksheet.
@@ -104,17 +105,23 @@ def get_unique_stock(sheet_data):
   categories_stock = set(row['Stock'] for row in sheet_data)
   return sorted(list(categories_stock))
 
+
 @anvil.server.callable
-def save_build(build_name, selected_items, user):
-    # Get the user who is logged in
-    user = anvil.users.get_user()
-    if user:
-        # Add a new row to the "builds" table with the build name, selected items, and user
-      tables.builds.add_row(
-        build_name=build_name,
-        selected_items=selected_items,
-        user=user
-      )
-      return "Build saved successfully"
+def save_build(build_name, created_on):
+    # Ensure build_name is a string
+    if isinstance(build_name, str):
+        # Get the logged-in user
+        user = anvil.user.get_user()
+
+        if user:
+            # Save the build with reference to the user
+            tables.build.add_row(
+                build_name=build_name,
+                created_on=created_on,
+                user=user  # Associate the build with the user
+            )
+        else:
+            raise ValueError("No user is logged in.")
     else:
-      return "No user is logged in"
+        raise ValueError("build_name must be a string.")
+

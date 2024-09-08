@@ -325,7 +325,7 @@ components:
   properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: '---'}
   type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,IMSGTU TIUDVU,FPJYJT'}
-  name: Item_Loctaion_Logo_OEM
+  name: os_location
   properties: {height: 31, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
 - layout_properties: {grid_position: 'WXFYOD,IMSGTU AZTFHT,GLJDOR'}

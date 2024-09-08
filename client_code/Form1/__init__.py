@@ -11,6 +11,7 @@ from random import choice
 import anvil.media
 import anvil.server
 import anvil.users
+from datetime import datetime
 
 
 
@@ -520,20 +521,38 @@ class Form1(Form1Template):
   def save_button_click(self, **event_args):
     # Create an instance of the name_build_form
     name_form = name_build_formTemplate()
-    
-    result = alert(content=name_form, title="Name Your Build", buttons=[("OK", True)])
-    if result:
-        build_name = name_form.build_name_textbox.text
-        self.save_build(build_name)
 
-  def save_build(self, name, selected_items):
-    user = anvil.users.get_user()  # Get the logged-in user
+    # Show the form as an alert to ask for build name input
+    result = alert(content=name_form, title="Name Your Build", buttons=[("Save", True), ("Cancel", False)])
+    
+    if result:
+        # Get the build name from the form's text box (assuming a TextBox exists on the form)
+        build_name = name_form.build_name_textbox.text
+        
+        # Check if a name was entered
+        if build_name:
+            # Call save_build with the name provided
+            self.save_build(build_name)
+        else:
+            alert("Please enter a name for your build.")
+
+
+  def save_build(self, build_name):
+    # Check if the user is logged in
+    user = anvil.users.get_user()
+    if not user:
+        # Prompt user to log in if they are not logged in
+        user = anvil.users.login_with_form()
+
     if user:
-        app_tables.saved_builds.add_row(
-            user=user,
-            build_name = name,
-            components=selected_items,
-            created_on=anvil.server.now()
-        )
+        created_on = datetime.now()
+
+        # Ensure build_name is a string, not a Form or object
+        if isinstance(build_name, str):
+            # Call server function to save the build for the logged-in user
+            anvil.server.call('save_build', build_name, created_on)
+        else:
+            raise ValueError("build_name must be a string.")
     else:
-        anvil.users.login_with_form()  # Ask the user to log in
+        # If user refuses to log in, alert the user that the build can't be saved
+        alert("You need to log in to save your build.")
