@@ -567,7 +567,9 @@ class Form1(Form1Template):
     pass
 
   def buy_button_click(self, **event_args):
-    """"""
+    product_url = "https://www.computerlounge.co.nz/components#!categoryId=247&page=1&q=&scid=-1&isListMode=false&Filters%5B0%5D.Key=Sort&Filters%5B0%5D.Value=1"
+    # Open the external website in a new tab
+    anvil.js.window.open(product_url, "_blank")
     pass
 
 
