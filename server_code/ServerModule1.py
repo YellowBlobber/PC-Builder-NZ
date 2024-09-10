@@ -148,5 +148,5 @@ def get_builds_for_user():
 def search_order(search_string):
   search_string = search_string.lower()
   print (search_string)
-  return [r for r in app_tables.tasks.search()
-            if search_string in r['Item Name'].lower() or search_string in r['Ca'].lower()]
+  return [r for r in app_files.pc_builder_nz.search()
+            if search_string in r['Item Name'].lower() or search_string in r['Catagory Name'].lower()]

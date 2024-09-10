@@ -118,10 +118,7 @@ class Form1(Form1Template):
     sheet_data_os = anvil.server.call('get_sheet_data_os')
     categories_os = anvil.server.call('get_unique_categories',sheet_data_os)
     self.os_dropdown.items = categories_os    
-
-    sheet_data_all = anvil.server.call('get_sheet_data_all')
-
-    
+   
    # Any code you write here will run before the form opens.
   
   #below is for price_display
@@ -574,8 +571,7 @@ class Form1(Form1Template):
     pass
 
   def search(self, **event_args):
-    """This method is called when the user presses Enter in this text box"""
-    pass
+      self.repeating_panel_2.items = anvil.server.call('search_order', self.search_bar.text)
 
 
 

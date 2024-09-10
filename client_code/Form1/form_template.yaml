@@ -10,7 +10,7 @@ components:
     type: Label
   - event_bindings: {pressed_enter: search}
     layout_properties: {width: 528, x: 320.1875, y: 34}
-    name: Search_bar
+    name: search_bar
     properties: {placeholder: Search for an item here}
     type: TextBox
   - layout_properties: {width: 44.5390625, x: 255, y: 24}
