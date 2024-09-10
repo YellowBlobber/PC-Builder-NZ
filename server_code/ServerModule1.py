@@ -12,6 +12,12 @@ from cryptography.fernet import Fernet
 import anvil.secrets
 
 
+@anvil.server.callable
+#defining a function that calls the information in the index worksheet 2, in google sheets. [2] being the gpu worksheet.
+def get_sheet_data_all():
+  sheet_all = app_files.pc_builder_nz
+  worksheet_all = sheet_all.worksheets[0]
+  return worksheet_all.rows
 
 @anvil.server.callable
 #defining a function that calls the information in the index worksheet 1, in google sheets. [1] being the cpu worksheet.
@@ -137,3 +143,10 @@ def get_builds_for_user():
     if user:      
         builds = app_tables.builds.search(user=user)
     return builds
+
+@anvil.server.callable
+def search_order(search_string):
+  search_string = search_string.lower()
+  print (search_string)
+  return [r for r in app_tables.tasks.search()
+            if search_string in r['Item Name'].lower() or search_string in r['Ca'].lower()]
