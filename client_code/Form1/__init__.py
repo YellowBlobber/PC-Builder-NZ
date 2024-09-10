@@ -19,6 +19,7 @@ class Form1(Form1Template):
   def __init__(self, **properties):
     self.init_components(**properties)
     #self.populate_categories(**properties)
+    
     pcs = app_files.pc_builder_nz
     self.component_prices = {
     'cpu': 0.0,
@@ -120,6 +121,11 @@ class Form1(Form1Template):
     self.os_dropdown.items = categories_os    
    
    # Any code you write here will run before the form opens.
+
+  def style_my_acocunt_button(self, **event_args):
+    self.my_account_buttonbutton.background = ''
+    self.my_account_button.border = ''
+    self.my_account_button.set_event_handler('show', self.style_my_account_button)
   
   #below is for price_display
 
