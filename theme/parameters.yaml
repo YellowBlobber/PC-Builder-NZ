@@ -6,4 +6,8 @@ color_scheme:
   - {color: '#ffffff', name: White}
   - {color: '#000000', name: Black}
   preset_groups: []
-roles: []
+roles:
+- {name: '.nav-button {     cursor: pointer;     transition: transform 0.3s ease-in-out;'}
+- {name: '.nav-button.active {     transform: rotate(90deg);'}
+- {name: '.dropdown-menu {     display: none;'}
+- {name: '.nav-button.active + .dropdown-menu {     display: block;'}
