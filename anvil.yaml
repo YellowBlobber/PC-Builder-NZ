@@ -175,6 +175,10 @@ runtime_options:
   server_spec: {base: python310-standard}
   server_version: python3-sandbox
   version: 2
+secrets:
+  key:
+    type: key
+    value: {7GMQAGE3DEN4GXX7: GWTNKg8dTc+OepGa1WTV8o5toBX4GFalSKCK50mEGPo9z2ugPOjc6XOd3KmewLouguA0vrwz74fKl7lKHPIQsFlWlGyVAsvhT3ZQIAcAkl/0uWZxud5RozKqrcFqmRxdXzm+pCeFpNpIkZMpVq7AMd3/AFp+dVU=}
 services:
 - client_config: {}
   server_config: {}
@@ -243,4 +247,7 @@ services:
       writersCanShare: true
   server_config: {enc_delegation_refresh_token: kWhf9XoIjx7dgrSdrSLeA9ihbDIUKlMGcXTGbXA1cJhEk3laA77eNSuZTqEfm9nrlpTbcvBmgH/Qtg4QqZJc05HmxojhbfCIT8cjcCuPHmM8646oNpmuleDbY9oNq58GJ1So7S8Pab2ZqBF8u0N3xuvwyCIXTH8m0hy9AujIsk/3m3vi+t+KrQykDG4lwtzN3oZe1GbQ5wD3Vrsw1qzcrlGO846W/kGd9aAiYYBdF4bArbSBuub9r0OMGsAflzOeHMFuA3Iptksm17auLht7Wc03+9EcLO3BWo147o+uvOIXsgaYcqRpuDd4ieBehg==}
   source: /runtime/services/google.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/anvil/secrets.yml
 startup_form: Form1

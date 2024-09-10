@@ -572,4 +572,13 @@ class Form1(Form1Template):
     anvil.js.window.open(product_url, "_blank")
     pass
 
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
+
+
+
+  
+
 
