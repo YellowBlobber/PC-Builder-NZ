@@ -572,9 +572,26 @@ class Form1(Form1Template):
     anvil.js.window.open(product_url, "_blank")
     pass
 
-  def button_1_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+  def nav_button_click(self, **event_args):
+    # Check if the button is already rotated by using an attribute
+    self.nav_button.role = 'no-background'
+    if not hasattr(self, 'rotated'):
+        self.rotated = False
+    
+    # Toggle the rotation state
+    if self.rotated:
+        # Reset the button rotation
+        self.nav_button.role = 'nav-button'
+        self.rotated = False
+    else:
+        # Rotate the button 90 degrees by adding the active role
+        self.nav_button.role = 'nav-button active'
+        self.rotated = True
+
+    # Show or hide the dropdown panel
+    self.dropdown_panel.visible = not self.dropdown_panel.visible
+
+
 
 
 

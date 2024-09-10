@@ -8,11 +8,6 @@ components:
     name: NZ
     properties: {bold: true, font_size: 30, foreground: 'theme:Blue', spacing_above: none, spacing_below: none, text: NZ}
     type: Label
-  - event_bindings: {pressed_enter: search}
-    layout_properties: {width: 528, x: 320.1875, y: 34}
-    name: search_bar
-    properties: {placeholder: Search for an item here}
-    type: TextBox
   - layout_properties: {width: 22.1641, x: 816.59375, y: 35}
     name: label_3
     properties: {font_size: 20, icon: 'fa:search', spacing_above: none, spacing_below: none}
@@ -31,15 +26,29 @@ components:
     name: my_account_button
     properties: {text: MY ACCOUNT, visible: false}
     type: Button
-  - event_bindings: {click: button_1_click}
-    layout_properties: {width: 84.87847900390625, x: 230, y: 18}
-    name: toggle_button
-    properties: {background: 'theme:Olive black', border: none, font_size: 35, foreground: 'theme:White', icon: 'fa:bars', role: '.text-button {     background: none;     border: none;     padding: 0;     margin: 0;     color: inherit;     font: inherit;     cursor: pointer; }', text: ''}
-    type: Button
+  - layout_properties: {width: 43.76039697265625, x: 250, y: 27}
+    name: nav_button
+    properties: {font_size: 35, foreground: 'theme:White', icon: 'fa:bars'}
+    type: Label
+  - event_bindings: {pressed_enter: search}
+    layout_properties: {width: 527.9861450195312, x: 324.65279473364353, y: 34.02777947485447}
+    name: search_bar
+    properties: {placeholder: Search for an item here}
+    type: TextBox
+  data_bindings: []
   layout_properties: {full_width_row: true, grid_position: 'IJOFDX,OJRGNJ', row_background: 'theme:Olive black'}
-  name: xy_panel_1
-  properties: {height: 100, spacing_above: none, spacing_below: none}
+  name: nav_bar
+  properties: {align: center, height: 100, spacing_above: none, spacing_below: none}
   type: XYPanel
+- components:
+  - layout_properties: {}
+    name: my_builds
+    properties: {background: None, border: none, role: null, text: button_1}
+    type: Button
+  layout_properties: {grid_position: 'GZCGHK,BMPITW'}
+  name: dropdown_panel
+  properties: {align: center, visible: true}
+  type: FlowPanel
 - layout_properties: {grid_position: 'TSPEHX,XIWLNY'}
   name: part_selection_title
   properties: {align: center, bold: true, font: '', font_size: 30, icon: '', italic: false, role: null, spacing_above: large, spacing_below: large, text: 'PART SELECTION:', underline: false}
