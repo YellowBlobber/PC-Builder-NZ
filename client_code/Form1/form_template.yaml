@@ -13,10 +13,6 @@ components:
     name: search_bar
     properties: {placeholder: Search for an item here}
     type: TextBox
-  - layout_properties: {width: 44.5390625, x: 255, y: 24}
-    name: label_4
-    properties: {bold: false, font_size: 35, foreground: 'theme:Bone White', icon: 'fa:bars', spacing_above: none, spacing_below: none}
-    type: Label
   - layout_properties: {width: 22.1641, x: 816.59375, y: 35}
     name: label_3
     properties: {font_size: 20, icon: 'fa:search', spacing_above: none, spacing_below: none}
@@ -34,6 +30,10 @@ components:
     layout_properties: {width: 200.00001525878906, x: 898.4896172434092, y: 31.68402947485447}
     name: my_account_button
     properties: {text: MY ACCOUNT, visible: false}
+    type: Button
+  - layout_properties: {width: 84.87847900390625, x: 230, y: 18}
+    name: button_1
+    properties: {background: 'theme:Olive black', border: none, font_size: 35, foreground: 'theme:White', icon: 'fa:bars', role: '.text-button {     background: none;     border: none;     padding: 0;     margin: 0;     color: inherit;     font: inherit;     cursor: pointer; }', text: ''}
     type: Button
   layout_properties: {full_width_row: true, grid_position: 'IJOFDX,OJRGNJ', row_background: 'theme:Olive black'}
   name: xy_panel_1
