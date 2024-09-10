@@ -563,8 +563,7 @@ class Form1(Form1Template):
         alert("Login failed or was canceled.")
 
   def my_account_button_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+    self.menu_panel.visible = True
 
   def buy_button_click(self, **event_args):
     product_url = "https://www.computerlounge.co.nz/components#!categoryId=247&page=1&q=&scid=-1&isListMode=false&Filters%5B0%5D.Key=Sort&Filters%5B0%5D.Value=1"
@@ -572,34 +571,5 @@ class Form1(Form1Template):
     anvil.js.window.open(product_url, "_blank")
     pass
 
-  
-  
-  def nav_label_click(self, **event_args):
-    # Check if the button is already rotated by using an attribute
-    self.nav_label.set_event_handler('click', self.nav_label_click)
-    self.nav_label.role = 'no-background'
-    if not hasattr(self, 'rotated'):
-        self.rotated = False
-    
-    # Toggle the rotation state
-    if self.rotated:
-        # Reset the button rotation
-        self.nav_label.role = 'nav-button'
-        self.rotated = False
-    else:
-        # Rotate the button 90 degrees by adding the active role
-        self.nav_label.role = 'nav-button active'
-        self.rotated = True
-
-    # Show or hide the dropdown panel
-    self.dropdown_panel.visible = not self.dropdown_panel.visible
-
- # Manually bind a click event to the label
-
-        
-
-
-
-  
-
-
+  def catalogue_button_click(self, **event_args):
+    self.catalogue_panel.visible = True
