@@ -1,3 +1,8 @@
-components: []
+components:
+- data_bindings: []
+  layout_properties: {full_width_row: true, grid_position: 'ACYIXQ,ARAXTT'}
+  name: repeating_panel_1
+  properties: {item_template: Form1}
+  type: RepeatingPanel
 container: {type: ColumnPanel}
 is_package: true
