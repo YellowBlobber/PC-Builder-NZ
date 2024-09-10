@@ -1,0 +1,9 @@
+.btn.btn-default.to-disable {
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: bold;
+    background-color: none;
+    color: var(--anvil-color-White-5881);
+    border: none;
+}
