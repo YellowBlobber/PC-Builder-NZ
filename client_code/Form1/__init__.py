@@ -570,11 +570,4 @@ class Form1(Form1Template):
     """"""
     pass
 
-  def search(self, **event_args):
-    search_term = self.search_bar.text.lower()
-    results = anvil.server.call('get_sheet_data_all')
-    filtered_results = [row for row in results if search_term in row['Item Name'].lower()]
-    self.repeating_panel_1.items = filtered_results
-
-
 
