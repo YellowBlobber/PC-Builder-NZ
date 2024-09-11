@@ -423,7 +423,7 @@ components:
     type: TextBox
   - layout_properties: {width: 107.38750457763672, x: 109.90000610426068, y: 8}
     name: share_button
-    properties: {background: 'theme:Olive black', bold: true, foreground: 'theme:White', icon: 'fa:share-alt', icon_align: right, text: 'SHARE '}
+    properties: {background: 'theme:Olive black', bold: true, foreground: 'theme:White', icon: 'fa:share-alt', icon_align: right, role: .btn-share, text: 'SHARE '}
     type: Button
   - event_bindings: {click: save_button_click}
     layout_properties: {width: 102.98750305175781, x: 5.737500000745058, y: 8}
