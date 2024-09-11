@@ -428,7 +428,7 @@ components:
   - event_bindings: {click: save_button_click}
     layout_properties: {width: 102.98750305175781, x: 5.737500000745058, y: 8}
     name: save_button
-    properties: {background: 'theme:Olive black', bold: true, foreground: 'theme:White', icon: 'fa:save', icon_align: right, text: ' SAVE '}
+    properties: {background: '', bold: true, foreground: '', icon: 'fa:save', icon_align: right, text: ' SAVE '}
     type: Button
   - data_bindings: []
     event_bindings: {click: buy_button_click}
