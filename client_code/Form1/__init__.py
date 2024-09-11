@@ -49,31 +49,6 @@ class Form1(Form1Template):
     
     self.worksheet = pcs[0]
     print(self.worksheet.fields)
-
-        # Inject custom CSS to style 'my_button'
-    button_css = """
-      .anvil-role-custom-button {
-        background-color: none;
-        border-radius: 0px;
-        color: white;
-        border: none !important;
-        cursor: pointer;
-      }
-
-      .anvil-role-custom-button:hover {
-        background-color: darkred;
-      }
-    """
-    
-    # Inject the CSS into the head
-    anvil.js.window.eval(f"""
-      let style = document.createElement('style');
-      style.innerHTML = `{button_css}`;
-      document.head.appendChild(style);
-    """)
-    
-    # Apply the custom role to the button
-    self.save_button.role = 'custom-button'
     
     #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for cpus, then popluates the dropdown with the called items
     sheet_data_cpu = anvil.server.call('get_sheet_data_cpus')
