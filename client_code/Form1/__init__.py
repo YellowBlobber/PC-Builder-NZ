@@ -600,36 +600,51 @@ class Form1(Form1Template):
     user = anvil.users.get_user()
     
     if user:
-        # Fetch saved builds from the server
-        saved_builds = anvil.server.call('get_user_builds')
-        
-        # Debugging: Check what is returned
-        print("Saved builds:", saved_builds)
+        # Fetch saved builds from the server (only for the logged-in user)
+        saved_builds = anvil.server.call('get_user_builds', user['email'])
         
         if saved_builds:
-            # Open the BuildsForm with the list of builds
-            open_form('BuildsForm', saved_builds)
+            # Create buttons for each saved build
+            buttons = []
+            for build in saved_builds:
+                # Create a button with the build name
+                btn = Button(text=build['build_name'], role="raised")
+                btn.tag.build_data = build  # Store the build data in the button’s tag
+                btn.set_event_handler('click', self.on_build_button_click)  # Set the click event handler
+                buttons.append(btn)
+
+            # Display buttons inside an alert (using a ColumnPanel)
+            content_panel = ColumnPanel()
+            for btn in buttons:
+                content_panel.add_component(btn)
+            
+            # Show the alert with the buttons
+            alert(content=content_panel, large=True, title="Select Your Build")
         else:
-            print("No builds found for this user.")
             alert("No builds found for this user.", title="No Builds")
     else:
         alert("Please log in to view your builds.", title="Login Required")
 
 
 # Function to load the selected build into Form1's dropdowns
-def load_build(self, build_name):
-    # Call server to get the selected build
-    build_data = anvil.server.call('get_build_by_name', build_name)
+def on_build_button_click(self, **event_args):
+    # Get the selected build data from the button tag
+    selected_build = event_args['sender'].tag.build_data
     
-    if build_data:
-        # Assuming build_data['selected_items'] is the dictionary of dropdown items
-        selected_items = build_data['selected_items']
-        self.cpu_dropdown.selected_value = selected_items.get('cpu', None)
-        self.cooler_dropdown.selected_value = selected_items.get('cpu_cooler', None)
-        self.motherboard_dropdown.selected_value = selected_items.get('motherboard', None)
-        self.ram_dropdown.selected_value = selected_items.get('ram', None)
-        # Repeat for any other parts
-
-        alert(f"Loaded build: {build_name}")
-    else:
-        alert(f"Build {build_name} could not be loaded.", title="Error")
+    # Now populate the dropdowns with the saved items from the selected build
+    self.cpu_dropdown.selected_value = selected_build['selected_items']['cpu']
+    self.gpu_dropdown.selected_value = selected_build['selected_items']['gpu']
+    self.ram_dropdown.selected_value = selected_build['selected_items']['ram']
+    self.motherboard_dropdown.selected_value = selected_build['selected_items']['motherboard']
+    self.storage_dropdown.selected_value = selected_build['selected_items']['storage']
+    self.power_supply_dropdown.selected_value = selected_build['selected_items']['psu']
+    self.cpu_cooler_dropdown.selected_value = selected_build['selected_items']['cpu_cooler']
+    self.case_dropdown.selected_value = selected_build['selected_items']['case']
+    self.storage_dropdown_2.selected_value = selected_build['selected_items']['storage_2']
+    self.storage_dropdown_3.selected_value = selected_build['selected_items']['storage_3']
+    self.os_dropdown.selected_value = selected_build['selected_items']['os']
+    self.adapters_dropdown.selected_value = selected_build['selected_items']['adapters']
+    self.fans_dropdown.selected_value = selected_build['selected_items']['fans']
+  
+    # Optional: Update any other relevant fields or labels with build details
+    self.build_name_label.text = selected_build['build_name']
