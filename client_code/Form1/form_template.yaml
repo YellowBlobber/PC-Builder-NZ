@@ -5,11 +5,6 @@ components:
     name: search_bar
     properties: {placeholder: Search for an item here}
     type: TextBox
-  - event_bindings: {}
-    layout_properties: {width: 44.484375, x: 223.34375, y: 16.546875}
-    name: nav_label
-    properties: {font_size: 35, foreground: 'theme:White', icon: 'fa:bars'}
-    type: Label
   - layout_properties: {width: 41.90625, x: 173.921875, y: 15}
     name: NZ
     properties: {bold: true, font_size: 30, foreground: 'theme:Blue', spacing_above: none, spacing_below: none, text: NZ}
@@ -23,9 +18,9 @@ components:
     properties: {font_size: 20, icon: 'fa:search', spacing_above: none, spacing_below: none}
     type: Label
   - event_bindings: {click: login_button_click}
-    layout_properties: {width: 124.6875, x: 899.0625, y: 28.21875}
+    layout_properties: {width: 146.6796875, x: 899.0625, y: 28.21875}
     name: login_button
-    properties: {text: SIGN UP/LOGIN}
+    properties: {background: 'theme:Olive black', foreground: 'theme:White', text: SIGN UP/LOGIN}
     type: Button
   - layout_properties: {width: 49.4921875, x: 1055.7421875, y: 10.8125}
     name: profile_icon
@@ -33,9 +28,14 @@ components:
     type: Label
   - data_bindings: []
     event_bindings: {click: my_account_button_click}
-    layout_properties: {width: 113.6953125, x: 902.6796875, y: 25.640625}
+    layout_properties: {width: 129.195, x: 902.6796875, y: 25.640625}
     name: my_account_button
-    properties: {background: None, border: none, text: MY ACCOUNT, visible: false}
+    properties: {background: 'theme:Olive black', border: none, foreground: 'theme:White', text: MY ACCOUNT, visible: false}
+    type: Button
+  - event_bindings: {click: nav_button_click}
+    layout_properties: {width: 78.5, x: 209.59375, y: 11.09375}
+    name: nav_button
+    properties: {background: '', font_size: 35, foreground: 'theme:White', icon: 'fa:bars', text: ''}
     type: Button
   data_bindings: []
   layout_properties: {full_width_row: true, grid_position: 'IJOFDX,OJRGNJ', row_background: 'theme:Olive black'}
@@ -74,35 +74,35 @@ components:
 - components:
   - layout_properties: {}
     name: button_1
-    properties: {text: CPU's}
+    properties: {foreground: 'theme:White', text: CPU's}
     type: Button
   - layout_properties: {}
     name: button_2
-    properties: {text: GPU's}
+    properties: {foreground: 'theme:White', text: GPU's}
     type: Button
   - layout_properties: {}
     name: button_3
-    properties: {text: RAM}
+    properties: {foreground: 'theme:White', text: RAM}
     type: Button
   - layout_properties: {}
     name: button_4
-    properties: {text: MOTHERBOARD's}
+    properties: {foreground: 'theme:White', text: MOTHERBOARD's}
     type: Button
   - layout_properties: {}
     name: button_5
-    properties: {text: COOLER's}
+    properties: {foreground: 'theme:White', text: COOLER's}
     type: Button
   - layout_properties: {}
     name: button_6
-    properties: {text: CASE's}
+    properties: {foreground: 'theme:White', text: CASE's}
     type: Button
   - layout_properties: {}
     name: button_7
-    properties: {text: STORAGE}
+    properties: {foreground: 'theme:White', text: STORAGE}
     type: Button
   - layout_properties: {}
     name: button_8
-    properties: {text: FAN's}
+    properties: {foreground: 'theme:White', text: FAN's}
     type: Button
   layout_properties: {grid_position: 'AXIPVT,YFITFL'}
   name: catalogue_panel
@@ -428,7 +428,7 @@ components:
   - event_bindings: {click: save_button_click}
     layout_properties: {width: 102.98750305175781, x: 5.737500000745058, y: 8}
     name: save_button
-    properties: {background: '', bold: true, foreground: '', icon: 'fa:save', icon_align: right, text: ' SAVE '}
+    properties: {background: 'theme:Olive black', bold: true, foreground: 'theme:White', icon: 'fa:save', icon_align: right, text: ' SAVE '}
     type: Button
   - data_bindings: []
     event_bindings: {click: buy_button_click}

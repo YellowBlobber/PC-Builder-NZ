@@ -1,5 +1,5 @@
 /**
- This CSS implements the Material Design look and feel for Anvil apps.
+ This CSS implements the Material Design look and feel for Anvil apps. *#*Came from Skinlinks app i will not take any credit for this code below*#*
  **/
 
 .modal-footer .btn {
@@ -31,14 +31,14 @@
 }
 
 .btn:hover, .btn:focus, .file-loader>label:hover {
-  background-color: rgba(153,153,153,0.2);
+
   background-image: none;
   outline: none;
   color: %color:Primary 500%;
 }
 
 .btn:active, .btn:active:focus {
-  background-color: rgba(153,153,153,0.4);
+  
   background-image: none;
   outline: none;
   box-shadow: none;
