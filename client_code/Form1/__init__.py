@@ -603,18 +603,14 @@ class Form1(Form1Template):
         # Fetch saved builds from the server
         saved_builds = anvil.server.call('get_user_builds')
         
+        # Debugging: Check what is returned
+        print("Saved builds:", saved_builds)
+        
         if saved_builds:
-            # Create a list of buttons for each build
-            buttons = []
-            for build in saved_builds:
-                btn = Button(text=build['build_name'])  # Create a button for each build name
-                btn.tag.build_data = build        # Store the build data in the button’s tag
-                btn.set_event_handler('click', self.on_button_click)  # Set the click event
-                buttons.append(btn)
-                
-            # Show the buttons inside an alert
-            alert(content=ColumnPanel, buttons=buttons, large=True, title="Select Your Build")
+            # Open the BuildsForm with the list of builds
+            open_form('BuildsForm', saved_builds)
         else:
+            print("No builds found for this user.")
             alert("No builds found for this user.", title="No Builds")
     else:
         alert("Please log in to view your builds.", title="Login Required")

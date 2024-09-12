@@ -134,10 +134,15 @@ def get_user_builds():
     user = anvil.users.get_user()
     
     if user:
-        # Query builds from the 'builds' table for the logged-in user
-        return app_tables.builds.search(user=user)
-    else:
-        return []
+        # Assuming builds are stored in a table called 'Builds'
+        builds = app_tables.builds.search(user=user)
+        build_list = [build for build in builds]  # Convert search iterator to list
+        
+        # Debugging: Print the build data on the server
+        print("Builds found for user:", build_list)
+        
+        return build_list
+    return []
 
 @anvil.server.callable
 def get_build_by_name(build_name):

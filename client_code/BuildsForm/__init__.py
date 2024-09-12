@@ -1,5 +1,4 @@
 from ._anvil_designer import BuildsFormTemplate
-from ..Form1 import Form1Template
 from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
@@ -10,25 +9,37 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 
-
 class BuildsForm(BuildsFormTemplate):
-  def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
+  def __init__(self, builds, **properties):
     self.init_components(**properties)
- # Loop through each build and create buttons
-    for build_name in builds:
-      btn = Button(text=build_name)
-      btn.role = 'build-button'  # Optional: assign a role for custom styling
-      btn.set_event_handler('click', self.build_selected)  # Event handler for clicking a button
-      btn.build_name = build_name  # Store the build name in the button
-            
-            # Add the button to the column panel
-      self.column_panel.add_component(btn)
+        
+        # Debugging: Check if builds are received
+    print("Received builds:", builds)
+        
+    if builds:
+      for build in builds:
+        # Create a button for each build
+        btn = Button(text=build['build_name'], role='build-button')
+        btn.tag.build_data = build  # Store the build data in the button’s tag
+        btn.set_event_handler('click', self.build_selected)
+                
+        # Add the button to the column panel
+        self.column_panel.add_component(btn)
 
-    def build_selected(self, sender, **event_args):
-        """Handles what happens when a build is selected"""
-        selected_build = sender.build_name
-        # Pass this information back to Form1 and update the dropdowns
-        get_open_form().populate_form_with_build(selected_build)
-        # Close the form after selection
-        self.remove_from_parent()
+        # Add "Go Back" button
+      go_back_button = Button(text="Go Back", role="back-button")
+      go_back_button.set_event_handler('click', self.go_back)
+      self.column_panel.add_component(go_back_button)
+    else:
+      print("No builds received.")
+
+  def build_selected(self, sender, **event_args):
+    """Handle the build selection and populate the dropdowns on Form1"""
+    selected_build = sender.tag.build_data
+        
+    # Call the method from Form1 to populate the form
+    get_open_form('Form1').load_build(selected_build)
+
+  def go_back(self, **event_args):
+    """Close the alert without selecting a build"""
+    open_form('Form1')
