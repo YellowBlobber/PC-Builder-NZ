@@ -1,4 +1,5 @@
 from ..name_build_form import name_build_formTemplate
+from ..BuildsForm import BuildsFormTemplate
 from ._anvil_designer import Form1Template
 from anvil import *
 import anvil.server
@@ -592,3 +593,47 @@ class Form1(Form1Template):
       self.menu_panel.visible = False  # Hide the label
     else:
       self.menu_panel.visible = True  # Show the label
+
+# Function to display builds as buttons in an alert
+
+  def view_builds_button_click(self, **event_args):
+    user = anvil.users.get_user()
+    
+    if user:
+        # Fetch saved builds from the server
+        saved_builds = anvil.server.call('get_user_builds')
+        
+        if saved_builds:
+            # Create a list of buttons for each build
+            buttons = []
+            for build in saved_builds:
+                btn = Button(text=build['build_name'])  # Create a button for each build name
+                btn.tag.build_data = build        # Store the build data in the button’s tag
+                btn.set_event_handler('click', self.on_button_click)  # Set the click event
+                buttons.append(btn)
+                
+            # Show the buttons inside an alert
+            alert(content=ColumnPanel, buttons=buttons, large=True, title="Select Your Build")
+        else:
+            alert("No builds found for this user.", title="No Builds")
+    else:
+        alert("Please log in to view your builds.", title="Login Required")
+
+
+# Function to load the selected build into Form1's dropdowns
+def load_build(self, build_name):
+    # Call server to get the selected build
+    build_data = anvil.server.call('get_build_by_name', build_name)
+    
+    if build_data:
+        # Assuming build_data['selected_items'] is the dictionary of dropdown items
+        selected_items = build_data['selected_items']
+        self.cpu_dropdown.selected_value = selected_items.get('cpu', None)
+        self.cooler_dropdown.selected_value = selected_items.get('cpu_cooler', None)
+        self.motherboard_dropdown.selected_value = selected_items.get('motherboard', None)
+        self.ram_dropdown.selected_value = selected_items.get('ram', None)
+        # Repeat for any other parts
+
+        alert(f"Loaded build: {build_name}")
+    else:
+        alert(f"Build {build_name} could not be loaded.", title="Error")

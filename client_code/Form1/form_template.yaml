@@ -54,8 +54,9 @@ components:
   - name: guides_button
     properties: {background: 'theme:Blue', foreground: 'theme:Bone White', text: Guides}
     type: Button
-  - layout_properties: {}
-    name: my_builds
+  - event_bindings: {click: view_builds_button_click}
+    layout_properties: {}
+    name: view_builds_button
     properties: {background: 'theme:Blue', foreground: 'theme:Bone White', text: My Builds}
     type: Button
   - layout_properties: {}

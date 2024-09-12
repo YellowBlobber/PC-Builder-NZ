@@ -1,0 +1,11 @@
+components:
+- layout_properties: {grid_position: 'DRFZZH,UHTFPR'}
+  name: Title
+  properties: {align: center, bold: true, font_size: 25, text: MY BUILDS}
+  type: Label
+- layout_properties: {grid_position: 'RTJLRP,ULNWVT'}
+  name: repeating_panel_1
+  properties: {item_template: BuildsForm.ItemTemplate4}
+  type: RepeatingPanel
+container: {type: ColumnPanel}
+is_package: true
