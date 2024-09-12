@@ -46,7 +46,7 @@ components:
   - event_bindings: {click: catalogue_button_click}
     layout_properties: {}
     name: catalogue_button
-    properties: {background: 'theme:Blue', foreground: 'theme:Bone White', text: Catalogue}
+    properties: {background: 'theme:Blue', foreground: 'theme:Bone White', icon: 'fa:angle-right', icon_align: right, text: Catalogue}
     type: Button
   - name: builder_button
     properties: {background: 'theme:Blue', foreground: 'theme:Bone White', text: Builder}

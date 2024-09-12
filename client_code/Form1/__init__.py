@@ -575,7 +575,16 @@ class Form1(Form1Template):
     pass
 
   def catalogue_button_click(self, **event_args):
-    self.catalogue_panel.visible = True
-
+    if self.catalogue_panel.visible:  # If the label is currently visible
+      self.catalogue_panel.visible = False  # Hide the label
+      self.catalogue_button.icon = "fa:angle-right"
+    else:
+      self.catalogue_panel.visible = True  # Show the label
+      self.catalogue_button.icon = "fa:angle-down"
+      
   def nav_button_click(self, **event_args):
-    self.menu_panel.visible = True
+ # Toggles the visibility of the label on each button click
+    if self.menu_panel.visible:  # If the label is currently visible
+      self.menu_panel.visible = False  # Hide the label
+    else:
+      self.menu_panel.visible = True  # Show the label
