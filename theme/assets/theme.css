@@ -90,3 +90,19 @@
 }
 
 
+/* this is my own code below.
+
+/* Hide the default loading spinner */
+.anvil-spinner {
+  display: none;
+}
+
+/* Show your custom loading spinner */
+#loadingSpinner {
+  background-image: url('_/theme/tube-spinner.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 125px; /* Adjust as needed */
+  height: 125px; /* Adjust as needed */
+}

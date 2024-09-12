@@ -5,38 +5,38 @@ components:
     name: search_bar
     properties: {placeholder: Search for an item here}
     type: TextBox
-  - layout_properties: {width: 41.90625, x: 173.921875, y: 15}
-    name: NZ
-    properties: {bold: true, font_size: 30, foreground: 'theme:Blue', spacing_above: none, spacing_below: none, text: NZ}
-    type: Label
   - layout_properties: {width: 168.8671875, x: 5.703125, y: 15}
     name: Title
-    properties: {bold: true, font: '', font_size: 30, foreground: 'theme:Bone White', spacing_above: none, spacing_below: none, text: PC BUILDER, visible: true}
+    properties: {bold: true, font: '', font_size: 30, foreground: 'theme:White', spacing_above: none, spacing_below: none, text: PC BUILDER, visible: true}
     type: Label
   - layout_properties: {width: 45.5, x: 845.2890625, y: 30.9765625}
     name: label_3
     properties: {font_size: 20, icon: 'fa:search', spacing_above: none, spacing_below: none}
     type: Label
-  - event_bindings: {click: login_button_click}
-    layout_properties: {width: 146.6796875, x: 899.0625, y: 28.21875}
-    name: login_button
-    properties: {background: 'theme:Olive black', foreground: 'theme:White', text: SIGN UP/LOGIN}
-    type: Button
-  - layout_properties: {width: 49.4921875, x: 1055.7421875, y: 10.8125}
-    name: profile_icon
-    properties: {font_size: 45, foreground: 'theme:Bone White', icon: 'fa:user-circle', text: '', visible: false}
-    type: Label
-  - data_bindings: []
-    event_bindings: {click: my_account_button_click}
-    layout_properties: {width: 129.195, x: 902.6796875, y: 25.640625}
-    name: my_account_button
-    properties: {background: 'theme:Olive black', border: none, foreground: 'theme:White', text: MY ACCOUNT, visible: false}
-    type: Button
   - event_bindings: {click: nav_button_click}
     layout_properties: {width: 78.5, x: 209.59375, y: 11.09375}
     name: nav_button
     properties: {background: '', font_size: 35, foreground: 'theme:White', icon: 'fa:bars', text: ''}
     type: Button
+  - data_bindings: []
+    event_bindings: {click: my_account_button_click}
+    layout_properties: {width: 353.7673645019531, x: 902.7083672434092, y: 30.104166880249977}
+    name: my_account_button
+    properties: {background: 'theme:Olive black', border: none, foreground: 'theme:White', text: MY ACCOUNT, visible: false}
+    type: Button
+  - event_bindings: {click: login_button_click}
+    layout_properties: {width: 133.5416717529297, x: 903.7153252512217, y: 30.625004664063454}
+    name: login_button
+    properties: {background: 'theme:Olive black', foreground: 'theme:White', text: SIGN UP/LOGIN}
+    type: Button
+  - layout_properties: {width: 49.47916793823242, x: 1249.375054255128, y: 15.538197413086891}
+    name: profile_icon
+    properties: {font_size: 45, foreground: 'theme:Bone White', icon: 'fa:user-circle', text: '', visible: false}
+    type: Label
+  - layout_properties: {width: 41.892364501953125, x: 180.71181572973728, y: 15.121527567505836}
+    name: NZ
+    properties: {bold: true, font_size: 30, foreground: 'theme:Blue', spacing_above: none, spacing_below: none, text: NZ}
+    type: Label
   data_bindings: []
   layout_properties: {full_width_row: true, grid_position: 'IJOFDX,OJRGNJ', row_background: 'theme:Olive black'}
   name: nav_bar
@@ -463,10 +463,65 @@ components:
     properties: {background: 'theme:Olive black', border: none, enabled: false, foreground: 'theme:White', placeholder: 0000W, spacing_below: medium, visible: true}
     type: TextBox
   layout_properties: {full_width_row: false, grid_position: 'WUIHSF,JDXXST'}
-  name: xy_panel_2
+  name: info_bar
   properties: {background: 'theme:Olive black', foreground: '', height: 43.20001220703125, spacing_above: large, width: null}
   type: XYPanel
+- components:
+  - layout_properties: {col_xs: 1, row: XGTZCI, width_xs: 1}
+    name: ABOUT
+    properties: {align: center, bold: true, font_size: 15, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'ABOUT:'}
+    type: Label
+  - layout_properties: {col_xs: 3, row: XGTZCI, width_xs: 1}
+    name: PAGES
+    properties: {align: center, bold: true, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'PAGES:'}
+    type: Label
+  - layout_properties: {col_xs: 4, row: XGTZCI, width_xs: 1}
+    name: ACCOUNT
+    properties: {align: center, bold: true, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'ACCOUNT:'}
+    type: Label
+  - layout_properties: {col_xs: 5, row: XGTZCI, width_xs: 1}
+    name: MADEBY
+    properties: {align: center, bold: true, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'MADE BY:'}
+    type: Label
+  - layout_properties: {col_xs: 1, row: HHQCSK, width_xs: 2}
+    name: ABOUT_discription
+    properties: {align: left, foreground: 'theme:White', spacing_above: none, text: PC Builder NZ is a pc building web app that uses NZ owned brands for creating configurations to then later buy}
+    type: Label
+  - layout_properties: {col_xs: 3, row: HHQCSK, width_xs: 1}
+    name: guides_button_footer
+    properties: {foreground: 'theme:White', text: '- GUIDES -'}
+    type: Button
+  - layout_properties: {col_xs: 5, row: HHQCSK, width_xs: 1}
+    name: Authers
+    properties:
+      align: center
+      foreground: theme:White
+      spacing_above: none
+      text: |-
+        COOPER ALDEN
+        JONATHAN RIES
+    type: Label
+  - layout_properties: {col_xs: 8, row: HHQCSK, width_xs: 3}
+    name: Footer_title
+    properties: {align: center, bold: true, font: '', font_size: 45, foreground: 'theme:White', spacing_above: none, spacing_below: none, text: PC BUILDER NZ, visible: true}
+    type: Label
+  - layout_properties: {col_xs: 1, row: EEKUNS, width_xs: 1}
+    name: COPYRIGHT
+    properties: {align: center, bold: true, foreground: 'theme:White', spacing_below: none, text: 'COPYRIGHT:'}
+    type: Label
+  - layout_properties: {col_xs: 2, row: EEKUNS, width_xs: 1}
+    name: SOCIALS
+    properties: {align: center, bold: true, foreground: 'theme:White', text: 'SOCIALS:'}
+    type: Label
+  - layout_properties: {col_xs: 1, row: RLMPQN, width_xs: 1}
+    name: label_4
+    properties: {align: center, bold: false, foreground: 'theme:White', spacing_above: none, text: PC BUILDER NZ ©2024}
+    type: Label
+  layout_properties: {full_width_row: true, grid_position: 'YYBOZO,RMDTXV'}
+  name: Footer
+  properties: {background: 'theme:Olive black', spacing_above: large}
+  type: GridPanel
 container:
-  properties: {col_widths: '{"ADIKYA":8,"FMNYJU":30,"RAUZLT":8,"LCIXJI":9,"BKYAEN":5,"IIJJYH":9,"DAFLDE":35,"MAUEBC":10,"DNJZCC":10,"KNZPYK":52,"IKNEXV":52,"LCKPLG":52,"YESLZI":52,"NDWFKD":52,"GYLLSG":17,"JHNGRD":15,"VQRVXG":15,"ZCMMHR":15,"TUBOJC":15,"TOKLHF":6,"QFKBDO":51}', visible: true, wrap_on: mobile}
+  properties: {col_widths: '{"ADIKYA":8,"FMNYJU":30,"RAUZLT":8,"LCIXJI":9,"BKYAEN":5,"IIJJYH":9,"DAFLDE":35,"MAUEBC":10,"DNJZCC":10,"KNZPYK":52,"IKNEXV":52,"LCKPLG":52,"YESLZI":52,"NDWFKD":52,"GYLLSG":17,"JHNGRD":15,"VQRVXG":15,"ZCMMHR":15,"TUBOJC":15,"TOKLHF":6,"QFKBDO":51}', foreground: '', visible: true, wrap_on: mobile}
   type: ColumnPanel
 is_package: true

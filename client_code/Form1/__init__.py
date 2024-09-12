@@ -527,7 +527,8 @@ class Form1(Form1Template):
   def save_button_click(self, **event_args):
     # Create an instance of the name_build_form
     name_form = name_build_formTemplate()
-
+    self.save_button.icon = ""
+    self.save_button.text = "SAVING..."
     # Show the form as an alert to ask for build name input
     result = alert(content=name_form, title="Name Your Build", buttons=[("Save", True), ("Cancel", False)])
     
@@ -553,6 +554,8 @@ class Form1(Form1Template):
             }
            # Call the server function to save the build
             anvil.server.call('save_build', build_name, selected_items)
+            self.save_button.text = "SAVE "
+            self.save_button.icon = "fa:save"
         else:
             alert("Please enter a name for your build.")
 
@@ -565,6 +568,7 @@ class Form1(Form1Template):
         self.profile_icon.visible = True
         self.login_button.visible = False
         self.my_account_button.visible = True
+        self.my_account_button.text = (f"{user['email']}")
     else:
         alert("Login failed or was canceled.")
 
