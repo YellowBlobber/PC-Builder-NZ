@@ -495,7 +495,7 @@ class Form1(Form1Template):
     self.save_button.icon = ""
     self.save_button.text = "SAVING..."
     # Show the form as an alert to ask for build name input
-    result = alert(content=name_form, title="Name Your Build", buttons=[("Save", True), ("Cancel", False)])
+    result = alert(content=name_form, title="Name Your Build", buttons=[("Save", True), ("Cancel", self.save_button.text = ()"SAVE ", False)])
     
     if result:
         # Get the build name from the form's text box (assuming a TextBox exists on the form)
@@ -523,7 +523,7 @@ class Form1(Form1Template):
             self.save_button.icon = "fa:save"
         else:
             alert("Please enter a name for your build.")
-            
+            self.save_button.text = "SAVE "
 
   def login_button_click(self, **event_args):
     # Show Anvil's built-in login form
