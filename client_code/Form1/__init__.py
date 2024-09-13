@@ -488,42 +488,6 @@ class Form1(Form1Template):
             self.psu_stock_display.text = stock_status
            # location image making visable
             self.psu_location.visible = True
-  
-  def save_selections(self, **event_args):
-    # Get selected values from dropdowns
-    selected_cpu = self.cpu_dropdown.selected_value
-    selected_gpu = self.gpu_dropdown.selected_value
-    selected_motherboard = self.motherboard_dropdown.selected_value
-    selected_cpu_cooler = self.cpu_cooler_dropdown.selected_value
-    selected_ram = self.ram_dropdown.selected_value
-    selected_case = self.case_dropdown.selected_value
-    selected_psu = self.power_supply_dropdown.selected_value
-    selected_storage = self.storage_dropdown.selected_value
-    #extra items
-    selected_os = self.os_dropdown.selected_value
-    selected_storage_2 = self.storage_2_dropdown.selected_value
-    selected_storage_3 = self.storage_3_dropdown.selected_value
-    selected_fans = self.fans_dropdown.selected_value
-    selected_adapters = self.adapters_dropdown.selected_value
-    
-    # Insert the selected values into the 'saved_items' data table
-    app_tables.saved_items.add_row(
-      cpu = selected_cpu,
-      gpu = selected_gpu,
-      motherboard = selected_motherboard,
-      cpu_cooler = selected_cpu_cooler,
-      ram = selected_ram,
-      case = selected_case,
-      psu = selected_psu,
-      storage = selected_storage,
-      os = selected_os,
-      storage_2 = selected_storage_2,
-      storage_3 = selected_storage_3,  
-      fans = selected_fans,
-      adapters = selected_adapters
-    )
-    # displays a message to the user
-    alert("Selections saved successfully!")
 
   def save_button_click(self, **event_args):
     # Create an instance of the name_build_form
@@ -597,54 +561,47 @@ class Form1(Form1Template):
 # Function to display builds as buttons in an alert
 
   def view_builds_button_click(self, **event_args):
-    user = anvil.users.get_user()
-    
-    if user:
-        # Fetch saved builds from the server
-        saved_builds = anvil.server.call('get_user_builds')
-        
-        if saved_builds:
-            # Create a list of buttons for each build
-            buttons = []
-            for build in saved_builds:
-                btn = Button(text=build['build_name'])  # Create a button for each build name
-                btn.tag.build_data = build        # Store the build data in the button’s tag
-                btn.set_event_handler('click', self.on_build_button_click)  # Set the click event
-                buttons.append(btn)
-                
-            # Show the buttons inside an alert
-            alert(content=ColumnPanel(buttons=buttons), large=True, title="Select Your Build")
-        else:
-            alert("No builds found for this user.", title="No Builds")
-    else:
-        alert("Please log in to view your builds.", title="Login Required")
+        user = anvil.users.get_user()
 
+        if user:
+            # Fetch saved builds from the server
+            saved_builds = anvil.server.call('get_user_builds', user)
+            
+            if saved_builds:
+                # Create a ColumnPanel to hold the buttons
+                column_panel = ColumnPanel()
+                
+                # Add a button for each saved build
+                for build in saved_builds:
+                    btn = Button(text=build['build_name'])
+                    # Set event handler to call `load_build` when clicked
+                    btn.set_event_handler('click', self.load_build_click, build=build)
+                    column_panel.add_component(btn)  # Add button to the ColumnPanel
+                
+                # Show the ColumnPanel with buttons inside an alert
+                alert(content=column_panel, large=True, title="Select Your Build")
+            else:
+                alert("No builds found for this user.", title="No Builds")
+        else:
+            alert("Please log in to view your builds.", title="Login Required")
 
 # Function to load the selected build into Form1's dropdowns
-def on_build_button_click(self, **event_args):
-    # Retrieve the button that was clicked
-    clicked_button = event_args['sender']
-    
-    # Access the build data stored in the button's tag
-    build_data = clicked_button.tag.build_data
-    
-    # Load the build data into the form
-    self.load_build_data(build_data)
+def load_build_click(self, build):
+    # Retrieve the build data from the button tag
+    selected_items = build['selected_items']
 
-def load_build_data(self, build_data):
-  # Now populate the dropdowns with the saved items from the selected build
-    self.cpu_dropdown.selected_value = build_data['cpu']
-    self.gpu_dropdown.selected_value = build_data['gpu']
-    self.ram_dropdown.selected_value = build_data['ram']
-    self.motherboard_dropdown.selected_value = build_data['motherboard']
-    self.storage_dropdown.selected_value = build_data['storage']
-    self.power_supply_dropdown.selected_value = build_data['psu']
-    self.cpu_cooler_dropdown.selected_value = build_data['cpu_cooler']
-    self.case_dropdown.selected_value = build_data['case']
-    self.storage_dropdown_2.selected_value = build_data['storage_2']
-    self.storage_dropdown_3.selected_value = build_data['storage_3']
-    self.os_dropdown.selected_value = build_data['os']
-    self.adapters_dropdown.selected_value = build_data['adapters']
-    self.fans_dropdown.selected_value = build_data['fans']
-
-    self.build_name_label.text = build_data['build_name']
+    self.cpu_dropdown.selected_value = selected_items.get['cpu']
+    self.gpu_dropdown.selected_value = selected_items.get['gpu']
+    self.ram_dropdown.selected_value = selected_items.get['ram']
+    self.motherboard_dropdown.selected_value = selected_items.get['motherboard']
+    self.storage_dropdown.selected_value = selected_items.get['storage']
+    self.power_supply_dropdown.selected_value = selected_items.get['psu']
+    self.cpu_cooler_dropdown.selected_value = selected_items.get['cpu_cooler']
+    self.case_dropdown.selected_value = selected_items.get['case']
+    self.storage_dropdown_2.selected_value = selected_items.get['storage_2']
+    self.storage_dropdown_3.selected_value = selected_items.get['storage_3']
+    self.os_dropdown.selected_value = selected_items.get['os']
+    self.adapters_dropdown.selected_value = selected_items.get['adapters']
+    self.fans_dropdown.selected_value = selected_items.get['fans']
+    
+    alert.dismiss()
