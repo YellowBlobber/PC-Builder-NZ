@@ -560,6 +560,10 @@ class Form1(Form1Template):
 
 # Function to display builds as buttons in an alert
 
+
+
+# Function to load the selected build into Form1's dropdowns
+
   def view_builds_button_click(self, **event_args):
         user = anvil.users.get_user()
 
@@ -574,34 +578,40 @@ class Form1(Form1Template):
                 # Add a button for each saved build
                 for build in saved_builds:
                     btn = Button(text=build['build_name'])
-                    # Set event handler to call `load_build` when clicked
-                    btn.set_event_handler('click', self.load_build_click, build=build)
+                    
+                    # Store the build data in the button's tag property
+                    btn.tag.build_data = build
+                    
+                    # Set the event handler for the button
+                    btn.set_event_handler('click', self.load_build_click)
+                    
                     column_panel.add_component(btn)  # Add button to the ColumnPanel
                 
                 # Show the ColumnPanel with buttons inside an alert
-                alert(content=column_panel, large=True, title="Select Your Build")
+                alert(content=column_panel, large=True, title="Select Your Build", buttons=[("Cancel", False)])
             else:
                 alert("No builds found for this user.", title="No Builds")
         else:
             alert("Please log in to view your builds.", title="Login Required")
 
-# Function to load the selected build into Form1's dropdowns
-def load_build_click(self, build):
+def load_build_click(self, sender, **event_args):
     # Retrieve the build data from the button tag
-    selected_items = build['selected_items']
+  
 
-    self.cpu_dropdown.selected_value = selected_items.get['cpu']
-    self.gpu_dropdown.selected_value = selected_items.get['gpu']
-    self.ram_dropdown.selected_value = selected_items.get['ram']
-    self.motherboard_dropdown.selected_value = selected_items.get['motherboard']
-    self.storage_dropdown.selected_value = selected_items.get['storage']
-    self.power_supply_dropdown.selected_value = selected_items.get['psu']
-    self.cpu_cooler_dropdown.selected_value = selected_items.get['cpu_cooler']
-    self.case_dropdown.selected_value = selected_items.get['case']
-    self.storage_dropdown_2.selected_value = selected_items.get['storage_2']
-    self.storage_dropdown_3.selected_value = selected_items.get['storage_3']
-    self.os_dropdown.selected_value = selected_items.get['os']
-    self.adapters_dropdown.selected_value = selected_items.get['adapters']
-    self.fans_dropdown.selected_value = selected_items.get['fans']
-    
+    selected_items = build['selected_items']
+  
+    self.cpu_dropdown.selected_value = selected_items.get('cpu')
+    self.gpu_dropdown.selected_value = selected_items.get('gpu')
+    self.ram_dropdown.selected_value = selected_items.get('ram')
+    self.motherboard_dropdown.selected_value = selected_items.get('motherboard')
+    self.storage_dropdown.selected_value = selected_items.get('storage')
+    self.power_supply_dropdown.selected_value = selected_items.get('psu')
+    self.cpu_cooler_dropdown.selected_value = selected_items.get('cpu_cooler')
+    self.case_dropdown.selected_value = selected_items.get('case')
+    self.storage_dropdown_2.selected_value = selected_items.get('storage_2')
+    self.storage_dropdown_3.selected_value = selected_items.get('storage_3')
+    self.os_dropdown.selected_value = selected_items.get('os')
+    self.adapters_dropdown.selected_value = selected_items.get('adapters')
+    self.fans_dropdown.selected_value = selected_items.get('fans')
+  
     alert.dismiss()

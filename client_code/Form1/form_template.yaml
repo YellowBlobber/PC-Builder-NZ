@@ -46,18 +46,20 @@ components:
   - event_bindings: {click: catalogue_button_click}
     layout_properties: {}
     name: catalogue_button
-    properties: {background: 'theme:Blue', foreground: 'theme:Bone White', icon: 'fa:angle-right', icon_align: right, text: Catalogue}
+    properties: {background: 'theme:Blue', foreground: 'theme:Bone White', icon: 'fa:angle-right', icon_align: right, spacing_below: medium, text: Catalogue}
     type: Button
-  - name: builder_button
-    properties: {background: 'theme:Blue', foreground: 'theme:Bone White', text: Builder}
+  - layout_properties: {}
+    name: builder_button
+    properties: {background: 'theme:Blue', foreground: 'theme:Bone White', spacing_below: medium, text: Builder}
     type: Button
-  - name: guides_button
-    properties: {background: 'theme:Blue', foreground: 'theme:Bone White', text: Guides}
+  - layout_properties: {}
+    name: guides_button
+    properties: {background: 'theme:Blue', foreground: 'theme:Bone White', spacing_below: medium, text: Guides}
     type: Button
   - event_bindings: {click: view_builds_button_click}
     layout_properties: {}
     name: view_builds_button
-    properties: {background: 'theme:Blue', foreground: 'theme:Bone White', text: My Builds}
+    properties: {background: 'theme:Blue', foreground: 'theme:Bone White', spacing_below: medium, text: My Builds}
     type: Button
   - layout_properties: {}
     name: sign_out_button
@@ -65,6 +67,7 @@ components:
       background: theme:Blue
       border: none
       foreground: theme:Bone White
+      spacing_below: medium
       text: |
         Sign Out
     type: Button
@@ -520,7 +523,7 @@ components:
     type: Label
   layout_properties: {full_width_row: true, grid_position: 'YYBOZO,RMDTXV'}
   name: Footer
-  properties: {background: 'theme:Olive black', spacing_above: large}
+  properties: {background: 'theme:Olive black', spacing_above: large, spacing_below: none}
   type: GridPanel
 container:
   properties: {col_widths: '{"ADIKYA":8,"FMNYJU":30,"RAUZLT":8,"LCIXJI":9,"BKYAEN":5,"IIJJYH":9,"DAFLDE":35,"MAUEBC":10,"DNJZCC":10,"KNZPYK":52,"IKNEXV":52,"LCKPLG":52,"YESLZI":52,"NDWFKD":52,"GYLLSG":17,"JHNGRD":15,"VQRVXG":15,"ZCMMHR":15,"TUBOJC":15,"TOKLHF":6,"QFKBDO":51}', foreground: '', visible: true, wrap_on: mobile}
