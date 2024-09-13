@@ -495,7 +495,7 @@ class Form1(Form1Template):
     self.save_button.icon = ""
     self.save_button.text = "SAVING..."
     # Show the form as an alert to ask for build name input
-    result = alert(content=name_form, title="Name Your Build", buttons=[("Save", True), ("Cancel", self.save_button.text = ()"SAVE ", False)])
+    result = alert(content=name_form, title="Name Your Build", buttons=[("Save", True), ("Cancel", False)])
     
     if result:
         # Get the build name from the form's text box (assuming a TextBox exists on the form)
@@ -561,42 +561,42 @@ class Form1(Form1Template):
 
 # Function to display builds as buttons in an alert
 
-
-
-# Function to load the selected build into Form1's dropdowns
-
   def view_builds_button_click(self, **event_args):
         user = anvil.users.get_user()
 
         if user:
             # Fetch saved builds from the server
             saved_builds = anvil.server.call('get_user_builds', user)
-            
+
             if saved_builds:
                 # Create a ColumnPanel to hold the buttons
                 column_panel = ColumnPanel()
-                
-                # Add a button for each saved build
+
+                # Loop through each saved build and create a button
                 for build in saved_builds:
-                    btn = Button(text=build['build_name'])
+                    # Create a button for each build
+                    btn = Button(text=build['build_name'], role="raised")
                     
-                    # Store the build data in the button's tag property
+                    # Store the build data in the button’s tag
                     btn.tag.build_data = build
-                    
-                    # Set the event handler using a lambda to avoid the method binding issue
-                    btn.set_event_handler('click', lambda sender, **event_args: self.load_build_click(sender, **event_args))
-                    
-                    column_panel.add_component(btn)  # Add button to the ColumnPanel
-                
-                # Show the ColumnPanel with buttons inside an alert
-                alert(content=column_panel, large=True, title="Select Your Build", button=[("Cancel", False)])
+
+                    # Set the click event handler for each button
+                    btn.set_event_handler('click', lambda sender=btn, **event_args: self.load_build_click(sender))
+
+                    # Add the button to the ColumnPanel
+                    column_panel.add_component(btn)
+
+                # Show the buttons inside an alert
+                alert(content=column_panel, large=True, title="Select Your Build")
+
             else:
                 alert("No builds found for this user.", title="No Builds")
         else:
             alert("Please log in to view your builds.", title="Login Required")
 
 
-def load_build_click(self, sender, **event_args):
+  def load_build_click(self, sender, **event_args):
+    """ Handle the click event of the build button """
     # Retrieve the build data from the button tag
     build = sender.tag.build_data
 
@@ -610,8 +610,8 @@ def load_build_click(self, sender, **event_args):
     self.power_supply_dropdown.selected_value = selected_items.get('psu')
     self.cpu_cooler_dropdown.selected_value = selected_items.get('cpu_cooler')
     self.case_dropdown.selected_value = selected_items.get('case')
-    self.storage_dropdown_2.selected_value = selected_items.get('storage_2')
-    self.storage_dropdown_3.selected_value = selected_items.get('storage_3')
+    self.storage_2_dropdown.selected_value = selected_items.get('storage_2')
+    self.storage_3_dropdown.selected_value = selected_items.get('storage_3')
     self.os_dropdown.selected_value = selected_items.get('os')
     self.adapters_dropdown.selected_value = selected_items.get('adapters')
     self.fans_dropdown.selected_value = selected_items.get('fans')
