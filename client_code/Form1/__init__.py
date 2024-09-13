@@ -516,9 +516,6 @@ class Form1(Form1Template):
                 "storage_2": self.storage_2_dropdown.selected_value,
                 "storage_3": self.storage_3_dropdown.selected_value,
                 "adapters": self.adapters_dropdown.selected_value,
-
-                "total_price": self.total_price_display.text,
-                "wattage": self.wattage_display.text,
             }
            # Call the server function to save the build
             anvil.server.call('save_build', build_name, selected_items)
@@ -619,4 +616,52 @@ class Form1(Form1Template):
     self.adapters_dropdown.selected_value = selected_items.get('adapters')
     self.fans_dropdown.selected_value = selected_items.get('fans')
   
+    cpu_price = self.get_price(self.cpu_dropdown.selected_value)
+    gpu_price = self.get_price(self.gpu_dropdown.selected_value)
+    cpu_cooler_price = self.get_price(self.cpu_cooler_dropdown.selected_value)
+    case_price = self.get_price(self.case_dropdown.selected_value)
+    ram_price = self.get_price(self.ram_dropdown.selected_value)
+    storage_price = self.get_price(self.storage_dropdown.selected_value)
+    motherboard_price = self.get_price(self.motherboard_dropdown.selected_value)
+    psu_price = self.get_price(self.power_supply_dropdown.selected_value)
+    storage_2_price = self.get_price(self.storage_2_dropdown.selected_value)
+    storage_3_price = self.get_price(self.storage_3_dropdown.selected_value)
+    os_price = self.get_price(self.os_dropdown.selected_value)
+    adapters_price = self.get_price(self.adapters_dropdown.selected_value)
+    fans_price = self.get_price(self.fans_dropdown.selected_value)
+    
+    total_price = cpu_price + gpu_price + adapters_price + case_price + cpu_cooler_price + fans_price + motherboard_price + os_price + psu_price + ram_price + storage_2_price + storage_3_price + storage_price
+    self.total_price_display.text = str(total_price)
+    
+    # Assume get_stock is a method that retrieves stock status based on the component
+    cpu_stock = self.get_stock(self.cpu_dropdown.selected_value)
+    gpu_stock = self.get_stock(self.gpu_dropdown.selected_value)
+    cpu_cooler_stock = self.get_stock(self.cpu_cooler_dropdown.selected_value)
+    case_stock = self.get_stock(self.case_dropdown.selected_value)
+    psu_stock = self.get_stock(self.power_supply_dropdown.selected_value)
+    ram_stock = self.get_stock(self.ram_dropdown.selected_value)
+    motherboard_stock = self.get_stock(self.motherboard_dropdown.selected_value)
+    storage_stock = self.get_stock(self.storage_dropdown.selected_value)
+    storage_2_stock = self.get_stock(self.storage_2_dropdown.selected_value)
+    storage_3_stock = self.get_stock(self.storage_3_dropdown.selected_value)
+    os_stock = self.get_stock(self.os_dropdown.selected_value)
+    adapters_stock = self.get_stock(self.adapters_dropdown.selected_value)
+    fans_stock = self.get_stock(self.fans_dropdown.selected_value)
+    
+    # Add other components
+    self.cpu_stock_display.text = cpu_stock
+    self.gpu_stock_display.text = gpu_stock
+    self.cpu_cooler_stock_display.text = cpu_cooler_stock
+    self.case_cooler_stock_display.text = case_stock
+    self.psu_stock_display.text = psu_stock
+    self.ram_stock_display.text = ram_stock
+    self.motherboard_stock_display.text = motherboard_stock
+    self.storage_stock_display.text = storage_stock
+    self.storage_2_stock_display.text = storage_2_stock
+    self.storage_3_stock_display.text = storage_3_stock
+    self.os_stock_display.text = os_stock
+    self.adapters_stock_display.text = adapters_stock
+    self.fans_stock_display.text = fans_stock
+
     alert.dismiss()
+    
