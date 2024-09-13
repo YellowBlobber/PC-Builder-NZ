@@ -516,6 +516,9 @@ class Form1(Form1Template):
                 "storage_2": self.storage_2_dropdown.selected_value,
                 "storage_3": self.storage_3_dropdown.selected_value,
                 "adapters": self.adapters_dropdown.selected_value,
+
+                "total_price": self.total_price_display.text,
+                "wattage": self.wattage_display.text,
             }
            # Call the server function to save the build
             anvil.server.call('save_build', build_name, selected_items)
