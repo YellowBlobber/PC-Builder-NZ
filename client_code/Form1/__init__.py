@@ -596,7 +596,7 @@ class Form1(Form1Template):
 
 def load_build_click(self, sender, **event_args):
     # Retrieve the build data from the button tag
-  
+    build = sender.tag.build_data
 
     selected_items = build['selected_items']
   
