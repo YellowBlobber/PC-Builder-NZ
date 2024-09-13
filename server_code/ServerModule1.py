@@ -130,25 +130,8 @@ def save_build(build_name, selected_items):
       raise ValueError("build_name must be a string.")
 
 @anvil.server.callable
-def get_user_builds():
-    user = anvil.users.get_user()
-    
-    if user:
-        # Assuming builds are stored in a table called 'Builds'
-        builds = app_tables.builds.search(user=user)
-        build_list = [build for build in builds]  # Convert search iterator to list
-        
-        # Debugging: Print the build data on the server
-        print("Builds found for user:", build_list)
-        
-        return build_list
-    return []
+def get_user_builds(user_row):
+    return app_tables.builds.search(user=user_row)
 
-@anvil.server.callable
-def get_build_by_name(build_name):
-    user = anvil.users.get_user()
-    
-    if user:
-        # Fetch the build by its name and user
-        return app_tables.builds.get(user=user, build_name=build_name)
-    return None
+
+
