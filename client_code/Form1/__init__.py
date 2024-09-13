@@ -523,6 +523,7 @@ class Form1(Form1Template):
             self.save_button.icon = "fa:save"
         else:
             alert("Please enter a name for your build.")
+            
 
   def login_button_click(self, **event_args):
     # Show Anvil's built-in login form
@@ -582,17 +583,18 @@ class Form1(Form1Template):
                     # Store the build data in the button's tag property
                     btn.tag.build_data = build
                     
-                    # Set the event handler for the button
-                    btn.set_event_handler('click', self.load_build_click)
+                    # Set the event handler using a lambda to avoid the method binding issue
+                    btn.set_event_handler('click', lambda sender, **event_args: self.load_build_click(sender, **event_args))
                     
                     column_panel.add_component(btn)  # Add button to the ColumnPanel
                 
                 # Show the ColumnPanel with buttons inside an alert
-                alert(content=column_panel, large=True, title="Select Your Build", buttons=[("Cancel", False)])
+                alert(content=column_panel, large=True, title="Select Your Build", button=[("Cancel", False)])
             else:
                 alert("No builds found for this user.", title="No Builds")
         else:
             alert("Please log in to view your builds.", title="Login Required")
+
 
 def load_build_click(self, sender, **event_args):
     # Retrieve the build data from the button tag
