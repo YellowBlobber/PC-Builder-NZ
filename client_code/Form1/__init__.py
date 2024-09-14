@@ -717,7 +717,7 @@ class Form1(Form1Template):
             'fans': self.fans_dropdown.selected_value
             }
           # Save the build to the database (you can skip this step if the build is already saved)
-          anvil.server.call('save_build_and_generate_link', build_name, selected_items)
+          anvil.server.call('save_build_and_generate_link', build_name, selected_items, bnui)
             
             # Generate the shareable link for this build (you can modify this based on your actual URL logic)
           shareable_link = f"https://yourapp.anvil.app/share_build/{build_name}"
