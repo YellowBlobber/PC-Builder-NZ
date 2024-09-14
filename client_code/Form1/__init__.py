@@ -13,7 +13,7 @@ import anvil.media
 import anvil.server
 import anvil.users
 from datetime import datetime
-
+from anvil import alert
 
 
 class Form1(Form1Template):
@@ -352,7 +352,6 @@ class Form1(Form1Template):
         self.os_stock_display.text = "N/A"
         self.component_wattage['os'] = 0  # No wattage for no selection
         self.update_total_wattage()
-        self.os_image.visible = False  # Hide the image if no selection
     else:
         # Proceed with the existing logic if a selection is made
         sheet_data_os = anvil.server.call('get_sheet_data_os')
@@ -383,7 +382,6 @@ class Form1(Form1Template):
         self.fans_stock_display.text = "N/A"
         self.component_wattage['fans'] = 0  # No wattage for no selection
         self.update_total_wattage()
-        self.fans_image.visible = False  # Hide the image if no selection
     else:
         # Proceed with the existing logic if a selection is made
         sheet_data_fans = anvil.server.call('get_sheet_data_fans')
@@ -408,21 +406,17 @@ class Form1(Form1Template):
     selected_storage_2 = self.storage_2_dropdown.selected_value
     print(f"Selected Storage 2: {selected_storage_2}")
     
-    sheet_data_storage = anvil.server.call('get_sheet_data_storage')
-    print(f"Sheet data: {sheet_data_storage}")
-
-    if selected_storage_2 is None or selected_fans.strip() == "":
-        self.fans_display.text = "N/A"
-        self.component_prices['fans'] = 0.0  # No cost for no selection
+    if selected_storage_2 is None or selected_storage_2.strip() == "":
+        self.storage_2_display.text = "N/A"
+        self.component_prices['storage_2'] = 0.0  # No cost for no selection
         self.update_total_price()
-        self.fans_stock_display.text = "N/A"
-        self.component_wattage['fans'] = 0  # No wattage for no selection
+        self.storage_3_stock_display.text = "N/A"
+        self.component_wattage['storage_2'] = 0  # No wattage for no selection
         self.update_total_wattage()
-        self.fans_image.visible = False  # Hide the image if no selection
     else:
         # Proceed with the existing logic if a selection is made
-        sheet_data_fans = anvil.server.call('get_sheet_data_fans')
-
+        sheet_data_storage = anvil.server.call('get_sheet_data_storage')
+        print(f"Sheet data: {sheet_data_storage}")
         for row in sheet_data_storage:
           if row['Item Name'].strip() == selected_storage_2.strip():
             storage_2_price_str = row['Price']
@@ -448,12 +442,21 @@ class Form1(Form1Template):
   def storage_3_dropdown_change(self, **event_args):
     selected_storage_3 = self.storage_3_dropdown.selected_value
     print(f"Selected Storage 3: {selected_storage_3}")
-    
-    sheet_data_storage = anvil.server.call('get_sheet_data_storage')
-    print(f"Sheet data: {sheet_data_storage}")
 
-    for row in sheet_data_storage:
-        if row['Item Name'].strip() == selected_storage_3.strip():
+    if selected_storage_3 is None or selected_storage_3.strip() == "":
+        self.storage_3_display.text = "N/A"
+        self.component_prices['storage_3'] = 0.0  # No cost for no selection
+        self.update_total_price()
+        self.storage_3_stock_display.text = "N/A"
+        self.component_wattage['storage_3'] = 0  # No wattage for no selection
+        self.update_total_wattage()
+    else:
+        # Proceed with the existing logic if a selection is made
+        sheet_data_storage = anvil.server.call('get_sheet_data_storage')
+        print(f"Sheet data: {sheet_data_storage}")
+
+        for row in sheet_data_storage:
+          if row['Item Name'].strip() == selected_storage_3.strip():
             storage_3_price_str = row['Price']
             storage_3_price = float(storage_3_price_str)
             print(f"Price found: {storage_3_price}")
@@ -477,12 +480,20 @@ class Form1(Form1Template):
   def adapters_dropdown_change(self, **event_args):
     selected_adapter = self.adapters_dropdown.selected_value
     print(f"Selected Adapter: {selected_adapter}")
-    
-    sheet_data_adapters = anvil.server.call('get_sheet_data_adapters')
-    print(f"Sheet data: {sheet_data_adapters}")
 
-    for row in sheet_data_adapters:
-        if row['Item Name'].strip() == selected_adapter.strip():
+    if selected_adapter is None or selected_adapter.strip() == "":
+        self.adapter_display.text = "N/A"
+        self.component_prices['adapter'] = 0.0  # No cost for no selection
+        self.update_total_price()
+        self.adapters_stock_display.text = "N/A"
+        self.component_wattage['adapters'] = 0  # No wattage for no selection
+        self.update_total_wattage()
+    else:
+        # Proceed with the existing logic if a selection is made
+        sheet_data_adapters = anvil.server.call('get_sheet_data_adapters')
+
+        for row in sheet_data_adapters:
+          if row['Item Name'].strip() == selected_adapter.strip():
             adapter_price_str = row['Price']
             adapter_price = float(adapter_price_str)
             print(f"Price found: {adapter_price}")
@@ -661,11 +672,8 @@ class Form1(Form1Template):
     self.update_part_details('fans', 'fans_dropdown_change')
     self.update_part_details('adapters', 'adapters_dropdown_change')
     
-    
     self.update_total_price()
     self.update_total_wattage()
-    
-    return
 
   def update_part_details(self, component_key, change_method):
     """Mimic the dropdown change event for a given component."""
