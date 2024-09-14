@@ -426,7 +426,8 @@ components:
     name: total_price_display
     properties: {align: center, background: 'theme:Olive black', border: none, enabled: false, foreground: 'theme:White', placeholder: $00.00, spacing_above: none}
     type: TextBox
-  - layout_properties: {width: 107.38750457763672, x: 109.90000610426068, y: 8}
+  - event_bindings: {click: share_button_click}
+    layout_properties: {width: 107.38750457763672, x: 109.90000610426068, y: 8}
     name: share_button
     properties: {background: 'theme:Olive black', bold: true, foreground: 'theme:White', icon: 'fa:share-alt', icon_align: right, role: .btn-share, text: 'SHARE '}
     type: Button

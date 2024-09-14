@@ -10,6 +10,7 @@ import anvil.users
 from anvil.tables import app_tables
 from cryptography.fernet import Fernet
 import anvil.secrets
+import uuid
 
 @anvil.server.callable
 #defining a function that calls the information in the index worksheet 1, in google sheets. [1] being the cpu worksheet.
@@ -110,28 +111,42 @@ def get_unique_stock(sheet_data):
 
 @anvil.server.callable
 def save_build(build_name, selected_items):
-    
     if isinstance(build_name, str):
         # Get the logged-in user
-      user = anvil.users.get_user()
+        user = anvil.users.get_user()
 
-      if user:
-          # Save the build with reference to the user
-        app_tables.builds.add_row(
-          build_name = build_name, # Encrypts the build name so in the data table the name of the build is hidden for privacy
-          selected_items = selected_items,
-          user = user
-          )
-        print("Selections saved successfully!")
-      else:
-        raise ValueError("No user is logged in.")
-        anvil.users.login_with_form()
+        if user:
+            # Generate a unique build ID for sharing
+            build_id = str(uuid.uuid4())  # Generates a unique ID for each build
+
+            # Save the build with reference to the user
+            app_tables.builds.add_row(
+                build_name=build_name, 
+                selected_items=selected_items,
+                user=user,
+                build_id=build_id  # Save the unique build ID
+            )
+
+            # Return the shareable link (assuming you're using anvil's app URL)
+            shareable_link = f"https://your-anvil-app-url.com/?build_id={build_id}"
+            print(f"Build saved successfully! Shareable link: {shareable_link}")
+            return shareable_link
+
+        else:
+            raise ValueError("No user is logged in.")
+            anvil.users.login_with_form()
     else:
-      raise ValueError("build_name must be a string.")
+        raise ValueError("build_name must be a string.")
 
 @anvil.server.callable
 def get_user_builds(user_row):
     return app_tables.builds.search(user=user_row)
 
-
+@anvil.server.callable
+def get_build_by_id(build_id):
+    """ Retrieve build by ID """
+    build_row = app_tables.builds.get_by_id(build_id)
+    if build_row:
+        return build_row['build_data']
+    return None
 

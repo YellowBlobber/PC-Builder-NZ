@@ -680,3 +680,35 @@ class Form1(Form1Template):
     change_method = getattr(self, change_method, None)
     if change_method:
         change_method()  # Trigger the dropdown change event logic
+
+  def generate_shareable_link(self, build_id):
+    """ Generate a unique shareable link for the build """
+    base_url = "https://yourapp.anvil.app"
+    return f"{base_url}/?build_id={build_id}"
+
+  def share_button_click(self, **event_args):
+    """ Handle the Share Build button click event """
+    # Collect the current build's data
+    print("Share button clicked!")
+    selected_items = {
+        'cpu': self.cpu_dropdown.selected_value,
+        'gpu': self.gpu_dropdown.selected_value,
+        'ram': self.ram_dropdown.selected_value,
+        'motherboard': self.motherboard_dropdown.selected_value,
+        'storage': self.storage_dropdown.selected_value,
+        'psu': self.power_supply_dropdown.selected_value,
+        'cpu_cooler': self.cpu_cooler_dropdown.selected_value,
+        'case': self.case_dropdown.selected_value,
+        'storage_2': self.storage_2_dropdown.selected_value,
+        'storage_3': self.storage_3_dropdown.selected_value,
+        'os': self.os_dropdown.selected_value,
+        'adapters': self.adapters_dropdown.selected_value,
+        'fans': self.fans_dropdown.selected_value
+    }
+    
+    # Call the server to save the build and get a shareable link
+    build_id = anvil.server.call('save_build', selected_items)
+    shareable_link = self.generate_shareable_link(build_id)
+    
+    # Show the shareable link to the user
+    alert(f"Shareable link: {shareable_link}", title="Your Build Link")
