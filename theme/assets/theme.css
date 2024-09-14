@@ -107,6 +107,6 @@
   height: 125px; /* Adjust as needed */
 }
 
-.anvil-role-no-highlight > .btn:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+.anvil-role-no-highlight > .btn:hover, .btn:active, .btn:focus {
+  background-color: rgba(0, 0, 0, 0);
 }
