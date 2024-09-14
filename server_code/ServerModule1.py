@@ -151,18 +151,18 @@ def get_build_by_id(build_id):
     return None
 
 @anvil.server.callable
-def save_build_and_generate_link(build_name, selected_items):
+def save_build_and_generate_link(build_name, selected_items, app_link):
     user = anvil.users.get_user()
     if user:
         # Check if a build with this name already exists
         existing_build = app_tables.builds.get(user=user, build_name=build_name)
-        
+        ##################
         if not existing_build:
             # Add new row
             row = app_tables.builds.add_row(
                 build_name=build_name,
                 selected_items=selected_items,
-                user=user
+                user=user,
             )
         else:
             # Build already exists, update it instead of adding a new row
