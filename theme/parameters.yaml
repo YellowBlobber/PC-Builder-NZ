@@ -10,3 +10,4 @@ roles:
 - {name: text-button}
 - {name: no-background}
 - {name: .btn-share}
+- {components: null, name: no-highlight}
