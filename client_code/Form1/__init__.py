@@ -687,28 +687,43 @@ class Form1(Form1Template):
     return f"{base_url}/?build_id={build_id}"
 
   def share_button_click(self, **event_args):
-    """ Handle the Share Build button click event """
-    # Collect the current build's data
-    print("Share button clicked!")
-    selected_items = {
-        'cpu': self.cpu_dropdown.selected_value,
-        'gpu': self.gpu_dropdown.selected_value,
-        'ram': self.ram_dropdown.selected_value,
-        'motherboard': self.motherboard_dropdown.selected_value,
-        'storage': self.storage_dropdown.selected_value,
-        'psu': self.power_supply_dropdown.selected_value,
-        'cpu_cooler': self.cpu_cooler_dropdown.selected_value,
-        'case': self.case_dropdown.selected_value,
-        'storage_2': self.storage_2_dropdown.selected_value,
-        'storage_3': self.storage_3_dropdown.selected_value,
-        'os': self.os_dropdown.selected_value,
-        'adapters': self.adapters_dropdown.selected_value,
-        'fans': self.fans_dropdown.selected_value
-    }
+    """Handle the share button click event to generate and display a shareable link."""
     
-    # Call the server to save the build and get a shareable link
-    build_id = anvil.server.call('save_build', selected_items)
-    shareable_link = self.generate_shareable_link(build_id)
+    # Create an instance of the name_build_form
+    name_form = name_build_formTemplate()
+
+    # Show the form as an alert to ask for build name input
+    result = alert(content=name_form, title="Name Your Build for Sharing", buttons=[("Share", True), ("Cancel", False)])
     
-    # Show the shareable link to the user
-    alert(f"Shareable link: {shareable_link}", title="Your Build Link")
+    if result:
+        # Get the build name from the form's text box
+        build_name = name_form.build_name_textbox.text
+        
+        if build_name:
+            # Assuming build_name is a string, generate the shareable link
+          selected_items = {
+            'cpu': self.cpu_dropdown.selected_value,
+            'gpu': self.gpu_dropdown.selected_value,
+            'ram': self.ram_dropdown.selected_value,
+            'motherboard': self.motherboard_dropdown.selected_value,
+            'storage': self.storage_dropdown.selected_value,
+            'psu': self.power_supply_dropdown.selected_value,
+            'cpu_cooler': self.cpu_cooler_dropdown.selected_value,
+            'case': self.case_dropdown.selected_value,
+            'storage_2': self.storage_2_dropdown.selected_value,
+            'storage_3': self.storage_3_dropdown.selected_value,
+            'os': self.os_dropdown.selected_value,
+            'adapters': self.adapters_dropdown.selected_value,
+            'fans': self.fans_dropdown.selected_value
+            }
+          # Save the build to the database (you can skip this step if the build is already saved)
+          anvil.server.call('save_build_and_generate_link', build_name, selected_items)
+            
+            # Generate the shareable link for this build (you can modify this based on your actual URL logic)
+          shareable_link = f"https://yourapp.anvil.app/share_build/{build_name}"
+
+            # Display the shareable link in an alert
+          alert(f"Shareable Link: {shareable_link}\nYou can copy this link and share it with others.", large=True)
+
+        else:
+          alert("Please enter a name for your build.")

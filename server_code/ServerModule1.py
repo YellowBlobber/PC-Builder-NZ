@@ -150,3 +150,29 @@ def get_build_by_id(build_id):
         return build_row['build_data']
     return None
 
+@anvil.server.callable
+def save_build_and_generate_link(build_name, selected_items):
+    user = anvil.users.get_user()
+    if user:
+        # Check if a build with this name already exists
+        existing_build = app_tables.builds.get(user=user, build_name=build_name)
+        
+        if not existing_build:
+            # Add new row
+            row = app_tables.builds.add_row(
+                build_name=build_name,
+                selected_items=selected_items,
+                user=user
+            )
+        else:
+            # Build already exists, update it instead of adding a new row
+            row = existing_build
+            row['selected_items'] = selected_items
+
+        # Generate a unique link
+        build_id = row.get_id()  # Get the row's unique ID
+        app_link = f"{anvil.server.get_app_origin()}/#?build_id={build_id}"
+        return app_link
+    else:
+        raise ValueError("No user is logged in.")
+
