@@ -169,14 +169,14 @@ class Form1(Form1Template):
           self.component_wattage['cpu'] = cpu_wattage
           self.update_total_wattage()
     # image change
-    for row in sheet_data_cpu:
-      if row['Item Name'] == selected_cpu:
-          image_url = row['Image Links']
-          print(f"Image URL: {image_url}")
+  
+   ## for row in sheet_data_cpu:
+      ##if row['Item Name'] == selected_cpu:
+          ##image_url = row['Image Links']
+         ## print(f"Image URL: {image_url}")
             
-            # Set the image source to the fetched URL
-          self.cpu_image.source = image_url
-          self.cpu_image.visible = True
+         ##self.cpu_image.source = image_url
+         ## self.cpu_image.visible = True
 
 
   def cpu_cooler_dropdown_change(self, **event_args):
@@ -616,52 +616,28 @@ class Form1(Form1Template):
     self.adapters_dropdown.selected_value = selected_items.get('adapters')
     self.fans_dropdown.selected_value = selected_items.get('fans')
   
-    cpu_price = self.get_price(self.cpu_dropdown.selected_value)
-    gpu_price = self.get_price(self.gpu_dropdown.selected_value)
-    cpu_cooler_price = self.get_price(self.cpu_cooler_dropdown.selected_value)
-    case_price = self.get_price(self.case_dropdown.selected_value)
-    ram_price = self.get_price(self.ram_dropdown.selected_value)
-    storage_price = self.get_price(self.storage_dropdown.selected_value)
-    motherboard_price = self.get_price(self.motherboard_dropdown.selected_value)
-    psu_price = self.get_price(self.power_supply_dropdown.selected_value)
-    storage_2_price = self.get_price(self.storage_2_dropdown.selected_value)
-    storage_3_price = self.get_price(self.storage_3_dropdown.selected_value)
-    os_price = self.get_price(self.os_dropdown.selected_value)
-    adapters_price = self.get_price(self.adapters_dropdown.selected_value)
-    fans_price = self.get_price(self.fans_dropdown.selected_value)
+    self.update_part_details('cpu', 'cpu_dropdown_change')
+    self.update_part_details('gpu', 'gpu_dropdown_change')
+    self.update_part_details('cpu_cooler', 'cpu_cooler_dropdown_change')
+    self.update_part_details('motherboard', 'motherboard_dropdown_change')
+    self.update_part_details('ram', 'ram_dropdown_change')
+    self.update_part_details('case', 'case_dropdown_change')
+    self.update_part_details('psu', 'power_supply_dropdown_change')
+    self.update_part_details('storage', 'storage_dropdown_change')
+    self.update_part_details('os', 'os_dropdown_change')
+    self.update_part_details('storage_2', 'storage_2_dropdown_change')
+    self.update_part_details('storage_3', 'storage_3_dropdown_change')
+    self.update_part_details('fans', 'fans_dropdown_change')
+    self.update_part_details('adapters', 'adapters_dropdown_change')
     
-    total_price = cpu_price + gpu_price + adapters_price + case_price + cpu_cooler_price + fans_price + motherboard_price + os_price + psu_price + ram_price + storage_2_price + storage_3_price + storage_price
-    self.total_price_display.text = str(total_price)
     
-    # Assume get_stock is a method that retrieves stock status based on the component
-    cpu_stock = self.get_stock(self.cpu_dropdown.selected_value)
-    gpu_stock = self.get_stock(self.gpu_dropdown.selected_value)
-    cpu_cooler_stock = self.get_stock(self.cpu_cooler_dropdown.selected_value)
-    case_stock = self.get_stock(self.case_dropdown.selected_value)
-    psu_stock = self.get_stock(self.power_supply_dropdown.selected_value)
-    ram_stock = self.get_stock(self.ram_dropdown.selected_value)
-    motherboard_stock = self.get_stock(self.motherboard_dropdown.selected_value)
-    storage_stock = self.get_stock(self.storage_dropdown.selected_value)
-    storage_2_stock = self.get_stock(self.storage_2_dropdown.selected_value)
-    storage_3_stock = self.get_stock(self.storage_3_dropdown.selected_value)
-    os_stock = self.get_stock(self.os_dropdown.selected_value)
-    adapters_stock = self.get_stock(self.adapters_dropdown.selected_value)
-    fans_stock = self.get_stock(self.fans_dropdown.selected_value)
+    self.update_total_price()
+    self.update_total_wattage()
     
-    # Add other components
-    self.cpu_stock_display.text = cpu_stock
-    self.gpu_stock_display.text = gpu_stock
-    self.cpu_cooler_stock_display.text = cpu_cooler_stock
-    self.case_cooler_stock_display.text = case_stock
-    self.psu_stock_display.text = psu_stock
-    self.ram_stock_display.text = ram_stock
-    self.motherboard_stock_display.text = motherboard_stock
-    self.storage_stock_display.text = storage_stock
-    self.storage_2_stock_display.text = storage_2_stock
-    self.storage_3_stock_display.text = storage_3_stock
-    self.os_stock_display.text = os_stock
-    self.adapters_stock_display.text = adapters_stock
-    self.fans_stock_display.text = fans_stock
+    return
 
-    alert.dismiss()
-    
+  def update_part_details(self, component_key, change_method):
+    """Mimic the dropdown change event for a given component."""
+    change_method = getattr(self, change_method, None)
+    if change_method:
+        change_method()  # Trigger the dropdown change event logic
