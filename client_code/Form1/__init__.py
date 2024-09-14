@@ -14,6 +14,8 @@ import anvil.server
 import anvil.users
 from datetime import datetime
 from anvil import alert
+import json  # Import JSON to parse the build_id
+
 
 
 class Form1(Form1Template):
@@ -122,6 +124,58 @@ class Form1(Form1Template):
     self.os_dropdown.items = categories_os    
    
    # Any code you write here will run before the form opens.
+
+    self.startup()
+
+  def startup(self):
+    try:
+        # Get the URL fragment (after the '#' symbol)
+        url_hash = anvil.get_url_hash()
+        
+        # Debug: Print the value and type of url_hash to see what's going on
+        print(f"URL Hash: {url_hash}, Type: {type(url_hash)}")
+
+        # Check if the hash is a dict-like structure (JSON)
+        if isinstance(url_hash, dict):
+            build_id_str = url_hash.get('build_id')
+            
+            # Check if we have a valid build_id
+            if build_id_str:
+                try:
+                    # Parse build_id as JSON if it looks like a JSON string
+                    build_id = json.loads(build_id_str)
+                    print(f"Parsed Build ID: {build_id}")
+
+                    # Now fetch build details from the server using the parsed build_id
+                    build_details = anvil.server.call('get_build_by_id', build_id)
+
+                    if build_details:
+                        # Load the build details into the form
+                        self.load_build(build_details['selected_items'])
+                    else:
+                        alert("Build not found.")
+                except json.JSONDecodeError as json_err:
+                    print(f"Error decoding build_id: {json_err}")
+                    alert(f"Error decoding build ID: {json_err}")
+            else:
+                print("No build_id found in URL hash.")
+        else:
+            print(f"Unexpected URL hash format: {url_hash}, Type: {type(url_hash)}")
+            alert(f"Error: URL hash is in an unexpected format. Value: {url_hash}")
+    except Exception as e:
+        print(f"Error: {e}")  # Print error for debugging
+        alert(f"Error loading build: {e}")
+
+  def load_build(self, selected_items):
+        # Iterate over all items and set the values for dropdowns
+    for component, value in selected_items.items():
+      dropdown_component = getattr(self, f"{component}_dropdown", None)
+      if dropdown_component is not None:
+        dropdown_component.selected_value = value
+        
+        # Update the display elements such as prices and wattage
+      self.update_total_price()
+      self.update_total_wattage()
 
   def style_my_acocunt_button(self, **event_args):
     self.my_account_buttonbutton.background = ''
@@ -700,30 +754,28 @@ class Form1(Form1Template):
         build_name = name_form.build_name_textbox.text
         
         if build_name:
-            # Assuming build_name is a string, generate the shareable link
-          selected_items = {
-            'cpu': self.cpu_dropdown.selected_value,
-            'gpu': self.gpu_dropdown.selected_value,
-            'ram': self.ram_dropdown.selected_value,
-            'motherboard': self.motherboard_dropdown.selected_value,
-            'storage': self.storage_dropdown.selected_value,
-            'psu': self.power_supply_dropdown.selected_value,
-            'cpu_cooler': self.cpu_cooler_dropdown.selected_value,
-            'case': self.case_dropdown.selected_value,
-            'storage_2': self.storage_2_dropdown.selected_value,
-            'storage_3': self.storage_3_dropdown.selected_value,
-            'os': self.os_dropdown.selected_value,
-            'adapters': self.adapters_dropdown.selected_value,
-            'fans': self.fans_dropdown.selected_value
+            # Create the selected_items dictionary based on the dropdown values
+            selected_items = {
+                'cpu': self.cpu_dropdown.selected_value,
+                'gpu': self.gpu_dropdown.selected_value,
+                'ram': self.ram_dropdown.selected_value,
+                'motherboard': self.motherboard_dropdown.selected_value,
+                'storage': self.storage_dropdown.selected_value,
+                'psu': self.power_supply_dropdown.selected_value,
+                'cpu_cooler': self.cpu_cooler_dropdown.selected_value,
+                'case': self.case_dropdown.selected_value,
+                'storage_2': self.storage_2_dropdown.selected_value,
+                'storage_3': self.storage_3_dropdown.selected_value,
+                'os': self.os_dropdown.selected_value,
+                'adapters': self.adapters_dropdown.selected_value,
+                'fans': self.fans_dropdown.selected_value
             }
-          # Save the build to the database (you can skip this step if the build is already saved)
-          anvil.server.call('save_build_and_generate_link', build_name, selected_items)
-          app_link = 
-            # Generate the shareable link for this build (you can modify this based on your actual URL logic)
-          shareable_link = app_link
-
+            
+            # Call the server function and capture the generated link
+            app_link = anvil.server.call('save_build_and_generate_link', build_name, selected_items)
+            
             # Display the shareable link in an alert
-          alert(f"Shareable Link: {shareable_link}\nYou can copy this link and share it with others.", large=True)
+            alert(f"Shareable Link: {app_link}\nYou can copy this link and share it with others.", large=True)
 
         else:
-          alert("Please enter a name for your build.")
+            alert("Please enter a name for your build.")

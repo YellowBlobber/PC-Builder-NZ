@@ -36,8 +36,6 @@ class BuildsForm(BuildsFormTemplate):
   def build_selected(self, sender, **event_args):
     """Handle the build selection and populate the dropdowns on Form1"""
     selected_build = sender.tag.build_data
-
-    ########## last working here
     
     # Call the method from Form1 to populate the form
     get_open_form('Form1').load_build(selected_build)

@@ -144,19 +144,21 @@ def get_user_builds(user_row):
 
 @anvil.server.callable
 def get_build_by_id(build_id):
-    """ Retrieve build by ID """
-    build_row = app_tables.builds.get_by_id(build_id)
-    if build_row:
-        return build_row['build_data']
-    return None
+    build = app_tables.builds.get_by_id(build_id)
+    if build:
+        return {
+            "build_name": build['build_name'],
+            "selected_items": build['selected_items']
+        }
+    else:
+        return None
 
 @anvil.server.callable
-def save_build_and_generate_link(build_name, selected_items, app_link):
+def save_build_and_generate_link(build_name, selected_items):
     user = anvil.users.get_user()
     if user:
         # Check if a build with this name already exists
         existing_build = app_tables.builds.get(user=user, build_name=build_name)
-        ##################
         if not existing_build:
             # Add new row
             row = app_tables.builds.add_row(
@@ -170,8 +172,8 @@ def save_build_and_generate_link(build_name, selected_items, app_link):
             row['selected_items'] = selected_items
 
         # Generate a unique link
-        build_id = row.get_id()  # Get the row's unique ID
-        app_link = f"{anvil.server.get_app_origin()}/#?build_id={build_id}"
+        build_id = row.get_id()  # Get the row's unique ID, ensure it's a single value
+        app_link = f"{anvil.server.get_app_origin()}/#?build_id={build_id}"  # Single unique ID
         return app_link
     else:
         raise ValueError("No user is logged in.")
