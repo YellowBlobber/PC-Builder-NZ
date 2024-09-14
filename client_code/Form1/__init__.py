@@ -344,12 +344,21 @@ class Form1(Form1Template):
   def os_dropdown_change(self, **event_args):
     selected_os = self.os_dropdown.selected_value
     print(f"Selected OS: {selected_os}")
-    
-    sheet_data_os = anvil.server.call('get_sheet_data_os')
-    print(f"Sheet data: {sheet_data_os}")
 
-    for row in sheet_data_os:
-        if row['Item Name'].strip() == selected_os.strip():
+    if selected_os is None or selected_os.strip() == "":
+        self.os_display.text = "N/A"
+        self.component_prices['os'] = 0.0  # No cost for no selection
+        self.update_total_price()
+        self.os_stock_display.text = "N/A"
+        self.component_wattage['os'] = 0  # No wattage for no selection
+        self.update_total_wattage()
+        self.os_image.visible = False  # Hide the image if no selection
+    else:
+        # Proceed with the existing logic if a selection is made
+        sheet_data_os = anvil.server.call('get_sheet_data_os')
+        print(f"Sheet data: {sheet_data_os}")
+        for row in sheet_data_os:
+          if row['Item Name'].strip() == selected_os.strip():
             os_price_str = row['Price']
             os_price = float(os_price_str)
             print(f"Price found: {os_price}")
@@ -366,12 +375,21 @@ class Form1(Form1Template):
   def fans_dropdown_change(self, **event_args):
     selected_fans = self.fans_dropdown.selected_value
     print(f"Selected Fans: {selected_fans}")
-    
-    sheet_data_fans = anvil.server.call('get_sheet_data_fans')
-    print(f"Sheet data: {sheet_data_fans}")
 
-    for row in sheet_data_fans:
-        if row['Item Name'].strip() == selected_fans.strip():
+    if selected_fans is None or selected_fans.strip() == "":
+        self.fans_display.text = "N/A"
+        self.component_prices['fans'] = 0.0  # No cost for no selection
+        self.update_total_price()
+        self.fans_stock_display.text = "N/A"
+        self.component_wattage['fans'] = 0  # No wattage for no selection
+        self.update_total_wattage()
+        self.fans_image.visible = False  # Hide the image if no selection
+    else:
+        # Proceed with the existing logic if a selection is made
+        sheet_data_fans = anvil.server.call('get_sheet_data_fans')
+        print(f"Sheet data: {sheet_data_fans}")
+        for row in sheet_data_fans:
+          if row['Item Name'].strip() == selected_fans.strip():
             fans_price_str = row['Price']
             fans_price = float(fans_price_str)
             print(f"Price found: {fans_price}")
@@ -393,8 +411,20 @@ class Form1(Form1Template):
     sheet_data_storage = anvil.server.call('get_sheet_data_storage')
     print(f"Sheet data: {sheet_data_storage}")
 
-    for row in sheet_data_storage:
-        if row['Item Name'].strip() == selected_storage_2.strip():
+    if selected_storage_2 is None or selected_fans.strip() == "":
+        self.fans_display.text = "N/A"
+        self.component_prices['fans'] = 0.0  # No cost for no selection
+        self.update_total_price()
+        self.fans_stock_display.text = "N/A"
+        self.component_wattage['fans'] = 0  # No wattage for no selection
+        self.update_total_wattage()
+        self.fans_image.visible = False  # Hide the image if no selection
+    else:
+        # Proceed with the existing logic if a selection is made
+        sheet_data_fans = anvil.server.call('get_sheet_data_fans')
+
+        for row in sheet_data_storage:
+          if row['Item Name'].strip() == selected_storage_2.strip():
             storage_2_price_str = row['Price']
             storage_2_price = float(storage_2_price_str)
             print(f"Price found: {storage_2_price}")
