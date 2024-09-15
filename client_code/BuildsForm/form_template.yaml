@@ -1,7 +1,0 @@
-components:
-- layout_properties: {grid_position: 'YVQURI,IGCTYE'}
-  name: column_panel
-  properties: {}
-  type: ColumnPanel
-container: {type: ColumnPanel}
-is_package: true
