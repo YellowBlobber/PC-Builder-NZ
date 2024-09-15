@@ -784,43 +784,95 @@ class Form1(Form1Template):
             alert("Please enter a name for your build.")
 
 
-
   def load_build_from_url(self, **event_args):
     """Load build from URL hash if present."""
     # Get the URL hash to retrieve build_id
     url_hash = anvil.js.window.location.hash
     if url_hash:
-        query = anvil.http.parse_query_string(url_hash[1:])  # Remove leading '#'
+        print(f"URL hash: {url_hash}")
+        
+        # Check if the hash starts with '#?' and handle it accordingly
+        if url_hash.startswith("#?"):
+            query_string = url_hash[2:]  # Skip the leading '#?'
+        else:
+            query_string = url_hash[1:]  # Skip only the '#'
+        
+        # Manually parse the query string
+        def parse_query_string(query_string):
+            pairs = query_string.split('&')
+            query_dict = {}
+            for pair in pairs:
+                if '=' in pair:
+                    key, value = pair.split('=', 1)
+                    query_dict[key] = value
+            return query_dict
+        
+        # Parse the query string
+        query = parse_query_string(query_string)
+        
         if 'build_id' in query:
             build_id = query['build_id']
+            print(f"Loading build with ID: {build_id}")
             
             # Try fetching the build from the table using the build_id
-            build_row = app_tables.builds.get_by_id(build_id)  # Fetch using ID
+            build_row = app_tables.builds.get(build_id=build_id)  # Fetch using ID
             
             if build_row:
                 # Now populate the form using the build data
                 selected_items = build_row['selected_items']
                 
-                # Update dropdowns and other fields with selected_items
-                self.cpu_dropdown.selected_value = selected_items.get('cpu')
-                self.gpu_dropdown.selected_value = selected_items.get('gpu')
-                self.ram_dropdown.selected_value = selected_items.get('ram')
-                self.motherboard_dropdown.selected_value = selected_items.get('motherboard')
-                self.storage_dropdown.selected_value = selected_items.get('storage')
-                self.power_supply_dropdown.selected_value = selected_items.get('psu')
-                self.cpu_cooler_dropdown.selected_value = selected_items.get('cpu_cooler')
-                self.case_dropdown.selected_value = selected_items.get('case')
-                self.storage_2_dropdown.selected_value = selected_items.get('storage_2')
-                self.storage_3_dropdown.selected_value = selected_items.get('storage_3')
-                self.os_dropdown.selected_value = selected_items.get('os')
-                self.adapters_dropdown.selected_value = selected_items.get('adapters')
-                self.fans_dropdown.selected_value = selected_items.get('fans')
+                # Reuse the populate_form function
+                self.populate_form(selected_items)
                 
-                # Update the total price, etc. after setting the values
-                self.update_total_price()
-
             else:
                 alert(f"Error loading build: Build not found for ID {build_id}")
+        else:
+            alert(f"Error: URL hash is in an unexpected format. Value: {url_hash}")
+
+  def populate_form(self, selected_items):
+        """Populate the form dropdowns with the selected items from a saved build."""
+        self.cpu_dropdown.selected_value = selected_items.get('cpu')
+        self.gpu_dropdown.selected_value = selected_items.get('gpu')
+        self.ram_dropdown.selected_value = selected_items.get('ram')
+        self.motherboard_dropdown.selected_value = selected_items.get('motherboard')
+        self.storage_dropdown.selected_value = selected_items.get('storage')
+        self.power_supply_dropdown.selected_value = selected_items.get('psu')
+        self.cpu_cooler_dropdown.selected_value = selected_items.get('cpu_cooler')
+        self.case_dropdown.selected_value = selected_items.get('case')
+        self.storage_2_dropdown.selected_value = selected_items.get('storage_2')
+        self.storage_3_dropdown.selected_value = selected_items.get('storage_3')
+        self.os_dropdown.selected_value = selected_items.get('os')
+        self.adapters_dropdown.selected_value = selected_items.get('adapters')
+        self.fans_dropdown.selected_value = selected_items.get('fans')
+        self.update_total_price()
+        self.update_total_wattage()
+
+  @staticmethod
+  def hashchange(**event_args):
+    """Handles URL changes (like when a user loads a shared build)."""
+    # Fetch the URL hash (should contain the build_id)
+    url_hash = anvil.js.window.location.hash
+    
+    if url_hash:
+        print(f"URL hash found: {url_hash}")
+        # Extract the build_id from the hash (assuming format like '#?build_id=your-uuid')
+        hash_parts = dict(pair.split('=') for pair in url_hash.lstrip('#?').split('&'))
+        build_id = hash_parts.get('build_id')
+        
+        if build_id:
+            print(f"Decoded build ID: {build_id}")
+            try:
+                # Fetch build data from server using the decoded build ID
+                build_data = anvil.server.call('get_build_by_id', build_id)
+                if build_data:
+                    print(f"Build data found: {build_data}")
+                    # Populate dropdowns or handle the build data
+                    # Example: self.cpu_dropdown.selected_value = build_data['cpu']
+                    # (populate the rest of your dropdowns and values similarly)
+                else:
+                    alert("Build not found.")
+            except Exception as e:
+                alert(f"Error loading build: {str(e)}")
         else:
             alert("Error: URL hash is in an unexpected format.")
     else:

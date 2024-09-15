@@ -142,16 +142,22 @@ def save_build(build_name, selected_items):
 def get_user_builds(user_row):
     return app_tables.builds.search(user=user_row)
 
-@anvil.server.callable
-def get_build_by_id(build_id):
-    build = app_tables.builds.get_by_id(build_id)
-    if build:
-        return {
-            "build_name": build['build_name'],
-            "selected_items": build['selected_items']
-        }
-    else:
-        return None
+###@anvil.server.callable
+###def load_build_by_id(build_id):
+    ###try:
+        ###print(f"Attempting to load build with custom build_id: {build_id}")
+        # Fetch build from the table based on the custom build_id column
+        ###build_row = app_tables.builds.get(build_id=build_id)
+        
+        ###if build_row:
+            ###print(f"Build found: {build_row}")
+            ###return build_row
+        ###else:
+            ###print(f"Build with ID {build_id} not found.")
+            ###raise ValueError(f"Build with ID {build_id} not found.")
+    ###except Exception as e:
+        ###print(f"An error occurred: {e}")
+        ###raise  # Reraise the error for proper error reporting
 
 @anvil.server.callable
 def save_build_and_generate_link(build_name, selected_items):
