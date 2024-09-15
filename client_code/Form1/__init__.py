@@ -124,7 +124,8 @@ class Form1(Form1Template):
     self.os_dropdown.items = categories_os    
    
    # Any code you write here will run before the form opens.
-
+    # Load the build from URL if available
+    self.load_build_from_url()
     self.startup()
 
   def startup(self):
@@ -182,10 +183,7 @@ class Form1(Form1Template):
       self.update_total_price()
       self.update_total_wattage()
 
-  def style_my_acocunt_button(self, **event_args):
-    self.my_account_buttonbutton.background = ''
-    self.my_account_button.border = ''
-    self.my_account_button.set_event_handler('show', self.style_my_account_button)
+ 
   
   #below is for price_display
 
@@ -784,3 +782,45 @@ class Form1(Form1Template):
 
         else:
             alert("Please enter a name for your build.")
+
+
+
+  def load_build_from_url(self, **event_args):
+    """Load build from URL hash if present."""
+    # Get the URL hash to retrieve build_id
+    url_hash = anvil.js.window.location.hash
+    if url_hash:
+        if 'build_id':
+            build_id = ['build_id']
+            
+            # Try fetching the build from the table using the build_id
+            build_row = app_tables.builds.get_by_id(build_id)  # Fetch using ID
+            
+            if build_row:
+                # Now populate the form using the build data
+                selected_items = build_row['selected_items']
+                
+                # Update dropdowns and other fields with selected_items
+                self.cpu_dropdown.selected_value = selected_items.get('cpu')
+                self.gpu_dropdown.selected_value = selected_items.get('gpu')
+                self.ram_dropdown.selected_value = selected_items.get('ram')
+                self.motherboard_dropdown.selected_value = selected_items.get('motherboard')
+                self.storage_dropdown.selected_value = selected_items.get('storage')
+                self.power_supply_dropdown.selected_value = selected_items.get('psu')
+                self.cpu_cooler_dropdown.selected_value = selected_items.get('cpu_cooler')
+                self.case_dropdown.selected_value = selected_items.get('case')
+                self.storage_2_dropdown.selected_value = selected_items.get('storage_2')
+                self.storage_3_dropdown.selected_value = selected_items.get('storage_3')
+                self.os_dropdown.selected_value = selected_items.get('os')
+                self.adapters_dropdown.selected_value = selected_items.get('adapters')
+                self.fans_dropdown.selected_value = selected_items.get('fans')
+                
+                # Update the total price, etc. after setting the values
+                self.update_total_price()
+
+            else:
+                alert(f"Error loading build: Build not found for ID {build_id}")
+        else:
+            alert("Error: URL hash is in an unexpected format.")
+    else:
+        print("No build ID found in the URL.")

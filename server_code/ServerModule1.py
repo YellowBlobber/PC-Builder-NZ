@@ -163,12 +163,13 @@ def save_build_and_generate_link(build_name, selected_items):
             if not existing_build:
                 build_id = str(uuid.uuid4())  # Generates a unique ID for each build
                 print(f"Saving new build: {build_name}")
-                # Add new row
+                
+                # Add new row with the custom build_id
                 row = app_tables.builds.add_row(
                     build_name=build_name,
                     selected_items=selected_items,
                     user=user,
-                    build_id=build_id
+                    build_id=build_id  # Store the generated build_id in the table
                 )
                 print("New build saved.")
             else:
@@ -176,23 +177,16 @@ def save_build_and_generate_link(build_name, selected_items):
                 print(f"Updating existing build: {build_name}")
                 row = existing_build
                 row['selected_items'] = selected_items
+                build_id = row['build_id']  # Re-use the existing build_id
                 print("Existing build updated.")
             
-            # Now check if we can get the ID
-            build_id = row.get_id()  # Get the row's unique ID
-            
-            if build_id:
-                print(f"Build ID generated: {build_id}")
-                app_link = f"{anvil.server.get_app_origin()}/#?build_id={build_id}"
-                print(f"Generated link: {app_link}")
-                return app_link
-            else:
-                print("Failed to retrieve build ID. Row may not have been saved correctly.")
-                raise ValueError("Build ID not generated.")
-        
+            # Generate the shareable link using the custom build_id
+            app_link = f"{anvil.server.get_app_origin()}/build_id={build_id}"
+            print(f"Generated link: {app_link}")
+            return app_link
         except Exception as e:
-            print(f"Error during save or link generation: {e}")
-            raise ValueError(f"Error saving build: {e}")
+            print(f"Error saving build: {e}")
+            raise
     else:
         raise ValueError("No user is logged in.")
 
