@@ -1,10 +1,5 @@
 components:
 - components:
-  - event_bindings: {pressed_enter: search}
-    layout_properties: {width: 597.203125, x: 278.609375, y: 30}
-    name: search_bar
-    properties: {placeholder: Search for an item here}
-    type: TextBox
   - layout_properties: {width: 168.8671875, x: 5.703125, y: 15}
     name: Title
     properties: {bold: true, font: '', font_size: 30, foreground: 'theme:White', spacing_above: none, spacing_below: none, text: PC BUILDER, visible: true}
@@ -13,11 +8,6 @@ components:
     name: label_3
     properties: {font_size: 20, icon: 'fa:search', spacing_above: none, spacing_below: none}
     type: Label
-  - event_bindings: {click: nav_button_click}
-    layout_properties: {width: 78.5, x: 209.59375, y: 11.09375}
-    name: nav_button
-    properties: {background: '', font_size: 35, foreground: 'theme:White', icon: 'fa:bars', role: no-highlight, text: ''}
-    type: Button
   - data_bindings: []
     event_bindings: {click: my_account_button_click}
     layout_properties: {width: 353.7673645019531, x: 902.7083672434092, y: 30.104166880249977}
@@ -37,6 +27,16 @@ components:
     name: NZ
     properties: {bold: true, font_size: 30, foreground: 'theme:Blue', spacing_above: none, spacing_below: none, text: NZ}
     type: Label
+  - event_bindings: {pressed_enter: search}
+    layout_properties: {width: 597.1875, x: 298.64583672583103, y: 30.052082911133766}
+    name: search_bar
+    properties: {placeholder: Search for an item here}
+    type: TextBox
+  - event_bindings: {click: nav_button_click}
+    layout_properties: {width: 78.48958587646484, x: 220.7291802316904, y: 12.239582911133766}
+    name: nav_button
+    properties: {background: '', font_size: 35, foreground: 'theme:White', icon: 'fa:bars', role: no-highlight, text: ''}
+    type: Button
   data_bindings: []
   layout_properties: {full_width_row: true, grid_position: 'IJOFDX,OJRGNJ', row_background: 'theme:Olive black'}
   name: nav_bar
