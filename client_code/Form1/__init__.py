@@ -128,25 +128,30 @@ class Form1(Form1Template):
     self.startup()
 
   def startup(self):
-    try:
-        # Get the URL fragment (after the '#' symbol)
-        url_hash = anvil.get_url_hash()
-        
-        # Debug: Print the value and type of url_hash to see what's going on
-        print(f"URL Hash: {url_hash}, Type: {type(url_hash)}")
+    # Get the URL fragment (after the '#' symbol)
+    url_hash = anvil.get_url_hash()
 
+    # Debug: Print the value and type of url_hash to see what's happening
+    print(f"URL Hash: {url_hash}, Type: {type(url_hash)}")
+
+    # If no URL hash is present, just continue without doing anything
+    if not url_hash:
+        print("No URL hash provided, loading app normally.")
+        return  # Exit the startup function if there's no URL hash
+
+    try:
         # Check if the hash is a dict-like structure (JSON)
         if isinstance(url_hash, dict):
             build_id_str = url_hash.get('build_id')
             
-            # Check if we have a valid build_id
+            # Handle the case where the build_id is missing or malformed
             if build_id_str:
                 try:
-                    # Parse build_id as JSON if it looks like a JSON string
+                    # Parse build_id as JSON if it's a string
                     build_id = json.loads(build_id_str)
                     print(f"Parsed Build ID: {build_id}")
 
-                    # Now fetch build details from the server using the parsed build_id
+                    # Fetch build details from the server using the parsed build_id
                     build_details = anvil.server.call('get_build_by_id', build_id)
 
                     if build_details:
