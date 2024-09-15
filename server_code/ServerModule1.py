@@ -181,7 +181,7 @@ def save_build_and_generate_link(build_name, selected_items):
                 print("Existing build updated.")
             
             # Generate the shareable link using the custom build_id
-            app_link = f"{anvil.server.get_app_origin()}/build_id={build_id}"
+            app_link = f"{anvil.server.get_app_origin()}/#?build_id={build_id}"
             print(f"Generated link: {app_link}")
             return app_link
         except Exception as e:
