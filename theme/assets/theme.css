@@ -110,3 +110,7 @@
 .anvil-role-no-highlight > .btn:hover, .btn:active, .btn:focus {
   background-color: rgba(0, 0, 0, 0);
 }
+
+.avnil-role-panel-alignment {
+  align-content: center;
+}
