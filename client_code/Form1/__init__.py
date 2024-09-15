@@ -790,8 +790,9 @@ class Form1(Form1Template):
     # Get the URL hash to retrieve build_id
     url_hash = anvil.js.window.location.hash
     if url_hash:
-        if 'build_id':
-            build_id = ['build_id']
+        query = anvil.http.parse_query_string(url_hash[1:])  # Remove leading '#'
+        if 'build_id' in query:
+            build_id = query['build_id']
             
             # Try fetching the build from the table using the build_id
             build_row = app_tables.builds.get_by_id(build_id)  # Fetch using ID
