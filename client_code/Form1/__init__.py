@@ -823,6 +823,7 @@ class Form1(Form1Template):
                 
                 # Reuse the populate_form function
                 self.populate_form(selected_items)
+                alert(text = "You Have Loaded Successfully Loaded A Build Named" + )
                 
             else:
                 alert(f"Error loading build: Build not found for ID {build_id}")
