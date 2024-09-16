@@ -816,14 +816,14 @@ class Form1(Form1Template):
             
             # Try fetching the build from the table using the build_id
             build_row = app_tables.builds.get(build_id=build_id)  # Fetch using ID
-            
+          
             if build_row:
                 # Now populate the form using the build data
                 selected_items = build_row['selected_items']
                 
                 # Reuse the populate_form function
                 self.populate_form(selected_items)
-                alert(text = "You Have Loaded Successfully Loaded A Build Named" + )
+                alert("You Have Successfully Loaded A Build")
                 
             else:
                 alert(f"Error loading build: Build not found for ID {build_id}")
