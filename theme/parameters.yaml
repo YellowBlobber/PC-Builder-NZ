@@ -13,3 +13,4 @@ roles:
 - {components: null, name: no-highlight}
 - {name: panel-alignment}
 - {name: center-items}
+- {name: round-corners}

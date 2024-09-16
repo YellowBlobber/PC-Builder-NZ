@@ -686,9 +686,6 @@ class Form1(Form1Template):
 
                 # Show the buttons inside an alert
                 alert(content=column_panel, large=True, title="Select Your Build")
-
-            else:
-                alert("No builds found for this user.", title="No Builds")
         else:
             alert("Please log in to view your builds.", title="Login Required")
 
@@ -699,38 +696,9 @@ class Form1(Form1Template):
     build = sender.tag.build_data
 
     selected_items = build['selected_items']
-  
-    self.cpu_dropdown.selected_value = selected_items.get('cpu')
-    self.gpu_dropdown.selected_value = selected_items.get('gpu')
-    self.ram_dropdown.selected_value = selected_items.get('ram')
-    self.motherboard_dropdown.selected_value = selected_items.get('motherboard')
-    self.storage_dropdown.selected_value = selected_items.get('storage')
-    self.power_supply_dropdown.selected_value = selected_items.get('psu')
-    self.cpu_cooler_dropdown.selected_value = selected_items.get('cpu_cooler')
-    self.case_dropdown.selected_value = selected_items.get('case')
-    self.storage_2_dropdown.selected_value = selected_items.get('storage_2')
-    self.storage_3_dropdown.selected_value = selected_items.get('storage_3')
-    self.os_dropdown.selected_value = selected_items.get('os')
-    self.adapters_dropdown.selected_value = selected_items.get('adapters')
-    self.fans_dropdown.selected_value = selected_items.get('fans')
-  
-    self.update_part_details('cpu', 'cpu_dropdown_change')
-    self.update_part_details('gpu', 'gpu_dropdown_change')
-    self.update_part_details('cpu_cooler', 'cpu_cooler_dropdown_change')
-    self.update_part_details('motherboard', 'motherboard_dropdown_change')
-    self.update_part_details('ram', 'ram_dropdown_change')
-    self.update_part_details('case', 'case_dropdown_change')
-    self.update_part_details('psu', 'power_supply_dropdown_change')
-    self.update_part_details('storage', 'storage_dropdown_change')
-    self.update_part_details('os', 'os_dropdown_change')
-    self.update_part_details('storage_2', 'storage_2_dropdown_change')
-    self.update_part_details('storage_3', 'storage_3_dropdown_change')
-    self.update_part_details('fans', 'fans_dropdown_change')
-    self.update_part_details('adapters', 'adapters_dropdown_change')
-    
-    self.update_total_price()
-    self.update_total_wattage()
 
+    self.populate_form(selected_items)
+    
   def update_part_details(self, component_key, change_method):
     """Mimic the dropdown change event for a given component."""
     change_method = getattr(self, change_method, None)
@@ -822,16 +790,10 @@ class Form1(Form1Template):
                 
                 # Reuse the populate_form function
                 self.populate_form(selected_items)
-                alert("You Have Successfully Loaded A Build")
 
               # Get the build_name from the row and show alert
                 build_name = build_row['build_name']
                 alert(f"Successfully loaded a build: {build_name}")
-                
-            else:
-                alert(f"Error loading build: Build not found for ID {build_id}")
-        else:
-            alert(f"Error: URL hash is in an unexpected format. Value: {url_hash}")
 
   def populate_form(self, selected_items):
         """Populate the form dropdowns with the selected items from a saved build."""
@@ -865,33 +827,4 @@ class Form1(Form1Template):
         self.update_total_price()
         self.update_total_wattage()
 
-  @staticmethod
-  def hashchange(**event_args):
-    """Handles URL changes (like when a user loads a shared build)."""
-    # Fetch the URL hash (should contain the build_id)
-    url_hash = anvil.js.window.location.hash
-    
-    if url_hash:
-        print(f"URL hash found: {url_hash}")
-        # Extract the build_id from the hash (assuming format like '#?build_id=your-uuid')
-        hash_parts = dict(pair.split('=') for pair in url_hash.lstrip('#?').split('&'))
-        build_id = hash_parts.get('build_id')
-        
-        if build_id:
-            print(f"Decoded build ID: {build_id}")
-            try:
-                # Fetch build data from server using the decoded build ID
-                build_data = anvil.server.call('get_build_by_id', build_id)
-                if build_data:
-                    print(f"Build data found: {build_data}")
-                    # Populate dropdowns or handle the build data
-                    # Example: self.cpu_dropdown.selected_value = build_data['cpu']
-                    # (populate the rest of your dropdowns and values similarly)
-                else:
-                    alert("Build not found.")
-            except Exception as e:
-                alert(f"Error loading build: {str(e)}")
-        else:
-            alert("Error: URL hash is in an unexpected format.")
-    else:
-        print("No build ID found in the URL.")
+  

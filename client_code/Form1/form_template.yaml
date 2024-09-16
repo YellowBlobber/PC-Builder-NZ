@@ -10,26 +10,26 @@ components:
       properties: {bold: true, font_size: 30, foreground: 'theme:Blue', spacing_above: none, spacing_below: none, text: NZ}
       type: Label
     - event_bindings: {click: nav_button_click}
-      layout_properties: {width: 76.92708587646484, x: 248.0208062082529, y: 0}
+      layout_properties: {width: 76.921875, x: 223.078125, y: 0}
       name: nav_button
       properties: {background: '', font_size: 35, foreground: 'theme:White', icon: 'fa:bars', role: no-highlight, text: ''}
       type: Button
     data_bindings: []
-    layout_properties: {width: 329.00662597656253}
+    layout_properties: {width: 300}
     name: title_cluster
     properties: {align: center, height: 62.444427490234375, role: panel-alignment, spacing_above: none, spacing_below: none}
     type: XYPanel
   - components:
     - event_bindings: {pressed_enter: search}
-      layout_properties: {width: 598.9547939453125, x: 0, y: 12}
+      layout_properties: {width: 600.453, x: 0, y: 12}
       name: search_bar
       properties: {placeholder: Search for an item here}
       type: TextBox
-    - layout_properties: {width: 25.97222328186035, x: 567.8992241770029, y: 15.138890162110329}
+    - layout_properties: {width: 25.96875, x: 571.5859375, y: 14.3203125}
       name: label_3
       properties: {font_size: 20, icon: 'fa:search', spacing_above: none, spacing_below: none}
       type: Label
-    layout_properties: {width: 599.535083984375}
+    layout_properties: {width: 600}
     name: search_cluster
     properties: {height: 57.88887023925781, role: center-items}
     type: XYPanel
@@ -45,7 +45,7 @@ components:
       name: my_account_button
       properties: {align: left, background: 'theme:Olive black', border: none, foreground: 'theme:White', text: MY ACCOUNT, visible: false}
       type: Button
-    layout_properties: {width: 262.663251953125}
+    layout_properties: {width: 300}
     name: account_cluster
     properties: {height: '60'}
     type: XYPanel
@@ -57,7 +57,7 @@ components:
   - event_bindings: {click: catalogue_button_click}
     layout_properties: {}
     name: catalogue_button
-    properties: {background: 'theme:Blue', foreground: 'theme:White', icon: 'fa:angle-right', icon_align: right, spacing_below: medium, text: Catalogue}
+    properties: {background: 'theme:Blue', foreground: 'theme:White', icon: 'fa:angle-right', icon_align: right, role: round-corners, spacing_below: medium, text: Catalogue}
     type: Button
   - layout_properties: {}
     name: builder_button
