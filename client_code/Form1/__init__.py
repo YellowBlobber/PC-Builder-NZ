@@ -630,7 +630,6 @@ class Form1(Form1Template):
     
     if user:
         alert(f"Welcome, {user['email']}!")
-        self.profile_icon.visible = True
         self.login_button.visible = False
         self.my_account_button.visible = True
         self.my_account_button.text = (f"{user['email']}")
@@ -824,6 +823,10 @@ class Form1(Form1Template):
                 # Reuse the populate_form function
                 self.populate_form(selected_items)
                 alert("You Have Successfully Loaded A Build")
+
+              # Get the build_name from the row and show alert
+                build_name = build_row['build_name']
+                alert(f"Successfully loaded a build: {build_name}")
                 
             else:
                 alert(f"Error loading build: Build not found for ID {build_id}")

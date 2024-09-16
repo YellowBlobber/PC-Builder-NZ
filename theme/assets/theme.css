@@ -111,6 +111,12 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
-.avnil-role-panel-alignment {
-  align-content: center;
+.avnil-role-panel-transition <.flow-panel-show {
+  transition: width 0.3s ease, lightblue 0.3s ease;
+}
+
+.anvil-role-center-items > .flow-panel-gutter {
+    justify-content: center!important;
+    align-content: center;
+    min-height: 10vh;
 }
