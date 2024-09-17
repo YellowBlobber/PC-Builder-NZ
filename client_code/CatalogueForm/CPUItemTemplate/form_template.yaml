@@ -1,7 +1,7 @@
 components:
 - layout_properties: {grid_position: 'RFWQYS,MIVXGT'}
   name: cpu_image
-  properties: {}
+  properties: {height: 105.77777099609375}
   type: Image
 - layout_properties: {grid_position: 'RFWQYS,DLIOVQ'}
   name: cpu_name

@@ -15,8 +15,7 @@ class CatalogueForm(CatalogueFormTemplate):
     self.init_components(**properties)
 
    # Check which category is passed and display the relevant items
-    if selected_category == 'cpu':
-      self.show_cpus()  # Call the function to display only CPUs
+    self.show_cpus()  # Call the function to display only CPUs
 
     # Any code you write here will run before the form opens.
 
