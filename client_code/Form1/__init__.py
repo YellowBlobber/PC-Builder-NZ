@@ -1,5 +1,6 @@
 from ..name_build_form import name_build_formTemplate
 from ..BuildsForm import BuildsFormTemplate
+from ..CatalogueForm import CatalogueForm
 from ._anvil_designer import Form1Template
 from anvil import *
 import anvil.server
@@ -826,5 +827,11 @@ class Form1(Form1Template):
         self.update_part_details('adapters', 'adapters_dropdown_change')
         self.update_total_price()
         self.update_total_wattage()
+
+  def cpu_button_click(self, **event_args):
+    # Create an instance of CatalogueForm and pass a parameter to show CPUs
+    catalogue_form = CatalogueForm(selected_category='cpu')
+    # Open the CatalogueForm
+    open_form(catalogue_form)
 
   

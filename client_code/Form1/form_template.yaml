@@ -88,8 +88,9 @@ components:
   properties: {align: center, background: 'theme:Olive black', spacing_above: none, visible: false}
   type: FlowPanel
 - components:
-  - layout_properties: {}
-    name: button_1
+  - event_bindings: {click: cpu_button_click}
+    layout_properties: {}
+    name: cpu_button
     properties: {foreground: 'theme:White', role: no-highlight, text: CPU's}
     type: Button
   - layout_properties: {}

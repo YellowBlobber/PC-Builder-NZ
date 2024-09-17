@@ -1,0 +1,7 @@
+components:
+- layout_properties: {grid_position: 'VWFORM,WMLAVZ'}
+  name: cpu_repeating_panel
+  properties: {item_template: CatalogueForm.ItemTemplate4}
+  type: RepeatingPanel
+container: {type: ColumnPanel}
+is_package: true
