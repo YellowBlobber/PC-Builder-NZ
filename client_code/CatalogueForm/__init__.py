@@ -22,6 +22,7 @@ class CatalogueForm(CatalogueFormTemplate):
   def show_cpus(self, **event_args):
     """Load and display CPUs in the repeating panel"""
     cpu_data = anvil.server.call('get_sheet_data_cpus')
+     # Clear any existing rows
     if cpu_data:
         self.cpus_repeating_panel.items = cpu_data
     else:
