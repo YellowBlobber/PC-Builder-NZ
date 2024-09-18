@@ -124,3 +124,7 @@
 .avil-role-round-corners > .btn {
   border-radius: 25px;
 }
+
+.anvil-role-textbox-margin {
+  margin-bottom: 20px;
+}

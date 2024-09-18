@@ -908,3 +908,6 @@ class GuidesForm(GuidesFormTemplate):
         alert("Error: URL hash is in an unexpected format.")
     else:
       print("No build ID found in the URL.")
+
+  def builder_button_click(self, **event_args):
+    open_form("BuildsForm")
