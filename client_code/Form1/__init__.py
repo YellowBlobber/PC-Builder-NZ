@@ -829,9 +829,8 @@ class Form1(Form1Template):
         self.update_total_wattage()
 
   def cpu_button_click(self, **event_args):
-    # Create an instance of CatalogueForm and pass a parameter to show CPUs
-    catalogue_form = CatalogueForm(selected_category='cpu')
-    # Open the CatalogueForm
-    open_form(catalogue_form)
+    form = CatalogueForm()
+    form.show_cpus()  # Show CPUs in the catalogue
+    open_form(form)
 
   

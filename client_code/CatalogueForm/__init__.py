@@ -20,8 +20,9 @@ class CatalogueForm(CatalogueFormTemplate):
     # Any code you write here will run before the form opens.
 
   def show_cpus(self, **event_args):
-    # Fetch CPU data from the server
+    """Load and display CPUs in the repeating panel"""
     cpu_data = anvil.server.call('get_sheet_data_cpus')
-
-    # Set the items for the repeating panel
-    self.cpu_repeating_panel.items = cpu_data  # Assuming you named the RepeatingPanel `cpu_repeating_panel`
+    if cpu_data:
+        self.cpus_repeating_panel.items = cpu_data
+    else:
+        alert("No CPU data found.")
