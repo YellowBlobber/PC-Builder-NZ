@@ -833,4 +833,7 @@ class Form1(Form1Template):
     form.show_cpus()  # Show CPUs in the catalogue
     open_form(form)
 
+  def guides_button_click(self, **event_args):
+    open_form("GuidesForm")
+
   
