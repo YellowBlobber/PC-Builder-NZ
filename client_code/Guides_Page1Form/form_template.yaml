@@ -1,0 +1,165 @@
+components:
+- components:
+  - layout_properties: {width: 168.8671875, x: 5.703125, y: 15}
+    name: Title
+    properties: {bold: true, font: '', font_size: 30, foreground: 'theme:White', spacing_above: none, spacing_below: none, text: PC BUILDER, visible: true}
+    type: Label
+  - layout_properties: {width: 45.5, x: 845.2890625, y: 30.9765625}
+    name: label_3
+    properties: {font_size: 20, icon: 'fa:search', spacing_above: none, spacing_below: none}
+    type: Label
+  - data_bindings: []
+    event_bindings: {click: my_account_button_click}
+    layout_properties: {width: 353.7673645019531, x: 902.7083672434092, y: 30.104166880249977}
+    name: my_account_button
+    properties: {background: 'theme:Olive black', border: none, foreground: 'theme:White', text: MY ACCOUNT, visible: false}
+    type: Button
+  - event_bindings: {click: login_button_click}
+    layout_properties: {width: 133.5416717529297, x: 903.7153252512217, y: 30.625004664063454}
+    name: login_button
+    properties: {background: 'theme:Olive black', foreground: 'theme:White', text: SIGN UP/LOGIN}
+    type: Button
+  - layout_properties: {width: 49.47916793823242, x: 1249.375054255128, y: 15.538197413086891}
+    name: profile_icon
+    properties: {font_size: 45, foreground: 'theme:Bone White', icon: 'fa:user-circle', text: '', visible: false}
+    type: Label
+  - layout_properties: {width: 41.892364501953125, x: 180.71181572973728, y: 15.121527567505836}
+    name: NZ
+    properties: {bold: true, font_size: 30, foreground: 'theme:Blue', spacing_above: none, spacing_below: none, text: NZ}
+    type: Label
+  - event_bindings: {pressed_enter: search}
+    layout_properties: {width: 597.1875, x: 298.64583672583103, y: 30.052082911133766}
+    name: search_bar
+    properties: {placeholder: Search for an item here}
+    type: TextBox
+  - event_bindings: {click: nav_button_click}
+    layout_properties: {width: 78.48958587646484, x: 220.7291802316904, y: 12.239582911133766}
+    name: nav_button
+    properties: {background: '', font_size: 35, foreground: 'theme:White', icon: 'fa:bars', role: no-highlight, text: ''}
+    type: Button
+  data_bindings: []
+  layout_properties: {full_width_row: true, grid_position: 'IJOFDX,OJRGNJ', row_background: 'theme:Olive black'}
+  name: nav_bar
+  properties: {align: center, height: 100, spacing_above: none, spacing_below: none}
+  type: XYPanel
+- components:
+  - event_bindings: {click: catalogue_button_click}
+    layout_properties: {}
+    name: catalogue_button
+    properties: {background: 'theme:Blue', foreground: 'theme:White', icon: 'fa:angle-right', icon_align: right, spacing_below: medium, text: Catalogue}
+    type: Button
+  - event_bindings: {click: builder_button_click}
+    layout_properties: {}
+    name: builder_button
+    properties: {background: 'theme:Blue', foreground: 'theme:White', spacing_below: medium, text: Builder}
+    type: Button
+  - layout_properties: {}
+    name: sign_out_button
+    properties:
+      background: theme:Blue
+      border: none
+      foreground: theme:White
+      spacing_below: medium
+      text: |
+        Sign Out
+      visible: true
+    type: Button
+  layout_properties: {full_width_row: true, grid_position: 'OQGRKY,GYVYGC'}
+  name: menu_panel
+  properties: {align: center, background: 'theme:Olive black', spacing_above: none, visible: false}
+  type: FlowPanel
+- layout_properties: {grid_position: 'IYBAAE,JFYMQO'}
+  name: part_selection_title
+  properties: {align: center, bold: true, font: '', font_size: 30, foreground: 'theme:Black', icon: '', italic: false, role: null, spacing_above: large, spacing_below: large, text: 'HOW TO SELECT THE RIGHT PARTS?', underline: true, visible: true}
+  type: Label
+- layout_properties: {grid_position: 'HMKRMG,SYHAKB'}
+  name: label_1
+  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: 'What are the compatibility throughout parts?'}
+  type: Label
+- layout_properties: {grid_position: 'FLKIVI,ULLWOZ'}
+  name: text_area_1
+  properties: {background: 'theme:White', bold: true, border: none, font_size: 15, foreground: 'theme:Black', height: 166.39993286132812, text: 'When building a PC, ensuring compatibility between components is crucial for a smooth and efficient setup. Start by selecting a motherboard that supports your chosen CPU socket type and chipset. Next, verify that your RAM is compatible with the motherboard in terms of type (e.g., DDR4, DDR5) and speed. Ensure your power supply unit (PSU) provides adequate wattage for all components, including the GPU. Check that your case has enough space for the motherboard form factor (e.g., ATX, Micro-ATX) and sufficient clearance for the GPU and CPU cooler. Lastly, confirm that your storage drives (SSD/HDD) match the available ports (SATA, NVMe) on the motherboard. '}
+  type: TextArea
+- layout_properties: {grid_position: 'CQWCVY,OYPTLB'}
+  name: image_1
+  properties: {height: 181.19998168945312}
+  type: Image
+- layout_properties: {grid_position: 'MWAXAG,XGYWGU'}
+  name: label_1_copy
+  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: 'What is a bottleneck build?'}
+  type: Label
+- layout_properties: {grid_position: 'FQWYRR,UHIIWR'}
+  name: text_area_1_copy
+  properties: {background: 'theme:White', bold: true, border: none, font_size: 15, foreground: 'theme:Black', height: 210.39996337890625, text: 'A build bottleneck in a PC generally occurs when some part in your system slows down the others from working at full potential. In other words, if you have a powerful graphics card and the computer''s CPU is very old in technology or low in performance, then it might affect the CPU to act in such a way that the GPU would not be able to perform to full potential in gaming or graphic-intensive tasks. This mismatch can cause frame rates to suffer, loading times to take a bit longer, and overall just a suboptimal experience. Bottlenecks might be created by a lack of RAM, slower storage solutions, or poor cooling, which results in overheating and throttling, among others. Consider generally that any scenario wherein one part of your PC is usually serving as the weakest link, holding up the capabilities of the rest of the system, forms a bottleneck.'}
+  type: TextArea
+- layout_properties: {grid_position: 'KWOAJP,YYLBUI'}
+  name: image_2
+  properties: {height: 202}
+  type: Image
+- layout_properties: {grid_position: 'AWCVPF,YKGMUP'}
+  name: label_1_copy_copy
+  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: 'How to avoid a bottleneck build?'}
+  type: Label
+- layout_properties: {grid_position: 'OGCVLH,FQKHZR'}
+  name: text_area_1_copy_copy
+  properties: {background: 'theme:White', bold: true, border: none, font_size: 15, foreground: 'theme:Black', height: 210.39996337890625, text: 'Pay extra attention to the compatibility of components with each other to avoid a bottleneck in the process of building. First, choose a compatible CPU and GPU; having a high-end graphics card with an underpowered processor cannot perform well in tasks. Provide enough RAM—presumably at least 16 GB for most processes—and put a fast SSD in there to really notice how faster loading times and general responsiveness are. Keep in mind that your PSU should be powerful enough to feed all components, including prospective upgrades. Further, assure good cooling and try to avoid thermal throttling. Pay attention to the motherboard, too, so that it supports state-of-the-art technology and expansion possibilities. Driver and software updates are also very crucial to squeeze the best from hardware and try to avoid bottlenecks.'}
+  type: TextArea
+- components:
+  - layout_properties: {col_xs: 1, row: XGTZCI, width_xs: 1}
+    name: ABOUT
+    properties: {align: center, bold: true, font_size: 15, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'ABOUT:'}
+    type: Label
+  - layout_properties: {col_xs: 3, row: XGTZCI, width_xs: 1}
+    name: PAGES
+    properties: {align: center, bold: true, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'PAGES:'}
+    type: Label
+  - layout_properties: {col_xs: 4, row: XGTZCI, width_xs: 1}
+    name: ACCOUNT
+    properties: {align: center, bold: true, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'ACCOUNT:'}
+    type: Label
+  - layout_properties: {col_xs: 5, row: XGTZCI, width_xs: 1}
+    name: MADEBY
+    properties: {align: center, bold: true, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'MADE BY:'}
+    type: Label
+  - layout_properties: {col_xs: 1, row: HHQCSK, width_xs: 2}
+    name: ABOUT_discription
+    properties: {align: left, foreground: 'theme:White', spacing_above: none, text: PC Builder NZ is a pc building web app that uses NZ owned brands for creating configurations to then later buy}
+    type: Label
+  - layout_properties: {col_xs: 3, row: HHQCSK, width_xs: 1}
+    name: guides_button_footer
+    properties: {foreground: 'theme:White', role: no-highlight, text: '- GUIDES -'}
+    type: Button
+  - layout_properties: {col_xs: 5, row: HHQCSK, width_xs: 1}
+    name: Authers
+    properties:
+      align: center
+      foreground: theme:White
+      spacing_above: none
+      text: |-
+        COOPER ALDEN
+        JONATHAN RIES
+    type: Label
+  - layout_properties: {col_xs: 8, row: HHQCSK, width_xs: 3}
+    name: Footer_title
+    properties: {align: center, bold: true, font: '', font_size: 45, foreground: 'theme:White', spacing_above: none, spacing_below: none, text: PC BUILDER NZ, visible: true}
+    type: Label
+  - layout_properties: {col_xs: 1, row: EEKUNS, width_xs: 1}
+    name: COPYRIGHT
+    properties: {align: center, bold: true, foreground: 'theme:White', spacing_below: none, text: 'COPYRIGHT:'}
+    type: Label
+  - layout_properties: {col_xs: 2, row: EEKUNS, width_xs: 1}
+    name: SOCIALS
+    properties: {align: center, bold: true, foreground: 'theme:White', text: 'SOCIALS:'}
+    type: Label
+  - layout_properties: {col_xs: 1, row: RLMPQN, width_xs: 1}
+    name: label_4
+    properties: {align: center, bold: false, foreground: 'theme:White', spacing_above: none, text: PC BUILDER NZ ©2024}
+    type: Label
+  layout_properties: {full_width_row: true, grid_position: 'YYBOZO,RMDTXV'}
+  name: Footer
+  properties: {background: 'theme:Olive black', border: '', spacing_above: large, spacing_below: none, visible: true}
+  type: GridPanel
+container:
+  properties: {background: '', col_widths: '{}', foreground: '', visible: true, wrap_on: mobile}
+  type: ColumnPanel
+is_package: true

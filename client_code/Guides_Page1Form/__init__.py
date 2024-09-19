@@ -1,6 +1,6 @@
 from ..name_build_form import name_build_formTemplate
 from ..BuildsForm import BuildsFormTemplate
-from ._anvil_designer import Guides_homeFormTemplate
+from ._anvil_designer import Guides_Page1FormTemplate
 from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
@@ -17,7 +17,7 @@ from anvil import alert
 import json  # Import JSON to parse the build_id
 
 
-class Guides_homeForm(Guides_homeFormTemplate):
+class Guides_Page1Form(Guides_Page1FormTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
     # self.populate_categories(**properties)
