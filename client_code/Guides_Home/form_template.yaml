@@ -73,7 +73,8 @@ components:
   properties: {align: center, bold: true, font: '', font_size: 30, icon: '', italic: false, role: null, spacing_above: large, spacing_below: large, text: WHERE TO GET STARTED, underline: false}
   type: Label
 - components:
-  - layout_properties: {width: 200, x: 520.1500480659306, y: 188.15000915527344}
+  - event_bindings: {click: learn_more_button_click}
+    layout_properties: {width: 200, x: 520.1500480659306, y: 188.15000915527344}
     name: learn_more_button
     properties: {background: 'theme:Blue', border: none, foreground: 'theme:White', spacing_below: medium, text: Learn More!, underline: true, visible: true}
     type: Button

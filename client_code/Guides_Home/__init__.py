@@ -911,3 +911,6 @@ class Guides_Home(Guides_HomeTemplate):
 
   def builder_button_click(self, **event_args):
     open_form("BuildsForm")
+
+  def learn_more_button_click(self, **event_args):
+   open_form('Guides_Page1Form')
