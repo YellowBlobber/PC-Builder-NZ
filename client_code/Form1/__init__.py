@@ -23,7 +23,7 @@ import json  # Import JSON to parse the build_id
 class Form1(Form1Template):
   def __init__(self, build_id = None, **properties):
     self.init_components(**properties)
-    
+
     pcs = app_files.pc_builder_nz
     self.component_prices = {
     'cpu': 0.0,
@@ -126,12 +126,16 @@ class Form1(Form1Template):
    
    # Any code you write here will run before the form opens.
     self.build_id = build_id
+    print(f"Initialized with build_id: {build_id}")
     # Load the build from URL if available
-    self.load_build_from_url()
-    self.startup(build_id)
 
-  def startup(self, build_id):
+
+    self.load_build_from_url()
+    self.startup()
+
+  def startup(self):
     # Get the URL fragment (after the '#' symbol)
+    
     url_hash = anvil.get_url_hash()
 
     # Debug: Print the value and type of url_hash to see what's happening
@@ -140,10 +144,7 @@ class Form1(Form1Template):
     # If no URL hash is present, just continue without doing anything
     if not url_hash:
         print("No URL hash provided, loading app normally.")
-        if build_id:
-          self.build_load_from_guides()
-        else:
-          return  # Exit the startup function if there's no URL hash
+        return  # Exit the startup function if there's no URL hash
 
     try:
         # Check if the hash is a dict-like structure (JSON)
@@ -264,10 +265,13 @@ class Form1(Form1Template):
       print(f"Checking row: {row['Item Name']}")
       if row['Item Name'].strip() == selected_cpu_cooler.strip():
           cpu_cooler_wattage_str = row['Value option']
-          cpu_cooler_wattage = int(cpu_cooler_wattage_str)
-          print(f"wattage found: {cpu_cooler_wattage}")
-          self.component_wattage['cpu_cooler'] = cpu_cooler_wattage
-          self.update_total_wattage()
+          if row['Item Name'].strip() == 'Blank':
+            cpu_cooler_wattage = 0
+          else:
+            cpu_cooler_wattage = int(cpu_cooler_wattage_str)
+            print(f"wattage found: {cpu_cooler_wattage}")
+            self.component_wattage['cpu_cooler'] = cpu_cooler_wattage
+            self.update_total_wattage()
 
   def motherboard_dropdown_change(self, **event_args):
     print("Motherboard dropdown changed")
@@ -843,7 +847,7 @@ class Form1(Form1Template):
     """Loads the build from the builds table using the build_id and updates the form."""
     # Fetch the build from the app_tables.builds table using the build_id
     build_row = app_tables.builds.get(build_id=build_id)
-    
+    print(f"Inside build_load_from_guides with build_id: {build_id}")
     if build_row:
         # Get the selected items
         selected_items = build_row['selected_items']

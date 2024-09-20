@@ -82,6 +82,7 @@ components:
     background: theme:White
     bold: true
     border: none
+    enabled: false
     font_size: 15
     foreground: theme:Black
     height: 212.5
@@ -106,6 +107,7 @@ components:
     background: theme:White
     bold: true
     border: none
+    enabled: false
     font_size: 15
     foreground: theme:Black
     height: 212.5
@@ -130,6 +132,7 @@ components:
     background: theme:White
     bold: true
     border: none
+    enabled: false
     font_size: 15
     foreground: theme:Black
     height: 212.5
