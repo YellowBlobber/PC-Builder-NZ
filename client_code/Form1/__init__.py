@@ -24,9 +24,6 @@ class Form1(Form1Template):
   def __init__(self, build_id = None, **properties):
     self.init_components(**properties)
     
-    if build_id:
-      self.load_build_from_guides(build_id)
-    
     pcs = app_files.pc_builder_nz
     self.component_prices = {
     'cpu': 0.0,
@@ -128,11 +125,12 @@ class Form1(Form1Template):
     self.os_dropdown.items = categories_os    
    
    # Any code you write here will run before the form opens.
+    self.build_id = build_id
     # Load the build from URL if available
     self.load_build_from_url()
-    self.startup()
+    self.startup(build_id)
 
-  def startup(self):
+  def startup(self, build_id):
     # Get the URL fragment (after the '#' symbol)
     url_hash = anvil.get_url_hash()
 
@@ -142,7 +140,10 @@ class Form1(Form1Template):
     # If no URL hash is present, just continue without doing anything
     if not url_hash:
         print("No URL hash provided, loading app normally.")
-        return  # Exit the startup function if there's no URL hash
+        if build_id:
+          self.build_load_from_guides()
+        else:
+          return  # Exit the startup function if there's no URL hash
 
     try:
         # Check if the hash is a dict-like structure (JSON)
@@ -187,8 +188,6 @@ class Form1(Form1Template):
       self.update_total_price()
       self.update_total_wattage()
 
- 
-  
   #below is for price_display
 
   def update_total_price(self):
@@ -851,15 +850,7 @@ class Form1(Form1Template):
         
         # Update the form (dropdowns, price, stock, etc.) based on selected_items
         self.populate_form(selected_items)
-        for component, value in selected_items.items():
-          dropdown_component = getattr(self, f"{component}_dropdown", None)
-        if dropdown_component is not None:
-          dropdown_component.selected_value = value
-        
-        # Update the display elements such as prices and wattage
-        self.update_total_price()
-        self.update_total_wattage()
-        # Optionally, show an alert to confirm the build is loaded
+
         alert(f"Successfully loaded build: {build_row['build_name']}")
     else:
         alert(f"Error: Build with ID {build_id} not found.")
