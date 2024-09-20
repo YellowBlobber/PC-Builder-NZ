@@ -74,11 +74,21 @@ components:
   type: Label
 - layout_properties: {grid_position: 'HMKRMG,SYHAKB'}
   name: label_1
-  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: Budget Build}
+  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: '  Budget Build'}
   type: Label
 - layout_properties: {grid_position: 'ZZTRZP,RBOOBC'}
   name: text_area_1
-  properties: {background: 'theme:White', bold: true, border: none, font_size: 15, foreground: 'theme:Black', height: 106.20001220703125, text: ''}
+  properties:
+    background: theme:White
+    bold: true
+    border: none
+    font_size: 15
+    foreground: theme:Black
+    height: 212.5
+    text: |-
+      This Budget Build is quite capable but pretty affordable for gamers at large. Amply powered by the AMD Ryzen 5 5500 processor, complemented by the ZOTAC GeForce RTX 3060 12GB graphics card, this build meets almost any modern game out there. Expect smooth gameplay at 1080p on High settings or even 1440p with Medium settings for more demanding titles.
+
+      Games like Cyberpunk 2077, Call of Duty, Apex Legends, and Overwatch 2 run so smoothly that their immersive nature cannot be compromised by any means in terms of performance. More casual playtime will fly by with Minecraft, Fortnite, and Valorant—all letting you go full-bore into the fun. Whether you're a fan of fast-paced shooters or enjoy open-world adventure-styles of games such as Ark: Survival Evolved and Sons of the Forest, this PC offers great value and gaming potential. It makes it ideal for gamers who want the capable rig to explore diverse genres without the premium price tag.
   type: TextArea
 - layout_properties: {grid_position: 'CQWCVY,OYPTLB'}
   name: image_1
