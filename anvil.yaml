@@ -1,28 +1,23 @@
 allow_embedding: false
 db_schema:
-  cpu_display:
-    client: search
+  builds:
+    client: full
     columns:
-    - admin_ui: {width: 200}
-      name: 'cpu rows '
-      target: cpus_
-      type: link_single
-    server: full
-    title: Cpu_display
-  cpus_:
-    client: none
-    columns:
-    - admin_ui: {width: 200}
-      name: Name
+    - admin_ui: {order: 0, width: 200}
+      name: build_name
       type: string
-    - admin_ui: {width: 200}
-      name: Price
-      type: number
-    - admin_ui: {width: 200}
-      name: In stock
-      type: bool
+    - admin_ui: {order: 1, width: 200}
+      name: selected_items
+      type: simpleObject
+    - admin_ui: {order: 2, width: 200}
+      name: user
+      target: users
+      type: link_single
+    - admin_ui: {order: 3, width: 200}
+      name: build_id
+      type: string
     server: full
-    title: 'Cpus '
+    title: builds
   files:
     client: search
     columns:
@@ -37,47 +32,6 @@ db_schema:
       type: string
     server: full
     title: Files
-  table_5:
-    client: none
-    columns:
-    - admin_ui: {width: 200}
-      name: Name of item
-      type: string
-    - admin_ui: {width: 200}
-      name: Price
-      type: number
-    - admin_ui: {width: 200}
-      name: Stock
-      type: string
-    - admin_ui: {width: 200}
-      name: Sales
-      type: number
-    - admin_ui: {width: 200}
-      name: Quick Info
-      type: string
-    - admin_ui: {width: 200}
-      name: Part Number
-      type: string
-    - admin_ui: {width: 200}
-      name: Brand name
-      type: string
-    - admin_ui: {width: 200}
-      name: Category Name
-      type: string
-    - admin_ui: {width: 200}
-      name: Warranty Years
-      type: string
-    - admin_ui: {width: 200}
-      name: Values
-      type: string
-    - admin_ui: {width: 200}
-      name: Values option
-      type: string
-    - admin_ui: {width: 200}
-      name: Price Before Sale
-      type: string
-    server: full
-    title: Table 5
   users:
     client: full
     columns:
@@ -112,14 +66,19 @@ name: NZ PC Builder
 package_name: NZ_PC_Builder
 runtime_options:
   client_version: '3'
+  server_persist: true
   server_spec: {base: python310-standard}
   server_version: python3-sandbox
   version: 2
+secrets:
+  key:
+    type: key
+    value: {7GMQAGE3DEN4GXX7: GWTNKg8dTc+OepGa1WTV8o5toBX4GFalSKCK50mEGPo9z2ugPOjc6XOd3KmewLouguA0vrwz74fKl7lKHPIQsFlWlGyVAsvhT3ZQIAcAkl/0uWZxud5RozKqrcFqmRxdXzm+pCeFpNpIkZMpVq7AMd3/AFp+dVU=}
 services:
 - client_config: {}
   server_config: {}
   source: /runtime/services/tables.yml
-- client_config: {allow_remember_me: true, allow_signup: true, confirm_email: true, enable_automatically: true, remember_me_days: 30, use_email: true}
+- client_config: {allow_remember_me: true, allow_signup: true, confirm_email: false, enable_automatically: true, remember_me_days: 30, use_email: true}
   server_config: {user_table: users}
   source: /runtime/services/anvil/users.yml
 - client_config: {}
@@ -183,4 +142,7 @@ services:
       writersCanShare: true
   server_config: {enc_delegation_refresh_token: kWhf9XoIjx7dgrSdrSLeA9ihbDIUKlMGcXTGbXA1cJhEk3laA77eNSuZTqEfm9nrlpTbcvBmgH/Qtg4QqZJc05HmxojhbfCIT8cjcCuPHmM8646oNpmuleDbY9oNq58GJ1So7S8Pab2ZqBF8u0N3xuvwyCIXTH8m0hy9AujIsk/3m3vi+t+KrQykDG4lwtzN3oZe1GbQ5wD3Vrsw1qzcrlGO846W/kGd9aAiYYBdF4bArbSBuub9r0OMGsAflzOeHMFuA3Iptksm17auLht7Wc03+9EcLO3BWo147o+uvOIXsgaYcqRpuDd4ieBehg==}
   source: /runtime/services/google.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/anvil/secrets.yml
 startup_form: Form1

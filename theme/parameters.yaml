@@ -6,4 +6,12 @@ color_scheme:
   - {color: '#ffffff', name: White}
   - {color: '#000000', name: Black}
   preset_groups: []
-roles: []
+roles:
+- {name: text-button}
+- {name: no-background}
+- {name: .btn-share}
+- {components: null, name: no-highlight}
+- {name: panel-alignment}
+- {name: center-items}
+- {name: round-corners}
+- {name: textbox-margin}

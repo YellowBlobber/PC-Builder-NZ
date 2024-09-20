@@ -1,39 +1,132 @@
 components:
 - components:
-  - layout_properties: {width: 175.5, x: 9.09375, y: 21}
-    name: Title
-    properties: {bold: true, font: '', font_size: 30, foreground: 'theme:Bone White', spacing_above: none, spacing_below: none, text: PC BUILDER, visible: true}
-    type: Label
-  - layout_properties: {width: 200, x: 185, y: 21}
-    name: NZ
-    properties: {bold: true, font_size: 30, foreground: 'theme:Blue', spacing_above: none, spacing_below: none, text: NZ}
-    type: Label
-  - event_bindings: {pressed_enter: search}
-    layout_properties: {width: 528, x: 320.1875, y: 34}
-    name: Search_bar
-    properties: {placeholder: Search for an item here}
-    type: TextBox
-  - layout_properties: {width: 44.5390625, x: 255, y: 24}
-    name: label_4
-    properties: {bold: false, font_size: 35, foreground: 'theme:Bone White', icon: 'fa:bars', spacing_above: none, spacing_below: none}
-    type: Label
-  - layout_properties: {width: 22.1641, x: 816.59375, y: 35}
-    name: label_3
-    properties: {font_size: 20, icon: 'fa:search', spacing_above: none, spacing_below: none}
-    type: Label
-  - layout_properties: {width: 65, x: 1127, y: 15.046875}
-    name: label_5
-    properties: {font_size: 45, foreground: 'theme:Bone White', icon: 'fa:user-circle'}
-    type: Label
-  - layout_properties: {width: 200, x: 896.375, y: 32.875}
-    name: button_1
-    properties: {text: Sign Up/Sign In}
+  - components:
+    - layout_properties: {width: 304.6180725097656, x: 4.600685968995094, y: 5.538199320435524}
+      name: Title
+      properties: {bold: true, font: '', font_size: 30, foreground: 'theme:White', spacing_above: none, spacing_below: none, text: PC BUILDER, visible: true}
+      type: Label
+    - layout_properties: {width: 80.06945037841797, x: 185.76387871801853, y: 5.590278625488281}
+      name: NZ
+      properties: {bold: true, font_size: 30, foreground: 'theme:Blue', spacing_above: none, spacing_below: none, text: NZ}
+      type: Label
+    - event_bindings: {click: nav_button_click}
+      layout_properties: {width: 76.921875, x: 223.078125, y: 0}
+      name: nav_button
+      properties: {background: '', font_size: 35, foreground: 'theme:White', icon: 'fa:bars', role: no-highlight, text: ''}
+      type: Button
+    data_bindings: []
+    layout_properties: {width: 300}
+    name: title_cluster
+    properties: {align: center, height: 62.444427490234375, role: panel-alignment, spacing_above: none, spacing_below: none}
+    type: XYPanel
+  - components:
+    - event_bindings: {pressed_enter: search}
+      layout_properties: {width: 600.453, x: 0, y: 12}
+      name: search_bar
+      properties: {placeholder: Search for an item here}
+      type: TextBox
+    - layout_properties: {width: 25.96875, x: 571.5859375, y: 14.3203125}
+      name: label_3
+      properties: {font_size: 20, icon: 'fa:search', spacing_above: none, spacing_below: none}
+      type: Label
+    layout_properties: {width: 600}
+    name: search_cluster
+    properties: {height: 57.88887023925781, role: center-items}
+    type: XYPanel
+  - components:
+    - event_bindings: {click: login_button_click}
+      layout_properties: {width: 151.96133593750005, x: 0, y: 10.45139779150486}
+      name: login_button
+      properties: {background: 'theme:Olive black', foreground: 'theme:White', text: SIGN UP/LOGIN}
+      type: Button
+    - data_bindings: []
+      event_bindings: {click: my_account_button_click}
+      layout_properties: {width: 312.145419921875, x: 0, y: 11}
+      name: my_account_button
+      properties: {align: left, background: 'theme:Olive black', border: none, foreground: 'theme:White', text: MY ACCOUNT, visible: false}
+      type: Button
+    layout_properties: {width: 300}
+    name: account_cluster
+    properties: {height: '60'}
+    type: XYPanel
+  layout_properties: {full_width_row: true, grid_position: 'HVWLVQ,KCRPWV'}
+  name: nav_bar_panel
+  properties: {align: center, background: 'theme:Olive black', role: center-items, spacing: small, spacing_above: none, spacing_below: none}
+  type: FlowPanel
+- components:
+  - event_bindings: {click: catalogue_button_click}
+    layout_properties: {}
+    name: catalogue_button
+    properties: {background: 'theme:Blue', foreground: 'theme:White', icon: 'fa:angle-right', icon_align: right, role: round-corners, spacing_below: medium, text: Catalogue}
     type: Button
-  layout_properties: {full_width_row: true, grid_position: 'IJOFDX,OJRGNJ', row_background: 'theme:Olive black'}
-  name: xy_panel_1
-  properties: {height: 100, spacing_above: none, spacing_below: none}
-  type: XYPanel
-- layout_properties: {grid_position: 'TSPEHX,XIWLNY'}
+  - layout_properties: {}
+    name: builder_button
+    properties: {background: 'theme:Blue', foreground: 'theme:White', spacing_below: medium, text: Builder}
+    type: Button
+  - event_bindings: {click: guides_button_click}
+    layout_properties: {}
+    name: guides_button
+    properties: {background: 'theme:Blue', foreground: 'theme:White', spacing_below: medium, text: Guides}
+    type: Button
+  - event_bindings: {click: view_builds_button_click}
+    layout_properties: {}
+    name: view_builds_button
+    properties: {background: 'theme:Blue', foreground: 'theme:White', spacing_below: medium, text: My Builds}
+    type: Button
+  - layout_properties: {}
+    name: sign_out_button
+    properties:
+      background: theme:Blue
+      border: none
+      foreground: theme:White
+      spacing_below: medium
+      text: |
+        Sign Out
+      visible: true
+    type: Button
+  layout_properties: {full_width_row: true, grid_position: 'OQGRKY,GYVYGC'}
+  name: menu_panel
+  properties: {align: center, background: 'theme:Olive black', spacing_above: none, visible: false}
+  type: FlowPanel
+- components:
+  - event_bindings: {click: cpu_button_click}
+    layout_properties: {}
+    name: cpu_button
+    properties: {foreground: 'theme:White', role: no-highlight, text: CPU's}
+    type: Button
+  - layout_properties: {}
+    name: button_2
+    properties: {foreground: 'theme:White', role: no-highlight, text: GPU's}
+    type: Button
+  - layout_properties: {}
+    name: button_3
+    properties: {foreground: 'theme:White', role: no-highlight, text: RAM}
+    type: Button
+  - layout_properties: {}
+    name: button_4
+    properties: {foreground: 'theme:White', role: no-highlight, text: MOTHERBOARD's}
+    type: Button
+  - layout_properties: {}
+    name: button_5
+    properties: {foreground: 'theme:White', role: no-highlight, text: COOLER's}
+    type: Button
+  - layout_properties: {}
+    name: button_6
+    properties: {foreground: 'theme:White', role: no-highlight, text: CASE's}
+    type: Button
+  - layout_properties: {}
+    name: button_7
+    properties: {foreground: 'theme:White', role: no-highlight, text: STORAGE}
+    type: Button
+  - layout_properties: {}
+    name: button_8
+    properties: {foreground: 'theme:White', role: no-highlight, text: FAN's}
+    type: Button
+  layout_properties: {grid_position: 'AXIPVT,YFITFL'}
+  name: catalogue_panel
+  properties: {align: center, background: 'theme:Blue', spacing_above: none, visible: false}
+  type: FlowPanel
+- layout_properties: {grid_position: 'IYBAAE,JFYMQO'}
   name: part_selection_title
   properties: {align: center, bold: true, font: '', font_size: 30, icon: '', italic: false, role: null, spacing_above: large, spacing_below: large, text: 'PART SELECTION:', underline: false}
   type: Label
@@ -82,54 +175,63 @@ components:
   name: cpu_dropdown
   properties: {enabled: true, visible: true}
   type: DropDown
-- layout_properties: {grid_position: 'XQXFSN,FMNYJU YHAYIH,BWQQDM'}
+- event_bindings: {change: cpu_cooler_dropdown_change}
+  layout_properties: {grid_position: 'XQXFSN,FMNYJU YHAYIH,BWQQDM'}
   name: cpu_cooler_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'XQXFSN,FMNYJU ZCBQPW,FHTIPJ'}
+- event_bindings: {change: motherboard_dropdown_change}
+  layout_properties: {grid_position: 'XQXFSN,FMNYJU ZCBQPW,FHTIPJ'}
   name: motherboard_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'XQXFSN,FMNYJU KZZOSP,WTZYNM'}
+- event_bindings: {change: ram_dropdown_change}
+  layout_properties: {grid_position: 'XQXFSN,FMNYJU KZZOSP,WTZYNM'}
   name: ram_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'XQXFSN,FMNYJU IPEWOW,UOBSNO'}
+- event_bindings: {change: gpu_dropdown_change}
+  layout_properties: {grid_position: 'XQXFSN,FMNYJU IPEWOW,UOBSNO'}
   name: gpu_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'XQXFSN,FMNYJU ZJMFYP,YPWWGG'}
+- event_bindings: {change: case_dropdown_change}
+  layout_properties: {grid_position: 'XQXFSN,FMNYJU ZJMFYP,YPWWGG'}
   name: case_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'XQXFSN,FMNYJU JZGWZN,YCZXQL'}
+- event_bindings: {change: power_supply_dropdown_change}
+  layout_properties: {grid_position: 'XQXFSN,FMNYJU JZGWZN,YCZXQL'}
   name: power_supply_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'XQXFSN,FMNYJU QQNPIJ,RPEZVB'}
+- event_bindings: {change: storage_dropdown_change}
+  layout_properties: {grid_position: 'XQXFSN,FMNYJU QQNPIJ,RPEZVB'}
   name: storage_dropdown
   properties: {}
   type: DropDown
 - layout_properties: {grid_position: 'XQXFSN,RAUZLT INAGHD,MEAJMU'}
   name: price_label
-  properties: {align: center, bold: true, text: 'PRICE:   '}
+  properties: {align: center, bold: true, text: 'PRICE: '}
   type: Label
 - event_bindings: {pressed_enter: cpu_display_pressed_enter}
   layout_properties: {grid_position: 'XQXFSN,RAUZLT RIIFKP,KMRPPC'}
   name: cpu_display
-  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: ''}
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
   type: TextBox
-- layout_properties: {grid_position: 'XQXFSN,RAUZLT CKQXWE,MBBBTS'}
+- event_bindings: {pressed_enter: cooling_display_pressed_enter}
+  layout_properties: {grid_position: 'XQXFSN,RAUZLT CKQXWE,MBBBTS'}
   name: cooling_display
-  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: ''}
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
   type: TextBox
-- layout_properties: {grid_position: 'XQXFSN,RAUZLT RTRNJR,YNHWBJ'}
+- event_bindings: {pressed_enter: motherboard_display_pressed_enter}
+  layout_properties: {grid_position: 'XQXFSN,RAUZLT RTRNJR,YNHWBJ'}
   name: motherboard_display
-  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: ''}
+  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
   type: TextBox
 - layout_properties: {grid_position: 'XQXFSN,RAUZLT ZCXRMV,MEBNYA'}
   name: ram_display
-  properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
+  properties: {align: center, background: 'theme:White', border: none, enabled: true, foreground: 'theme:Black', placeholder: $00.00}
   type: TextBox
 - layout_properties: {grid_position: 'XQXFSN,RAUZLT YBHRAD,IHURUJ'}
   name: gpu_display
@@ -139,7 +241,8 @@ components:
   name: case_display
   properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
   type: TextBox
-- layout_properties: {grid_position: 'XQXFSN,RAUZLT RVGBDX,DAZWLO'}
+- event_bindings: {pressed_enter: psu_display_pressed_enter}
+  layout_properties: {grid_position: 'XQXFSN,RAUZLT RVGBDX,DAZWLO'}
   name: psu_display
   properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00, visible: true}
   type: TextBox
@@ -244,24 +347,29 @@ components:
   name: label_Storage_3_copy_copy
   properties: {text: 'Adapters:'}
   type: Label
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE MFVIDY,KNZPYK'}
+- event_bindings: {change: os_dropdown_change}
+  layout_properties: {grid_position: 'WXFYOD,DAFLDE MFVIDY,KNZPYK'}
   name: os_dropdown
   properties:
     items: []
   type: DropDown
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE IQMKNR,IKNEXV'}
+- event_bindings: {change: storage_2_dropdown_change}
+  layout_properties: {grid_position: 'WXFYOD,DAFLDE IQMKNR,IKNEXV'}
   name: storage_2_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE CYVLCV,LCKPLG'}
+- event_bindings: {change: storage_3_dropdown_change}
+  layout_properties: {grid_position: 'WXFYOD,DAFLDE CYVLCV,LCKPLG'}
   name: storage_3_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE IPPKFK,YESLZI'}
+- event_bindings: {change: fans_dropdown_change}
+  layout_properties: {grid_position: 'WXFYOD,DAFLDE IPPKFK,YESLZI'}
   name: fans_dropdown
   properties: {}
   type: DropDown
-- layout_properties: {grid_position: 'WXFYOD,DAFLDE LPEGLE,NDWFKD'}
+- event_bindings: {change: adapters_dropdown_change}
+  layout_properties: {grid_position: 'WXFYOD,DAFLDE LPEGLE,NDWFKD'}
   name: adapters_dropdown
   properties: {}
   type: DropDown
@@ -282,7 +390,7 @@ components:
   properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
   type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,MAUEBC UDGSGO,MGKXQS'}
-  name: fans_display_copy
+  name: adapter_display
   properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: $00.00}
   type: TextBox
 - layout_properties: {grid_position: 'WXFYOD,DNJZCC QYDRCQ,GYLLSG'}
@@ -305,40 +413,44 @@ components:
   name: adapters_stock_display
   properties: {align: center, background: 'theme:White', border: none, enabled: false, foreground: 'theme:Black', placeholder: '---'}
   type: TextBox
-- layout_properties: {grid_position: 'WXFYOD,IMSGTU TIUDVU,FPJYJT'}
-  name: Item_Loctaion_Logo_OEM
-  properties: {height: 31, source: _/theme/computer lounge logo.png, visible: false}
+- layout_properties: {grid_position: 'WXFYOD,TOKLHF FYYIKH,DUZNXU'}
+  name: os_location
+  properties: {display_mode: shrink_to_fit, height: 34.199981689453125, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
-- layout_properties: {grid_position: 'WXFYOD,IMSGTU AZTFHT,GLJDOR'}
-  name: Item_Loctaion_Logo_OEM_copy
-  properties: {height: 36, source: _/theme/computer lounge logo.png, visible: false}
+- layout_properties: {grid_position: 'WXFYOD,TOKLHF NVCLTV,NFLXVI'}
+  name: storage_2_location
+  properties: {display_mode: shrink_to_fit, height: 34.199981689453125, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
-- layout_properties: {grid_position: 'WXFYOD,IMSGTU ZGZDZV,COZNZS'}
-  name: Item_Loctaion_Logo_OEM_copy_copy
+- layout_properties: {grid_position: 'WXFYOD,TOKLHF IBSFKH,OOVFFT'}
+  name: storage_3_location
   properties: {height: 34, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
-- layout_properties: {grid_position: 'WXFYOD,IMSGTU IGCGGM,NWPJPO'}
-  name: Item_Loctaion_Logo_OEM_copy_copy_copy
-  properties: {height: 32, source: _/theme/computer lounge logo.png, visible: false}
+- layout_properties: {grid_position: 'WXFYOD,TOKLHF BQOIPH,LIYLVE'}
+  name: fans_location
+  properties: {display_mode: shrink_to_fit, height: 34.199981689453125, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
-- layout_properties: {grid_position: 'WXFYOD,IMSGTU TRUHDF,KMOUDN'}
-  name: Item_Loctaion_Logo_OEM_copy_copy_copy_copy
-  properties: {height: 40, source: _/theme/computer lounge logo.png, visible: false}
+- layout_properties: {grid_position: 'WXFYOD,TOKLHF OGSSDO,QUXKET'}
+  name: adapters_location
+  properties: {display_mode: shrink_to_fit, height: 34.199981689453125, source: _/theme/computer lounge logo.png, visible: false}
   type: Image
 - components:
-  - layout_properties: {width: 108.5875015258789, x: 633.5125549323857, y: 9.599998474121094}
-    name: total_price
-    properties: {align: center, background: 'theme:Olive black', border: none, foreground: 'theme:White', placeholder: $00.00, spacing_above: none}
+  - event_bindings: {pressed_enter: total_price_display_pressed_enter}
+    layout_properties: {width: 108.5875015258789, x: 633.5125549323857, y: 9}
+    name: total_price_display
+    properties: {align: center, background: 'theme:Olive black', border: none, enabled: false, foreground: 'theme:White', placeholder: $00.00, spacing_above: none}
     type: TextBox
-  - layout_properties: {width: 107.38750457763672, x: 109.90000610426068, y: 8}
+  - event_bindings: {click: share_button_click}
+    layout_properties: {width: 107.38750457763672, x: 109.90000610426068, y: 8}
     name: share_button
-    properties: {background: 'theme:Olive black', bold: true, foreground: 'theme:White', icon: 'fa:share-alt', icon_align: right, text: 'SHARE '}
+    properties: {background: 'theme:Olive black', bold: true, foreground: 'theme:White', icon: 'fa:share-alt', icon_align: right, role: .btn-share, text: 'SHARE '}
     type: Button
-  - layout_properties: {width: 102.98750305175781, x: 5.737500000745058, y: 8}
+  - event_bindings: {click: save_button_click}
+    layout_properties: {width: 102.98750305175781, x: 5.737500000745058, y: 8}
     name: save_button
     properties: {background: 'theme:Olive black', bold: true, foreground: 'theme:White', icon: 'fa:save', icon_align: right, text: ' SAVE '}
     type: Button
   - data_bindings: []
+    event_bindings: {click: buy_button_click}
     layout_properties: {width: 88.4000015258789, x: 874.7000549323857, y: 8}
     name: buy_button
     properties: {background: 'theme:Olive black', bold: true, border: none, foreground: 'theme:White', icon: 'fa:shopping-cart', icon_align: right, spacing_above: none, spacing_below: none, text: 'BUY '}
@@ -365,15 +477,70 @@ components:
         ESTIMATED WATTAGE:
       visible: true
     type: Label
-  - layout_properties: {width: 69.76250457763672, x: 437.4999816901982, y: 11.200000762939453}
+  - layout_properties: {width: 94.35766254882817, x: 445.065987482667, y: 10}
     name: wattage_display
-    properties: {background: 'theme:Olive black', border: none, foreground: 'theme:White', placeholder: 0000W, spacing_below: medium}
+    properties: {background: 'theme:Olive black', border: none, enabled: false, foreground: 'theme:White', placeholder: 0000W, spacing_below: medium, visible: true}
     type: TextBox
   layout_properties: {full_width_row: false, grid_position: 'WUIHSF,JDXXST'}
-  name: xy_panel_2
+  name: info_bar
   properties: {background: 'theme:Olive black', foreground: '', height: 43.20001220703125, spacing_above: large, width: null}
   type: XYPanel
+- components:
+  - layout_properties: {col_xs: 1, row: XGTZCI, width_xs: 1}
+    name: ABOUT
+    properties: {align: center, bold: true, font_size: 15, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'ABOUT:'}
+    type: Label
+  - layout_properties: {col_xs: 3, row: XGTZCI, width_xs: 1}
+    name: PAGES
+    properties: {align: center, bold: true, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'PAGES:'}
+    type: Label
+  - layout_properties: {col_xs: 4, row: XGTZCI, width_xs: 1}
+    name: ACCOUNT
+    properties: {align: center, bold: true, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'ACCOUNT:'}
+    type: Label
+  - layout_properties: {col_xs: 5, row: XGTZCI, width_xs: 1}
+    name: MADEBY
+    properties: {align: center, bold: true, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'MADE BY:'}
+    type: Label
+  - layout_properties: {col_xs: 1, row: HHQCSK, width_xs: 2}
+    name: ABOUT_discription
+    properties: {align: left, foreground: 'theme:White', spacing_above: none, text: PC Builder NZ is a pc building web app that uses NZ owned brands for creating configurations to then later buy}
+    type: Label
+  - layout_properties: {col_xs: 3, row: HHQCSK, width_xs: 1}
+    name: guides_button_footer
+    properties: {foreground: 'theme:White', role: no-highlight, text: '- GUIDES -'}
+    type: Button
+  - layout_properties: {col_xs: 5, row: HHQCSK, width_xs: 1}
+    name: Authers
+    properties:
+      align: center
+      foreground: theme:White
+      spacing_above: none
+      text: |-
+        COOPER ALDEN
+        JONATHAN RIES
+    type: Label
+  - layout_properties: {col_xs: 8, row: HHQCSK, width_xs: 3}
+    name: Footer_title
+    properties: {align: center, bold: true, font: '', font_size: 45, foreground: 'theme:White', spacing_above: none, spacing_below: none, text: PC BUILDER NZ, visible: true}
+    type: Label
+  - layout_properties: {col_xs: 1, row: EEKUNS, width_xs: 1}
+    name: COPYRIGHT
+    properties: {align: center, bold: true, foreground: 'theme:White', spacing_below: none, text: 'COPYRIGHT:'}
+    type: Label
+  - layout_properties: {col_xs: 2, row: EEKUNS, width_xs: 1}
+    name: SOCIALS
+    properties: {align: center, bold: true, foreground: 'theme:White', text: 'SOCIALS:'}
+    type: Label
+  - layout_properties: {col_xs: 1, row: RLMPQN, width_xs: 1}
+    name: label_4
+    properties: {align: center, bold: false, foreground: 'theme:White', spacing_above: none, text: PC BUILDER NZ ©2024}
+    type: Label
+  layout_properties: {full_width_row: true, grid_position: 'YYBOZO,RMDTXV'}
+  name: Footer
+  properties: {background: 'theme:Olive black', spacing_above: large, spacing_below: none}
+  type: GridPanel
 container:
-  properties: {col_widths: '{"ADIKYA":8,"FMNYJU":30,"RAUZLT":8,"LCIXJI":6,"BKYAEN":8,"IIJJYH":8,"DAFLDE":30,"MAUEBC":8,"DNJZCC":6,"IMSGTU":8,"KNZPYK":52,"IKNEXV":52,"LCKPLG":52,"YESLZI":52,"NDWFKD":52,"XIWLNY":60}', visible: true, wrap_on: mobile}
+  properties: {col_widths: '{"ADIKYA":8,"FMNYJU":30,"RAUZLT":8,"LCIXJI":9,"BKYAEN":5,"IIJJYH":9,"DAFLDE":35,"MAUEBC":10,"DNJZCC":10,"KNZPYK":52,"IKNEXV":52,"LCKPLG":52,"YESLZI":52,"NDWFKD":52,"GYLLSG":17,"JHNGRD":15,"VQRVXG":15,"ZCMMHR":15,"TUBOJC":15,"TOKLHF":6,"QFKBDO":51}', foreground: '', visible: true, wrap_on: mobile}
   type: ColumnPanel
 is_package: true

@@ -6,8 +6,11 @@ import anvil.tables as tables
 import anvil.tables.query as q
 import anvil.server
 import anvil.google.drive
-
-
+import anvil.users
+from anvil.tables import app_tables
+from cryptography.fernet import Fernet
+import anvil.secrets
+import uuid
 
 @anvil.server.callable
 #defining a function that calls the information in the index worksheet 1, in google sheets. [1] being the cpu worksheet.
@@ -100,14 +103,96 @@ def get_unique_price(sheet_data):
   categories_price = set(row['Price'] for row in sheet_data)
   return sorted(list(categories_price))
 
-# This is a server module. It runs on the Anvil server,
-# rather than in the user's browser.
+@anvil.server.callable
+#this fuction calls the item names in the picked index for worksheet eg 3, allows us to call and use the names of items in the form code
+def get_unique_stock(sheet_data):
+  categories_stock = set(row['Stock'] for row in sheet_data)
+  return sorted(list(categories_stock))
 
-# To allow anvil.server.call() to call functions here, we mark
-# them with @anvil.server.callable.
-# Here is an example - you can replace it with your own:
+@anvil.server.callable
+def save_build(build_name, selected_items):
+    if isinstance(build_name, str):
+        # Get the logged-in user
+        user = anvil.users.get_user()
 
-# @anvil.server.callable
-# def say_hello(name):
-#   print("Hello, " + name + "!")
-#   return 42
+        if user:
+            # Generate a unique build ID for sharing
+            build_id = str(uuid.uuid4())  # Generates a unique ID for each build
+
+            # Save the build with reference to the user
+            app_tables.builds.add_row(
+                build_name=build_name, 
+                selected_items=selected_items,
+                user=user,
+                build_id=build_id  # Save the unique build ID
+            )
+
+            # Return the shareable link (assuming you're using anvil's app URL)
+            shareable_link = f"https://your-anvil-app-url.com/?build_id={build_id}"
+            print(f"Build saved successfully! Shareable link: {shareable_link}")
+            return shareable_link
+
+        else:
+            raise ValueError("No user is logged in.")
+            anvil.users.login_with_form()
+    else:
+        raise ValueError("build_name must be a string.")
+
+@anvil.server.callable
+def get_user_builds(user_row):
+    return app_tables.builds.search(user=user_row)
+
+###@anvil.server.callable
+###def load_build_by_id(build_id):
+    ###try:
+        ###print(f"Attempting to load build with custom build_id: {build_id}")
+        # Fetch build from the table based on the custom build_id column
+        ###build_row = app_tables.builds.get(build_id=build_id)
+        
+        ###if build_row:
+            ###print(f"Build found: {build_row}")
+            ###return build_row
+        ###else:
+            ###print(f"Build with ID {build_id} not found.")
+            ###raise ValueError(f"Build with ID {build_id} not found.")
+    ###except Exception as e:
+        ###print(f"An error occurred: {e}")
+        ###raise  # Reraise the error for proper error reporting
+
+@anvil.server.callable
+def save_build_and_generate_link(build_name, selected_items):
+    user = anvil.users.get_user()
+    if user:
+        try:
+            # Check if a build with this name already exists
+            existing_build = app_tables.builds.get(user=user, build_name=build_name)
+            if not existing_build:
+                build_id = str(uuid.uuid4())  # Generates a unique ID for each build
+                print(f"Saving new build: {build_name}")
+                
+                # Add new row with the custom build_id
+                row = app_tables.builds.add_row(
+                    build_name=build_name,
+                    selected_items=selected_items,
+                    user=user,
+                    build_id=build_id  # Store the generated build_id in the table
+                )
+                print("New build saved.")
+            else:
+                # Build already exists, update it instead of adding a new row
+                print(f"Updating existing build: {build_name}")
+                row = existing_build
+                row['selected_items'] = selected_items
+                build_id = row['build_id']  # Re-use the existing build_id
+                print("Existing build updated.")
+            
+            # Generate the shareable link using the custom build_id
+            app_link = f"{anvil.server.get_app_origin()}/#?build_id={build_id}"
+            print(f"Generated link: {app_link}")
+            return app_link
+        except Exception as e:
+            print(f"Error saving build: {e}")
+            raise
+    else:
+        raise ValueError("No user is logged in.")
+
