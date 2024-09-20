@@ -835,6 +835,4 @@ class Form1(Form1Template):
 
   def guides_button_click(self, **event_args):
     form = Guides_Home()
-    open_form(form)
-
-  
+    open_form(form)  
