@@ -1,6 +1,7 @@
 from ..name_build_form import name_build_formTemplate
 from ..BuildsForm import BuildsFormTemplate
 from ..CatalogueForm import CatalogueForm
+from ..Guides_Home import Guides_Home
 from ._anvil_designer import Form1Template
 from anvil import *
 import anvil.server

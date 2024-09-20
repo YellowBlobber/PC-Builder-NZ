@@ -73,11 +73,11 @@ components:
   properties: {align: center, bold: true, font: '', font_size: 30, foreground: 'theme:Black', icon: '', italic: false, role: null, spacing_above: large, spacing_below: large, text: OUR RECOMENDED PC BUILDS, underline: true, visible: true}
   type: Label
 - layout_properties: {grid_position: 'HMKRMG,SYHAKB'}
-  name: label_1
-  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: '  Budget Build'}
+  name: budgetrange_title
+  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: '  Budget-Range Build:'}
   type: Label
 - layout_properties: {grid_position: 'ZZTRZP,RBOOBC'}
-  name: text_area_1
+  name: budgetrange_text
   properties:
     background: theme:White
     bold: true
@@ -85,19 +85,66 @@ components:
     font_size: 15
     foreground: theme:Black
     height: 212.5
+    spacing_below: medium
     text: |-
-      This Budget Build is quite capable but pretty affordable for gamers at large. Amply powered by the AMD Ryzen 5 5500 processor, complemented by the ZOTAC GeForce RTX 3060 12GB graphics card, this build meets almost any modern game out there. Expect smooth gameplay at 1080p on High settings or even 1440p with Medium settings for more demanding titles.
+      This budget-range build is quite capable but pretty affordable for gamers at large. Amply powered by the AMD Ryzen 5 5500 processor, complemented by the ZOTAC GeForce RTX 3060 12GB graphics card, this build meets almost any modern game out there. Expect smooth gameplay at 1080p on High settings or even 1440p with Medium settings for more demanding titles.
 
       Games like Cyberpunk 2077, Call of Duty, Apex Legends, and Overwatch 2 run so smoothly that their immersive nature cannot be compromised by any means in terms of performance. More casual playtime will fly by with Minecraft, Fortnite, and Valorant—all letting you go full-bore into the fun. Whether you're a fan of fast-paced shooters or enjoy open-world adventure-styles of games such as Ark: Survival Evolved and Sons of the Forest, this PC offers great value and gaming potential. It makes it ideal for gamers who want the capable rig to explore diverse genres without the premium price tag.
   type: TextArea
 - layout_properties: {grid_position: 'BQVMQV,AQHIPI'}
   name: budget_build_button
-  properties: {text: VIEW BUILD!}
+  properties: {align: full, background: 'theme:Blue', foreground: 'theme:White', text: VIEW BUILD!}
   type: Button
-- layout_properties: {grid_position: 'CQWCVY,OYPTLB'}
-  name: image_1
-  properties: {height: 181.19998168945312}
-  type: Image
+- layout_properties: {grid_position: 'ZWNQWE,ELLNTK'}
+  name: midrange_title
+  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: '  Mid-Range Build:'}
+  type: Label
+- layout_properties: {grid_position: 'TDDRTU,ORHAIR'}
+  name: midrange_text
+  properties:
+    background: theme:White
+    bold: true
+    border: none
+    font_size: 15
+    foreground: theme:Black
+    height: 212.5
+    spacing_below: medium
+    text: |-
+      This mid-range build gets serious, amping it up for gamers who want to take things to the next level. It includes an AMD Ryzen 5 7600 and a further ZOTAC GeForce RTX 4060 Ti 8GB, making this computer ready for most recent AAA games out there. With this, you smoothly drive games to 1080p at high to very high settings or even 1440p at medium to high for the best visuals with great performance across your games.
+
+      Games like Starfield, Elden Ring, Hogwarts Legacy, and Assassin's Creed Mirage will look amazing and run gorgeously, making you fully integrated into their detailed worlds. Whether one is competing in Apex Legends and Overwatch 2 or just opening up huge universes in Star Citizen and Forza Horizon 5, this build puts power and versatility in your hands to handle it all with ease. It's an ideal deal for any gamer who requires a powerful, future-proof system for the most detailed gaming.
+  type: TextArea
+- layout_properties: {grid_position: 'NZAQHB,HGIPVC'}
+  name: mid_build_button
+  properties: {align: full, background: 'theme:Blue', foreground: 'theme:White', text: VIEW BUILD!}
+  type: Button
+- layout_properties: {grid_position: 'UIOMQP,XVPTJU'}
+  name: highrange_title
+  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: '  High-Range Build:'}
+  type: Label
+- layout_properties: {grid_position: 'RLSUIH,EMXOYQ'}
+  name: highrange_text
+  properties:
+    background: theme:White
+    bold: true
+    border: none
+    font_size: 15
+    foreground: theme:Black
+    height: 212.5
+    spacing_below: medium
+    text: |-
+      This mid-range build gets serious, amping it up for gamers who want to take things to the next level. It includes an AMD Ryzen 5 7600 and a further ZOTAC GeForce RTX 4060 Ti 8GB, making this computer ready for most recent AAA games out there. With this, you smoothly drive games to 1080p at high to very high settings or even 1440p at medium to high for the best visuals with great performance across your games.
+
+      Games like Starfield, Elden Ring, Hogwarts Legacy, and Assassin's Creed Mirage will look amazing and run gorgeously, making you fully integrated into their detailed worlds. Whether one is competing in Apex Legends and Overwatch 2 or just opening up huge universes in Star Citizen and Forza Horizon 5, this build puts power and versatility in your hands to handle it all with ease. It's an ideal deal for any gamer who requires a powerful, future-proof system for the most detailed gaming.
+  type: TextArea
+- layout_properties: {grid_position: 'SHJCQH,EUNRUH'}
+  name: high_build_button
+  properties: {align: full, background: 'theme:Blue', foreground: 'theme:White', spacing_below: large, text: VIEW BUILD!}
+  type: Button
+- layout_properties: {grid_position: 'QHZPKM,YASDCU'}
+  name: return_button
+  properties: {align: center, background: 'theme:Olive black', foreground: 'theme:White', spacing_below: large, text: RETURN}
+  type: Button
 - components:
   - layout_properties: {col_xs: 1, row: XGTZCI, width_xs: 1}
     name: ABOUT
