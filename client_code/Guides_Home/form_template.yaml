@@ -73,9 +73,9 @@ components:
   properties: {align: center, bold: true, font: '', font_size: 30, icon: '', italic: false, role: null, spacing_above: large, spacing_below: large, text: WHERE TO GET STARTED, underline: false}
   type: Label
 - components:
-  - event_bindings: {click: learn_more_button_click}
+  - event_bindings: {click: learnmore_right_button_click}
     layout_properties: {width: 200, x: 520.1500480659306, y: 188.15000915527344}
-    name: learn_more_button
+    name: learnmore_right_button
     properties: {background: 'theme:Blue', border: none, foreground: 'theme:White', spacing_below: medium, text: Learn More!, underline: true, visible: true}
     type: Button
   - layout_properties: {width: 547.3250122070312, x: 12.387520600110292, y: 24.599964141845703}
@@ -91,8 +91,9 @@ components:
   properties: {background: 'theme:Olive black', height: 249, spacing_below: large}
   type: XYPanel
 - components:
-  - layout_properties: {width: 200, x: 520.1500480659306, y: 188.15000915527344}
-    name: learn_more_button_copy_2
+  - event_bindings: {click: learnmore_parts_button_click}
+    layout_properties: {width: 200, x: 520.1500480659306, y: 188.15000915527344}
+    name: learnmore_parts_button
     properties: {background: 'theme:Blue', border: none, foreground: 'theme:White', spacing_below: medium, text: Learn More!, underline: true, visible: true}
     type: Button
   - layout_properties: {width: 487.12498779296874, x: 12.387520600110292, y: 24.599964141845703}

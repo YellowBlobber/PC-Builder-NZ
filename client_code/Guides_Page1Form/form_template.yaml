@@ -105,7 +105,8 @@ components:
   name: text_area_1_copy_copy
   properties: {background: 'theme:White', bold: true, border: none, font_size: 15, foreground: 'theme:Black', height: 210.39996337890625, text: 'Pay extra attention to the compatibility of components with each other to avoid a bottleneck in the process of building. First, choose a compatible CPU and GPU; having a high-end graphics card with an underpowered processor cannot perform well in tasks. Provide enough RAM—presumably at least 16 GB for most processes—and put a fast SSD in there to really notice how faster loading times and general responsiveness are. Keep in mind that your PSU should be powerful enough to feed all components, including prospective upgrades. Further, assure good cooling and try to avoid thermal throttling. Pay attention to the motherboard, too, so that it supports state-of-the-art technology and expansion possibilities. Driver and software updates are also very crucial to squeeze the best from hardware and try to avoid bottlenecks.'}
   type: TextArea
-- layout_properties: {grid_position: 'ACCNVT,DOSDAJ'}
+- event_bindings: {click: return_button_click}
+  layout_properties: {grid_position: 'ACCNVT,DOSDAJ'}
   name: return_button
   properties: {align: center, background: 'theme:Olive black', foreground: 'theme:White', text: RETURN}
   type: Button

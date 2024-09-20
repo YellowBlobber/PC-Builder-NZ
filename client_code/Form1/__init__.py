@@ -21,9 +21,11 @@ import json  # Import JSON to parse the build_id
 
 
 class Form1(Form1Template):
-  def __init__(self, **properties):
+  def __init__(self, build_id = None, **properties):
     self.init_components(**properties)
-    #self.populate_categories(**properties)
+    
+    if build_id:
+      self.load_build_from_guides(build_id)
     
     pcs = app_files.pc_builder_nz
     self.component_prices = {
@@ -837,3 +839,27 @@ class Form1(Form1Template):
   def guides_button_click(self, **event_args):
     form = Guides_Home()
     open_form(form)  
+
+  def load_build_from_guides(self, build_id):
+    """Loads the build from the builds table using the build_id and updates the form."""
+    # Fetch the build from the app_tables.builds table using the build_id
+    build_row = app_tables.builds.get(build_id=build_id)
+    
+    if build_row:
+        # Get the selected items
+        selected_items = build_row['selected_items']
+        
+        # Update the form (dropdowns, price, stock, etc.) based on selected_items
+        self.populate_form(selected_items)
+        for component, value in selected_items.items():
+          dropdown_component = getattr(self, f"{component}_dropdown", None)
+        if dropdown_component is not None:
+          dropdown_component.selected_value = value
+        
+        # Update the display elements such as prices and wattage
+        self.update_total_price()
+        self.update_total_wattage()
+        # Optionally, show an alert to confirm the build is loaded
+        alert(f"Successfully loaded build: {build_row['build_name']}")
+    else:
+        alert(f"Error: Build with ID {build_id} not found.")

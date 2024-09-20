@@ -91,7 +91,8 @@ components:
 
       Games like Cyberpunk 2077, Call of Duty, Apex Legends, and Overwatch 2 run so smoothly that their immersive nature cannot be compromised by any means in terms of performance. More casual playtime will fly by with Minecraft, Fortnite, and Valorant—all letting you go full-bore into the fun. Whether you're a fan of fast-paced shooters or enjoy open-world adventure-styles of games such as Ark: Survival Evolved and Sons of the Forest, this PC offers great value and gaming potential. It makes it ideal for gamers who want the capable rig to explore diverse genres without the premium price tag.
   type: TextArea
-- layout_properties: {grid_position: 'BQVMQV,AQHIPI'}
+- event_bindings: {click: budget_build_button_click}
+  layout_properties: {grid_position: 'BQVMQV,AQHIPI'}
   name: budget_build_button
   properties: {align: full, background: 'theme:Blue', foreground: 'theme:White', text: VIEW BUILD!}
   type: Button
@@ -114,7 +115,8 @@ components:
 
       Games like Starfield, Elden Ring, Hogwarts Legacy, and Assassin's Creed Mirage will look amazing and run gorgeously, making you fully integrated into their detailed worlds. Whether one is competing in Apex Legends and Overwatch 2 or just opening up huge universes in Star Citizen and Forza Horizon 5, this build puts power and versatility in your hands to handle it all with ease. It's an ideal deal for any gamer who requires a powerful, future-proof system for the most detailed gaming.
   type: TextArea
-- layout_properties: {grid_position: 'NZAQHB,HGIPVC'}
+- event_bindings: {click: mid_build_button_click}
+  layout_properties: {grid_position: 'NZAQHB,HGIPVC'}
   name: mid_build_button
   properties: {align: full, background: 'theme:Blue', foreground: 'theme:White', text: VIEW BUILD!}
   type: Button
@@ -133,15 +135,17 @@ components:
     height: 212.5
     spacing_below: medium
     text: |-
-      This mid-range build gets serious, amping it up for gamers who want to take things to the next level. It includes an AMD Ryzen 5 7600 and a further ZOTAC GeForce RTX 4060 Ti 8GB, making this computer ready for most recent AAA games out there. With this, you smoothly drive games to 1080p at high to very high settings or even 1440p at medium to high for the best visuals with great performance across your games.
+      This high-range build is coupled with an AMD Ryzen 7 9700X and a ZOTAC GeForce RTX 4080 SUPER TRINITY 16GB, ensuring everything runs at peak and provides ultra-performance. It is built to handle extreme gaming, multitasking, and all possible scenarios where top-notch performance will be required.
 
-      Games like Starfield, Elden Ring, Hogwarts Legacy, and Assassin's Creed Mirage will look amazing and run gorgeously, making you fully integrated into their detailed worlds. Whether one is competing in Apex Legends and Overwatch 2 or just opening up huge universes in Star Citizen and Forza Horizon 5, this build puts power and versatility in your hands to handle it all with ease. It's an ideal deal for any gamer who requires a powerful, future-proof system for the most detailed gaming.
+      Whether it is graphically heavy titles like Cyberpunk 2077, Starfield, or Elden Ring, you should be ready to be thrilled by 1440p Very High settings and even 4K Medium to High settings. This rig will give you smooth performance with teeth-crushing graphics, which is a perfect combo for big current and upcoming AAA games. The huge 2TB Samsung 990 EVO Gen4 SSD and 32GB DDR5 memory also give great load times and plenty of storage for your game library. For gamers who would wish to invest in a system ready for the next generation of gaming, this build has got you covered.
   type: TextArea
-- layout_properties: {grid_position: 'SHJCQH,EUNRUH'}
+- event_bindings: {click: high_build_button_click}
+  layout_properties: {grid_position: 'SHJCQH,EUNRUH'}
   name: high_build_button
   properties: {align: full, background: 'theme:Blue', foreground: 'theme:White', spacing_below: large, text: VIEW BUILD!}
   type: Button
-- layout_properties: {grid_position: 'QHZPKM,YASDCU'}
+- event_bindings: {click: return_button_click}
+  layout_properties: {grid_position: 'QHZPKM,YASDCU'}
   name: return_button
   properties: {align: center, background: 'theme:Olive black', foreground: 'theme:White', spacing_below: large, text: RETURN}
   type: Button
