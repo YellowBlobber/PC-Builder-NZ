@@ -858,3 +858,9 @@ class Form1(Form1Template):
         alert(f"Successfully loaded build: {build_row['build_name']}")
     else:
         alert(f"Error: Build with ID {build_id} not found.")
+
+  def sign_out_button_click(self, **event_args):
+    anvil.users.logout()
+    alert("You have been signed out.")
+
+

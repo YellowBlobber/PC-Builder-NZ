@@ -59,21 +59,18 @@ components:
     name: catalogue_button
     properties: {background: 'theme:Blue', foreground: 'theme:White', icon: 'fa:angle-right', icon_align: right, role: round-corners, spacing_below: medium, text: Catalogue}
     type: Button
-  - layout_properties: {}
+  - event_bindings: {click: builder_button_click}
+    layout_properties: {}
     name: builder_button
     properties: {background: 'theme:Blue', foreground: 'theme:White', spacing_below: medium, text: Builder}
     type: Button
   - event_bindings: {click: guides_button_click}
     layout_properties: {}
     name: guides_button
-    properties: {background: 'theme:Blue', foreground: 'theme:White', spacing_below: medium, text: Guides}
+    properties: {background: 'theme:Black', foreground: 'theme:White', icon: '', spacing_below: medium, text: Guides}
     type: Button
-  - event_bindings: {click: view_builds_button_click}
+  - event_bindings: {click: sign_out_button_click}
     layout_properties: {}
-    name: view_builds_button
-    properties: {background: 'theme:Blue', foreground: 'theme:White', spacing_below: medium, text: My Builds}
-    type: Button
-  - layout_properties: {}
     name: sign_out_button
     properties:
       background: theme:Blue
@@ -131,62 +128,58 @@ components:
   properties: {align: center, bold: true, font: '', font_size: 30, icon: '', italic: false, role: null, spacing_above: large, spacing_below: large, text: WHERE TO GET STARTED, underline: false}
   type: Label
 - components:
-  - event_bindings: {click: learnmore_right_button_click}
-    layout_properties: {width: 200, x: 520.1500480659306, y: 188.15000915527344}
-    name: learnmore_right_button
-    properties: {background: 'theme:Blue', border: none, foreground: 'theme:White', spacing_below: medium, text: Learn More!, underline: true, visible: true}
-    type: Button
-  - layout_properties: {width: 547.3250122070312, x: 12.387520600110292, y: 24.599964141845703}
+  - layout_properties: {grid_position: 'RMQEJG,MUYRFS'}
     name: label_2
-    properties: {align: center, bold: true, font_size: 30, foreground: 'theme:Bone White', italic: false, text: 'HOW TO SELECT THE RIGHT PARTS?', underline: true}
+    properties: {align: left, bold: true, font_size: 30, foreground: 'theme:Bone White', italic: false, text: '  HOW TO SELECT THE RIGHT PARTS?', underline: false}
     type: Label
-  - layout_properties: {width: 439.57501220703125, x: 28.362503815442324, y: 129.9499969482422}
+  - layout_properties: {grid_position: 'HPJGHO,GUIWHE'}
     name: text_area_1
-    properties: {align: center, background: 'theme:Olive black', bold: true, border: none, enabled: false, font_size: 20, foreground: 'theme:Bone White', height: 78.19998168945312, spacing_above: none, spacing_below: none, text: This will show a extensive guide and help for selecting the parts for your dream PC., visible: true}
+    properties: {align: center, background: 'theme:Olive black', bold: true, border: none, enabled: true, font_size: 20, foreground: 'theme:Bone White', height: '150', spacing_above: small, spacing_below: small, text: This will show a extensive guide and help for selecting the parts for your dream PC., visible: true}
     type: TextArea
-  layout_properties: {grid_position: 'LZPFVD,JGPBDA'}
-  name: xy_panel_1
-  properties: {background: 'theme:Olive black', height: 249, spacing_below: large}
-  type: XYPanel
+  - event_bindings: {click: learnmore_right_button_click}
+    layout_properties: {grid_position: 'HPJGHO,KEZLSU'}
+    name: learnmore_right_button
+    properties: {align: center, background: 'theme:Blue', border: none, foreground: 'theme:White', spacing_above: large, spacing_below: none, text: Learn More!, underline: false, visible: true}
+    type: Button
+  layout_properties: {grid_position: 'VAEGLF,CGFHHQ'}
+  name: column_panel_1
+  properties: {background: 'theme:Olive black', col_spacing: tiny, spacing_above: small, spacing_below: medium}
+  type: ColumnPanel
 - components:
+  - layout_properties: {grid_position: 'SRVLKY,TAQUZH'}
+    name: label_5
+    properties: {align: left, bold: true, font_size: 30, foreground: 'theme:Bone White', italic: false, text: '  OUR PART RECOMENDATIONS', underline: false}
+    type: Label
+  - layout_properties: {grid_position: 'QGAMRP,CNEFZR'}
+    name: text_area_2
+    properties: {align: center, background: 'theme:Olive black', bold: true, border: none, enabled: false, font_size: 20, foreground: 'theme:Bone White', height: '150', spacing_above: small, spacing_below: small, text: 'Struggling to pick parts? look at one of our recommended builds, if you are needing a budget, mid range or a full super computer. We are here to help!', visible: true}
+    type: TextArea
   - event_bindings: {click: learnmore_parts_button_click}
-    layout_properties: {width: 200, x: 520.1500480659306, y: 188.15000915527344}
+    layout_properties: {grid_position: 'QGAMRP,SOBUBC'}
     name: learnmore_parts_button
-    properties: {background: 'theme:Blue', border: none, foreground: 'theme:White', spacing_below: medium, text: Learn More!, underline: true, visible: true}
+    properties: {background: 'theme:Blue', border: none, foreground: 'theme:White', spacing_above: large, spacing_below: none, text: Learn More!, underline: false, visible: true}
     type: Button
-  - layout_properties: {width: 487.12498779296874, x: 12.387520600110292, y: 24.599964141845703}
-    name: label_2_copy_2
-    properties: {align: center, bold: true, font_size: 30, foreground: 'theme:Bone White', italic: false, text: OUR PART RECOMENDATIONS, underline: true}
-    type: Label
-  - layout_properties: {width: 439.56597900390625, x: 38.62853325903416, y: 122.20487213134766}
-    name: text_area_1_copy_2
-    properties: {align: center, background: 'theme:Olive black', bold: true, border: none, enabled: false, font_size: 20, foreground: 'theme:Bone White', height: 126.79998779296875, spacing_above: none, spacing_below: large, text: 'Struggling to pick parts? look at one of our recommended builds, if you are needing a budget, mid range or a full super computer. We are here to help!', visible: true}
-    type: TextArea
-  layout_properties: {grid_position: 'GYPUXZ,ACUQUR'}
-  name: xy_panel_1_copy_2
-  properties: {background: 'theme:Olive black', height: 249, spacing_above: medium, spacing_below: large}
-  type: XYPanel
+  layout_properties: {grid_position: 'HNNJMV,XBLVYT'}
+  name: column_panel_2
+  properties: {background: 'theme:Olive black', col_spacing: tiny, spacing_above: medium, spacing_below: medium}
+  type: ColumnPanel
 - components:
-  - layout_properties: {width: 148.7999267578125, x: 520.1500480659306, y: 188.15000915527344}
-    name: learn_more_button_copy
-    properties: {background: 'theme:Blue', border: none, foreground: 'theme:White', spacing_below: medium, text: Learn More!, underline: true, visible: true}
-    type: Button
-  - layout_properties: {width: 390.125, x: 31.537506867200136, y: 26.962482452392578}
-    name: label_2_copy
-    properties: {align: center, bold: true, font_size: 30, foreground: 'theme:Bone White', italic: false, spacing_below: none, text: 'HOW TO START BUILDING?', underline: true}
+  - layout_properties: {grid_position: 'AYWDWW,XZLURP'}
+    name: label_6
+    properties: {align: center, bold: true, font_size: 30, foreground: 'theme:Bone White', italic: false, spacing_below: none, text: '  HOW TO START BUILDING?', underline: false}
     type: Label
-  - layout_properties: {width: 43.927051953125, x: 522.8499992378056, y: 149.4124984741211}
-    name: spacer_2
-    properties: {height: 77.5999755859375}
-    type: Spacer
-  - layout_properties: {width: 439.56597900390625, x: 28.958306208252907, y: 118.00347900390625}
-    name: text_area_1_copy
-    properties: {align: center, background: 'theme:Olive black', bold: true, border: none, enabled: false, font_size: 20, foreground: 'theme:Bone White', height: 131, role: textbox-padding, spacing_above: none, spacing_below: none, text: 'This will show a extensive guide for building your dream PC, showing how to do it without any broken parts! saving you money and getting you gaming faster!', visible: true}
+  - layout_properties: {grid_position: 'OGWQWH,FFGCOA'}
+    name: text_area_3
+    properties: {align: center, background: 'theme:Olive black', bold: true, border: none, enabled: false, font_size: 20, foreground: 'theme:Bone White', height: '150', role: textbox-padding, spacing_above: small, spacing_below: small, text: 'This will show a extensive guide for building your dream PC, showing how to do it without any broken parts! saving you money and getting you gaming faster!', visible: true}
     type: TextArea
-  layout_properties: {grid_position: 'WSAHKT,DWCMVN'}
-  name: xy_panel_1_copy
-  properties: {background: 'theme:Olive black', height: 249, spacing_above: medium, spacing_below: large}
-  type: XYPanel
+  - layout_properties: {grid_position: 'OGWQWH,CYVCQS'}
+    name: learn_more_button_copy
+    properties: {background: 'theme:Blue', border: none, foreground: 'theme:White', spacing_above: large, spacing_below: none, text: Learn More!, underline: false, visible: true}
+    type: Button
+  layout_properties: {grid_position: 'VJNQGE,OZXJLQ'}
+  name: column_panel_3
+  properties: {background: 'theme:Olive black', col_spacing: tiny, spacing_above: medium, spacing_below: large}
+  type: ColumnPanel
 - components:
   - layout_properties: {col_xs: 1, row: XGTZCI, width_xs: 1}
     name: ABOUT
