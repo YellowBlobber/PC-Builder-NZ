@@ -132,27 +132,26 @@ components:
   type: Label
 - layout_properties: {grid_position: 'HMKRMG,SYHAKB'}
   name: label_1
-  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: 'What are the compatibility throughout parts?'}
+  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: This is our step by step guide}
   type: Label
-- layout_properties: {grid_position: 'FLKIVI,ULLWOZ'}
+- layout_properties: {grid_position: 'JCQLHE,YPIPBP'}
   name: text_area_1
-  properties: {background: 'theme:White', bold: true, border: none, enabled: false, font_size: 15, foreground: 'theme:Black', height: 166.39993286132812, text: 'When building a PC, ensuring compatibility between components is crucial for a smooth and efficient setup. Start by selecting a motherboard that supports your chosen CPU socket type and chipset. Next, verify that your RAM is compatible with the motherboard in terms of type (e.g., DDR4, DDR5) and speed. Ensure your power supply unit (PSU) provides adequate wattage for all components, including the GPU. Check that your case has enough space for the motherboard form factor (e.g., ATX, Micro-ATX) and sufficient clearance for the GPU and CPU cooler. Lastly, confirm that your storage drives (SSD/HDD) match the available ports (SATA, NVMe) on the motherboard. '}
-  type: TextArea
-- layout_properties: {grid_position: 'MWAXAG,XGYWGU'}
-  name: label_1_copy
-  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: 'What is a bottleneck build?'}
-  type: Label
-- layout_properties: {grid_position: 'FQWYRR,UHIIWR'}
-  name: text_area_1_copy
-  properties: {background: 'theme:White', bold: true, border: none, enabled: false, font_size: 15, foreground: 'theme:Black', height: 210.39996337890625, text: 'A build bottleneck in a PC generally occurs when some part in your system slows down the others from working at full potential. In other words, if you have a powerful graphics card and the computer''s CPU is very old in technology or low in performance, then it might affect the CPU to act in such a way that the GPU would not be able to perform to full potential in gaming or graphic-intensive tasks. This mismatch can cause frame rates to suffer, loading times to take a bit longer, and overall just a suboptimal experience. Bottlenecks might be created by a lack of RAM, slower storage solutions, or poor cooling, which results in overheating and throttling, among others. Consider generally that any scenario wherein one part of your PC is usually serving as the weakest link, holding up the capabilities of the rest of the system, forms a bottleneck.'}
-  type: TextArea
-- layout_properties: {grid_position: 'AWCVPF,YKGMUP'}
-  name: label_1_copy_copy
-  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: 'How to avoid a bottleneck build?'}
-  type: Label
-- layout_properties: {grid_position: 'OGCVLH,FQKHZR'}
-  name: text_area_1_copy_copy
-  properties: {background: 'theme:White', bold: true, border: none, enabled: false, font_size: 15, foreground: 'theme:Black', height: 210.39996337890625, text: 'Pay extra attention to the compatibility of components with each other to avoid a bottleneck in the process of building. First, choose a compatible CPU and GPU; having a high-end graphics card with an underpowered processor cannot perform well in tasks. Provide enough RAM—presumably at least 16 GB for most processes—and put a fast SSD in there to really notice how faster loading times and general responsiveness are. Keep in mind that your PSU should be powerful enough to feed all components, including prospective upgrades. Further, assure good cooling and try to avoid thermal throttling. Pay attention to the motherboard, too, so that it supports state-of-the-art technology and expansion possibilities. Driver and software updates are also very crucial to squeeze the best from hardware and try to avoid bottlenecks.'}
+  properties:
+    background: theme:White
+    bold: true
+    border: none
+    enabled: false
+    font_size: 15
+    foreground: theme:Black
+    height: 166.39993286132812
+    text: |-
+      The building of a PC is done through many steps, all of which are important in making sure that your system works as it should. Firstly, gather all components, including but not limited to the case/chassis, motherboard/MOBO, CPU, CPU cooler, GPU graphics card, memory or RAM, storage-SSD or HDD, PSU or power supply unit, thermal paste, cooling system-fans, cables, and operating system. Prepare a clean, static-free workspace before starting. The first steps involve piecing the motherboard and CPU together. Unbox the motherboard, lay it on a flat surface, and install the CPU by lifting the retention arm off the socket. Align the notches of the chip with the socket and gently lower the chip into place. Apply a pea-sized drop onto the top of the CPU thermal paste and then install the cooler according to its installation sheet-air coolers mount above the CPU, while liquid coolers may have a more involved setup regarding the radiator.
+
+      Next comes the installation of the RAM, fitting the notches into the motherboard's RAM slots and pushing them firmly inside. If an M.2 SSD is installed, it goes into the M.2 slot in the motherboard. If SATA SSDs/HDD are used, mount the drives in the case and connect them to the motherboard and the PSU by using SATA cables. Next, install your PSU in the case, orienting the fan of the PSU to a direction where it can suck air from. Screw it into place and then install your motherboard to the case by first installing the I/O shield and aligning the motherboard to the standoffs. Then, screw it into place.
+
+      Now, connect the power cables: attach the 24-pin ATX power connector coming from the PSU to the motherboard, the 8-pin CPU power connector to the CPU socket area, SATA power cables to your storage drives, and any PCIe power cables to the GPU, if installed. Speaking of installation, if you have a dedicated graphics card, insert it into the PCIe slot in your motherboard and screw it into the case. Connect the front panel connectors from the case to the motherboard.
+
+      You can install any case fans you may require to enable airflow at this stage. Take care under this step that all the cables are correctly routed and attached properly, with no obstruction to the airways. Double-check all the connections before powering the system on. Lastly, attach the monitor, keyboard, and mouse. Switch on the PSU, then press the case power button. If the assembly is correct, it will boot up, and installation of the operating system can be done. Insert a bootable OS USB drive, then enter the BIOS-commonly by pressing DEL or F2-make the USB drive the boot device, and follow installation instructions. When this is done, you are ready to get started with your
   type: TextArea
 - event_bindings: {click: return_button_click}
   layout_properties: {grid_position: 'ACCNVT,DOSDAJ'}
