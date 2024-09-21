@@ -61,3 +61,11 @@ class Guides_Home(Guides_HomeTemplate):
   def sign_out_button_click(self, **event_args):
     anvil.users.logout()
     alert("You have been signed out.")
+
+  def button_4_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
+  def guides_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass

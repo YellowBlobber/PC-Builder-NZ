@@ -99,7 +99,8 @@ components:
     name: button_3
     properties: {foreground: 'theme:White', role: no-highlight, text: RAM}
     type: Button
-  - layout_properties: {}
+  - event_bindings: {click: button_4_click}
+    layout_properties: {}
     name: button_4
     properties: {foreground: 'theme:White', role: no-highlight, text: MOTHERBOARD's}
     type: Button
