@@ -23,3 +23,7 @@ class Guides_Page1Form(Guides_Page1FormTemplate):
     form = Guides_Home()
     open_form(form)
 
+  def guides_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
