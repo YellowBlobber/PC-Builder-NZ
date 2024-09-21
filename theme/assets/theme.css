@@ -2,16 +2,7 @@
  This CSS implements the Material Design look and feel for Anvil apps. *#*Came from Skinlinks app i will not take any credit for this code below*#*
  **/
 
-.modal-footer .btn {
-  background-color: transparent;
-  color: %color:Primary 500%;
-}
-.modal-footer .btn, .modal-footer .btn:focus, .modal-footer .btn:active {
-  box-shadow: none;
-  top: 0;
-}
-
-.btn, .btn-default, .file-loader>label {
+.btn, .btn-default, .file-loader>label >.btn:hover {
   border-radius: 2px;
   font-size: 14px;
   font-weight: 500;
@@ -22,7 +13,6 @@
   border: 0;
   background-image: none;
   background-color: transparent;
-  color: %color:Primary 500%;
   text-shadow: none;
   box-shadow: none;
   -webkit-box-shadow: none;
@@ -30,64 +20,7 @@
   position: relative;
 }
 
-.btn:hover, .btn:focus, .file-loader>label:hover {
 
-  background-image: none;
-  outline: none;
-  color: %color:Primary 500%;
-}
-
-.btn:active, .btn:active:focus {
-  
-  background-image: none;
-  outline: none;
-  box-shadow: none;
-  color: %color:Primary 500%;
-}
-
-.btn[disabled] { color: rgba(0, 0, 0, .25); }
-.anvil-role-raised > .btn[disabled], .anvil-role-primary-color > .btn[disabled], .anvil-role-secondary-color > .btn[disabled] {
-  background-color: rgba(0,0,0,0.12) !important;
-  color: rgba(0,0,0,0.25) !important;
-  box-shadow: none !important;
-}
-
-.anvil-role-raised > .btn, .anvil-role-primary-color > .btn, .anvil-role-secondary-color > .btn, .anvil-role-raised.file-loader>label, .anvil-role-primary-color.file-loader>label, .anvil-role-secondary-color.file-loader>label,
-.btn-primary, .btn-success, .btn-info, .btn-warning, .btn-danger
-{
-  /* 2dp */  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-}
-
-.anvil-role-raised > .btn:active, .anvil-role-primary-color > .btn:active, .anvil-role-secondary-color > .btn:active, .btn-primary:active,
-.btn-primary:active, .btn-success:active, .btn-info:active, .btn-warning:active, .btn-danger:active {
-  /* 8dp */ box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);  
-  top: -1px;
-}
-
-.anvil-role-primary-color > .btn, .btn-primary, .anvil-role-primary-color.file-loader>label {
-  color: white;
-  background-color: %color:Primary 500%;
-}
-
-.anvil-role-secondary-color > .btn, .anvil-role-secondary-color.file-loader>label {
-  color: white;
-  background-color: %color:Secondary 500%;
-}
-
-.btn-success, .btn-info, .btn-warning, .btn-danger {
-  color: white;
-}
-
-.anvil-role-primary-color > .btn:hover, .anvil-role-primary-color > .btn:active, .anvil-role-primary-color > .btn:focus,
-.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
-  color: white;
-  background-color: %color:Primary 700%;
-}
-
-.anvil-role-secondary-color > .btn:hover, .anvil-role-secondary-color > .btn:active, .anvil-role-secondary-color > .btn:focus {
-  color: white;
-  background-color: %color:Secondary 700%;
-}
 
 
 /* this is my own code below.
@@ -111,9 +44,6 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
-.avnil-role-panel-transition > .flow-panel-show {
-  transition: width 0.3s ease, lightblue 0.3s ease;
-}
 
 .anvil-role-center-items > .flow-panel-gutter {
     justify-content: center!important;
