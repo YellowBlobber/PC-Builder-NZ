@@ -167,7 +167,8 @@ components:
   properties: {background: 'theme:Olive black', height: 249, spacing_above: medium, spacing_below: large}
   type: XYPanel
 - components:
-  - layout_properties: {width: 148.7999267578125, x: 520.1500480659306, y: 188.15000915527344}
+  - event_bindings: {click: learn_more_button_copy_click}
+    layout_properties: {width: 148.7999267578125, x: 520.1500480659306, y: 188.15000915527344}
     name: learn_more_button_copy
     properties: {background: 'theme:Blue', border: none, foreground: 'theme:White', spacing_below: medium, text: Learn More!, underline: true, visible: true}
     type: Button

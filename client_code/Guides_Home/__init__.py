@@ -24,3 +24,6 @@ class Guides_Home(Guides_HomeTemplate):
 
   def learnmore_parts_button_click(self, **event_args):
     open_form('Guides_Page2Form')
+
+  def learn_more_button_copy_click(self, **event_args):
+    open_form('Guides_Page3Form')
