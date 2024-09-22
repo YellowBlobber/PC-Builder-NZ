@@ -79,3 +79,22 @@ class Guides_Page2(Guides_Page2Template):
   def guides_button_footer_click(self, **event_args):
     form = Guides_Home()
     open_form(form)
+
+  def builder_button_footer_click(self, **event_args):
+    open_form('Form1')
+
+  def login_button_footer_click(self, **event_args):
+    # Show Anvil's built-in login form
+    user = anvil.users.login_with_form()
+    
+    if user:
+        alert(f"Welcome, {user['email']}!")
+        self.login_button.visible = False
+        self.my_account_button.visible = True
+        self.my_account_button.text = (f"{user['email']}")
+    else:
+        alert("Login failed or was canceled.")
+
+  def logout_button_footer_click(self, **event_args):
+    anvil.users.logout()
+    alert("You have been signed out.")
