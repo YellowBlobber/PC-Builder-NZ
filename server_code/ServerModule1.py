@@ -195,4 +195,3 @@ def save_build_and_generate_link(build_name, selected_items):
             raise
     else:
         raise ValueError("No user is logged in.")
-
