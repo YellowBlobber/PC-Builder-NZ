@@ -128,11 +128,11 @@ components:
   type: FlowPanel
 - layout_properties: {grid_position: 'MRWIWW,CBTTFG'}
   name: part_selection_title
-  properties: {align: center, bold: true, font: '', font_size: 30, foreground: 'theme:Black', icon: '', italic: false, role: null, spacing_above: large, spacing_below: large, text: HOW TO START BUILDING, underline: true, visible: true}
+  properties: {align: center, bold: true, font: '', font_size: 30, foreground: 'theme:Black', icon: '', italic: false, role: null, spacing_above: large, spacing_below: large, text: HOW TO START BUILDING, underline: false, visible: true}
   type: Label
 - layout_properties: {grid_position: 'HRBGJB,BHROYQ'}
   name: label_1
-  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: Getting Started, underline: true}
+  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: Getting Started, underline: false}
   type: Label
 - layout_properties: {grid_position: 'YZVTVP,JGTWKD'}
   name: text_area_1
@@ -140,7 +140,7 @@ components:
   type: TextArea
 - layout_properties: {grid_position: 'QRUJTV,FMLWQI'}
   name: label_1_copy_copy_copy
-  properties: {bold: true, font_size: 20, foreground: 'theme:Black', spacing_above: large, spacing_below: medium, text: Installing RAM and Storage, underline: true}
+  properties: {bold: true, font_size: 20, foreground: 'theme:Black', spacing_above: large, spacing_below: medium, text: Installing RAM and Storage, underline: false}
   type: Label
 - layout_properties: {grid_position: 'PQXVQG,KTPMTW'}
   name: text_area_1_copy
@@ -148,7 +148,7 @@ components:
   type: TextArea
 - layout_properties: {grid_position: 'EYIUSY,VHWXFI'}
   name: label_1_copy_copy
-  properties: {bold: true, font_size: 20, foreground: 'theme:Black', spacing_above: large, spacing_below: medium, text: Connecting Power and Graphics Cards, underline: true}
+  properties: {bold: true, font_size: 20, foreground: 'theme:Black', spacing_above: large, spacing_below: medium, text: Connecting Power and Graphics Cards, underline: false}
   type: Label
 - layout_properties: {grid_position: 'MBZDDK,UFYWGF'}
   name: text_area_1_copy_copy
@@ -156,7 +156,7 @@ components:
   type: TextArea
 - layout_properties: {grid_position: 'FLTWVH,WUUXDG'}
   name: label_1_copy
-  properties: {bold: true, font_size: 20, foreground: 'theme:Black', spacing_above: medium, spacing_below: medium, text: Finalizing Setup and Booting, underline: true}
+  properties: {bold: true, font_size: 20, foreground: 'theme:Black', spacing_above: medium, spacing_below: medium, text: Finalizing Setup and Booting, underline: false}
   type: Label
 - layout_properties: {grid_position: 'BJZPHW,LAKYPX'}
   name: text_area_1_copy_2
@@ -165,7 +165,62 @@ components:
 - event_bindings: {click: return_button_click}
   layout_properties: {grid_position: 'NYDMRC,OOTXUU'}
   name: return_button
-  properties: {align: center, background: 'theme:Olive black', foreground: 'theme:White', text: RETURN}
+  properties: {align: center, background: 'theme:Olive black', foreground: 'theme:White', spacing_below: large, text: RETURN}
   type: Button
+- components:
+  - layout_properties: {col_xs: 1, row: XGTZCI, width_xs: 1}
+    name: ABOUT
+    properties: {align: center, bold: true, font_size: 15, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'ABOUT:'}
+    type: Label
+  - layout_properties: {col_xs: 3, row: XGTZCI, width_xs: 1}
+    name: PAGES
+    properties: {align: center, bold: true, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'PAGES:'}
+    type: Label
+  - layout_properties: {col_xs: 4, row: XGTZCI, width_xs: 1}
+    name: ACCOUNT
+    properties: {align: center, bold: true, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'ACCOUNT:'}
+    type: Label
+  - layout_properties: {col_xs: 5, row: XGTZCI, width_xs: 1}
+    name: MADEBY
+    properties: {align: center, bold: true, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'MADE BY:'}
+    type: Label
+  - layout_properties: {col_xs: 1, row: HHQCSK, width_xs: 2}
+    name: ABOUT_discription
+    properties: {align: left, foreground: 'theme:White', spacing_above: none, text: PC Builder NZ is a pc building web app that uses NZ owned brands for creating configurations to then later buy}
+    type: Label
+  - layout_properties: {col_xs: 3, row: HHQCSK, width_xs: 1}
+    name: guides_button_footer
+    properties: {foreground: 'theme:White', role: no-highlight, text: '- GUIDES -'}
+    type: Button
+  - layout_properties: {col_xs: 5, row: HHQCSK, width_xs: 1}
+    name: Authers
+    properties:
+      align: center
+      foreground: theme:White
+      spacing_above: none
+      text: |-
+        COOPER ALDEN
+        JONATHAN RIES
+    type: Label
+  - layout_properties: {col_xs: 8, row: HHQCSK, width_xs: 3}
+    name: Footer_title
+    properties: {align: center, bold: true, font: '', font_size: 45, foreground: 'theme:White', spacing_above: none, spacing_below: none, text: PC BUILDER NZ, visible: true}
+    type: Label
+  - layout_properties: {col_xs: 1, row: EEKUNS, width_xs: 1}
+    name: COPYRIGHT
+    properties: {align: center, bold: true, foreground: 'theme:White', spacing_below: none, text: 'COPYRIGHT:'}
+    type: Label
+  - layout_properties: {col_xs: 2, row: EEKUNS, width_xs: 1}
+    name: SOCIALS
+    properties: {align: center, bold: true, foreground: 'theme:White', text: 'SOCIALS:'}
+    type: Label
+  - layout_properties: {col_xs: 1, row: RLMPQN, width_xs: 1}
+    name: label_4
+    properties: {align: center, bold: false, foreground: 'theme:White', spacing_above: none, text: PC BUILDER NZ ©2024}
+    type: Label
+  layout_properties: {full_width_row: true, grid_position: 'UZMVZP,GOVYNG'}
+  name: Footer
+  properties: {background: 'theme:Olive black', border: '', spacing_above: large, spacing_below: none, visible: true}
+  type: GridPanel
 container: {type: ColumnPanel}
 is_package: true
