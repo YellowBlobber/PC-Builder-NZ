@@ -20,6 +20,31 @@
   position: relative;
 }
 
+.anvil-role-primary-color > .btn, .btn-primary, .anvil-role-primary-color.file-loader>label {
+color: black;
+background-color: %color:Primary 500%;
+}
+
+.anvil-role-secondary-color > .btn, .anvil-role-secondary-color.file-loader>label {
+color: black;
+background-color: %color:Secondary 500%;
+}
+
+.btn-success, .btn-info, .btn-warning, .btn-danger {
+color: black;
+}
+
+.anvil-role-primary-color > .btn:hover, .anvil-role-primary-color > .btn:active, .anvil-role-primary-color > .btn:focus,
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+color: black;
+background-color: %color:Primary 700%;
+}
+
+.anvil-role-secondary-color > .btn:hover, .anvil-role-secondary-color > .btn:active, .anvil-role-secondary-color > .btn:focus {
+color: black;
+background-color: %color:Secondary 700%;
+}
+
 /* this is my own code below.
 
 /* Hide the default loading spinner */
@@ -37,8 +62,9 @@
   height: 125px; 
 }
 
-.anvil-role-no-highlight > .btn:hover, .btn:active, .btn:focus {
+.anvil-role-no-highlight > .btn:hover, .btn:active, .btn:focus, .btn:active:focus {
   background-color: transparent;
+  border: 0px;
   
 }
 
