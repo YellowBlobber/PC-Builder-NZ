@@ -88,5 +88,43 @@ components:
   name: menu_panel
   properties: {align: center, background: 'theme:Olive black', spacing_above: none, visible: false}
   type: FlowPanel
+- components:
+  - event_bindings: {click: cpu_button_click}
+    layout_properties: {}
+    name: cpu_button
+    properties: {foreground: 'theme:White', role: no-highlight, text: CPU's}
+    type: Button
+  - layout_properties: {}
+    name: button_2
+    properties: {foreground: 'theme:White', role: no-highlight, text: GPU's}
+    type: Button
+  - layout_properties: {}
+    name: button_3
+    properties: {foreground: 'theme:White', role: no-highlight, text: RAM}
+    type: Button
+  - layout_properties: {}
+    name: button_4
+    properties: {foreground: 'theme:White', role: no-highlight, text: MOTHERBOARD's}
+    type: Button
+  - layout_properties: {}
+    name: button_5
+    properties: {foreground: 'theme:White', role: no-highlight, text: COOLER's}
+    type: Button
+  - layout_properties: {}
+    name: button_6
+    properties: {foreground: 'theme:White', role: no-highlight, text: CASE's}
+    type: Button
+  - layout_properties: {}
+    name: button_7
+    properties: {foreground: 'theme:White', role: no-highlight, text: STORAGE}
+    type: Button
+  - layout_properties: {}
+    name: button_8
+    properties: {foreground: 'theme:White', role: no-highlight, text: FAN's}
+    type: Button
+  layout_properties: {grid_position: 'DFCMBB,NUONAD'}
+  name: catalogue_panel
+  properties: {align: center, background: 'theme:Blue', spacing_above: none, visible: false}
+  type: FlowPanel
 container: {type: ColumnPanel}
 is_package: true
