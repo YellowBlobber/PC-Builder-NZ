@@ -76,57 +76,57 @@ class Form1(Form1Template):
     categories_motherbrd = anvil.server.call('get_unique_categories',sheet_data_motherbrd)
     self.motherboard_dropdown.items = categories_motherbrd    
     
-    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
+    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for case, then popluates the dropdown with the called items
     sheet_data_case = anvil.server.call('get_sheet_data_case')
     categories_case = anvil.server.call('get_unique_categories',sheet_data_case)
     self.case_dropdown.items = categories_case 
 
-    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
+    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for ram, then popluates the dropdown with the called items
     sheet_data_ram = anvil.server.call('get_sheet_data_ram')
     categories_ram = anvil.server.call('get_unique_categories',sheet_data_ram)
     self.ram_dropdown.items = categories_ram 
 
-    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
+    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for storage, then popluates the dropdown with the called items
     sheet_data_storage = anvil.server.call('get_sheet_data_storage')
     categories_storage = anvil.server.call('get_unique_categories',sheet_data_storage)
     self.storage_dropdown.items = categories_storage 
     
-    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
+    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for storage , then popluates the dropdown with the called items
     sheet_data_storage_2 = anvil.server.call('get_sheet_data_storage')
     categories_storage_2 = anvil.server.call('get_unique_categories',sheet_data_storage_2)
     self.storage_2_dropdown.items = categories_storage_2 
     
-    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
+    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for storage , then popluates the dropdown with the called items
     sheet_data_storage_3 = anvil.server.call('get_sheet_data_storage')
     categories_storage_3 = anvil.server.call('get_unique_categories',sheet_data_storage_3)
     self.storage_3_dropdown.items = categories_storage_3  
     
-    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
+    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for fans , then popluates the dropdown with the called items
     sheet_data_fans = anvil.server.call('get_sheet_data_fans')
     categories_fans = anvil.server.call('get_unique_categories',sheet_data_fans)
     self.fans_dropdown.items = categories_fans 
 
-    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
+    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for case, then popluates the dropdown with the called items
     sheet_data_case = anvil.server.call('get_sheet_data_case')
     categories_case = anvil.server.call('get_unique_categories',sheet_data_case)
     self.case_dropdown.items = categories_case 
 
-    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
+    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for cpu cooler, then popluates the dropdown with the called items
     sheet_data_cpu_cooler = anvil.server.call('get_sheet_data_cpu_cooler')
     categories_cpu_cooler = anvil.server.call('get_unique_categories',sheet_data_cpu_cooler)
     self.cpu_cooler_dropdown.items = categories_cpu_cooler 
 
-    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
+    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for adapters, then popluates the dropdown with the called items
     sheet_data_adapters = anvil.server.call('get_sheet_data_adapters')
     categories_adapters = anvil.server.call('get_unique_categories',sheet_data_adapters)
     self.adapters_dropdown.items = categories_adapters 
 
-    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
+    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for psu, then popluates the dropdown with the called items
     sheet_data_psu = anvil.server.call('get_sheet_data_psu')
     categories_psu = anvil.server.call('get_unique_categories',sheet_data_psu)
     self.power_supply_dropdown.items = categories_psu 
     
-    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for motherboards, then popluates the dropdown with the called items
+    #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for os, then popluates the dropdown with the called items
     sheet_data_os = anvil.server.call('get_sheet_data_os')
     categories_os = anvil.server.call('get_unique_categories',sheet_data_os)
     self.os_dropdown.items = categories_os    
