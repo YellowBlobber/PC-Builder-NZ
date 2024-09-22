@@ -562,4 +562,6 @@ components:
 container:
   properties: {col_spacing: small, col_widths: '{"ADIKYA":8,"FMNYJU":30,"RAUZLT":8,"LCIXJI":9,"BKYAEN":5,"IIJJYH":9,"DAFLDE":35,"MAUEBC":10,"DNJZCC":10,"KNZPYK":52,"IKNEXV":52,"LCKPLG":52,"YESLZI":52,"NDWFKD":52,"GYLLSG":17,"JHNGRD":15,"VQRVXG":15,"ZCMMHR":15,"TUBOJC":15,"TOKLHF":6,"QFKBDO":51}', foreground: '', spacing_above: none, spacing_below: none, visible: true, wrap_on: mobile}
   type: ColumnPanel
+custom_component: true
 is_package: true
+properties: []
