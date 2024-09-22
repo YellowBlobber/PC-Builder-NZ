@@ -1,5 +1,5 @@
 from ..Guides_Home import Guides_Home
-from ._anvil_designer import Guides_Page3FormTemplate
+from ._anvil_designer import Guides_Page1FormTemplate
 from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
@@ -15,7 +15,7 @@ from datetime import datetime
 from anvil import alert
 
 
-class Guides_Page3Form(Guides_Page3FormTemplate):
+class Guides_Page1Form(Guides_Page1FormTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
 
@@ -60,3 +60,4 @@ class Guides_Page3Form(Guides_Page3FormTemplate):
   def guides_button_click(self, **event_args):
     """This method is called when the button is clicked"""
     pass
+
