@@ -59,9 +59,10 @@ components:
     name: catalogue_button
     properties: {background: 'theme:Blue', foreground: 'theme:White', icon: 'fa:angle-right', icon_align: right, role: round-corners, spacing_below: medium, text: Catalogue}
     type: Button
-  - layout_properties: {}
+  - event_bindings: {click: builder_button_click}
+    layout_properties: {}
     name: builder_button
-    properties: {background: 'theme:Black', foreground: 'theme:White', spacing_below: medium, text: Builder}
+    properties: {background: '', foreground: 'theme:White', spacing_below: medium, text: Builder}
     type: Button
   - event_bindings: {click: guides_button_click}
     layout_properties: {}
@@ -487,55 +488,68 @@ components:
   properties: {background: 'theme:Olive black', foreground: '', height: 43.20001220703125, spacing_above: large, width: null}
   type: XYPanel
 - components:
-  - layout_properties: {col_xs: 1, row: XGTZCI, width_xs: 1}
+  - layout_properties: {col_xs: 1, row: XGTZCI, width_xs: 2}
     name: ABOUT
-    properties: {align: center, bold: true, font_size: 15, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'ABOUT:'}
+    properties: {align: center, bold: true, font_size: 20, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'ABOUT:'}
     type: Label
   - layout_properties: {col_xs: 3, row: XGTZCI, width_xs: 1}
     name: PAGES
-    properties: {align: center, bold: true, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'PAGES:'}
+    properties: {align: center, bold: true, font_size: 20, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'PAGES:'}
     type: Label
   - layout_properties: {col_xs: 4, row: XGTZCI, width_xs: 1}
     name: ACCOUNT
-    properties: {align: center, bold: true, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'ACCOUNT:'}
+    properties: {align: center, bold: true, font_size: 20, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'ACCOUNT:'}
     type: Label
   - layout_properties: {col_xs: 5, row: XGTZCI, width_xs: 1}
     name: MADEBY
-    properties: {align: center, bold: true, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'MADE BY:'}
+    properties: {align: center, bold: true, font: '', font_size: 20, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: 'MADE BY:'}
     type: Label
   - layout_properties: {col_xs: 1, row: HHQCSK, width_xs: 2}
     name: ABOUT_discription
-    properties: {align: left, foreground: 'theme:White', spacing_above: none, text: PC Builder NZ is a pc building web app that uses NZ owned brands for creating configurations to then later buy}
+    properties: {align: center, bold: false, font_size: 15, foreground: 'theme:White', spacing_above: none, spacing_below: none, text: PC Builder NZ is a pc building web app that uses NZ owned brands for creating pc configurations to save for later.}
     type: Label
-  - layout_properties: {col_xs: 3, row: HHQCSK, width_xs: 1}
+  - event_bindings: {click: guides_button_footer_click}
+    layout_properties: {col_xs: 3, row: HHQCSK, width_xs: 1}
     name: guides_button_footer
-    properties: {foreground: 'theme:White', role: no-highlight, text: '- GUIDES -'}
+    properties: {font_size: 15, foreground: 'theme:White', role: no-highlight, spacing_above: medium, spacing_below: none, text: GUIDES}
+    type: Button
+  - event_bindings: {click: login_button_footer_click}
+    layout_properties: {col_xs: 4, row: HHQCSK, width_xs: 1}
+    name: login_button_footer
+    properties: {background: 'theme:Olive black', font_size: 15, foreground: 'theme:White', spacing_above: medium, spacing_below: none, text: LOGIN/SIGNUP}
     type: Button
   - layout_properties: {col_xs: 5, row: HHQCSK, width_xs: 1}
     name: Authers
     properties:
       align: center
+      font_size: 15
       foreground: theme:White
-      spacing_above: none
+      spacing_above: small
       text: |-
         COOPER ALDEN
-        JONATHAN RIES
+        AND JONATHAN RIES
     type: Label
   - layout_properties: {col_xs: 8, row: HHQCSK, width_xs: 3}
     name: Footer_title
     properties: {align: center, bold: true, font: '', font_size: 45, foreground: 'theme:White', spacing_above: none, spacing_below: none, text: PC BUILDER NZ, visible: true}
     type: Label
-  - layout_properties: {col_xs: 1, row: EEKUNS, width_xs: 1}
+  - layout_properties: {col_xs: 1, row: HZLLLF, width_xs: 2}
     name: COPYRIGHT
-    properties: {align: center, bold: true, foreground: 'theme:White', spacing_below: none, text: 'COPYRIGHT:'}
+    properties: {align: center, bold: true, font_size: 20, foreground: 'theme:White', spacing_below: none, text: 'COPYRIGHT:'}
     type: Label
-  - layout_properties: {col_xs: 2, row: EEKUNS, width_xs: 1}
-    name: SOCIALS
-    properties: {align: center, bold: true, foreground: 'theme:White', text: 'SOCIALS:'}
-    type: Label
-  - layout_properties: {col_xs: 1, row: RLMPQN, width_xs: 1}
+  - event_bindings: {click: builder_button_footer_click}
+    layout_properties: {col_xs: 3, row: HZLLLF, width_xs: 1}
+    name: builder_button_footer
+    properties: {font_size: 15, foreground: 'theme:White', role: no-highlight, spacing_above: none, spacing_below: none, text: BUILDER}
+    type: Button
+  - event_bindings: {click: logout_button_footer_click}
+    layout_properties: {col_xs: 4, row: HZLLLF, width_xs: 1}
+    name: logout_button_footer
+    properties: {background: 'theme:Olive black', font_size: 15, foreground: 'theme:White', spacing_above: none, spacing_below: none, text: SIGN OUT}
+    type: Button
+  - layout_properties: {col_xs: 1, row: RLMPQN, width_xs: 2}
     name: label_4
-    properties: {align: center, bold: false, foreground: 'theme:White', spacing_above: none, text: PC BUILDER NZ ©2024}
+    properties: {align: center, bold: false, font_size: 15, foreground: 'theme:White', spacing_above: none, text: PC BUILDER NZ ©2024}
     type: Label
   layout_properties: {full_width_row: true, grid_position: 'YYBOZO,RMDTXV'}
   name: Footer

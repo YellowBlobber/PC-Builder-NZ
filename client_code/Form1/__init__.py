@@ -128,8 +128,6 @@ class Form1(Form1Template):
     self.build_id = build_id
     print(f"Initialized with build_id: {build_id}")
     # Load the build from URL if available
-
-
     self.load_build_from_url()
     self.startup()
 
@@ -168,15 +166,12 @@ class Form1(Form1Template):
                         alert("Build not found.")
                 except json.JSONDecodeError as json_err:
                     print(f"Error decoding build_id: {json_err}")
-                    alert(f"Error decoding build ID: {json_err}")
             else:
                 print("No build_id found in URL hash.")
         else:
             print(f"Unexpected URL hash format: {url_hash}, Type: {type(url_hash)}")
-            alert(f"Error: URL hash is in an unexpected format. Value: {url_hash}")
     except Exception as e:
         print(f"Error: {e}")  # Print error for debugging
-        alert(f"Error loading build: {e}")
 
   def load_build(self, selected_items):
         # Iterate over all items and set the values for dropdowns
@@ -835,9 +830,7 @@ class Form1(Form1Template):
         self.update_total_wattage()
 
   def cpu_button_click(self, **event_args):
-    form = CatalogueForm()
-    form.show_cpus()  # Show CPUs in the catalogue
-    open_form(form)
+    pass
 
   def guides_button_click(self, **event_args):
     form = Guides_Home()
@@ -862,5 +855,34 @@ class Form1(Form1Template):
   def sign_out_button_click(self, **event_args):
     anvil.users.logout()
     alert("You have been signed out.")
+
+  def builder_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
+  def guides_button_footer_click(self, **event_args):
+    form = Guides_Home()
+    open_form(form)
+
+  def builder_button_footer_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
+  def login_button_footer_click(self, **event_args):
+    # Show Anvil's built-in login form
+    user = anvil.users.login_with_form()
+    
+    if user:
+        alert(f"Welcome, {user['email']}!")
+        self.login_button.visible = False
+        self.my_account_button.visible = True
+        self.my_account_button.text = (f"{user['email']}")
+    else:
+        alert("Login failed or was canceled.")
+
+  def logout_button_footer_click(self, **event_args):
+    anvil.users.logout()
+    alert("You have been signed out.")
+
 
 

@@ -68,11 +68,6 @@ components:
     name: guides_button
     properties: {background: 'theme:Olive black', foreground: 'theme:White', spacing_below: medium, text: Guides}
     type: Button
-  - event_bindings: {click: view_builds_button_click}
-    layout_properties: {}
-    name: view_builds_button
-    properties: {background: 'theme:Blue', foreground: 'theme:White', spacing_below: medium, text: My Builds}
-    type: Button
   - layout_properties: {}
     name: sign_out_button
     properties:
@@ -132,36 +127,36 @@ components:
   type: Label
 - layout_properties: {grid_position: 'HRBGJB,BHROYQ'}
   name: label_1
-  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: Getting Started, underline: false}
+  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: '  Getting Started:', underline: false}
   type: Label
-- layout_properties: {grid_position: 'YZVTVP,JGTWKD'}
-  name: text_area_1
-  properties: {background: 'theme:White', bold: true, border: none, enabled: false, font_size: 15, foreground: 'theme:Black', height: 213, spacing_below: large, text: 'The building of a PC is done through many steps, all of which are important in making sure that your system works as it should. Firstly, gather all components, including but not limited to the case/chassis, motherboard/MOBO, CPU, CPU cooler, GPU graphics card, memory or RAM, storage-SSD or HDD, PSU or power supply unit, thermal paste, cooling system-fans, cables, and operating system. Prepare a clean, static-free workspace before starting. The first steps involve piecing the motherboard and CPU together. Unbox the motherboard, lay it on a flat surface, and install the CPU by lifting the retention arm off the socket. Align the notches of the chip with the socket and gently lower the chip into place. Apply a pea-sized drop onto the top of the CPU thermal paste and then install the cooler according to its installation sheet—air coolers mount above the CPU, while liquid coolers may have a more involved setup regarding the radiator.'}
-  type: TextArea
+- layout_properties: {grid_position: 'EEIAXT,HJUWYE'}
+  name: label_2
+  properties: {font_size: 15, text: 'The building of a PC is done through many steps, all of which are important in making sure that your system works as it should. Firstly, gather all components, including but not limited to the case/chassis, motherboard/MOBO, CPU, CPU cooler, GPU graphics card, memory or RAM, storage-SSD or HDD, PSU or power supply unit, thermal paste, cooling system-fans, cables, and operating system. Prepare a clean, static-free workspace before starting. The first steps involve piecing the motherboard and CPU together. Unbox the motherboard, lay it on a flat surface, and install the CPU by lifting the retention arm off the socket. Align the notches of the chip with the socket and gently lower the chip into place. Apply a pea-sized drop onto the top of the CPU thermal paste and then install the cooler according to its installation sheet—air coolers mount above the CPU, while liquid coolers may have a more involved setup regarding the radiator.'}
+  type: Label
 - layout_properties: {grid_position: 'QRUJTV,FMLWQI'}
   name: label_1_copy_copy_copy
-  properties: {bold: true, font_size: 20, foreground: 'theme:Black', spacing_above: large, spacing_below: medium, text: Installing RAM and Storage, underline: false}
+  properties: {bold: true, font_size: 20, foreground: 'theme:Black', spacing_above: large, spacing_below: medium, text: '  Installing RAM and Storage:', underline: false}
   type: Label
-- layout_properties: {grid_position: 'PQXVQG,KTPMTW'}
-  name: text_area_1_copy
-  properties: {background: 'theme:White', bold: true, border: none, enabled: false, font_size: 15, foreground: 'theme:Black', height: 152, spacing_below: large, text: 'Next comes the installation of the RAM, fitting the notches into the motherboard''s RAM slots and pushing them firmly inside. If an M.2 SSD is installed, it goes into the M.2 slot in the motherboard. If SATA SSDs/HDD are used, mount the drives in the case and connect them to the motherboard and the PSU by using SATA cables. Next, install your PSU in the case, orienting the fan of the PSU to a direction where it can suck air from. Screw it into place and then install your motherboard to the case by first installing the I/O shield and aligning the motherboard to the standoffs. Then, screw it into place.'}
-  type: TextArea
+- layout_properties: {grid_position: 'LUHZRL,LHHJQU'}
+  name: label_2_copy
+  properties: {font_size: 15, text: 'Next comes the installation of the RAM, fitting the notches into the motherboard''s RAM slots and pushing them firmly inside. If an M.2 SSD is installed, it goes into the M.2 slot in the motherboard. If SATA SSDs/HDD are used, mount the drives in the case and connect them to the motherboard and the PSU by using SATA cables. Next, install your PSU in the case, orienting the fan of the PSU to a direction where it can suck air from. Screw it into place and then install your motherboard to the case by first installing the I/O shield and aligning the motherboard to the standoffs. Then, screw it into place.'}
+  type: Label
 - layout_properties: {grid_position: 'EYIUSY,VHWXFI'}
   name: label_1_copy_copy
-  properties: {bold: true, font_size: 20, foreground: 'theme:Black', spacing_above: large, spacing_below: medium, text: Connecting Power and Graphics Cards, underline: false}
+  properties: {bold: true, font_size: 20, foreground: 'theme:Black', spacing_above: large, spacing_below: medium, text: '  Connecting Power and Graphics Cards:', underline: false}
   type: Label
-- layout_properties: {grid_position: 'MBZDDK,UFYWGF'}
-  name: text_area_1_copy_copy
-  properties: {align: left, background: 'theme:White', bold: true, border: none, enabled: false, font_size: 15, foreground: 'theme:Black', height: 140, spacing_below: large, text: 'Now, connect the power cables: attach the 24-pin ATX power connector coming from the PSU to the motherboard, the 8-pin CPU power connector to the CPU socket area, SATA power cables to your storage drives, and any PCIe power cables to the GPU, if installed. Speaking of installation, if you have a dedicated graphics card, insert it into the PCIe slot in your motherboard and screw it into the case. Connect the front panel connectors from the case to the motherboard.'}
-  type: TextArea
+- layout_properties: {grid_position: 'PTEKCV,UOFBWR'}
+  name: label_2_copy_copy
+  properties: {font_size: 15, text: 'Now, connect the power cables: attach the 24-pin ATX power connector coming from the PSU to the motherboard, the 8-pin CPU power connector to the CPU socket area, SATA power cables to your storage drives, and any PCIe power cables to the GPU, if installed. Speaking of installation, if you have a dedicated graphics card, insert it into the PCIe slot in your motherboard and screw it into the case. Connect the front panel connectors from the case to the motherboard.'}
+  type: Label
 - layout_properties: {grid_position: 'FLTWVH,WUUXDG'}
   name: label_1_copy
-  properties: {bold: true, font_size: 20, foreground: 'theme:Black', spacing_above: medium, spacing_below: medium, text: Finalizing Setup and Booting, underline: false}
+  properties: {bold: true, font_size: 20, foreground: 'theme:Black', spacing_above: medium, spacing_below: medium, text: '  Finalizing Setup and Booting:', underline: false}
   type: Label
-- layout_properties: {grid_position: 'BJZPHW,LAKYPX'}
-  name: text_area_1_copy_2
-  properties: {background: 'theme:White', bold: true, border: none, enabled: false, font_size: 15, foreground: 'theme:Black', height: 161, spacing_below: large, text: 'You can install any case fans you may require to enable airflow at this stage. Take care under this step that all the cables are correctly routed and attached properly, with no obstruction to the airways. Double-check all the connections before powering the system on. Lastly, attach the monitor, keyboard, and mouse. Switch on the PSU, then press the case power button. If the assembly is correct, it will boot up, and installation of the operating system can be done. Insert a bootable OS USB drive, then enter the BIOS—commonly by pressing DEL or F2—make the USB drive the boot device, and follow installation instructions. When this is done, you are ready to get started with your PC.'}
-  type: TextArea
+- layout_properties: {grid_position: 'MFYPHU,EEOSGQ'}
+  name: label_2_copy_copy_copy
+  properties: {font_size: 15, spacing_below: large, text: 'You can install any case fans you may require to enable airflow at this stage. Take care under this step that all the cables are correctly routed and attached properly, with no obstruction to the airways. Double-check all the connections before powering the system on. Lastly, attach the monitor, keyboard, and mouse. Switch on the PSU, then press the case power button. If the assembly is correct, it will boot up, and installation of the operating system can be done. Insert a bootable OS USB drive, then enter the BIOS—commonly by pressing DEL or F2—make the USB drive the boot device, and follow installation instructions. When this is done, you are ready to get started with your PC.'}
+  type: Label
 - event_bindings: {click: return_button_click}
   layout_properties: {grid_position: 'NYDMRC,OOTXUU'}
   name: return_button
@@ -188,7 +183,8 @@ components:
     name: ABOUT_discription
     properties: {align: left, foreground: 'theme:White', spacing_above: none, text: PC Builder NZ is a pc building web app that uses NZ owned brands for creating configurations to then later buy}
     type: Label
-  - layout_properties: {col_xs: 3, row: HHQCSK, width_xs: 1}
+  - event_bindings: {click: guides_button_footer_click}
+    layout_properties: {col_xs: 3, row: HHQCSK, width_xs: 1}
     name: guides_button_footer
     properties: {foreground: 'theme:White', role: no-highlight, text: '- GUIDES -'}
     type: Button

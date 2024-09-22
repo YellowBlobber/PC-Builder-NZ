@@ -65,3 +65,11 @@ class Guides_Home(Guides_HomeTemplate):
   def learn_building_button_click(self, **event_args):
     open_form('Guides_Page3')
 
+  def guides_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
+  def guides_button_footer_click(self, **event_args):
+    form = Guides_Home()
+    open_form(form)
+

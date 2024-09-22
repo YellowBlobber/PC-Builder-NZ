@@ -71,3 +71,11 @@ class Guides_Page2(Guides_Page2Template):
       self.menu_panel.visible = False  # Hide the label
     else:
       self.menu_panel.visible = True  # Show the label
+
+  def guides_button_click(self, **event_args):
+    form = Guides_Home()
+    open_form(form)
+
+  def guides_button_footer_click(self, **event_args):
+    form = Guides_Home()
+    open_form(form)

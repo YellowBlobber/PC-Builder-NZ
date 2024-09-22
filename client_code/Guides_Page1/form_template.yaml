@@ -67,7 +67,7 @@ components:
   - event_bindings: {click: guides_button_click}
     layout_properties: {}
     name: guides_button
-    properties: {background: 'theme:Black', foreground: 'theme:White', spacing_below: medium, text: Guides}
+    properties: {background: 'theme:Olive black', foreground: 'theme:White', spacing_below: medium, text: Guides}
     type: Button
   - event_bindings: {click: sign_out_button_click}
     layout_properties: {}
@@ -119,7 +119,7 @@ components:
     name: button_8
     properties: {foreground: 'theme:White', role: no-highlight, text: FAN's}
     type: Button
-  layout_properties: {grid_position: ''}
+  layout_properties: {grid_position: 'LPSZFE,JQSJHZ'}
   name: catalogue_panel
   properties: {align: center, background: 'theme:Blue', spacing_above: none, visible: false}
   type: FlowPanel
@@ -128,38 +128,38 @@ components:
   properties: {align: center, bold: true, font: '', font_size: 30, foreground: 'theme:Black', icon: '', italic: false, role: null, spacing_above: large, spacing_below: large, text: 'HOW TO SELECT THE RIGHT PARTS?', underline: false, visible: true}
   type: Label
 - layout_properties: {grid_position: 'HMKRMG,SYHAKB'}
-  name: label_1
-  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: 'What are the compatibility throughout parts?'}
+  name: comp_title
+  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: '  What are the compatibility throughout parts?'}
   type: Label
-- layout_properties: {grid_position: 'FLKIVI,ULLWOZ'}
-  name: text_area_1
-  properties: {background: 'theme:White', bold: true, border: none, enabled: false, font_size: 15, foreground: 'theme:Black', height: 166.39993286132812, text: 'When building a PC, ensuring compatibility between components is crucial for a smooth and efficient setup. Start by selecting a motherboard that supports your chosen CPU socket type and chipset. Next, verify that your RAM is compatible with the motherboard in terms of type (e.g., DDR4, DDR5) and speed. Ensure your power supply unit (PSU) provides adequate wattage for all components, including the GPU. Check that your case has enough space for the motherboard form factor (e.g., ATX, Micro-ATX) and sufficient clearance for the GPU and CPU cooler. Lastly, confirm that your storage drives (SSD/HDD) match the available ports (SATA, NVMe) on the motherboard. '}
-  type: TextArea
+- layout_properties: {grid_position: 'ZVLDIT,ETTGTV'}
+  name: comp_text
+  properties: {font_size: 15, text: 'When building a PC, ensuring compatibility between components is crucial for a smooth and efficient setup. Start by selecting a motherboard that supports your chosen CPU socket type and chipset. Next, verify that your RAM is compatible with the motherboard in terms of type (e.g., DDR4, DDR5) and speed. Ensure your power supply unit (PSU) provides adequate wattage for all components, including the GPU. Check that your case has enough space for the motherboard form factor (e.g., ATX, Micro-ATX) and sufficient clearance for the GPU and CPU cooler. Lastly, confirm that your storage drives (SSD/HDD) match the available ports (SATA, NVMe) on the motherboard. '}
+  type: Label
 - data_bindings: []
   layout_properties: {grid_position: 'VCJKMP,ZVUJYY'}
   name: image_1
   properties: {height: 229, source: _/theme/compatibility_web.png}
   type: Image
 - layout_properties: {grid_position: 'MWAXAG,XGYWGU'}
-  name: label_1_copy
-  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: 'What is a bottleneck build?'}
+  name: bottle_title
+  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: '  What is a bottleneck build?'}
   type: Label
-- layout_properties: {grid_position: 'FQWYRR,UHIIWR'}
-  name: text_area_1_copy
-  properties: {background: 'theme:White', bold: true, border: none, enabled: false, font_size: 15, foreground: 'theme:Black', height: 210.39996337890625, text: 'A build bottleneck in a PC generally occurs when some part in your system slows down the others from working at full potential. In other words, if you have a powerful graphics card and the computer''s CPU is very old in technology or low in performance, then it might affect the CPU to act in such a way that the GPU would not be able to perform to full potential in gaming or graphic-intensive tasks. This mismatch can cause frame rates to suffer, loading times to take a bit longer, and overall just a suboptimal experience. Bottlenecks might be created by a lack of RAM, slower storage solutions, or poor cooling, which results in overheating and throttling, among others. Consider generally that any scenario wherein one part of your PC is usually serving as the weakest link, holding up the capabilities of the rest of the system, forms a bottleneck.'}
-  type: TextArea
+- layout_properties: {grid_position: 'GOKDXR,YQQDTK'}
+  name: bottle_text
+  properties: {font_size: 15, spacing_below: large, text: 'A build bottleneck in a PC generally occurs when some part in your system slows down the others from working at full potential. In other words, if you have a powerful graphics card and the computer''s CPU is very old in technology or low in performance, then it might affect the CPU to act in such a way that the GPU would not be able to perform to full potential in gaming or graphic-intensive tasks. This mismatch can cause frame rates to suffer, loading times to take a bit longer, and overall just a suboptimal experience. Bottlenecks might be created by a lack of RAM, slower storage solutions, or poor cooling, which results in overheating and throttling, among others. Consider generally that any scenario wherein one part of your PC is usually serving as the weakest link, holding up the capabilities of the rest of the system, forms a bottleneck.'}
+  type: Label
 - layout_properties: {full_width_row: false, grid_position: 'KWOAJP,YYLBUI'}
   name: image_2
-  properties: {height: 219.79998779296875, source: _/theme/Bottleneck_diagram.png}
+  properties: {height: 219.79998779296875, source: _/theme/Bottleneck_diagram.png, spacing_below: medium}
   type: Image
 - layout_properties: {grid_position: 'AWCVPF,YKGMUP'}
-  name: label_1_copy_copy
-  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: 'How to avoid a bottleneck build?'}
+  name: bottle_avoid_title
+  properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: '  How to avoid a bottleneck build?'}
   type: Label
-- layout_properties: {grid_position: 'OGCVLH,FQKHZR'}
-  name: text_area_1_copy_copy
-  properties: {background: 'theme:White', bold: true, border: none, enabled: false, font_size: 15, foreground: 'theme:Black', height: 210.39996337890625, text: 'Pay extra attention to the compatibility of components with each other to avoid a bottleneck in the process of building. First, choose a compatible CPU and GPU; having a high-end graphics card with an underpowered processor cannot perform well in tasks. Provide enough RAM—presumably at least 16 GB for most processes—and put a fast SSD in there to really notice how faster loading times and general responsiveness are. Keep in mind that your PSU should be powerful enough to feed all components, including prospective upgrades. Further, assure good cooling and try to avoid thermal throttling. Pay attention to the motherboard, too, so that it supports state-of-the-art technology and expansion possibilities. Driver and software updates are also very crucial to squeeze the best from hardware and try to avoid bottlenecks.'}
-  type: TextArea
+- layout_properties: {grid_position: 'TFXIOR,XVRQEH'}
+  name: bottle_avoid_text
+  properties: {font_size: 15, spacing_below: large, text: 'Pay extra attention to the compatibility of components with each other to avoid a bottleneck in the process of building. First, choose a compatible CPU and GPU; having a high-end graphics card with an underpowered processor cannot perform well in tasks. Provide enough RAM—presumably at least 16 GB for most processes—and put a fast SSD in there to really notice how faster loading times and general responsiveness are. Keep in mind that your PSU should be powerful enough to feed all components, including prospective upgrades. Further, assure good cooling and try to avoid thermal throttling. Pay attention to the motherboard, too, so that it supports state-of-the-art technology and expansion possibilities. Driver and software updates are also very crucial to squeeze the best from hardware and try to avoid bottlenecks.'}
+  type: Label
 - event_bindings: {click: return_button_click}
   layout_properties: {grid_position: 'ACCNVT,DOSDAJ'}
   name: return_button
@@ -186,7 +186,8 @@ components:
     name: ABOUT_discription
     properties: {align: left, foreground: 'theme:White', spacing_above: none, text: PC Builder NZ is a pc building web app that uses NZ owned brands for creating configurations to then later buy}
     type: Label
-  - layout_properties: {col_xs: 3, row: HHQCSK, width_xs: 1}
+  - event_bindings: {click: guides_button_footer_click}
+    layout_properties: {col_xs: 3, row: HHQCSK, width_xs: 1}
     name: guides_button_footer
     properties: {foreground: 'theme:White', role: no-highlight, text: '- GUIDES -'}
     type: Button

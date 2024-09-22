@@ -58,6 +58,11 @@ class Guides_Page1(Guides_Page1Template):
       self.menu_panel.visible = True  # Show the label
 
   def guides_button_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+    form = Guides_Home()
+    open_form(form)
+
+  def guides_button_footer_click(self, **event_args):
+    form = Guides_Home()
+    open_form(form)
+
 

@@ -67,7 +67,7 @@ components:
   - event_bindings: {click: guides_button_click}
     layout_properties: {}
     name: guides_button
-    properties: {background: 'theme:Black', foreground: 'theme:White', spacing_below: medium, text: Guides}
+    properties: {background: 'theme:Olive black', foreground: 'theme:White', spacing_below: medium, text: Guides}
     type: Button
   - layout_properties: {}
     name: sign_out_button
@@ -124,28 +124,21 @@ components:
   type: FlowPanel
 - layout_properties: {grid_position: 'IYBAAE,JFYMQO'}
   name: part_selection_title
-  properties: {align: center, bold: true, font: '', font_size: 30, foreground: 'theme:Black', icon: '', italic: false, role: null, spacing_above: large, spacing_below: large, text: OUR RECOMENDED PC BUILDS, underline: true, visible: true}
+  properties: {align: center, bold: true, font: '', font_size: 30, foreground: 'theme:Black', icon: '', italic: false, role: null, spacing_above: large, spacing_below: large, text: OUR RECOMENDED PC BUILDS, underline: false, visible: true}
   type: Label
 - layout_properties: {grid_position: 'HMKRMG,SYHAKB'}
   name: budgetrange_title
   properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: '  Budget-Range Build:'}
   type: Label
-- layout_properties: {grid_position: 'ZZTRZP,RBOOBC'}
+- layout_properties: {grid_position: 'ZYKFVR,STCAKR'}
   name: budgetrange_text
   properties:
-    background: theme:White
-    bold: true
-    border: none
-    enabled: false
-    font_size: 15
-    foreground: theme:Black
-    height: 212.5
-    spacing_below: medium
+    font: '15'
     text: |-
       This budget-range build is quite capable but pretty affordable for gamers at large. Amply powered by the AMD Ryzen 5 5500 processor, complemented by the ZOTAC GeForce RTX 3060 12GB graphics card, this build meets almost any modern game out there. Expect smooth gameplay at 1080p on High settings or even 1440p with Medium settings for more demanding titles.
 
       Games like Cyberpunk 2077, Call of Duty, Apex Legends, and Overwatch 2 run so smoothly that their immersive nature cannot be compromised by any means in terms of performance. More casual playtime will fly by with Minecraft, Fortnite, and Valorant—all letting you go full-bore into the fun. Whether you're a fan of fast-paced shooters or enjoy open-world adventure-styles of games such as Ark: Survival Evolved and Sons of the Forest, this PC offers great value and gaming potential. It makes it ideal for gamers who want the capable rig to explore diverse genres without the premium price tag.
-  type: TextArea
+  type: Label
 - event_bindings: {click: budget_build_button_click}
   layout_properties: {grid_position: 'BQVMQV,AQHIPI'}
   name: budget_build_button
@@ -155,22 +148,15 @@ components:
   name: midrange_title
   properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: '  Mid-Range Build:'}
   type: Label
-- layout_properties: {grid_position: 'TDDRTU,ORHAIR'}
+- layout_properties: {grid_position: 'GVYIRH,RFAITD'}
   name: midrange_text
   properties:
-    background: theme:White
-    bold: true
-    border: none
-    enabled: false
     font_size: 15
-    foreground: theme:Black
-    height: 212.5
-    spacing_below: medium
     text: |-
       This mid-range build gets serious, amping it up for gamers who want to take things to the next level. It includes an AMD Ryzen 5 7600 and a further ZOTAC GeForce RTX 4060 Ti 8GB, making this computer ready for most recent AAA games out there. With this, you smoothly drive games to 1080p at high to very high settings or even 1440p at medium to high for the best visuals with great performance across your games.
 
       Games like Starfield, Elden Ring, Hogwarts Legacy, and Assassin's Creed Mirage will look amazing and run gorgeously, making you fully integrated into their detailed worlds. Whether one is competing in Apex Legends and Overwatch 2 or just opening up huge universes in Star Citizen and Forza Horizon 5, this build puts power and versatility in your hands to handle it all with ease. It's an ideal deal for any gamer who requires a powerful, future-proof system for the most detailed gaming.
-  type: TextArea
+  type: Label
 - event_bindings: {click: mid_build_button_click}
   layout_properties: {grid_position: 'NZAQHB,HGIPVC'}
   name: mid_build_button
@@ -180,22 +166,15 @@ components:
   name: highrange_title
   properties: {bold: true, font_size: 20, foreground: 'theme:Black', text: '  High-Range Build:'}
   type: Label
-- layout_properties: {grid_position: 'RLSUIH,EMXOYQ'}
+- layout_properties: {grid_position: 'GSRZTB,CASIRF'}
   name: highrange_text
   properties:
-    background: theme:White
-    bold: true
-    border: none
-    enabled: false
     font_size: 15
-    foreground: theme:Black
-    height: 212.5
-    spacing_below: medium
     text: |-
       This high-range build is coupled with an AMD Ryzen 7 9700X and a ZOTAC GeForce RTX 4080 SUPER TRINITY 16GB, ensuring everything runs at peak and provides ultra-performance. It is built to handle extreme gaming, multitasking, and all possible scenarios where top-notch performance will be required.
 
       Whether it is graphically heavy titles like Cyberpunk 2077, Starfield, or Elden Ring, you should be ready to be thrilled by 1440p Very High settings and even 4K Medium to High settings. This rig will give you smooth performance with teeth-crushing graphics, which is a perfect combo for big current and upcoming AAA games. The huge 2TB Samsung 990 EVO Gen4 SSD and 32GB DDR5 memory also give great load times and plenty of storage for your game library. For gamers who would wish to invest in a system ready for the next generation of gaming, this build has got you covered.
-  type: TextArea
+  type: Label
 - event_bindings: {click: high_build_button_click}
   layout_properties: {grid_position: 'SHJCQH,EUNRUH'}
   name: high_build_button
@@ -227,7 +206,8 @@ components:
     name: ABOUT_discription
     properties: {align: left, foreground: 'theme:White', spacing_above: none, text: PC Builder NZ is a pc building web app that uses NZ owned brands for creating configurations to then later buy}
     type: Label
-  - layout_properties: {col_xs: 3, row: HHQCSK, width_xs: 1}
+  - event_bindings: {click: guides_button_footer_click}
+    layout_properties: {col_xs: 3, row: HHQCSK, width_xs: 1}
     name: guides_button_footer
     properties: {foreground: 'theme:White', role: no-highlight, text: '- GUIDES -'}
     type: Button
