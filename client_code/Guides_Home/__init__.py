@@ -19,11 +19,11 @@ class Guides_Home(Guides_HomeTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
 
-  def learnmore_right_button_click(self, **event_args):
+  def learn_right_button_click(self, **event_args):
    open_form('Guides_Page1Form')
 
-  def learnmore_parts_button_click(self, **event_args):
+  def learn_parts_button_click(self, **event_args):
     open_form('Guides_Page2Form')
 
-  def learn_more_button_copy_click(self, **event_args):
+  def learn_building_button_click(self, **event_args):
     open_form('Guides_Page3Form')
