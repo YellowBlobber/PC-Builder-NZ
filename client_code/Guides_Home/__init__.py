@@ -19,11 +19,11 @@ class Guides_Home(Guides_HomeTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
 
-  def learnmore_right_button_click(self, **event_args):
-   open_form('Guides_Page1Form')
+  def learn_parts_button_click(self, **event_args):
+   open_form('Guides_Page1')
 
-  def learnmore_parts_button_click(self, **event_args):
-    open_form('Guides_Page2Form')
+  def learn_recomendations_button_click(self, **event_args):
+    open_form('Guides_Page2')
 
   def login_button_click(self, **event_args):
     # Show Anvil's built-in login form
@@ -62,10 +62,6 @@ class Guides_Home(Guides_HomeTemplate):
     anvil.users.logout()
     alert("You have been signed out.")
 
-  def button_4_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+  def learn_building_button_click(self, **event_args):
+    open_form('Guides_Page3')
 
-  def guides_button_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass

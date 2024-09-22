@@ -1,4 +1,4 @@
-from ._anvil_designer import Guides_Page2FormTemplate
+from ._anvil_designer import Guides_Page2Template
 from ..Guides_Home import Guides_Home
 from anvil import *
 import anvil.server
@@ -15,7 +15,7 @@ from datetime import datetime
 from anvil import alert
 
 
-class Guides_Page2Form(Guides_Page2FormTemplate):
+class Guides_Page2(Guides_Page2Template):
   def __init__(self, **properties):
     self.init_components(**properties)
 

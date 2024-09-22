@@ -1,5 +1,5 @@
 from ..Guides_Home import Guides_Home
-from ._anvil_designer import Guides_Page1FormTemplate
+from ._anvil_designer import Guides_Page1Template
 from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
@@ -15,7 +15,7 @@ from datetime import datetime
 from anvil import alert
 
 
-class Guides_Page1Form(Guides_Page1FormTemplate):
+class Guides_Page1(Guides_Page1Template):
   def __init__(self, **properties):
     self.init_components(**properties)
 
