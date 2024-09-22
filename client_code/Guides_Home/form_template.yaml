@@ -67,7 +67,7 @@ components:
   - event_bindings: {click: guides_button_click}
     layout_properties: {}
     name: guides_button
-    properties: {background: 'theme:Black', foreground: 'theme:White', icon: '', spacing_below: medium, text: Guides}
+    properties: {background: 'theme:Black', enabled: false, foreground: 'theme:White', icon: '', role: no-highlight, spacing_below: medium, text: Guides}
     type: Button
   - event_bindings: {click: sign_out_button_click}
     layout_properties: {}

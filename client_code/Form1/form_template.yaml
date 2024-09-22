@@ -62,7 +62,7 @@ components:
   - event_bindings: {click: builder_button_click}
     layout_properties: {}
     name: builder_button
-    properties: {background: '', foreground: 'theme:White', spacing_below: medium, text: Builder}
+    properties: {background: 'theme:Olive black', enabled: false, foreground: 'theme:White', role: no-highlight, spacing_below: medium, text: Builder}
     type: Button
   - event_bindings: {click: guides_button_click}
     layout_properties: {}
