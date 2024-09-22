@@ -1,4 +1,7 @@
-from ..name_build_form import name_build_formTemplate
+
+      ### This Form1 code covers all acpects in the interface. From the server calls to price display and buttons. ###
+
+from ..name_build_form import name_build_formTemplate #importing all the different forms for ease of calling.
 from ..BuildsForm import BuildsFormTemplate
 from ..CatalogueForm import CatalogueForm
 from ..Guides_Home import Guides_Home
@@ -19,13 +22,17 @@ from anvil import alert
 import json  # Import JSON to parse the build_id
 
 
-
 class Form1(Form1Template):
   def __init__(self, build_id = None, **properties):
     self.init_components(**properties)
+    user = anvil.users.get_user()
+    if user:
+        self.login_button.visible = False
+        self.my_account_button.visible = True
+        self.my_account_button.text = (f"{user['email']}")
 
-    pcs = app_files.pc_builder_nz
-    self.component_prices = {
+    pcs = app_files.pc_builder_nz 
+    self.component_prices = {  # storing the total price into a list that can be added together to get a sum.
     'cpu': 0.0,
     'gpu': 0.0,
     'motherboard': 0.0,
@@ -41,7 +48,7 @@ class Form1(Form1Template):
     'cpu_cooler': 0.0
     }
 
-    self.component_wattage = {
+    self.component_wattage = {  # this much like the price stores the wattage for the estimated wattage sum.
     'cpu': 0.0,
     'gpu': 0.0,
     'motherboard': 0.0,
@@ -52,7 +59,7 @@ class Form1(Form1Template):
     }
     
     self.worksheet = pcs[0]
-    print(self.worksheet.fields)
+    print(self.worksheet.fields) # used for testing purposes
     
     #this function calls from the server module and gets the sheet data for the cpus, and gets the unique categories for cpus, then popluates the dropdown with the called items
     sheet_data_cpu = anvil.server.call('get_sheet_data_cpus')
@@ -123,13 +130,10 @@ class Form1(Form1Template):
     sheet_data_os = anvil.server.call('get_sheet_data_os')
     categories_os = anvil.server.call('get_unique_categories',sheet_data_os)
     self.os_dropdown.items = categories_os    
-   
-   # Any code you write here will run before the form opens.
-    self.build_id = build_id
-    print(f"Initialized with build_id: {build_id}")
+  
     # Load the build from URL if available
     self.load_build_from_url()
-    self.startup()
+    self.startup() # runs the startup code on start
 
   def startup(self):
     # Get the URL fragment (after the '#' symbol)
@@ -183,50 +187,49 @@ class Form1(Form1Template):
         # Update the display elements such as prices and wattage
       self.update_total_price()
       self.update_total_wattage()
+      
 
-  #below is for price_display
-
-  def update_total_price(self):
+  def update_total_price(self): # update method for price when a build is loaded from a link or save list
       total_price = sum(self.component_prices.values())
       self.total_price_display.text = f"${total_price:.2f}"
 
-  def update_total_wattage(self):
+  def update_total_wattage(self): # update method for wattage when a build is loaded from a link or save list
       total_wattage = sum(self.component_wattage.values())
       self.wattage_display.text = f"{total_wattage}W"
   
-  def cpu_dropdown_change(self, **event_args):
+  def cpu_dropdown_change(self, **event_args): # checking for a change in the dropdown to display the respective items in the row, price, stock, location.
     print("CPU dropdown changed")
     selected_cpu = self.cpu_dropdown.selected_value    
     sheet_data_cpu = anvil.server.call('get_sheet_data_cpus')
     
     for row in sheet_data_cpu:
         print(f"Checking row: {row['Item Name']}")
-        if row['Item Name'].strip() == selected_cpu.strip():
-            cpu_price_str = row['Price']
+        if row['Item Name'].strip() == selected_cpu.strip(): # this group of code goes through finding the price on the selected item to add it to the list further up
+            cpu_price_str = row['Price'] 
             cpu_price = float(cpu_price_str)  # Convert the price to float
             print(f"Price found: {cpu_price}")
             self.cpu_display.text = f"${cpu_price:.2f}"  # Display formatted price
             self.component_prices['cpu'] = cpu_price
-            self.update_total_price()
+            self.update_total_price() # updates the total price for the sum.
 
             stock_status = row['Stock']  # Get stock status
             # Display stock status
             self.cpu_stock_display.text = stock_status  
 
             # location image making visable
-            self.cpu_location.visible = True
+            self.cpu_location.visible = True # showing the location image (in this case its just computerloung)
     # wattage:
     for row in sheet_data_cpu:
       print(f"Checking row: {row['Item Name']}")
-      if row['Item Name'].strip() == selected_cpu.strip():
+      if row['Item Name'].strip() == selected_cpu.strip(): # this is the same as the price but for the wattage (some will not search for anything as some were just set to preset numbers as an average since they were under 60W at most) - only for storage, ram etc.
           cpu_wattage_str = row['Value option']
           cpu_wattage = int(cpu_wattage_str)
           print(f"Wattage found: {cpu_wattage}")
           self.component_wattage['cpu'] = cpu_wattage
-          self.update_total_wattage()
+          self.update_total_wattage() # updates the total for the wattage
     # image change
   
-   ## for row in sheet_data_cpu:
+   ## for row in sheet_data_cpu:    # this was a test for importing images which worked it just sadly was not able to be used as images did not fit into the format. I was however going to add it the catalogue which also couldnt be done just for times sake so it will be for next year.
       ##if row['Item Name'] == selected_cpu:
           ##image_url = row['Image Links']
          ## print(f"Image URL: {image_url}")
@@ -235,7 +238,7 @@ class Form1(Form1Template):
          ## self.cpu_image.visible = True
 
 
-  def cpu_cooler_dropdown_change(self, **event_args):
+  def cpu_cooler_dropdown_change(self, **event_args): # same as cpus and for the next few hunderd lines of code
     print("CPU Cooler dropdown changed")
     selected_cpu_cooler = self.cpu_cooler_dropdown.selected_value
     sheet_data_cpu_cooler = anvil.server.call('get_sheet_data_cpu_cooler')
@@ -404,9 +407,9 @@ class Form1(Form1Template):
     selected_os = self.os_dropdown.selected_value
     print(f"Selected OS: {selected_os}")
 
-    if selected_os is None or selected_os.strip() == "":
+    if selected_os is None or selected_os.strip() == "": # i just added an extra step to make sure if you selected a blank it would bypass the other things
         self.os_display.text = "N/A"
-        self.component_prices['os'] = 0.0  # No cost for no selection
+        self.component_prices['os'] = 0.0  # No cost for no selection 
         self.update_total_price()
         self.os_stock_display.text = "N/A"
         self.component_wattage['os'] = 0  # No wattage for no selection
@@ -495,7 +498,7 @@ class Form1(Form1Template):
     for row in sheet_data_storage:
       print(f"Checking row: {row['Item Name']}")
       if row['Item Name'].strip() == selected_storage_2.strip():
-          self.component_wattage['storage_2'] = 10
+          self.component_wattage['storage_2'] = 10 # example of the set wattage
           self.update_total_wattage()
 
   def storage_3_dropdown_change(self, **event_args):
@@ -589,7 +592,7 @@ class Form1(Form1Template):
            # location image making visable
             self.psu_location.visible = True
 
-  def save_button_click(self, **event_args):
+  def save_button_click(self, **event_args): # this is the event for the save button which saves the current state of the dropdown boxes and saves them to a list which can be set into the database with a corresponding name, user. However it does not set a build id till you go to share the build
     # Create an instance of the name_build_form
     name_form = name_build_formTemplate()
     self.save_button.icon = ""
@@ -603,7 +606,7 @@ class Form1(Form1Template):
         
         # Check if a name was entered
         if build_name:
-            selected_items = {
+            selected_items = { 
                 "cpu": self.cpu_dropdown.selected_value,
                 "gpu": self.gpu_dropdown.selected_value,
                 "motherboard": self.motherboard_dropdown.selected_value,
@@ -619,14 +622,14 @@ class Form1(Form1Template):
                 "fans": self.fans_dropdown.selected_value
             }
            # Call the server function to save the build
-            anvil.server.call('save_build', build_name, selected_items)
+            anvil.server.call('save_build', build_name, selected_items) # taking the items through to the server function to then save to the database
             self.save_button.text = "SAVE "
             self.save_button.icon = "fa:save"
         else:
             alert("Please enter a name for your build.")
             self.save_button.text = "SAVE "
 
-  def login_button_click(self, **event_args):
+  def login_button_click(self, **event_args): # using anvils built in user signup stuff.
     # Show Anvil's built-in login form
     user = anvil.users.login_with_form()
     
@@ -638,21 +641,21 @@ class Form1(Form1Template):
     else:
         alert("Login failed or was canceled.")
 
-  def buy_button_click(self, **event_args):
+  def buy_button_click(self, **event_args): # this is just a link which will take the user to computerlounge pc parts page
     product_url = "https://www.computerlounge.co.nz/components#!categoryId=247&page=1&q=&scid=-1&isListMode=false&Filters%5B0%5D.Key=Sort&Filters%5B0%5D.Value=1"
     # Open the external website in a new tab
     anvil.js.window.open(product_url, "_blank")
     pass
 
-  def catalogue_button_click(self, **event_args):
-    if self.catalogue_panel.visible:  # If the label is currently visible
-      self.catalogue_panel.visible = False  # Hide the label
-      self.catalogue_button.icon = "fa:angle-right"
+  def catalogue_button_click(self, **event_args): # this just opens the extra bit of the navbar
+    if self.catalogue_panel.visible:  # If the panel is currently visible. Makes this a togle button
+      self.catalogue_panel.visible = False  # Hide the panel
+      self.catalogue_button.icon = "fa:angle-right" 
     else:
-      self.catalogue_panel.visible = True  # Show the label
+      self.catalogue_panel.visible = True  # Show the panel
       self.catalogue_button.icon = "fa:angle-down"
       
-  def nav_button_click(self, **event_args):
+  def nav_button_click(self, **event_args): # this step gets activated before the catalogue button but it does the same thing
  # Toggles the visibility of the label on each button click
     if self.menu_panel.visible:  # If the label is currently visible
       self.menu_panel.visible = False  # Hide the label
@@ -661,7 +664,7 @@ class Form1(Form1Template):
 
 # Function to display builds as buttons in an alert
 
-  def view_builds_button_click(self, **event_args):
+  def view_builds_button_click(self, **event_args): # allows the user to visually see their builds with names in a list formated to buttons.
         user = anvil.users.get_user()
 
         if user:
@@ -681,45 +684,41 @@ class Form1(Form1Template):
                     btn.tag.build_data = build
 
                     # Set the click event handler for each button
-                    btn.set_event_handler('click', lambda sender=btn, **event_args: self.load_build_click(sender))
+                    btn.set_event_handler('click', lambda sender=btn, **event_args: self.load_build_click(sender)) # if the user clicks one of the buttons the custom event will load not the deafult one that anvil assigns
 
                     # Add the button to the ColumnPanel
                     column_panel.add_component(btn)
 
                 # Show the buttons inside an alert
-                alert(content=column_panel, large=True, title="Select Your Build")
+                alert(content=column_panel, large=True, title="Select Your Build") # adding a title to it to show the user what they need to do
         else:
             alert("Please log in to view your builds.", title="Login Required")
 
 
-  def load_build_click(self, sender, **event_args):
+  def load_build_click(self, sender, **event_args): # the click event for above
     """ Handle the click event of the build button """
     # Retrieve the build data from the button tag
     build = sender.tag.build_data
 
-    selected_items = build['selected_items']
+    selected_items = build['selected_items'] # looking through the list of saved items
 
-    self.populate_form(selected_items)
+    self.populate_form(selected_items) # calling the update event which is further below
     
-  def update_part_details(self, component_key, change_method):
+  def update_part_details(self, component_key, change_method): # this just make sure the dropdown_change events get triggerd again so everythig updated correctly
     """Mimic the dropdown change event for a given component."""
     change_method = getattr(self, change_method, None)
     if change_method:
         change_method()  # Trigger the dropdown change event logic
 
-  def generate_shareable_link(self, build_id):
-    """ Generate a unique shareable link for the build """
-    base_url = "https://yourapp.anvil.app"
-    return f"{base_url}/?build_id={build_id}"
 
-  def share_button_click(self, **event_args):
+  def share_button_click(self, **event_args): # this is what playes when the share button is clicked. This allows you to name your build again if you didnt like the name you saved it before as. if its new then it will auto save to the database. Having it like this also allows you to update the items of your list easly.
     """Handle the share button click event to generate and display a shareable link."""
     
     # Create an instance of the name_build_form
     name_form = name_build_formTemplate()
 
     # Show the form as an alert to ask for build name input
-    result = alert(content=name_form, title="Name Your Build for Sharing", buttons=[("Share", True), ("Cancel", False)])
+    result = alert(content=name_form, title="Name Your Build for Sharing", buttons=[("Share", True), ("Cancel", False)]) # much like the save up here
     
     if result:
         # Get the build name from the form's text box
@@ -744,7 +743,7 @@ class Form1(Form1Template):
             }
             
             # Call the server function and capture the generated link
-            app_link = anvil.server.call('save_build_and_generate_link', build_name, selected_items)
+            app_link = anvil.server.call('save_build_and_generate_link', build_name, selected_items) # calls the server which then saves the list and makes a link with the custom build id.
             
             # Display the shareable link in an alert
             alert(f"Shareable Link: {app_link}\nYou can copy this link and share it with others.", large=True)
@@ -753,7 +752,7 @@ class Form1(Form1Template):
             alert("Please enter a name for your build.")
 
 
-  def load_build_from_url(self, **event_args):
+  def load_build_from_url(self, **event_args): # this checks if the app has loaded with a custom link then it will take the build_id out of the link and search for the build name and items to update the dropdowns and total etc
     """Load build from URL hash if present."""
     # Get the URL hash to retrieve build_id
     url_hash = anvil.js.window.location.hash
@@ -797,10 +796,10 @@ class Form1(Form1Template):
                 build_name = build_row['build_name']
                 alert(f"Successfully loaded a build: {build_name}")
 
-  def populate_form(self, selected_items):
+  def populate_form(self, selected_items): # this gets called all the time with changing the values on the form
         """Populate the form dropdowns with the selected items from a saved build."""
         self.cpu_dropdown.selected_value = selected_items.get('cpu')
-        self.gpu_dropdown.selected_value = selected_items.get('gpu')
+        self.gpu_dropdown.selected_value = selected_items.get('gpu') # from the dropdowns
         self.ram_dropdown.selected_value = selected_items.get('ram')
         self.motherboard_dropdown.selected_value = selected_items.get('motherboard')
         self.storage_dropdown.selected_value = selected_items.get('storage')
@@ -813,7 +812,7 @@ class Form1(Form1Template):
         self.adapters_dropdown.selected_value = selected_items.get('adapters')
         self.fans_dropdown.selected_value = selected_items.get('fans')
 
-        self.update_part_details('cpu', 'cpu_dropdown_change')
+        self.update_part_details('cpu', 'cpu_dropdown_change') #to the price, stock etc
         self.update_part_details('gpu', 'gpu_dropdown_change')
         self.update_part_details('cpu_cooler', 'cpu_cooler_dropdown_change')
         self.update_part_details('motherboard', 'motherboard_dropdown_change')
@@ -826,17 +825,17 @@ class Form1(Form1Template):
         self.update_part_details('storage_3', 'storage_3_dropdown_change')
         self.update_part_details('fans', 'fans_dropdown_change')
         self.update_part_details('adapters', 'adapters_dropdown_change')
-        self.update_total_price()
+        self.update_total_price() # and lastly the totals 
         self.update_total_wattage()
 
-  def cpu_button_click(self, **event_args):
+  def cpu_button_click(self, **event_args): # this was for the catalogue but its not functional
     pass
 
-  def guides_button_click(self, **event_args):
+  def guides_button_click(self, **event_args): # takes the user to the guides form
     form = Guides_Home()
     open_form(form)  
 
-  def load_build_from_guides(self, build_id):
+  def load_build_from_guides(self, build_id): # this is not used because it messes with the link decoder on the startup which i dont like but cannot wont be able to fix it atm
     """Loads the build from the builds table using the build_id and updates the form."""
     # Fetch the build from the app_tables.builds table using the build_id
     build_row = app_tables.builds.get(build_id=build_id)
@@ -852,15 +851,17 @@ class Form1(Form1Template):
     else:
         alert(f"Error: Build with ID {build_id} not found.")
 
-  def sign_out_button_click(self, **event_args):
+  def sign_out_button_click(self, **event_args): #signs the user out
     anvil.users.logout()
     alert("You have been signed out.")
+    self.my_account_button.visible = False
+    self.login_button.visible = True
 
-  def builder_button_click(self, **event_args):
+  def builder_button_click(self, **event_args): # not need on this form but on others it will just load the form
     """This method is called when the button is clicked"""
     pass
 
-  def guides_button_footer_click(self, **event_args):
+  def guides_button_footer_click(self, **event_args): # the buttons in the footer below
     form = Guides_Home()
     open_form(form)
 
@@ -883,6 +884,8 @@ class Form1(Form1Template):
   def logout_button_footer_click(self, **event_args):
     anvil.users.logout()
     alert("You have been signed out.")
+    self.my_account_button.visible = False
+    self.login_button.visible = True
 
 
 

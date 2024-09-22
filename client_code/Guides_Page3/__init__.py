@@ -1,3 +1,6 @@
+
+    ### This is the last guides page. ###
+
 from ..Guides_Home import Guides_Home
 from ._anvil_designer import Guides_Page3Template
 from anvil import *
@@ -15,9 +18,14 @@ from datetime import datetime
 from anvil import alert
 
 
-class Guides_Page3(Guides_Page3Template):
+class Guides_Page3(Guides_Page3Template): # same as the other pages/forms with just buttons
   def __init__(self, **properties):
     self.init_components(**properties)
+    user = anvil.users.get_user()
+    if user:
+        self.login_button.visible = False
+        self.my_account_button.visible = True
+        self.my_account_button.text = (f"{user['email']}")
 
   def return_button_click(self, **event_args):
     form = Guides_Home()
@@ -26,6 +34,8 @@ class Guides_Page3(Guides_Page3Template):
   def sign_out_button_click(self, **event_args):
     anvil.users.logout()
     alert("You have been signed out.")
+    self.my_account_button.visible = False
+    self.login_button.visible = True
 
   def builder_button_click(self, **event_args):
     open_form('Form1')
@@ -83,3 +93,5 @@ class Guides_Page3(Guides_Page3Template):
   def logout_button_footer_click(self, **event_args):
     anvil.users.logout()
     alert("You have been signed out.")
+    self.my_account_button.visible = False
+    self.login_button.visible = True

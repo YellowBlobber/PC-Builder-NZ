@@ -1,3 +1,6 @@
+
+    ### This is the main guides form ###
+
 from ._anvil_designer import Guides_HomeTemplate
 from anvil import *
 import anvil.server
@@ -15,9 +18,14 @@ from anvil import alert
 
 
 
-class Guides_Home(Guides_HomeTemplate):
+class Guides_Home(Guides_HomeTemplate): # this only includes button events which have been used in all the other forms exept the "Learn_---_button_click" events which are only here
   def __init__(self, **properties):
     self.init_components(**properties)
+    user = anvil.users.get_user()
+    if user:
+        self.login_button.visible = False
+        self.my_account_button.visible = True
+        self.my_account_button.text = (f"{user['email']}")
 
   def learn_parts_button_click(self, **event_args):
    open_form('Guides_Page1')
@@ -61,6 +69,8 @@ class Guides_Home(Guides_HomeTemplate):
   def sign_out_button_click(self, **event_args):
     anvil.users.logout()
     alert("You have been signed out.")
+    self.my_account_button.visible = False
+    self.login_button.visible = True
 
   def learn_building_button_click(self, **event_args):
     open_form('Guides_Page3')
@@ -91,3 +101,5 @@ class Guides_Home(Guides_HomeTemplate):
   def logout_button_footer_click(self, **event_args):
     anvil.users.logout()
     alert("You have been signed out.")
+    self.my_account_button.visible = False
+    self.login_button.visible = True

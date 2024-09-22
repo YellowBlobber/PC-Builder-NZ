@@ -68,7 +68,8 @@ components:
     name: guides_button
     properties: {background: 'theme:Olive black', foreground: 'theme:White', spacing_below: medium, text: Guides}
     type: Button
-  - layout_properties: {}
+  - event_bindings: {click: sign_out_button_click}
+    layout_properties: {}
     name: sign_out_button
     properties:
       background: theme:Blue

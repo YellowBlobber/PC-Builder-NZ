@@ -1,3 +1,6 @@
+
+    ### This is the server side code which handels the google sheet database and the anvil tables. ###
+
 import anvil.google.auth, anvil.google.drive, anvil.google.mail
 from anvil.google.drive import app_files
 import anvil.files
@@ -110,7 +113,7 @@ def get_unique_stock(sheet_data):
   return sorted(list(categories_stock))
 
 @anvil.server.callable
-def save_build(build_name, selected_items):
+def save_build(build_name, selected_items): # this adds to the tables from the form event that called this. FOR THE SAVE BUTTON
     if isinstance(build_name, str):
         # Get the logged-in user
         user = anvil.users.get_user()
@@ -160,7 +163,7 @@ def get_user_builds(user_row):
         ###raise  # Reraise the error for proper error reporting
 
 @anvil.server.callable
-def save_build_and_generate_link(build_name, selected_items):
+def save_build_and_generate_link(build_name, selected_items): # like the one about but generates a link and build_id. FOR THE SHARE BUTTON
     user = anvil.users.get_user()
     if user:
         try:

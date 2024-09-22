@@ -2,7 +2,7 @@
  This CSS implements the Material Design look and feel for Anvil apps. *#*Came from Skinlinks app i will not take any credit for this code below*#*
  **/
 
-.btn, .btn-default, .file-loader>label >.btn:hover {
+.btn, .btn-default, .file-loader>label {
   border-radius: 2px;
   font-size: 14px;
   font-weight: 500;
@@ -20,9 +20,6 @@
   position: relative;
 }
 
-
-
-
 /* this is my own code below.
 
 /* Hide the default loading spinner */
@@ -30,20 +27,20 @@
   display: none;
 }
 
-/* Show your custom loading spinner */
+/* Showing the custom loading spinner */
 #loadingSpinner {
   background-image: url('_/theme/tube-spinner.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 125px; /* Adjust as needed */
-  height: 125px; /* Adjust as needed */
+  width: 125px; 
+  height: 125px; 
 }
 
 .anvil-role-no-highlight > .btn:hover, .btn:active, .btn:focus {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
+  
 }
-
 
 .anvil-role-center-items > .flow-panel-gutter {
     justify-content: center!important;

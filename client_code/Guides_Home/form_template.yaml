@@ -130,35 +130,42 @@ components:
   type: Label
 - components:
   - layout_properties: {grid_position: 'RMQEJG,MUYRFS'}
-    name: label_2
-    properties: {align: center, bold: true, font_size: 30, foreground: 'theme:Bone White', italic: false, text: '  HOW TO SELECT THE RIGHT PARTS?', underline: false}
+    name: title_1
+    properties: {align: center, bold: true, font_size: 20, foreground: 'theme:Bone White', italic: false, text: '  HOW TO SELECT THE RIGHT PARTS?', underline: false}
     type: Label
-  - layout_properties: {grid_position: 'HPJGHO,GUIWHE'}
+  - layout_properties: {grid_position: 'VKNVCI,YPUZXO'}
     name: text_area_1
-    properties: {align: left, background: 'theme:Olive black', bold: true, border: none, enabled: true, font_size: 20, foreground: 'theme:Bone White', height: '150', spacing_above: small, spacing_below: small, text: This will show a extensive guide and help for selecting the parts for your dream PC., visible: true}
-    type: TextArea
+    properties: {align: center, bold: false, font_size: 15, foreground: 'theme:White', spacing_below: medium, text: This will show a extensive guide and help for selecting the parts for your dream PC.}
+    type: Label
   - event_bindings: {click: learn_parts_button_click}
-    layout_properties: {grid_position: 'HPJGHO,KEZLSU'}
+    layout_properties: {grid_position: 'YWPIGN,VQKZEZ'}
     name: learn_parts_button
-    properties: {align: center, background: 'theme:Blue', border: none, foreground: 'theme:White', spacing_above: large, spacing_below: none, text: Learn More!, underline: false, visible: true}
+    properties: {align: center, background: 'theme:Blue', border: none, foreground: 'theme:White', spacing_above: small, spacing_below: medium, text: Learn More!, underline: false, visible: true}
     type: Button
   layout_properties: {grid_position: 'VAEGLF,CGFHHQ'}
   name: column_panel_1
-  properties: {background: 'theme:Olive black', col_spacing: tiny, spacing_above: small, spacing_below: medium}
+  properties: {background: 'theme:Olive black', col_spacing: none, spacing_above: small, spacing_below: medium}
   type: ColumnPanel
 - components:
   - layout_properties: {grid_position: 'SRVLKY,TAQUZH'}
-    name: label_5
-    properties: {align: center, bold: true, font_size: 30, foreground: 'theme:Bone White', italic: false, text: '  OUR PART RECOMENDATIONS', underline: false}
+    name: title_2
+    properties: {align: center, bold: true, font_size: 20, foreground: 'theme:Bone White', italic: false, text: '  OUR PART RECOMENDATIONS', underline: false}
     type: Label
-  - layout_properties: {grid_position: 'QGAMRP,CNEFZR'}
+  - layout_properties: {grid_position: 'QOCKEI,WBJHBN'}
     name: text_area_2
-    properties: {align: left, background: 'theme:Olive black', bold: true, border: none, enabled: false, font_size: 20, foreground: 'theme:Bone White', height: '150', spacing_above: small, spacing_below: small, text: 'Struggling to pick parts? look at one of our recommended builds, if you are needing a budget, mid range or a full super computer. We are here to help!', visible: true}
-    type: TextArea
+    properties:
+      align: center
+      bold: false
+      font_size: 15
+      foreground: theme:White
+      spacing_below: medium
+      text: "Struggling to pick parts? look at one of our recommended builds, if you are needing a budget, mid range or a full super computer. \nWe are here to help!"
+      visible: true
+    type: Label
   - event_bindings: {click: learn_recomendations_button_click}
-    layout_properties: {grid_position: 'QGAMRP,SOBUBC'}
+    layout_properties: {grid_position: 'HBIFPG,RQZMDY'}
     name: learn_recomendations_button
-    properties: {background: 'theme:Blue', border: none, foreground: 'theme:White', spacing_above: large, spacing_below: none, text: Learn More!, underline: false, visible: true}
+    properties: {background: 'theme:Blue', border: none, foreground: 'theme:White', spacing_above: small, spacing_below: medium, text: Learn More!, underline: false, visible: true}
     type: Button
   layout_properties: {grid_position: 'HNNJMV,XBLVYT'}
   name: column_panel_2
@@ -166,17 +173,23 @@ components:
   type: ColumnPanel
 - components:
   - layout_properties: {grid_position: 'AYWDWW,XZLURP'}
-    name: label_6
-    properties: {align: center, bold: true, font_size: 30, foreground: 'theme:Bone White', italic: false, spacing_below: none, text: '  HOW TO START BUILDING?', underline: false}
+    name: title_3
+    properties: {align: center, bold: true, font_size: 20, foreground: 'theme:Bone White', italic: false, spacing_below: none, text: '  HOW TO START BUILDING?', underline: false}
     type: Label
-  - layout_properties: {grid_position: 'OGWQWH,FFGCOA'}
+  - layout_properties: {grid_position: 'MFUINL,QIKIKO'}
     name: text_area_3
-    properties: {align: left, background: 'theme:Olive black', bold: true, border: none, enabled: false, font_size: 20, foreground: 'theme:Bone White', height: '150', role: textbox-padding, spacing_above: small, spacing_below: small, text: 'This will show a extensive guide for building your dream PC, showing how to do it without any broken parts! saving you money and getting you gaming faster!', visible: true}
-    type: TextArea
+    properties:
+      align: center
+      bold: false
+      font_size: 15
+      foreground: theme:White
+      spacing_below: medium
+      text: "This will show a extensive guide for building your dream PC, showing how to do it without any \nbroken parts! saving you money and getting you gaming faster!\n"
+    type: Label
   - event_bindings: {click: learn_building_button_click}
-    layout_properties: {grid_position: 'OGWQWH,CYVCQS'}
+    layout_properties: {grid_position: 'BZMIBI,TWERZL'}
     name: learn_building_button
-    properties: {background: 'theme:Blue', border: none, foreground: 'theme:White', spacing_above: large, spacing_below: none, text: Learn More!, underline: false, visible: true}
+    properties: {background: 'theme:Blue', border: none, foreground: 'theme:White', spacing_above: small, spacing_below: medium, text: Learn More!, underline: false, visible: true}
     type: Button
   layout_properties: {grid_position: 'CIJGDF,JLHKYX'}
   name: column_panel_3

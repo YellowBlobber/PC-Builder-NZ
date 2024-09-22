@@ -1,3 +1,6 @@
+
+    ### This is the second guides page. ###
+
 from ._anvil_designer import Guides_Page2Template
 from ..Guides_Home import Guides_Home
 from anvil import *
@@ -15,12 +18,17 @@ from datetime import datetime
 from anvil import alert
 
 
-class Guides_Page2(Guides_Page2Template):
+class Guides_Page2(Guides_Page2Template): 
   def __init__(self, **properties):
     self.init_components(**properties)
+    user = anvil.users.get_user()
+    if user:
+        self.login_button.visible = False
+        self.my_account_button.visible = True
+        self.my_account_button.text = (f"{user['email']}")
 
 
-  def budget_build_button_click(self, **event_args):
+  def budget_build_button_click(self, **event_args): # this just gets the links from the sharing system for the custom builds. The rest is the same as the other guide pages
     build_url = "https://7gmqage3den4gxx7.anvil.app/debug/SE6YHK4YGYOJFH54KK5F2AOTSHAKSBZQ%3DDFKTOQJTRQ4TOEYBFZU6NXIY/#?build_id=246986e4-193c-463a-b9be-fce46a039b30"
     # Open the external website in a new tab
     anvil.js.window.open(build_url, "_blank")
@@ -98,3 +106,11 @@ class Guides_Page2(Guides_Page2Template):
   def logout_button_footer_click(self, **event_args):
     anvil.users.logout()
     alert("You have been signed out.")
+    self.my_account_button.visible = False
+    self.login_button.visible = True
+
+  def sign_out_button_click(self, **event_args):
+    anvil.users.logout()
+    alert("You have been signed out.")
+    self.my_account_button.visible = False
+    self.login_button.visible = True
